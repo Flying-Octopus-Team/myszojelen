@@ -1,17 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Game/World/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Game/World/Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://assets/Arrow/arrow_up_right.png" type="Texture" id=3]
-[ext_resource path="res://assets/Arrow/arrow_down_right.png" type="Texture" id=4]
+[ext_resource path="res://assets/myszojelen_down_right.png" type="Texture" id=5]
 
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-top_right_texture = ExtResource( 3 )
-bottom_right_texture = ExtResource( 4 )
-body_move_time = 0.3
+top_right_texture = ExtResource( 5 )
+bottom_right_texture = ExtResource( 5 )
+body_move_time = 0.2
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
+offset = Vector2( 0, 16 )
 current = true
+zoom = Vector2( 2.8, 2.8 )
 smoothing_enabled = true
-smoothing_speed = 3.0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0

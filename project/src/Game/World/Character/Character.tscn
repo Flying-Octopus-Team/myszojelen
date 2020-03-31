@@ -1,15 +1,49 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Game/World/Character/Character.gd" type="Script" id=1]
-[ext_resource path="res://assets/Arrow/arrow_down_right.png" type="Texture" id=2]
+[ext_resource path="res://assets/myszojelen_down_right.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "move"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -48 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.06 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "move_middle" ],
+"method": "emit_signal"
+} ]
+}
 
 [node name="Character" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="PivotMoveTween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/move = SubResource( 1 )
 
 [node name="Pivot" type="Position2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Pivot"]
 texture = ExtResource( 2 )
-offset = Vector2( 0, 16 )
-
-[node name="BodyMoveTween" type="Tween" parent="."]
+offset = Vector2( 0, 80 )

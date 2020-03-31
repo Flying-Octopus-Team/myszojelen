@@ -24,6 +24,11 @@ config/name="myszojelen"
 run/main_scene="res://src/Game/Game.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
 [importer_defaults]
 
 texture={

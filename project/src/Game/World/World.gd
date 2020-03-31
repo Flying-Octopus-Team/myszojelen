@@ -17,4 +17,7 @@ func _tile_map_to_world() -> void:
 		var id = map.get_cell(tile_pos.x, tile_pos.y)
 		sprite.texture = map.tile_set.tile_get_texture(id)
 		sprite.position = map.map_to_world(tile_pos)
+		sprite.centered = false
+		sprite.offset = map.tile_set.tile_get_texture_offset(id)
+		sprite.offset.x = -sprite.texture.get_width() * 0.5
 		$YSort.add_child(sprite)
