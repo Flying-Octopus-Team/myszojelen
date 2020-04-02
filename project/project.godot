@@ -9,13 +9,19 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node2D",
+"base": "WorldObject",
 "class": "Character",
 "language": "GDScript",
-"path": "res://src/Game/World/Character/Character.gd"
+"path": "res://src/Game/World/Characters/Character.gd"
+}, {
+"base": "Node2D",
+"class": "WorldObject",
+"language": "GDScript",
+"path": "res://src/Game/World/Objects/WorldObject.gd"
 } ]
 _global_script_class_icons={
-"Character": ""
+"Character": "",
+"WorldObject": ""
 }
 
 [application]

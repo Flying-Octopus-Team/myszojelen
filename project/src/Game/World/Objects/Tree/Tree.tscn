@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Game/World/Objects/WorldObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Game/World/Objects/Tree/Tree.gd" type="Script" id=2]
+[ext_resource path="res://assets/tree1.png" type="Texture" id=3]
+
+[node name="Tree" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+offset = Vector2( 0, 32 )

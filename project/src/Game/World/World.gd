@@ -1,23 +1,31 @@
 extends Node2D
 
+signal tree_cutted
+
+onready var map : TileMap = $Map
+onready var world_objects : Node = $YSort
+
 
 func _ready() -> void:
-	$YSort/Player.tile_map = $Map
-	_tile_map_to_world()
-	$Map.hide()
+	var characters = get_tree().get_nodes_in_group("character")
+	
+	map.world_objects = world_objects
+	map.hide()
+	
+	for c in characters:
+		c.tile_map = map
+		map.set_cellv(map.world_to_map(c.position), c.type)
+	
+	map.connect("tree_cutted", self, "_on_tree_cutted")
+	
+	call_deferred("_count_trees")
 
 
-func _tile_map_to_world() -> void:
-	var map : TileMap = $Map
-	
-	var all_tiles = map.get_used_cells()
-	
-	for tile_pos in all_tiles:
-		var sprite = Sprite.new()
-		var id = map.get_cell(tile_pos.x, tile_pos.y)
-		sprite.texture = map.tile_set.tile_get_texture(id)
-		sprite.position = map.map_to_world(tile_pos)
-		sprite.centered = false
-		sprite.offset = map.tile_set.tile_get_texture_offset(id)
-		sprite.offset.x = -sprite.texture.get_width() * 0.5
-		$YSort.add_child(sprite)
+func _on_tree_cutted() -> void:
+	emit_signal("tree_cutted")
+
+
+func count_trees() -> int:
+	var trees_arr : Array = map.get_used_cells_by_id_in_map_range(map.TREE_ID)
+	var trees_count := trees_arr.size()
+	return trees_count
