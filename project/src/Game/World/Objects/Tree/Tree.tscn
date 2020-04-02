@@ -1,12 +1,143 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/Game/World/Objects/WorldObject.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Game/World/Objects/Tree/Tree.gd" type="Script" id=2]
-[ext_resource path="res://assets/tree1.png" type="Texture" id=3]
+[ext_resource path="res://assets/trees/tree1.png" type="Texture" id=3]
+[ext_resource path="res://assets/trees/tree3.png" type="Texture" id=4]
+[ext_resource path="res://assets/trees/tree4.png" type="Texture" id=5]
+[ext_resource path="res://assets/trees/tree2.png" type="Texture" id=6]
+[ext_resource path="res://assets/trees/stick.png" type="Texture" id=7]
+[ext_resource path="res://assets/trees/smoke.png" type="Texture" id=8]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.782443, 0.996183, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.627451, 0.627451, 0.627451, 0.733333, 0.32549, 0.32549, 0.32549, 0, 0.0235294, 0.0235294, 0.0235294, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_box_extents = Vector3( 10, 10, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 25.0
+gravity = Vector3( 0, 800, 0 )
+initial_velocity = 500.0
+initial_velocity_random = 0.57
+angular_velocity = 30.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 1.0
+angle = 180.0
+angle_random = 1.0
+color_ramp = SubResource( 5 )
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.60687, 1 )
+colors = PoolColorArray( 1, 1, 1, 0.384314, 0.969727, 0.767713, 0.488651, 0.201527, 0.0235294, 0.0235294, 0.0235294, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 6 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0.218182 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_box_extents = Vector3( 10, 10, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 25.0
+gravity = Vector3( 0, 100, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.57
+angular_velocity = 30.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 1.0
+angle = 180.0
+angle_random = 1.0
+scale = 2.5
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0, 0.221374, 1 )
+colors = PoolColorArray( 0.639216, 0.639216, 0.639216, 0, 1, 1, 1, 1, 0.674805, 0.674805, 0.674805, 0 )
+
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 10 )
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0, 0.195455 ), 0.0, 0.0, 0, 0, Vector2( 0.242105, 0.495454 ), 1.35434, 1.35434, 0, 0, Vector2( 0.554386, 0.913636 ), 0.420147, 0.420147, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+emission_shape = 2
+emission_box_extents = Vector3( 20, 100, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+gravity = Vector3( 0, 50, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 0.8
+angular_velocity = 30.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+damping = 2500.0
+scale = 8.0
+scale_random = 0.5
+scale_curve = SubResource( 13 )
+color_ramp = SubResource( 11 )
 
 [node name="Tree" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+textures_array = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ) ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )
 offset = Vector2( 0, 32 )
+
+[node name="SticksParticles" type="Particles2D" parent="." index="1"]
+position = Vector2( 0, 96 )
+emitting = false
+amount = 30
+lifetime = 0.8
+randomness = 1.0
+visibility_rect = Rect2( -20, -20, 40, 40 )
+process_material = SubResource( 3 )
+texture = ExtResource( 7 )
+
+[node name="SmokeParticles" type="Particles2D" parent="." index="2"]
+position = Vector2( 0, 96 )
+emitting = false
+amount = 40
+lifetime = 2.0
+randomness = 1.0
+visibility_rect = Rect2( -20, -20, 40, 40 )
+process_material = SubResource( 9 )
+texture = ExtResource( 8 )
+
+[node name="CuttedParticles" type="Particles2D" parent="." index="3"]
+position = Vector2( 0, 80 )
+emitting = false
+amount = 50
+lifetime = 3.0
+one_shot = true
+speed_scale = 2.5
+explosiveness = 1.0
+process_material = SubResource( 14 )
+texture = ExtResource( 8 )
+
+[node name="Tween" type="Tween" parent="." index="4"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

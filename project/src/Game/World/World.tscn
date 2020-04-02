@@ -4,7 +4,7 @@
 [ext_resource path="res://src/Game/World/World.gd" type="Script" id=2]
 [ext_resource path="res://assets/ground/grass2.png" type="Texture" id=3]
 [ext_resource path="res://assets/ground/grass.png" type="Texture" id=4]
-[ext_resource path="res://assets/tree1.png" type="Texture" id=5]
+[ext_resource path="res://assets/trees/tree1.png" type="Texture" id=5]
 [ext_resource path="res://src/Game/World/Map.gd" type="Script" id=6]
 [ext_resource path="res://src/Game/World/Characters/Vietnamese/Vietnamese.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/fence_up.png" type="Texture" id=8]
@@ -12,7 +12,7 @@
 [ext_resource path="res://assets/ground/rice.png" type="Texture" id=10]
 [ext_resource path="res://assets/ground/riseless.png" type="Texture" id=11]
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="TileSet" id=1]
 0/name = "riseless.png 0"
 0/texture = ExtResource( 11 )
 0/tex_offset = Vector2( -256, 0 )
@@ -70,7 +70,7 @@
 3/shapes = [  ]
 3/z_index = 0
 
-[sub_resource type="TileSet" id=3]
+[sub_resource type="TileSet" id=2]
 0/name = "tree1.png 0"
 0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, -172 )
@@ -119,7 +119,7 @@ script = ExtResource( 2 )
 
 [node name="Background" type="TileMap" parent="."]
 mode = 1
-tile_set = SubResource( 2 )
+tile_set = SubResource( 1 )
 cell_size = Vector2( 512, 256 )
 cell_y_sort = true
 compatibility_mode = true
@@ -128,7 +128,7 @@ tile_data = PoolIntArray( -65536, 0, 0, 0, 536870914, 0, 1, 536870914, 0, 2, 536
 
 [node name="Map" type="TileMap" parent="."]
 mode = 1
-tile_set = SubResource( 3 )
+tile_set = SubResource( 2 )
 cell_size = Vector2( 512, 256 )
 cell_y_sort = true
 compatibility_mode = true

@@ -59,8 +59,12 @@ func move_to(target_pos:Vector2) -> void:
 
 
 func _rotate(dir:int) -> void:
+	_rotate_to((facing + dir + 4) % 4)
+
+
+func _rotate_to(to:int) -> void:
 	animation_player.play("hop")
-	facing = (facing + dir + 4) % 4
+	facing = to
 	
 	yield(self, "move_middle")
 	update_texture()

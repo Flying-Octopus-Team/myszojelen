@@ -239,16 +239,17 @@ func get_used_cells_by_id_in_map_range(id) -> Array:
 	return cells
 
 
-func cut_tree(tree_map_pos:Vector2) -> void:
+func cut_tree(tree_map_pos:Vector2) -> WorldObject:
 	for obj in world_objects.get_children():
 		if not obj is WorldObject:
 			continue
 		
 		if obj.type == TREE_ID:
 			if world_to_map(obj.position) == tree_map_pos:
-				obj.cut()
-				set_cellv(tree_map_pos, EMPTY_TILE)
-				emit_signal("tree_cutted")
-				return
+				if not obj.cut(): 
+					set_cellv(tree_map_pos, EMPTY_TILE)
+					emit_signal("tree_cutted")
+				return obj
 	
 	print("No tree on ", tree_map_pos)
+	return null

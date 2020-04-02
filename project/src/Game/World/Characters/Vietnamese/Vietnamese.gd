@@ -4,6 +4,11 @@ export var time_to_next_move := 0.5
 
 onready var next_move_timer : Timer = $NextMoveTimer
 
+enum State { IDLE, WALK, CUTTING }
+var state : int = State.WALK setget set_state
+
+var cutted_tree : WorldObject = null
+
 
 func _ready() -> void:
 	randomize()
@@ -11,7 +16,22 @@ func _ready() -> void:
 	next_move_timer.start()
 
 
+func set_state(s:int) -> void:
+	state = s
+	
+	match s:
+		State.IDLE:
+			pass
+		State.WALK:
+			pass
+		State.CUTTING:
+			pass
+
+
 func _on_NextMoveTimer_timeout():
+	if not state == State.WALK:
+		return
+	
 	var tree_pos = _nearest_tree_position()
 	
 	if tree_pos == null:
@@ -47,11 +67,28 @@ func _walk_to_tree() -> void:
 	
 	var target_pos = tile_map.request_move_world_pos(self, path_to_target_tree[1])
 	if target_pos != null:
-#		set_process(false)
+		set_facing_base_on_target_position(target_pos)
 		move_to(target_pos)
-		
-#		yield(pivot_move_tween, "tween_all_completed")
-#		set_process(true)
+
+
+func set_facing_base_on_target_position(target_position:Vector2) -> void:
+	var target_on_map = tile_map.world_to_map(target_position)
+	facing = get_expected_facint_based_on_target_map_position(target_on_map)
+	update_texture()
+
+
+func get_expected_facint_based_on_target_map_position(target_map_pos:Vector2) -> int:
+	var pos_on_map = tile_map.world_to_map(position)
+	var direction = target_map_pos - pos_on_map
+	
+	if direction.x > 0:
+		return Facing.BOTTOM_RIGHT
+	elif direction.x < 0:
+		return Facing.TOP_LEFT
+	elif direction.y > 0:
+		return Facing.BOTTOM_LEFT
+	else:
+		return Facing.TOP_RIGHT
 
 
 func get_path_to_closest_tree_world_pos() -> Array:
@@ -84,5 +121,8 @@ func get_path_to_closest_tree_world_pos() -> Array:
 
 
 func _cut_tree(tree_map_pos:Vector2) -> void:
-	tile_map.cut_tree(tree_map_pos)
+	cutted_tree = tile_map.cut_tree(tree_map_pos)
+	var expected_facing = get_expected_facint_based_on_target_map_position(tree_map_pos)
+	if facing != expected_facing:
+		_rotate_to(expected_facing)
 

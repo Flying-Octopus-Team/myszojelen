@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tree1.png-5ce797198e3ffe75db98e649ec75530a.stex"
+path="res://.import/digger_down.png-0dd8bc8a64c55bfd761f4216f900b727.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tree1.png"
-dest_files=[ "res://.import/tree1.png-5ce797198e3ffe75db98e649ec75530a.stex" ]
+source_file="res://assets/characters/Digger/digger_down.png"
+dest_files=[ "res://.import/digger_down.png-0dd8bc8a64c55bfd761f4216f900b727.stex" ]
 
 [params]
 

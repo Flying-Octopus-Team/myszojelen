@@ -16,7 +16,7 @@ texture = ExtResource( 5 )
 
 [node name="Sprite" parent="Pivot" index="1"]
 texture = ExtResource( 3 )
-offset = Vector2( 0, -48 )
+offset = Vector2( 0, -32 )
 
 [node name="NextMoveTimer" type="Timer" parent="." index="3"]
 wait_time = 0.5
