@@ -32,6 +32,8 @@ onready var animation_player = $AnimationPlayer
 
 var facing : int = Facing.BOTTOM_RIGHT
 
+var move_animation_name := "hop"
+
 
 func _ready() -> void:
 	update_texture()
@@ -40,7 +42,7 @@ func _ready() -> void:
 func move_to(target_pos:Vector2) -> void:
 	emit_signal("move_start")
 	
-	animation_player.play("hop")
+	animation_player.play(move_animation_name)
 	
 	var diff_pos = target_pos - position
 	position = target_pos

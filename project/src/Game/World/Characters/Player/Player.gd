@@ -2,9 +2,6 @@ extends Character
 
 var line2d : Line2D
 
-func _ready() -> void:
-	type = 101
-
 
 func _process(delta) -> void:
 	if Input.is_action_pressed("ui_up"):

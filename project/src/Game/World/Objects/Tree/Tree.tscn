@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/Game/World/Objects/WorldObject.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Game/World/Objects/Tree/Tree.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/trees/tree2.png" type="Texture" id=6]
 [ext_resource path="res://assets/trees/stick.png" type="Texture" id=7]
 [ext_resource path="res://assets/trees/smoke.png" type="Texture" id=8]
+[ext_resource path="res://assets/trees/trunk3.png" type="Texture" id=9]
 
 [sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0, 0.782443, 0.996183, 1 )
@@ -102,7 +103,8 @@ color_ramp = SubResource( 11 )
 
 [node name="Tree" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-textures_array = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ) ]
+textures = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ) ]
+trunk_texture = ExtResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )
@@ -138,6 +140,3 @@ speed_scale = 2.5
 explosiveness = 1.0
 process_material = SubResource( 14 )
 texture = ExtResource( 8 )
-
-[node name="Tween" type="Tween" parent="." index="4"]
-[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
