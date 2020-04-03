@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "BaseLevel",
+"language": "GDScript",
+"path": "res://src/Game/World/Levels/BaseLevel.gd"
+}, {
 "base": "WorldObject",
 "class": "Character",
 "language": "GDScript",
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://src/Game/World/Objects/WorldObject.gd"
 } ]
 _global_script_class_icons={
+"BaseLevel": "",
 "Character": "",
 "Enemy": "",
 "WorldObject": ""

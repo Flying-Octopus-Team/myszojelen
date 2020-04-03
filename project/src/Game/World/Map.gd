@@ -8,7 +8,7 @@ const TREE_ID = 0
 # You can only create an AStar node from code, not from the Scene tab
 onready var astar_node = AStar.new()
 # The Tilemap node doesn't have clear bounds so we're defining the map's limits here
-export(Vector2) var map_size = Vector2(10, 10)
+export(Vector2) var map_size = Vector2(11, 11)
 
 # The path start and end variables use setter methods
 # You can find them at the bottom of the script
@@ -241,13 +241,13 @@ func get_used_cells_by_id_in_map_range(id) -> Array:
 
 
 # Returns false when tree was cutted
-func cut_tree(tree_map_pos:Vector2) -> bool:
+func cut_tree(tree_map_pos:Vector2, cutting_speed:int) -> bool:
 	var tree = get_world_object_from_map_pos(tree_map_pos)
 	if tree == null or tree.type != TREE_ID:
 		print("No tree on ", tree_map_pos)
 		return false
 	
-	if not tree.cut():
+	if not tree.cut(cutting_speed):
 		set_cellv(tree_map_pos, EMPTY_TILE)
 		emit_signal("tree_cutted")
 		return false

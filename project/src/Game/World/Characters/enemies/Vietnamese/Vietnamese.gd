@@ -9,6 +9,8 @@ var cutting_animation : Dictionary = {
 	Facing.BOTTOM_LEFT: "cut_down"
 } 
 
+onready var cutting_animation_player : AnimationPlayer = $CuttingAnimationPlayer
+
 
 func _ready() -> void:
 	randomize()
@@ -22,7 +24,7 @@ func _on_state_changed(previous_state:int) -> void:
 			pass
 		State.WALK:
 			if previous_state == State.CUTTING:
-				animation_player.stop()
+				cutting_animation_player.stop()
 		State.CUTTING:
 			update_texture()
 
@@ -40,6 +42,6 @@ func update_texture() -> void:
 	sprite.flip_h = (facing == Facing.TOP_LEFT or facing == Facing.BOTTOM_LEFT)
 	
 	if state == State.CUTTING:
-		animation_player.play(cutting_animation[facing])
+		cutting_animation_player.play(cutting_animation[facing])
 	else:
 		sprite.texture = textures[facing]

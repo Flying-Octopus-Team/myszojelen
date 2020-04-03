@@ -9,12 +9,12 @@ func _process(delta) -> void:
 
 func _unhandled_key_input(event):
 	if Input.is_action_just_pressed("ui_left"):
-		get_tree().set_input_as_handled()
 		_rotate(-1)
+		get_tree().set_input_as_handled()
 	
 	elif Input.is_action_just_pressed("ui_right"):
-		get_tree().set_input_as_handled()
 		_rotate(1)
+		get_tree().set_input_as_handled()
 
 
 func _unhandled_input(event) -> void:

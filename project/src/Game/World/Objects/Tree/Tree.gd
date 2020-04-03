@@ -14,10 +14,13 @@ func _ready() -> void:
 	$Sprite.texture = random_texture
 
 
-func cut() -> bool:
-	life -= 1
+func cut(speed:int) -> bool:
+	if life <= 0:
+		return false
 	
-	if life == 0: # Died
+	life -= speed
+	
+	if life <= 0: # Died
 		stop_cutting()
 		$CuttedParticles.emitting = true
 		$Sprite.texture = trunk_texture

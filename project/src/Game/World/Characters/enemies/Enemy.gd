@@ -1,6 +1,8 @@
 extends Character
 class_name Enemy
 
+export var cutting_speed : int = 1
+
 onready var next_move_timer : Timer = $NextMoveTimer
 
 enum State { IDLE, WALK, CUTTING }
@@ -31,6 +33,7 @@ func _on_NextMoveTimer_timeout():
 				cutted_tree = tile_map.get_world_object_from_map_pos(tree_pos)
 				cutted_tree.connect("cutted", self, "_on_cutted_tree_cutted")
 				set_state(State.CUTTING)
+				_on_NextMoveTimer_timeout()
 		State.CUTTING:
 			_cut_tree()
 
@@ -106,7 +109,7 @@ func get_path_to_closest_tree_world_pos() -> Array:
 			var near_tree_world_pos = tile_map.map_to_world(point_relative)
 			var path_to_tree = tile_map.find_path(position, near_tree_world_pos)
 			
-			if first_iteration or path_to_tree.size() < closest_path.size():
+			if first_iteration or path_to_tree.size() < closest_path.size() and path_to_tree.size() > 0:
 				closest_path = path_to_tree
 				first_iteration = false
 	
@@ -120,7 +123,7 @@ func _cut_tree():
 	if facing != expected_facing:
 		_rotate_to(expected_facing)
 	
-	tile_map.cut_tree(tree_map_pos)
+	tile_map.cut_tree(tree_map_pos, cutting_speed)
 
 
 func _on_cutted_tree_cutted() -> void:
