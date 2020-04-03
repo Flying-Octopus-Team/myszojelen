@@ -216,7 +216,8 @@ func _try_to_move(pawn, cell_start, cell_target):
 	var cell_target_type = get_cellv(cell_target)
 	
 	if cell_target_type == EMPTY_TILE:
-		return _update_pawn_position(pawn, cell_start, cell_target)
+		return map_to_world(cell_target)
+#		return _update_pawn_position(pawn, cell_start, cell_target)
 	
 	return null
 
@@ -239,17 +240,27 @@ func get_used_cells_by_id_in_map_range(id) -> Array:
 	return cells
 
 
-func cut_tree(tree_map_pos:Vector2) -> WorldObject:
+# Returns false when tree was cutted
+func cut_tree(tree_map_pos:Vector2) -> bool:
+	var tree = get_world_object_from_map_pos(tree_map_pos)
+	if tree == null or tree.type != TREE_ID:
+		print("No tree on ", tree_map_pos)
+		return false
+	
+	if not tree.cut():
+		set_cellv(tree_map_pos, EMPTY_TILE)
+		emit_signal("tree_cutted")
+		return false
+	
+	return true
+
+
+func get_world_object_from_map_pos(map_pos:Vector2) -> WorldObject: 
 	for obj in world_objects.get_children():
 		if not obj is WorldObject:
 			continue
 		
-		if obj.type == TREE_ID:
-			if world_to_map(obj.position) == tree_map_pos:
-				if not obj.cut(): 
-					set_cellv(tree_map_pos, EMPTY_TILE)
-					emit_signal("tree_cutted")
-				return obj
+		if world_to_map(obj.position) == map_pos:
+			return obj
 	
-	print("No tree on ", tree_map_pos)
 	return null

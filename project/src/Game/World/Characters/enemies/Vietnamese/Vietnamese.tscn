@@ -1,9 +1,46 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Game/World/Characters/enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Game/World/Characters/enemies/Vietnamese/Vietnamese.gd" type="Script" id=2]
 [ext_resource path="res://assets/characters/Vietnamese/vietnamese_down.png" type="Texture" id=3]
 [ext_resource path="res://assets/characters/Vietnamese/vietnamese_up.png" type="Texture" id=4]
+[ext_resource path="res://assets/characters/Vietnamese/vietnamese_cutting_down2.png" type="Texture" id=5]
+[ext_resource path="res://assets/characters/Vietnamese/vietnamese_cutting_up1.png" type="Texture" id=6]
+[ext_resource path="res://assets/characters/Vietnamese/vietnamese_cutting_up2.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "cut_down"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "cut_up"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ), ExtResource( 7 ) ]
+}
 
 [node name="Vietnamese" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -11,10 +48,14 @@ type = 101
 top_right_texture = ExtResource( 4 )
 bottom_right_texture = ExtResource( 3 )
 
+[node name="AnimationPlayer" parent="." index="1"]
+anims/cut_down = SubResource( 1 )
+anims/cut_up = SubResource( 2 )
+
 [node name="Shadow" parent="Pivot" index="0"]
 visible = true
 
 [node name="Sprite" parent="Pivot" index="1"]
 position = Vector2( 0, 0 )
-texture = ExtResource( 3 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, -32 )

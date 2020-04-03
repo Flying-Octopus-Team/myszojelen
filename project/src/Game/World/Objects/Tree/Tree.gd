@@ -1,5 +1,7 @@
 extends WorldObject
 
+signal cutted
+
 export var life : int = 5
 export(Array, Texture) var textures : Array
 export var trunk_texture : Texture
@@ -15,10 +17,12 @@ func _ready() -> void:
 func cut() -> bool:
 	life -= 1
 	
-	if life <= 0: # Died
+	if life == 0: # Died
 		stop_cutting()
 		$CuttedParticles.emitting = true
 		$Sprite.texture = trunk_texture
+		
+		emit_signal("cutted")
 		
 		return false
 	

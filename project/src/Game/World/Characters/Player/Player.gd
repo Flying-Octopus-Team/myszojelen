@@ -1,7 +1,5 @@
 extends Character
 
-var line2d : Line2D
-
 
 func _process(delta) -> void:
 	if Input.is_action_pressed("ui_up"):
@@ -25,23 +23,6 @@ func _unhandled_input(event) -> void:
 	
 	if event.button_index != BUTTON_LEFT:
 		print(tile_map.get_cellv(tile_map.world_to_map(get_global_mouse_position())))
-		return
-	
-	return
-	
-	if not event.pressed:
-		return
-	
-	var path = tile_map.find_path(position, get_global_mouse_position())
-	line2d.points = path
-	
-	if path.size() < 2:
-		return
-	
-	var target_pos = tile_map.request_move_world_pos(self, path[1])
-	
-	if target_pos != null:
-		move_to(target_pos)
 
 
 func move(dir:Vector2) -> void:

@@ -2,11 +2,29 @@ extends Enemy
 
 export var time_to_next_move := 0.5
 
+var cutting_animation : Dictionary = {
+	Facing.TOP_LEFT: "cut_up",
+	Facing.TOP_RIGHT: "cut_up",
+	Facing.BOTTOM_RIGHT: "cut_down",
+	Facing.BOTTOM_LEFT: "cut_down"
+} 
+
 
 func _ready() -> void:
 	randomize()
 	prepare_time_to_next_move()
 	next_move_timer.start()
+
+
+func _on_state_changed(previous_state:int) -> void:
+	match state:
+		State.IDLE:
+			pass
+		State.WALK:
+			if previous_state == State.CUTTING:
+				animation_player.stop()
+		State.CUTTING:
+			update_texture()
 
 
 func _on_NextMoveTimer_timeout():
@@ -16,3 +34,12 @@ func _on_NextMoveTimer_timeout():
 
 func prepare_time_to_next_move() -> void:
 	next_move_timer.wait_time = time_to_next_move + rand_range(-0.2, 0.2)
+
+
+func update_texture() -> void:
+	sprite.flip_h = (facing == Facing.TOP_LEFT or facing == Facing.BOTTOM_LEFT)
+	
+	if state == State.CUTTING:
+		animation_player.play(cutting_animation[facing])
+	else:
+		sprite.texture = textures[facing]

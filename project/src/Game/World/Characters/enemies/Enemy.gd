@@ -10,30 +10,32 @@ var cutted_tree : WorldObject = null
 
 
 func set_state(s:int) -> void:
+	var previous_state = state
 	state = s
-	
-	match s:
-		State.IDLE:
-			pass
-		State.WALK:
-			pass
-		State.CUTTING:
-			pass
+	_on_state_changed(previous_state)
+
+
+func _on_state_changed(previous_state:int) -> void:
+	pass
 
 
 func _on_NextMoveTimer_timeout():
-	if not state == State.WALK:
-		return
-	
-	var tree_pos = _nearest_tree_position()
-	
-	if tree_pos == null:
-		_go_to_tree()
-	else:
-		_cut_tree(tree_pos)
+	match state:
+		State.IDLE:
+			pass
+		State.WALK:
+			var tree_pos : Vector2 = _get_nearest_tree_map_position()
+			if tree_pos == Vector2.ZERO:
+				_go_to_tree()
+			else:
+				cutted_tree = tile_map.get_world_object_from_map_pos(tree_pos)
+				cutted_tree.connect("cutted", self, "_on_cutted_tree_cutted")
+				set_state(State.CUTTING)
+		State.CUTTING:
+			_cut_tree()
 
 
-func _nearest_tree_position():
+func _get_nearest_tree_map_position() -> Vector2:
 	var pos_on_map = tile_map.world_to_map(position)
 	
 	var points_relative = PoolVector2Array([
@@ -47,13 +49,13 @@ func _nearest_tree_position():
 		if cell == tile_map.TREE_ID:
 			return point_relative
 	
-	return null
+	return Vector2.ZERO
 
 
 func _go_to_tree() -> void:
 	var path_to_target_tree = get_path_to_closest_tree_world_pos()
 	
-	if path_to_target_tree.size() < 2:
+	if path_to_target_tree.size() == 0:
 		return
 	
 	var target_pos = tile_map.request_move_world_pos(self, path_to_target_tree[1])
@@ -111,10 +113,15 @@ func get_path_to_closest_tree_world_pos() -> Array:
 	return closest_path
 
 
-func _cut_tree(tree_map_pos:Vector2) -> void:
-	cutted_tree = tile_map.cut_tree(tree_map_pos)
+func _cut_tree():
+	var tree_map_pos = tile_map.world_to_map(cutted_tree.position)
 	
 	var expected_facing = get_expected_facint_based_on_target_map_position(tree_map_pos)
 	if facing != expected_facing:
 		_rotate_to(expected_facing)
+	
+	tile_map.cut_tree(tree_map_pos)
 
+
+func _on_cutted_tree_cutted() -> void:
+	set_state(State.WALK)

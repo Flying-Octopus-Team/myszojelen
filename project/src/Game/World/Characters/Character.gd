@@ -42,8 +42,12 @@ func _ready() -> void:
 func move_to(target_pos:Vector2) -> void:
 	emit_signal("move_start")
 	
+	tile_map.set_cellv(tile_map.world_to_map(position), type)
+	tile_map.set_cellv(tile_map.world_to_map(target_pos), type)
+	
 	animation_player.play(move_animation_name)
 	
+	var prev_pos = position
 	var diff_pos = target_pos - position
 	position = target_pos
 	
@@ -56,6 +60,8 @@ func move_to(target_pos:Vector2) -> void:
 	
 	pivot.position = Vector2.ZERO
 	sprite.position = Vector2.ZERO
+	
+	tile_map.set_cellv(tile_map.world_to_map(prev_pos), tile_map.EMPTY_TILE)
 	
 	emit_signal("move_end")
 
