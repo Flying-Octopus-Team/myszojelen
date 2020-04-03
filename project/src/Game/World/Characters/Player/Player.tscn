@@ -22,5 +22,5 @@ drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 
 [node name="Sprite" parent="Pivot" index="1"]
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 4 )
-offset = Vector2( 0, 24 )

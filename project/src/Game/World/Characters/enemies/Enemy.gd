@@ -1,6 +1,5 @@
 extends Character
-
-export var time_to_next_move := 0.5
+class_name Enemy
 
 onready var next_move_timer : Timer = $NextMoveTimer
 
@@ -8,12 +7,6 @@ enum State { IDLE, WALK, CUTTING }
 var state : int = State.WALK setget set_state
 
 var cutted_tree : WorldObject = null
-
-
-func _ready() -> void:
-	randomize()
-	next_move_timer.wait_time = time_to_next_move + rand_range(-0.2, 0.2)
-	next_move_timer.start()
 
 
 func set_state(s:int) -> void:
@@ -35,11 +28,9 @@ func _on_NextMoveTimer_timeout():
 	var tree_pos = _nearest_tree_position()
 	
 	if tree_pos == null:
-		_walk_to_tree()
+		_go_to_tree()
 	else:
 		_cut_tree(tree_pos)
-	
-	next_move_timer.wait_time = time_to_next_move + rand_range(-0.2, 0.2)
 
 
 func _nearest_tree_position():
@@ -59,7 +50,7 @@ func _nearest_tree_position():
 	return null
 
 
-func _walk_to_tree() -> void:
+func _go_to_tree() -> void:
 	var path_to_target_tree = get_path_to_closest_tree_world_pos()
 	
 	if path_to_target_tree.size() < 2:
@@ -122,6 +113,7 @@ func get_path_to_closest_tree_world_pos() -> Array:
 
 func _cut_tree(tree_map_pos:Vector2) -> void:
 	cutted_tree = tile_map.cut_tree(tree_map_pos)
+	
 	var expected_facing = get_expected_facint_based_on_target_map_position(tree_map_pos)
 	if facing != expected_facing:
 		_rotate_to(expected_facing)

@@ -44,7 +44,6 @@ func _tile_map_to_world() -> void:
 		var id = get_cell(tile_pos.x, tile_pos.y)
 		
 		if id >= 100: # Some WorldObject
-			print(id, tile_pos)
 			continue
 		
 		var obj : Node2D

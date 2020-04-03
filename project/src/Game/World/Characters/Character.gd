@@ -65,7 +65,7 @@ func _rotate(dir:int) -> void:
 
 
 func _rotate_to(to:int) -> void:
-	animation_player.play("hop")
+	animation_player.play(move_animation_name)
 	facing = to
 	
 	yield(self, "move_middle")

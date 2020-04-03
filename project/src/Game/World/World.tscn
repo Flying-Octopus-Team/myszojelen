@@ -6,12 +6,12 @@
 [ext_resource path="res://assets/ground/grass.png" type="Texture" id=4]
 [ext_resource path="res://assets/trees/tree1.png" type="Texture" id=5]
 [ext_resource path="res://src/Game/World/Map.gd" type="Script" id=6]
-[ext_resource path="res://src/Game/World/Characters/Vietnamese/Vietnamese.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Game/World/Characters/enemies/Vietnamese/Vietnamese.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/fence_up.png" type="Texture" id=8]
 [ext_resource path="res://assets/fence_down.png" type="Texture" id=9]
 [ext_resource path="res://assets/ground/rice.png" type="Texture" id=10]
 [ext_resource path="res://assets/ground/riseless.png" type="Texture" id=11]
-[ext_resource path="res://src/Game/World/Characters/Digger/Digger.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Game/World/Characters/enemies/Digger/Digger.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "riseless.png 0"
@@ -142,11 +142,12 @@ script = ExtResource( 6 )
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 0, 1024 )
 
-[node name="Vietnamese" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 1024, 512 )
+[node name="Vietnamese" parent="YSort" groups=[
+"character",
+] instance=ExtResource( 7 )]
+position = Vector2( 768, 896 )
 
-[node name="Vietnamese2" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( -1024, 1024 )
-
-[node name="Digger" parent="YSort" instance=ExtResource( 12 )]
-position = Vector2( 0, 256 )
+[node name="Digger" parent="YSort" groups=[
+"character",
+] instance=ExtResource( 12 )]
+position = Vector2( -768, 1152 )
