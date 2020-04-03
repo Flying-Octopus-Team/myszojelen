@@ -21,18 +21,23 @@ func cut(speed:int) -> bool:
 	life -= speed
 	
 	if life <= 0: # Died
-		stop_cutting()
-		$CuttedParticles.emitting = true
-		$Sprite.texture = trunk_texture
-		
-		emit_signal("cutted")
-		
+		die()
 		return false
 	
 	if not $SticksParticles.emitting:
 		start_cutting()
 	
 	return true
+
+
+func die() -> void:
+	stop_cutting()
+	$CuttedParticles.emitting = true
+	$Sprite.texture = trunk_texture
+	
+	type = Type.EMPTY
+	
+	emit_signal("cutted")
 
 
 func start_cutting() -> void:

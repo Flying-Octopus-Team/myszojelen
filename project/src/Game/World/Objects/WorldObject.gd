@@ -1,6 +1,6 @@
 extends Node2D
 class_name WorldObject
 
-enum Type { PLAYER = 100, VIETNAMESE = 101, DIGGER = 102, TREE = 0 }
+enum Type { PLAYER = 100, ENEMY = 101, TREE = 0, EMPTY = -1 }
 export(Type) var type
 

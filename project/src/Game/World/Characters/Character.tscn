@@ -58,7 +58,7 @@ type = 101
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/hop = SubResource( 1 )
 
-[node name="Pivot" type="Position2D" parent="."]
+[node name="Pivot" type="Node2D" parent="."]
 
 [node name="Shadow" type="Sprite" parent="Pivot"]
 position = Vector2( 0, 128 )

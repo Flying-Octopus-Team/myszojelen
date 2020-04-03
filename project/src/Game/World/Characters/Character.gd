@@ -6,7 +6,7 @@ signal move_middle
 signal move_end
 
 var tile_map : TileMap
-var navigation : Navigation2D
+var world_objects : Node2D
 
 export var top_right_texture : Texture
 export var bottom_right_texture : Texture
@@ -36,14 +36,13 @@ var move_animation_name := "hop"
 
 
 func _ready() -> void:
-	update_texture()
+	call_deferred("update_texture")
 
 
 func move_to(target_pos:Vector2) -> void:
 	emit_signal("move_start")
 	
-	tile_map.set_cellv(tile_map.world_to_map(position), type)
-	tile_map.set_cellv(tile_map.world_to_map(target_pos), type)
+#	tile_map.set_cellv(tile_map.world_to_map(target_pos), type)
 	
 	animation_player.play(move_animation_name)
 	
@@ -61,7 +60,7 @@ func move_to(target_pos:Vector2) -> void:
 	pivot.position = Vector2.ZERO
 	sprite.position = Vector2.ZERO
 	
-	tile_map.set_cellv(tile_map.world_to_map(prev_pos), tile_map.EMPTY_TILE)
+#	tile_map.set_cellv(tile_map.world_to_map(prev_pos), tile_map.EMPTY_TILE)
 	
 	emit_signal("move_end")
 

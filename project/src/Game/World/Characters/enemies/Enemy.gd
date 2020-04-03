@@ -128,3 +128,8 @@ func _cut_tree():
 
 func _on_cutted_tree_cutted() -> void:
 	set_state(State.WALK)
+
+
+func hit() -> void:
+	print("Hitted! ", name)
+	pass

@@ -45,3 +45,17 @@ func update_texture() -> void:
 		cutting_animation_player.play(cutting_animation[facing])
 	else:
 		sprite.texture = textures[facing]
+
+
+func hit() -> void:
+	.hit()
+	animation_player.play("hop")
+	
+	type = Type.EMPTY
+	
+	if state == State.CUTTING:
+		set_state(State.IDLE)
+		cutted_tree.stop_cutting()
+	
+	yield(get_tree().create_timer(0.5), "timeout")
+	queue_free()

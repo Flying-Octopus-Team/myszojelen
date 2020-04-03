@@ -46,19 +46,21 @@ func _tile_map_to_world() -> void:
 		if id >= 100: # Some WorldObject
 			continue
 		
-		var obj : Node2D
+		var obj : WorldObject
 		
 		if id == TREE_ID:
 			obj = scenes[id].instance()
-			obj.position = map_to_world(tile_pos)
 		else:
-			obj = Sprite.new()
-			obj.texture = tile_set.tile_get_texture(id)
-			obj.position = map_to_world(tile_pos)
-			obj.centered = false
-			obj.offset = tile_set.tile_get_texture_offset(id)
-			obj.offset.x = -obj.texture.get_width() * 0.5
-			obj.flip_h = is_cell_x_flipped(tile_pos.x, tile_pos.y)
+			obj = WorldObject.new()
+			var sprite = Sprite.new()
+			sprite.texture = tile_set.tile_get_texture(id)
+			sprite.centered = false
+			sprite.offset = tile_set.tile_get_texture_offset(id)
+			sprite.offset.x = -sprite.texture.get_width() * 0.5
+			sprite.flip_h = is_cell_x_flipped(tile_pos.x, tile_pos.y)
+			obj.add_child(sprite)
+		
+		obj.position = map_to_world(tile_pos)
 		
 		world_objects.add_child(obj)
 
@@ -260,7 +262,8 @@ func get_world_object_from_map_pos(map_pos:Vector2) -> WorldObject:
 		if not obj is WorldObject:
 			continue
 		
-		if world_to_map(obj.position) == map_pos:
-			return obj
+		if obj.type != obj.Type.EMPTY:
+			if world_to_map(obj.position) == map_pos:
+				return obj
 	
 	return null

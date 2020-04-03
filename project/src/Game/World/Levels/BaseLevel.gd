@@ -15,7 +15,7 @@ func _ready() -> void:
 	
 	for c in characters:
 		c.tile_map = map
-		map.set_cellv(map.world_to_map(c.position), c.type)
+		c.world_objects = world_objects
 	
 	map.connect("tree_cutted", self, "_on_tree_cutted")
 
