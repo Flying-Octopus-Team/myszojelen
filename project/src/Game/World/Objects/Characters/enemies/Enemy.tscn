@@ -23,8 +23,6 @@ tracks/0/keys = {
 [node name="Enemy" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
 type = 102
-top_right_texture = null
-bottom_right_texture = null
 
 [node name="AnimationPlayer" parent="." index="1"]
 anims/drive = SubResource( 1 )
