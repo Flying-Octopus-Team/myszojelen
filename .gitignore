@@ -1,5 +1,5 @@
 
-export/*
+export/
 
 # Godot-specific ignores
 .import/

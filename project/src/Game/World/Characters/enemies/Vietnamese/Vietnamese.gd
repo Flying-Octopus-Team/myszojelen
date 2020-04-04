@@ -2,7 +2,7 @@ extends Enemy
 
 export var time_to_next_move := 0.5
 
-var cutting_animation : Dictionary = {
+onready var cutting_animation : Dictionary = {
 	Facing.TOP_LEFT: "cut_up",
 	Facing.TOP_RIGHT: "cut_up",
 	Facing.BOTTOM_RIGHT: "cut_down",
