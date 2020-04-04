@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=3]
 
 [node name="Interface" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -26,9 +27,10 @@ __meta__ = {
 [node name="TreesLeft" type="Label" parent="Control/HUD"]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 160.0
-margin_bottom = 54.0
-text = "Pozostalo drzew: 5"
+margin_right = 351.0
+margin_bottom = 73.0
+custom_fonts/font = ExtResource( 3 )
+text = "Pozostało drzew: 5"
 
 [node name="GameOverScreen" type="Control" parent="Control"]
 visible = false
@@ -51,10 +53,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/GameOverScreen/Panel/CenterContainer"]
-margin_left = 589.0
-margin_top = 343.0
-margin_right = 691.0
-margin_bottom = 377.0
+margin_left = 534.0
+margin_top = 333.0
+margin_right = 745.0
+margin_bottom = 386.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -66,16 +68,21 @@ __meta__ = {
 [node name="Label" type="Label" parent="Control/GameOverScreen/Panel/CenterContainer/MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 92.0
-margin_bottom = 24.0
+margin_right = 201.0
+margin_bottom = 43.0
+custom_fonts/font = ExtResource( 3 )
 text = "KONIEC GRY!"
 
 [node name="ReplayBtn" type="Button" parent="Control/GameOverScreen"]
-margin_left = 534.503
-margin_top = 617.71
-margin_right = 750.503
-margin_bottom = 664.71
+margin_left = 469.09
+margin_top = 606.369
+margin_right = 830.09
+margin_bottom = 663.369
+custom_fonts/font = ExtResource( 3 )
 text = "GRAJ JESZCZE RAZ"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LevelWonScreen" type="Control" parent="Control"]
 visible = false
@@ -91,11 +98,12 @@ anchor_bottom = 1.0
 texture = ExtResource( 2 )
 
 [node name="NextLevelBtn" type="Button" parent="Control/LevelWonScreen"]
-margin_left = 555.606
-margin_top = 643.335
-margin_right = 771.606
-margin_bottom = 690.335
-text = "KOLEJNY POZIOM"
+margin_left = 464.177
+margin_top = 629.032
+margin_right = 816.177
+margin_bottom = 697.032
+custom_fonts/font = ExtResource( 3 )
+text = "NASTĘPNY POZIOM"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -111,15 +119,16 @@ __meta__ = {
 [node name="Label" type="Label" parent="Control/LevelWonScreen/MarginContainer"]
 margin_top = 40.0
 margin_right = 1280.0
-margin_bottom = 71.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.776471, 0.776471, 0.776471, 1 )
-text = "Przepedziles Wietnamczykow!
-Teraz biegnij ratowac kolejny las..."
+margin_bottom = 109.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+text = "Przepędziłeś Wietnamczyków!
+Teraz biegnij ratować kolejny las..."
 align = 1
 
 [node name="EndOfGameScreen" type="Control" parent="Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -132,10 +141,11 @@ anchor_bottom = 1.0
 texture = ExtResource( 2 )
 
 [node name="ReplayBtn" type="Button" parent="Control/EndOfGameScreen"]
-margin_left = 555.606
-margin_top = 643.335
-margin_right = 771.606
-margin_bottom = 690.335
+margin_left = 447.0
+margin_top = 629.032
+margin_right = 859.0
+margin_bottom = 697.032
+custom_fonts/font = ExtResource( 3 )
 text = "GRAJ JESZCZE RAZ"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control/EndOfGameScreen"]
@@ -149,12 +159,14 @@ __meta__ = {
 [node name="Label" type="Label" parent="Control/EndOfGameScreen/MarginContainer2"]
 margin_top = 40.0
 margin_right = 1280.0
-margin_bottom = 88.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.776471, 0.776471, 0.776471, 1 )
-text = "Udalo sie! 
-Wietnamczycy nie zagrazaja juz twojemu gatunkowi. 
-Odbudowales populacje Myszojeleni i Wietnamska puszcze!"
+margin_bottom = 145.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+text = "Udało się! 
+Wietnamczycy nie zagrażajż już twojemu gatunkowi. 
+Odbudowałeś populację Myszojeleni i Wietnamską puszczę!"
 align = 1
 [connection signal="pressed" from="Control/GameOverScreen/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]
 [connection signal="pressed" from="Control/LevelWonScreen/NextLevelBtn" to="." method="_on_NextLevelBtn_pressed"]
