@@ -1,6 +1,6 @@
 extends Character
 
-var RiceBullet = preload("res://src/Game/World/objects/Characters/RiceBullet/RiceBullet.tscn")
+var RiceBullet = preload("res://src/Game/World/Characters/RiceBullet/RiceBullet.tscn")
 
 onready var shot_particles : Particles2D = $Pivot/Sprite/ShotParticles
 onready var shot_particles_default_x = shot_particles.position.x

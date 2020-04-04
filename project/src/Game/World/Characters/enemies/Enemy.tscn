@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/Game/World/Objects/Characters/enemies/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://src/Game/World/Characters/enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/characters/Digger/digger_down.png" type="Texture" id=2]
-[ext_resource path="res://src/Game/World/Objects/Characters/Character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Game/World/Characters/Character.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "drive"
@@ -23,8 +23,6 @@ tracks/0/keys = {
 [node name="Enemy" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
 type = 102
-top_right_texture = null
-bottom_right_texture = null
 
 [node name="AnimationPlayer" parent="." index="1"]
 anims/drive = SubResource( 1 )

@@ -17,12 +17,12 @@ _global_script_classes=[ {
 "base": "WorldObject",
 "class": "Character",
 "language": "GDScript",
-"path": "res://src/Game/World/Objects/Characters/Character.gd"
+"path": "res://src/Game/World/Characters/Character.gd"
 }, {
 "base": "Character",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://src/Game/World/Objects/Characters/enemies/Enemy.gd"
+"path": "res://src/Game/World/Characters/enemies/Enemy.gd"
 }, {
 "base": "Node2D",
 "class": "WorldObject",

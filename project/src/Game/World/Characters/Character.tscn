@@ -1,10 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/small_shadow.png" type="Texture" id=1]
+[ext_resource path="res://src/Game/World/Characters/Character.gd" type="Script" id=1]
 [ext_resource path="res://assets/myszojelen_down_right.png" type="Texture" id=2]
-[ext_resource path="res://src/Game/World/Objects/Characters/Character.gd" type="Script" id=3]
-
-
+[ext_resource path="res://assets/small_shadow.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "hop"
@@ -52,7 +50,7 @@ tracks/2/keys = {
 [node name="Character" type="Node2D" groups=[
 "character",
 ]]
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 type = 101
 
 [node name="PivotMoveTween" type="Tween" parent="."]
@@ -64,7 +62,7 @@ anims/hop = SubResource( 1 )
 
 [node name="Shadow" type="Sprite" parent="Pivot"]
 position = Vector2( 0, 128 )
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Pivot"]
 texture = ExtResource( 2 )

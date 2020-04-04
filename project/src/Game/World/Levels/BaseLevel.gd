@@ -11,8 +11,6 @@ func _ready() -> void:
 	var characters = get_tree().get_nodes_in_group("character")
 	
 	map.world_objects = world_objects
-	map.front_fences = $FrontFences
-	map.back_fences = $BackFences
 	map.hide()
 	
 	for c in characters:
