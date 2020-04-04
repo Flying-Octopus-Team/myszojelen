@@ -6,35 +6,36 @@ signal end_of_levels
 
 export(Array, PackedScene) var LevelScenes
 
-var level : BaseLevel
+var level : BaseLevel = null
 var current_level = -1
 
-var fade_layer
 
-
-func _ready() -> void:
-	next_level()
+func reset() -> void:
+	current_level = -1
 
 
 func _on_level_won() -> void:
+	if current_level >= LevelScenes.size()-1: # The last level
+		emit_signal("end_of_levels")
+		return
+	
 	emit_signal("level_won")
-
-
-func clear_level() -> void:
-	level.free()
 
 
 func next_level() -> void:
 	current_level += 1
 	
-	if current_level >= LevelScenes.size():
-		emit_signal("end_of_levels")
-		return
+	clear_level()
 	
 	level = LevelScenes[current_level].instance()
 	level.connect("tree_cutted", self, "emit_signal", ["tree_cutted"])
-	level.connect("level_won", self, "emit_signal", ["level_won"])
+	level.connect("level_won", self, "_on_level_won")
 	add_child(level)
+
+
+func clear_level() -> void:
+	if level:
+		level.free()
 
 
 func count_trees() -> int:
