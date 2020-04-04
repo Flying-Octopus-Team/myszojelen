@@ -8,8 +8,9 @@
 [ext_resource path="res://assets/trees/tree1.png" type="Texture" id=6]
 [ext_resource path="res://assets/ground/grass.png" type="Texture" id=7]
 [ext_resource path="res://src/Game/World/Levels/BaseLevel.gd" type="Script" id=8]
-[ext_resource path="res://src/Game/World/Characters/Player/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Game/World/Objects/Characters/Player/Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Game/World/Map.gd" type="Script" id=11]
+
 
 [sub_resource type="TileSet" id=1]
 0/name = "riseless.png 0"

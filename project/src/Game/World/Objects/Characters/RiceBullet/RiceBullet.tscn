@@ -1,9 +1,10 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://src/Game/World/Characters/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Game/World/Objects/Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/characters/Rice/rice_up.png" type="Texture" id=2]
 [ext_resource path="res://assets/characters/Rice/rice_down.png" type="Texture" id=3]
-[ext_resource path="res://src/Game/World/Characters/RiceBullet/RiceBullet.gd" type="Script" id=4]
+[ext_resource path="res://src/Game/World/Objects/Characters/RiceBullet/RiceBullet.gd" type="Script" id=4]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "rice_move"

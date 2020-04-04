@@ -2,12 +2,7 @@ extends Enemy
 
 export var time_to_next_move := 0.5
 
-var cutting_animation : Dictionary = {
-	Facing.TOP_LEFT: "cut_up",
-	Facing.TOP_RIGHT: "cut_up",
-	Facing.BOTTOM_RIGHT: "cut_down",
-	Facing.BOTTOM_LEFT: "cut_down"
-} 
+onready var cutting_animation : Dictionary
 
 onready var cutting_animation_player : AnimationPlayer = $CuttingAnimationPlayer
 
@@ -16,6 +11,13 @@ func _ready() -> void:
 	randomize()
 	prepare_time_to_next_move()
 	next_move_timer.start()
+	
+	cutting_animation = {
+	Facing.TOP_LEFT: "cut_up",
+	Facing.TOP_RIGHT: "cut_up",
+	Facing.BOTTOM_RIGHT: "cut_down",
+	Facing.BOTTOM_LEFT: "cut_down"
+} 
 
 
 func _on_state_changed(previous_state:int) -> void:
