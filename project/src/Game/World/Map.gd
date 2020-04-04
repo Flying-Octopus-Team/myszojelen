@@ -1,6 +1,7 @@
 extends TileMap
 
 signal tree_cutted
+signal enemy_killed
 
 const EMPTY_TILE = -1
 const TREE_ID = 0
@@ -275,3 +276,7 @@ func get_world_object_from_map_pos(map_pos:Vector2) -> WorldObject:
 				return obj
 	
 	return null
+
+
+func on_enemy_died() -> void:
+	emit_signal("enemy_killed")

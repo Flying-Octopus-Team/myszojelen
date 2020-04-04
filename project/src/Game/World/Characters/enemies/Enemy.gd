@@ -149,6 +149,8 @@ func die() -> void:
 	tile_map.set_cellv(tile_map.world_to_map(position), tile_map.EMPTY_TILE)
 	
 	_die()
+	
+	tile_map.on_enemy_died()
 
 
 # To override

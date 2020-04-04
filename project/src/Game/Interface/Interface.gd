@@ -12,3 +12,11 @@ func set_trees_left(tres_left:int) -> void:
 
 func _on_game_over() -> void:
 	game_over_screen.show()
+
+
+func _on_level_won() -> void:
+	print("level won")
+
+
+func _on_end_of_levels() -> void:
+	print("end of levels")
