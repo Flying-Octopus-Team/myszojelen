@@ -21,6 +21,8 @@ var game_scene = preload("res://src/Game/Game.tscn")
 
 
 func _ready() -> void:
+	OS.window_maximized = true
+	
 	for i in range(1, story_screens.size()):
 		var screen = story_screens[i]
 		screen.hide()

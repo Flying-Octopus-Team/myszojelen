@@ -31,12 +31,10 @@ func _on_game_over() -> void:
 
 func _on_level_won() -> void:
 	level_won_screen.show()
-	print("level won")
 
 
 func _on_end_of_levels() -> void:
 	end_of_game_screen.show()
-	print("end of levels")
 
 
 func _on_ReplayBtn_pressed():

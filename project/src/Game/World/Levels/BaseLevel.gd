@@ -25,8 +25,6 @@ func _ready() -> void:
 		if c is Enemy:
 			enemies_left += 1
 	
-	print(enemies_left)
-	
 	map.connect("tree_cutted", self, "_on_tree_cutted")
 	map.connect("enemy_killed", self, "_on_ememy_killed")
 
