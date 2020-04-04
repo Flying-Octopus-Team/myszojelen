@@ -40,6 +40,9 @@ func _tile_map_to_world() -> void:
 		0: load("res://src/Game/World/Objects/Tree/Tree.tscn")
 	}
 	
+	var back_fences = $BackFences
+	var front_fences = $FrontFences
+	
 	for tile_pos in all_tiles:
 		var id = get_cell(tile_pos.x, tile_pos.y)
 		

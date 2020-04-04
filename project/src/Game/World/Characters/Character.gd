@@ -73,7 +73,6 @@ func _rotate_to(to:int) -> void:
 	animation_player.play(move_animation_name)
 	facing = to
 	
-	yield(self, "move_middle")
 	update_texture()
 
 

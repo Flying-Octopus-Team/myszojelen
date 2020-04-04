@@ -4,6 +4,7 @@ signal game_over
 
 onready var world : Node2D = $World
 onready var interface : CanvasLayer = $Interface
+onready var fade_layer = $FadeLayer
 
 var trees_left : int
 
@@ -13,7 +14,13 @@ func _ready() -> void:
 	connect("game_over", interface, "_on_game_over")
 	call_deferred("_prepare_trees_left")
 	
-	$FadeLayer.fade_in(Color.black)
+	fade_layer.fade_in(Color.black)
+	
+	get_tree().paused = true
+	
+	yield(fade_layer, "faded_in")
+	
+	get_tree().paused = false
 
 
 func _prepare_trees_left() -> void:

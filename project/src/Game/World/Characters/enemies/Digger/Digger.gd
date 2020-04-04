@@ -23,4 +23,5 @@ func _show_fumes() -> void:
 
 
 func die() -> void:
+	cutted_tree.stop_cutting()
 	queue_free()
