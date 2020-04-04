@@ -42,7 +42,8 @@ config/name="myszojelen"
 run/main_scene="res://src/IntroStory/IntroStory.tscn"
 boot_splash/image="res://assets/fo-logo-big_1920.png"
 boot_splash/bg_color=Color( 1, 1, 1, 1 )
-config/icon="res://icon.png"
+config/icon="res://assets/icon.png"
+config/windows_native_icon="res://assets/icon.ico"
 
 [display]
 
