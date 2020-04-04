@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Game/World/Characters/Character.gd" type="Script" id=1]
-[ext_resource path="res://assets/myszojelen_down_right.png" type="Texture" id=2]
 [ext_resource path="res://assets/small_shadow.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
@@ -65,5 +64,4 @@ position = Vector2( 0, 128 )
 texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Pivot"]
-texture = ExtResource( 2 )
 offset = Vector2( 0, 80 )

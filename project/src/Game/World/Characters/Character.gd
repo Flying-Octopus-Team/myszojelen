@@ -39,10 +39,14 @@ func _ready() -> void:
 	call_deferred("update_texture")
 
 
+func setup_map() -> void:
+	tile_map.set_cellv(tile_map.world_to_map(position), type)
+
+
 func move_to(target_pos:Vector2) -> void:
 	emit_signal("move_start")
 	
-#	tile_map.set_cellv(tile_map.world_to_map(target_pos), type)
+	tile_map.set_cellv(tile_map.world_to_map(target_pos), type)
 	
 	animation_player.play(move_animation_name)
 	
@@ -55,12 +59,12 @@ func move_to(target_pos:Vector2) -> void:
 	
 	pivot_move_tween.start()
 	
-	yield(pivot_move_tween, "tween_all_completed")
+	yield(pivot_move_tween, "tween_completed")
 	
 	pivot.position = Vector2.ZERO
 	sprite.position = Vector2.ZERO
 	
-#	tile_map.set_cellv(tile_map.world_to_map(prev_pos), tile_map.EMPTY_TILE)
+	tile_map.set_cellv(tile_map.world_to_map(prev_pos), tile_map.EMPTY_TILE)
 	
 	emit_signal("move_end")
 

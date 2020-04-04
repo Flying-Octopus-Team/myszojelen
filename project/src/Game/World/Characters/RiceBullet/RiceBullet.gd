@@ -2,6 +2,8 @@ extends Character
 
 export var move_range : int
 
+var is_alive := true
+
 
 func _ready() -> void:
 	move_animation_name = "rice_move"
@@ -13,6 +15,10 @@ func _ready() -> void:
 
 func _process(delta) -> void:
 	_check_if_hitted_something()
+	
+	if not is_alive:
+		set_process(false)
+		return
 	
 	var dir = get_forward_dir()
 	var map_pos = tile_map.world_to_map(position)
@@ -26,10 +32,10 @@ func _process(delta) -> void:
 	
 	move_range -= 1
 	if move_range <= 0:
+		_check_if_hitted_something()
 		destroy()
 	else:
 		set_process(true)
-	
 
 
 func _check_if_hitted_something() -> void:
@@ -46,6 +52,7 @@ func _check_if_hitted_something() -> void:
 
 func destroy() -> void:
 	set_process(false)
+	is_alive = false
 	$Pivot/Shadow.hide()
 	sprite.hide()
 	$Pivot/DestroyParticles.emitting = true

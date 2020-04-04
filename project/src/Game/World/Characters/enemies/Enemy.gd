@@ -111,7 +111,7 @@ func get_path_to_closest_tree_world_pos() -> Array:
 			var near_tree_world_pos = tile_map.map_to_world(point_relative)
 			var path_to_tree = tile_map.find_path(position, near_tree_world_pos)
 			
-			if first_iteration or path_to_tree.size() < closest_path.size() and path_to_tree.size() > 0:
+			if path_to_tree.size() > 0 and (first_iteration or path_to_tree.size() < closest_path.size()):
 				closest_path = path_to_tree
 				first_iteration = false
 	

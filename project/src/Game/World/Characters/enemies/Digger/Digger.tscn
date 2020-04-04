@@ -36,7 +36,6 @@ color_ramp = SubResource( 2 )
 
 [node name="Digger" instance=ExtResource( 3 )]
 script = ExtResource( 4 )
-type = 101
 top_right_texture = ExtResource( 1 )
 bottom_right_texture = ExtResource( 2 )
 cutting_speed = 3

@@ -9,7 +9,6 @@
 
 [node name="Vietnamese" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-type = 101
 top_right_texture = ExtResource( 4 )
 bottom_right_texture = ExtResource( 3 )
 

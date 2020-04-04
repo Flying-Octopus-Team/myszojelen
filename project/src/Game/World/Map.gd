@@ -20,9 +20,6 @@ var path_end_position = Vector2() setget _set_path_end_position
 
 var _point_path = []
 
-const BASE_LINE_WIDTH = 3.0
-const DRAW_COLOR = Color('#fff')
-
 onready var obstacles = get_used_cells()
 onready var _half_cell_size = Vector2()
 
@@ -30,11 +27,13 @@ var world_objects : Node
 var back_fences : Node
 var front_fences : Node
 
+export var tex_100 : Texture
+export var tex_101 : Texture
 
 func _ready():
 	var walkable_cells_list = astar_add_walkable_cells(obstacles)
 	astar_connect_walkable_cells(walkable_cells_list)
-	
+	print("PREPARED MAP")
 	call_deferred("_tile_map_to_world")
 
 
@@ -44,6 +43,12 @@ func _tile_map_to_world() -> void:
 	var scenes : Dictionary = {
 		0: load("res://src/Game/World/Objects/Tree/Tree.tscn")
 	}
+#
+#	tile_set.create_tile(100)
+#	tile_set.tile_set_texture(100, tex_100)
+#
+#	tile_set.create_tile(101)
+#	tile_set.tile_set_texture(101, tex_101)
 	
 	for tile_pos in all_tiles:
 		var id = get_cell(tile_pos.x, tile_pos.y)
@@ -103,27 +108,31 @@ func astar_add_walkable_cells(obstacles = []):
 # orthogonal grids, hex grids, tower defense games...
 func astar_connect_walkable_cells(points_array):
 	for point in points_array:
-		var point_index = calculate_point_index(point)
-		# For every cell in the map, we check the one to the top, right.
-		# left and bottom of it. If it's in the map and not an obstalce,
-		# We connect the current point with it
-		var points_relative = PoolVector2Array([
-			Vector2(point.x + 1, point.y),
-			Vector2(point.x - 1, point.y),
-			Vector2(point.x, point.y + 1),
-			Vector2(point.x, point.y - 1)])
-		for point_relative in points_relative:
-			var point_relative_index = calculate_point_index(point_relative)
+		astar_connect_walkable_point(point)
 
-			if is_outside_map_bounds(point_relative):
-				continue
-			if not astar_node.has_point(point_relative_index):
-				continue
-			# Note the 3rd argument. It tells the astar_node that we want the
-			# connection to be bilateral: from point A to B and B to A
-			# If you set this value to false, it becomes a one-way path
-			# As we loop through all points we can set it to false
-			astar_node.connect_points(point_index, point_relative_index, false)
+
+func astar_connect_walkable_point(point) -> void:
+	var point_index = calculate_point_index(point)
+	# For every cell in the map, we check the one to the top, right.
+	# left and bottom of it. If it's in the map and not an obstalce,
+	# We connect the current point with it
+	var points_relative = PoolVector2Array([
+		Vector2(point.x + 1, point.y),
+		Vector2(point.x - 1, point.y),
+		Vector2(point.x, point.y + 1),
+		Vector2(point.x, point.y - 1)])
+	for point_relative in points_relative:
+		var point_relative_index = calculate_point_index(point_relative)
+
+		if is_outside_map_bounds(point_relative):
+			continue
+		if not astar_node.has_point(point_relative_index):
+			continue
+		# Note the 3rd argument. It tells the astar_node that we want the
+		# connection to be bilateral: from point A to B and B to A
+		# If you set this value to false, it becomes a one-way path
+		# As we loop through all points we can set it to false
+		astar_node.connect_points(point_index, point_relative_index, false)
 
 
 # This is a variation of the method above
@@ -163,21 +172,11 @@ func find_path(world_start, world_end):
 
 
 func _recalculate_path():
-	clear_previous_path_drawing()
 	var start_point_index = calculate_point_index(path_start_position)
 	var end_point_index = calculate_point_index(path_end_position)
 	# This method gives us an array of points. Note you need the start and end
 	# points' indices as input
 	_point_path = astar_node.get_point_path(start_point_index, end_point_index)
-
-
-func clear_previous_path_drawing():
-	if not _point_path:
-		return
-	var point_start = _point_path[0]
-	var point_end = _point_path[len(_point_path) - 1]
-	set_cell(point_start.x, point_start.y, -1)
-	set_cell(point_end.x, point_end.y, -1)
 
 
 # Setters for the start and end path values.
@@ -188,9 +187,6 @@ func _set_path_start_position(value):
 		return
 
 	path_start_position = value
-	set_cell(value.x, value.y, 1)
-	if path_end_position and path_end_position != path_start_position:
-		_recalculate_path()
 
 
 func _set_path_end_position(value):
@@ -199,11 +195,7 @@ func _set_path_end_position(value):
 	if is_outside_map_bounds(value):
 		return
 
-	set_cell(path_start_position.x, path_start_position.y, -1)
-	set_cell(value.x, value.y, 2)
 	path_end_position = value
-	if path_start_position != value:
-		_recalculate_path()
 
 
 func request_move(pawn, direction):
@@ -260,6 +252,10 @@ func cut_tree(tree_map_pos:Vector2, cutting_speed:int) -> bool:
 	
 	if not tree.cut(cutting_speed):
 		set_cellv(tree_map_pos, EMPTY_TILE)
+		obstacles.erase(tree_map_pos)
+		var point_index = calculate_point_index(tree_map_pos)
+		astar_node.add_point(point_index, Vector3(tree_map_pos.x, tree_map_pos.y, 0.0))
+		astar_connect_walkable_point(tree_map_pos)
 		emit_signal("tree_cutted")
 		return false
 	
