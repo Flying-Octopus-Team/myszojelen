@@ -47,11 +47,8 @@ func update_texture() -> void:
 		sprite.texture = textures[facing]
 
 
-func hit() -> void:
-	.hit()
+func _die() -> void:
 	animation_player.play("hop")
-	
-	type = Type.EMPTY
 	
 	if state == State.CUTTING:
 		set_state(State.IDLE)

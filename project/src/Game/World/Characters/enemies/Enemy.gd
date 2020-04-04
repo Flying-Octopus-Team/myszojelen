@@ -3,6 +3,8 @@ class_name Enemy
 
 export var cutting_speed : int = 1
 
+export var hp : int = 1
+
 onready var next_move_timer : Timer = $NextMoveTimer
 
 enum State { IDLE, WALK, CUTTING }
@@ -131,5 +133,24 @@ func _on_cutted_tree_cutted() -> void:
 
 
 func hit() -> void:
-	print("Hitted! ", name)
-	pass
+	hp -= 1
+	
+	if hp <= 0:
+		die()
+
+
+func die() -> void:
+	set_state(State.IDLE)
+	
+	if cutted_tree:
+		cutted_tree.stop_cutting()
+	
+	type = Type.EMPTY
+	tile_map.set_cellv(tile_map.world_to_map(position), tile_map.EMPTY_TILE)
+	
+	_die()
+
+
+# To override
+func _die() -> void:
+	queue_free()

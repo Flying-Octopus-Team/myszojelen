@@ -1,7 +1,5 @@
 extends Enemy
 
-var hited_times : int
-
 
 func _ready() -> void:
 	move_animation_name = "drive"
@@ -9,19 +7,9 @@ func _ready() -> void:
 
 
 func hit() -> void:
-	hited_times += 1
+	.hit()
 	
-	if hited_times == 1:
-		_show_fumes()
-	elif hited_times == 3:
-		die()
-
-
-func _show_fumes() -> void:
-	$Pivot/FumesParticlesBack.emitting = true
-	$Pivot/FumesParticlesFront.emitting = true
-
-
-func die() -> void:
-	cutted_tree.stop_cutting()
-	queue_free()
+	if hp == 2:
+		$Pivot/FumesParticlesBack.emitting = true
+	elif hp == 1:
+		$Pivot/FumesParticlesFront.emitting = true
