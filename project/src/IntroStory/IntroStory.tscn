@@ -18,7 +18,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 fade_colors = [ Color( 0.121569, 0.254902, 0.0666667, 1 ), Color( 0.466667, 0.572549, 0.564706, 1 ), Color( 0.698039, 0.458824, 0.301961, 1 ) ]
-fade_time = 0.5
+fade_time = 0.3
 
 [node name="Story1" type="TextureRect" parent="."]
 anchor_right = 1.0
