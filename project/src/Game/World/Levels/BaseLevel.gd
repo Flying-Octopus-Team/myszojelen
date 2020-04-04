@@ -16,7 +16,7 @@ func _ready() -> void:
 	map.world_objects = world_objects
 	map.front_fences = $FrontFences
 	map.back_fences = $BackFences
-#	map.hide()
+	map.hide()
 	
 	for c in characters:
 		c.tile_map = map

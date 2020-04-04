@@ -30,10 +30,10 @@ var front_fences : Node
 export var tex_100 : Texture
 export var tex_101 : Texture
 
+
 func _ready():
 	var walkable_cells_list = astar_add_walkable_cells(obstacles)
 	astar_connect_walkable_cells(walkable_cells_list)
-	print("PREPARED MAP")
 	call_deferred("_tile_map_to_world")
 
 
