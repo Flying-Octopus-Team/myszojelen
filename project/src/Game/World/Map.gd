@@ -185,10 +185,10 @@ func _set_path_start_position(value):
 		return
 	if is_outside_map_bounds(value):
 		return
-	
-	path_start_position = value
+
 	set_cell(path_start_position.x, path_start_position.y, -1)
 	set_cell(value.x, value.y, 1)
+	path_start_position = value
 	if path_end_position and path_end_position != path_start_position:
 		_recalculate_path()
 
