@@ -1,20 +1,22 @@
 extends Character
 
 export var move_range : int
+export var move_time : float
 
 var is_alive := true
 
 
 func _ready() -> void:
 	move_animation_name = "rice_move"
-	var all_fly_length = animation_player.get_animation(move_animation_name).length * move_range
+	var all_fly_length = move_time * move_range
 	$RiceFallTween.interpolate_property(sprite, "offset", null, Vector2(0, 120), all_fly_length, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$RiceFallTween.interpolate_property(sprite, "scale", null, Vector2(0.3, 0.3), all_fly_length, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$RiceFallTween.start()
 
 
 func _process(delta) -> void:
-	_check_if_hitted_something()
+	if _hitted_something():
+		destroy()
 	
 	if not is_alive:
 		set_process(false)
@@ -26,27 +28,38 @@ func _process(delta) -> void:
 	
 	var target_pos = tile_map.map_to_world(target_map_pos)
 	set_process(false)
-	.move_to(target_pos)
 	
-	yield(self, "move_end")
+	var diff_pos = target_pos - position
+	position = target_pos
+	
+	pivot.position = -diff_pos
+	pivot_move_tween.interpolate_property(pivot, "position", null, Vector2.ZERO, move_time)
+	
+	pivot_move_tween.start()
+	
+	yield(pivot_move_tween, "tween_completed")
+	
+	pivot.position = Vector2.ZERO
+	sprite.position = Vector2.ZERO
 	
 	move_range -= 1
 	if move_range <= 0:
-		_check_if_hitted_something()
+		_hitted_something()
 		destroy()
 	else:
 		set_process(true)
 
 
-func _check_if_hitted_something() -> void:
+func _hitted_something() -> bool:
 	var map_pos = tile_map.world_to_map(position)
 	var target_object = tile_map.get_world_object_from_map_pos(map_pos)
 	
 	if target_object != null and target_object.type != Type.PLAYER:
 		if target_object.type == Type.ENEMY:
 			target_object.hit()
-		
-		destroy()
+		return true
+	
+	return false
 
 
 func destroy() -> void:

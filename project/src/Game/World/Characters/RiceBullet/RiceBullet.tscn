@@ -41,6 +41,7 @@ type = -1
 top_right_texture = ExtResource( 2 )
 bottom_right_texture = ExtResource( 3 )
 move_range = 4
+move_time = 0.05
 
 [node name="AnimationPlayer" parent="." index="1"]
 anims/rice_move = SubResource( 1 )

@@ -104,7 +104,6 @@ Teraz biegnij ratować kolejny las..."
 align = 1
 
 [node name="EndOfGameScreen" type="Control" parent="Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -116,7 +115,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
 
-[node name="ReplayBtn" type="Button" parent="Control/EndOfGameScreen"]
+[node name="ResetGameBtn" type="Button" parent="Control/EndOfGameScreen"]
 margin_left = 447.0
 margin_top = 629.032
 margin_right = 859.0
@@ -146,4 +145,4 @@ Odbudowałeś populację Myszojeleni i rodzinny las!"
 align = 1
 [connection signal="pressed" from="Control/GameOverScreen/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]
 [connection signal="pressed" from="Control/LevelWonScreen/NextLevelBtn" to="." method="_on_NextLevelBtn_pressed"]
-[connection signal="pressed" from="Control/EndOfGameScreen/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]
+[connection signal="pressed" from="Control/EndOfGameScreen/ResetGameBtn" to="." method="_on_ResetGameBtn_pressed"]

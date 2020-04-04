@@ -23,6 +23,7 @@ func _ready() -> void:
 	
 	interface.connect("next_level_requested", self, "_on_next_level_requested")
 	interface.connect("replay_requested", self, "_on_replay_requested")
+	interface.connect("reset_game_requested", self, "_on_reset_game_requested")
 	
 	_start()
 
@@ -88,6 +89,16 @@ func _next_level() -> void:
 
 
 func _on_replay_requested() -> void:
+	_fade("_reset_level")
+
+
+func _reset_level() -> void:
+	interface.reset()
+	world.reset_level()
+	_prepare_trees_left()
+
+
+func _on_reset_game_requested() -> void:
 	_fade("_start_game")
 
 

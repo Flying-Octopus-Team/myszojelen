@@ -28,6 +28,10 @@ func _on_NextMoveTimer_timeout():
 		State.IDLE:
 			pass
 		State.WALK:
+			if previous_position != null:
+				tile_map.set_cellv(tile_map.world_to_map(previous_position), tile_map.EMPTY_TILE)
+				previous_position = null
+				
 			var tree_pos = _get_nearest_tree_map_position()
 			if tree_pos == null:
 				_go_to_tree()
@@ -147,6 +151,10 @@ func die() -> void:
 	
 	type = Type.EMPTY
 	tile_map.set_cellv(tile_map.world_to_map(position), tile_map.EMPTY_TILE)
+	
+	if previous_position != null:
+		tile_map.set_cellv(tile_map.world_to_map(previous_position), tile_map.EMPTY_TILE)
+		previous_position = null
 	
 	_die()
 	

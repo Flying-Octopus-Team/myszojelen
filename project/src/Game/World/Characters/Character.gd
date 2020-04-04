@@ -34,8 +34,11 @@ var facing : int = Facing.BOTTOM_RIGHT
 
 var move_animation_name := "hop"
 
+var previous_position = null
+
 
 func _ready() -> void:
+	pivot_move_tween.connect("tween_completed", self, "_on_move_end")
 	call_deferred("update_texture")
 
 
@@ -50,7 +53,7 @@ func move_to(target_pos:Vector2) -> void:
 	
 	animation_player.play(move_animation_name)
 	
-	var prev_pos = position
+	previous_position = position
 	var diff_pos = target_pos - position
 	position = target_pos
 	
@@ -58,13 +61,14 @@ func move_to(target_pos:Vector2) -> void:
 	pivot_move_tween.interpolate_property(pivot, "position", null, Vector2.ZERO, animation_player.current_animation_length)
 	
 	pivot_move_tween.start()
-	
-	yield(pivot_move_tween, "tween_completed")
+
+
+func _on_move_end(object: Object, key: NodePath) -> void:
+	if previous_position:
+		tile_map.set_cellv(tile_map.world_to_map(previous_position), tile_map.EMPTY_TILE)
+		previous_position = null
 	
 	pivot.position = Vector2.ZERO
-	sprite.position = Vector2.ZERO
-	
-	tile_map.set_cellv(tile_map.world_to_map(prev_pos), tile_map.EMPTY_TILE)
 	
 	emit_signal("move_end")
 

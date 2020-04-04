@@ -43,12 +43,12 @@ func _tile_map_to_world() -> void:
 	var scenes : Dictionary = {
 		0: load("res://src/Game/World/Objects/Tree/Tree.tscn")
 	}
-#
-#	tile_set.create_tile(100)
-#	tile_set.tile_set_texture(100, tex_100)
-#
-#	tile_set.create_tile(101)
-#	tile_set.tile_set_texture(101, tex_101)
+	
+	if not 100 in tile_set.get_tiles_ids():
+		tile_set.create_tile(100)
+		tile_set.tile_set_texture(100, tex_100)
+		tile_set.create_tile(101)
+		tile_set.tile_set_texture(101, tex_101)
 	
 	for tile_pos in all_tiles:
 		var id = get_cell(tile_pos.x, tile_pos.y)
