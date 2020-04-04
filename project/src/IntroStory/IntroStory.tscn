@@ -36,7 +36,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 30
-custom_constants/margin_top = 30
+custom_constants/margin_top = 0
 custom_constants/margin_left = 600
 __meta__ = {
 "_edit_use_anchors_": false
@@ -44,7 +44,6 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Story1/MarginContainer"]
 margin_left = 600.0
-margin_top = 30.0
 margin_right = 1250.0
 margin_bottom = 720.0
 size_flags_vertical = 1
@@ -57,6 +56,7 @@ An Nguyen z organizacji Global Wildlife Conservation (GWC) stwierdził:
 Gatunek myszojeleni przez długi czas funkcjonował tylko jako element naszej wyobraźni. Nie pozwolimy, by myszojelenie ponownie zniknęły nam z oczu! Odkrycie, że on dalej istnieje, motywuje nas do podjęcia działań mających na celu jak najszybszą ochronę gatunku.
 "
 align = 1
+valign = 1
 autowrap = true
 
 [node name="Story2" type="TextureRect" parent="."]
@@ -74,7 +74,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 30
-custom_constants/margin_top = 30
+custom_constants/margin_top = 0
 custom_constants/margin_left = 600
 __meta__ = {
 "_edit_use_anchors_": false
@@ -82,7 +82,6 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Story2/MarginContainer"]
 margin_left = 600.0
-margin_top = 30.0
 margin_right = 1250.0
 margin_bottom = 720.0
 size_flags_vertical = 1
@@ -94,6 +93,7 @@ text = "Co tak naprawdę się wydarzyło do dzisiaj stanowi zagadkę. Według po
 Jednak niezbitym faktem pozostaje, że 6 kwietnia 2020 roku wietnamscy drwale zmierzyli się z nieoczekiwanym wręcz zjawiskiem, gdy to nieznany osobnik myszojelenia zaczął walkę z bezdusznymi ścinaczami drzew. Jego celem była odbudowa lasu tropikalnego oraz całego gatunku myszojeleni.
 "
 align = 1
+valign = 1
 autowrap = true
 
 [node name="Story3" type="TextureRect" parent="."]

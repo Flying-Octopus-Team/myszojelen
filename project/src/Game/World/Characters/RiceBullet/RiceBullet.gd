@@ -44,8 +44,7 @@ func _check_if_hitted_something() -> void:
 	
 	if target_object != null and target_object.type != Type.PLAYER:
 		if target_object.type == Type.ENEMY:
-			var enemy = tile_map.get_world_object_from_map_pos(map_pos)
-			enemy.hit()
+			target_object.hit()
 		
 		destroy()
 
