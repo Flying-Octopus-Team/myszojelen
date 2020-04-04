@@ -4,6 +4,8 @@ signal tree_cutted
 
 const EMPTY_TILE = -1
 const TREE_ID = 0
+const FENCE_UP_ID = 1
+const FENCE_DOWN_ID = 2
 
 # You can only create an AStar node from code, not from the Scene tab
 onready var astar_node = AStar.new()
@@ -23,7 +25,9 @@ const DRAW_COLOR = Color('#fff')
 onready var obstacles = get_used_cells()
 onready var _half_cell_size = Vector2()
 
-var world_objects : YSort
+var world_objects : Node
+var back_fences : Node
+var front_fences : Node
 
 
 func _ready():
@@ -39,9 +43,6 @@ func _tile_map_to_world() -> void:
 	var scenes : Dictionary = {
 		0: load("res://src/Game/World/Objects/Tree/Tree.tscn")
 	}
-	
-	var back_fences = $BackFences
-	var front_fences = $FrontFences
 	
 	for tile_pos in all_tiles:
 		var id = get_cell(tile_pos.x, tile_pos.y)
@@ -65,7 +66,12 @@ func _tile_map_to_world() -> void:
 		
 		obj.position = map_to_world(tile_pos)
 		
-		world_objects.add_child(obj)
+		if id == FENCE_UP_ID:
+			front_fences.add_child(obj)
+		elif id == FENCE_DOWN_ID:
+			back_fences.add_child(obj)
+		else:
+			world_objects.add_child(obj)
 
 
 # Loops through all cells within the map's bounds and
