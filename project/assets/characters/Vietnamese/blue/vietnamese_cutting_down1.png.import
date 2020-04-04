@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass2.png-116285474c749a5cec2854f9ebeecaa7.stex"
+path="res://.import/vietnamese_cutting_down1.png-ce408fd541b1f531757bdb18c20f4149.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ground/grass2.png"
-dest_files=[ "res://.import/grass2.png-116285474c749a5cec2854f9ebeecaa7.stex" ]
+source_file="res://assets/characters/Vietnamese/blue/vietnamese_cutting_down1.png"
+dest_files=[ "res://.import/vietnamese_cutting_down1.png-ce408fd541b1f531757bdb18c20f4149.stex" ]
 
 [params]
 

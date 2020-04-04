@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rocks1.png-344453cacefc073176d9d1ed997e58f3.stex"
+path="res://.import/vietnamese_cutting_up2.png-541c9c03d1a6598b18333275b90eb04a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rocks/rocks1.png"
-dest_files=[ "res://.import/rocks1.png-344453cacefc073176d9d1ed997e58f3.stex" ]
+source_file="res://assets/characters/Vietnamese/blue/vietnamese_cutting_up2.png"
+dest_files=[ "res://.import/vietnamese_cutting_up2.png-541c9c03d1a6598b18333275b90eb04a.stex" ]
 
 [params]
 

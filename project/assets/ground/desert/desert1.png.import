@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/vietnamese_cutting_up2.png-e4365ddee35e5c648dae3b68fbc84c75.stex"
+path="res://.import/desert1.png-6a1a8352b684f6e726635f1a46ffb2d1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Vietnamese/vietnamese_cutting_up2.png"
-dest_files=[ "res://.import/vietnamese_cutting_up2.png-e4365ddee35e5c648dae3b68fbc84c75.stex" ]
+source_file="res://assets/ground/desert/desert1.png"
+dest_files=[ "res://.import/desert1.png-6a1a8352b684f6e726635f1a46ffb2d1.stex" ]
 
 [params]
 
