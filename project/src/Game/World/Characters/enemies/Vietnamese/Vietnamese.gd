@@ -1,4 +1,5 @@
 extends Enemy
+class_name Vietnamese
 
 export var time_to_next_move := 0.5
 
