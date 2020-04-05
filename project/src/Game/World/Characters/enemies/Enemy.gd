@@ -7,6 +7,8 @@ export var hp : int = 1
 
 onready var next_move_timer : Timer = $NextMoveTimer
 
+onready var tree_cutting_sound : AudioStreamPlayer = $TreeCuttingSound
+
 enum State { IDLE, WALK, CUTTING }
 var state : int = State.WALK setget set_state
 
@@ -130,6 +132,8 @@ func _cut_tree():
 		_rotate_to(expected_facing)
 	
 	tile_map.cut_tree(tree_map_pos, cutting_speed)
+	
+	tree_cutting_sound.play()
 
 
 func _on_cutted_tree_cutted() -> void:

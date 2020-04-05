@@ -12,6 +12,8 @@ var shot_particles_position : Dictionary = {
 	Facing.BOTTOM_RIGHT: Vector2(130, -20)
 }
 
+onready var shot_sound = $ShotSound
+
 
 func _process(delta) -> void:
 	if Input.is_action_pressed("ui_up"):
@@ -47,6 +49,7 @@ func _shot() -> void:
 	rice.position = position + tile_map.map_to_world(get_forward_dir())
 	rice.tile_map = tile_map
 	shot_particles.emitting = true
+	shot_sound.play()
 
 
 func move(dir:Vector2) -> void:

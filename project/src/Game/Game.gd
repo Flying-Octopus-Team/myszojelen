@@ -10,6 +10,9 @@ onready var world : Node2D = $World
 onready var interface : CanvasLayer = $Interface
 onready var fade_layer = $FadeLayer
 
+onready var main_theme = $MainTheme
+onready var menu_theme = $MenuTheme
+
 var trees_left : int
 
 var _is_game_running := false
@@ -26,6 +29,8 @@ func _ready() -> void:
 	interface.connect("next_level_requested", self, "_on_next_level_requested")
 	interface.connect("replay_requested", self, "_on_replay_requested")
 	interface.connect("reset_game_requested", self, "_on_reset_game_requested")
+	
+	main_theme.play()
 	
 	_start()
 
@@ -126,3 +131,4 @@ func _fade(callback:String) -> void:
 	yield(fade_layer, "faded_in")
 	
 	get_tree().paused = false
+

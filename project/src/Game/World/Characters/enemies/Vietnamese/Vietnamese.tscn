@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/Game/World/Characters/enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Game/World/Characters/enemies/Vietnamese/Vietnamese.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/characters/Vietnamese/blue/vietnamese_down.png" type="Texture" id=12]
 [ext_resource path="res://assets/characters/Vietnamese/blue/vietnamese_cutting_up1.png" type="Texture" id=13]
 [ext_resource path="res://assets/characters/Vietnamese/blue/vietnamese_cutting_up2.png" type="Texture" id=14]
+[ext_resource path="res://assets/audio/sfx/tree_cutting.wav" type="AudioStream" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "cut_down_blue"
@@ -102,3 +103,6 @@ anims/cut_down_green = ExtResource( 6 )
 anims/cut_up_blue = SubResource( 3 )
 anims/cut_up_brown = SubResource( 4 )
 anims/cut_up_green = ExtResource( 5 )
+
+[node name="TreeCuttingSound" parent="." index="5"]
+stream = ExtResource( 15 )

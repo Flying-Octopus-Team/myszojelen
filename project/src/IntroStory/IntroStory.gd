@@ -8,6 +8,8 @@ onready var play_btn = $PlayBtn
 
 onready var developers_screen = $DevelopersScreen
 
+onready var change_screen_sound = $ChangeScreenSound
+
 export(Array, Color) var fade_colors
 export var fade_time : float = 1.0
 
@@ -32,43 +34,55 @@ func _ready() -> void:
 	arrow_btn.show()
 	play_btn.hide()
 	
-	start()
+	call_deferred("start")
 
 
 func start() -> void:
-	fade_layer.fade_in(fade_colors[0], fade_time)
-	story_screens[0].show()
+	_show_screen(0)
+	
+	yield(fade_layer, "faded_in")
+	
+	change_screen_sound.play()
+	
+	yield(self, "next_screen_requested")
+	
+	_fade_out(1)
+	
+	yield(fade_layer, "faded_out")
+	
+	_show_screen(1)
 	
 	yield(fade_layer, "faded_in")
 	yield(self, "next_screen_requested")
 	
-	fade_layer.fade_out(fade_colors[1], fade_time)
+	_fade_out(2)
 	
 	yield(fade_layer, "faded_out")
 	
-	fade_layer.fade_in(fade_colors[1], fade_time)
-	story_screens[1].show()
+	_show_screen(2)
 	
-	yield(fade_layer, "faded_in")
-	yield(self, "next_screen_requested")
-	
-	fade_layer.fade_out(fade_colors[2], fade_time)
-	
-	yield(fade_layer, "faded_out")
-	
-	fade_layer.fade_in(fade_colors[2], fade_time)
-	story_screens[2].show()
 	arrow_btn.hide()
 	play_btn.show()
 	
 	yield(fade_layer, "faded_in")
 	yield(self, "next_screen_requested")
 	
+	change_screen_sound.play()
 	fade_layer.fade_out(Color.black, fade_time)
 	
 	yield(fade_layer, "faded_out")
 	
 	load_game()
+
+
+func _fade_out(color_id:int) -> void:
+	change_screen_sound.play()
+	fade_layer.fade_out(fade_colors[2], fade_time)
+
+
+func _show_screen(screen_id:int) -> void:
+	fade_layer.fade_in(fade_colors[screen_id], fade_time)
+	story_screens[screen_id].show()
 
 
 func _unhandled_input(event) -> void:
