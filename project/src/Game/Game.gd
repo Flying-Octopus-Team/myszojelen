@@ -12,6 +12,8 @@ onready var fade_layer = $FadeLayer
 
 var trees_left : int
 
+var _is_game_running := false
+
 
 func _ready() -> void:
 	world.connect("tree_cutted", self, "_on_tree_cutted")
@@ -51,10 +53,14 @@ func _prepare_trees_left() -> void:
 
 
 func _on_tree_cutted() -> void:
+	if not _is_game_running:
+		return
+	
 	trees_left -= 1
 	interface.set_trees_left(trees_left)
 	
 	if trees_left <= 0:
+		_is_game_running = false
 		_fade("_game_over")
 
 
@@ -63,6 +69,10 @@ func _game_over() -> void:
 
 
 func _on_level_won() -> void:
+	if not _is_game_running:
+		return
+	
+	_is_game_running = false
 	_fade("_show_next_level_screen")
 
 
@@ -86,6 +96,7 @@ func _next_level() -> void:
 	interface.reset()
 	world.next_level()
 	_prepare_trees_left()
+	_is_game_running = true
 
 
 func _on_replay_requested() -> void:
@@ -96,6 +107,7 @@ func _reset_level() -> void:
 	interface.reset()
 	world.reset_level()
 	_prepare_trees_left()
+	_is_game_running = true
 
 
 func _on_reset_game_requested() -> void:
