@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/intro_story/intro_story2.png" type="Texture" id=1]
 [ext_resource path="res://assets/intro_story/intro_story1.png" type="Texture" id=2]
@@ -9,8 +9,9 @@
 [ext_resource path="res://assets/intro_story/buttons/playBtn.png" type="Texture" id=7]
 [ext_resource path="res://assets/intro_story/buttons/playBtn_hover.png" type="Texture" id=8]
 [ext_resource path="res://assets/intro_story/buttons/playBtn_press.png" type="Texture" id=9]
-[ext_resource path="res://assets/fonts/tres/shojumaru_16.tres" type="DynamicFont" id=10]
+[ext_resource path="res://assets/fonts/tres/shojumaru_20.tres" type="DynamicFont" id=10]
 [ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=11]
+[ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=12]
 
 [node name="IntroStory" type="Control"]
 anchor_right = 1.0
@@ -38,6 +39,7 @@ anchor_bottom = 1.0
 custom_constants/margin_right = 30
 custom_constants/margin_top = 0
 custom_constants/margin_left = 600
+custom_constants/margin_bottom = 100
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -45,19 +47,32 @@ __meta__ = {
 [node name="Label" type="Label" parent="Story1/MarginContainer"]
 margin_left = 600.0
 margin_right = 1250.0
-margin_bottom = 720.0
+margin_bottom = 620.0
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_y = 2
 text = "Myszojelenie są gatunkiem, który uważano za wymarły. Jednak w zeszłym roku, po prawie 30 latach, zaobserwowano go ponownie w prowincji Khanh Hoa południowego Wietnamu.
+
 Naukowcy donoszą: powodem, przez który myszojelenie wymierają może być wycinka lasów tropikalnych na wielką skalę.
+
 An Nguyen z organizacji Global Wildlife Conservation (GWC) stwierdził:
 Gatunek myszojeleni przez długi czas funkcjonował tylko jako element naszej wyobraźni. Nie pozwolimy, by myszojelenie ponownie zniknęły nam z oczu! Odkrycie, że on dalej istnieje, motywuje nas do podjęcia działań mających na celu jak najszybszą ochronę gatunku.
 "
 align = 1
 valign = 1
 autowrap = true
+
+[node name="Button" type="Button" parent="Story1"]
+margin_left = 67.5256
+margin_top = 621.236
+margin_right = 204.526
+margin_bottom = 660.236
+mouse_default_cursor_shape = 2
+text = "TWÓRCY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Story2" type="TextureRect" parent="."]
 visible = false
@@ -76,6 +91,7 @@ anchor_bottom = 1.0
 custom_constants/margin_right = 30
 custom_constants/margin_top = 0
 custom_constants/margin_left = 600
+custom_constants/margin_bottom = 90
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -83,13 +99,14 @@ __meta__ = {
 [node name="Label" type="Label" parent="Story2/MarginContainer"]
 margin_left = 600.0
 margin_right = 1250.0
-margin_bottom = 720.0
+margin_bottom = 630.0
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0.14902, 0.14902, 0.14902, 1 )
 custom_constants/shadow_offset_y = 2
 text = "Co tak naprawdę się wydarzyło do dzisiaj stanowi zagadkę. Według pogłosek poprzez indywidualne wysiłki samego Ngueyena, udało się złapać pojedynczego osobnika, który następnie został zmodyfikowany genetycznie. Niektórzy twierdzą, że w sprawę może być zamieszana nawet cała GWC.
+
 Jednak niezbitym faktem pozostaje, że 6 kwietnia 2020 roku wietnamscy drwale zmierzyli się z nieoczekiwanym wręcz zjawiskiem, gdy to nieznany osobnik myszojelenia zaczął walkę z bezdusznymi ścinaczami drzew. Jego celem była odbudowa lasu tropikalnego oraz całego gatunku myszojeleni.
 "
 align = 1
@@ -150,3 +167,9 @@ texture_pressed = ExtResource( 9 )
 texture_hover = ExtResource( 8 )
 
 [node name="FadeLayer" parent="." instance=ExtResource( 5 )]
+
+[node name="DevelopersScreen" parent="." instance=ExtResource( 12 )]
+visible = false
+[connection signal="pressed" from="Story1/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="NextArrow" to="." method="_on_NextArrow_pressed"]
+[connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]

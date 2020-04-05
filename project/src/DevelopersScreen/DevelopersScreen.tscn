@@ -1,0 +1,297 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/developers/dominik.png" type="Texture" id=1]
+[ext_resource path="res://assets/developers/wojtek.png" type="Texture" id=2]
+[ext_resource path="res://assets/developers/kacper.png" type="Texture" id=3]
+[ext_resource path="res://assets/octopus_transparent.png" type="Texture" id=4]
+[ext_resource path="res://assets/big_shadow.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/tres/shojumaru_16.tres" type="DynamicFont" id=6]
+[ext_resource path="res://src/DevelopersScreen/DevelopersScreen.gd" type="Script" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.137255, 0.109804, 0.231373, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Animation" id=2]
+resource_name = "show_panel"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Origin:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 450 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Origin:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.737255 ) ]
+}
+
+[node name="DevelopersScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.737255 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Origin" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 0.000488281
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Origin"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -575.0
+margin_top = -300.0
+margin_right = 575.0
+margin_bottom = 300.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dominik" type="TextureRect" parent="Origin/Panel"]
+margin_left = 814.0
+margin_top = 124.0
+margin_right = 1136.0
+margin_bottom = 444.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Shadow" type="TextureRect" parent="Origin/Panel/Dominik"]
+show_behind_parent = true
+margin_left = -109.0
+margin_top = 102.0
+margin_right = 403.0
+margin_bottom = 358.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+
+[node name="Name" type="Label" parent="Origin/Panel/Dominik"]
+margin_left = 23.3742
+margin_top = 256.655
+margin_right = 311.375
+margin_bottom = 289.655
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Dominik Zawlocki"
+
+[node name="Function" type="Label" parent="Origin/Panel/Dominik"]
+margin_left = 85.6515
+margin_top = 292.812
+margin_right = 373.652
+margin_bottom = 325.812
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Programista"
+
+[node name="Wojtek" type="TextureRect" parent="Origin/Panel"]
+margin_left = 585.0
+margin_top = 4.0
+margin_right = 873.0
+margin_bottom = 252.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Shadow" type="TextureRect" parent="Origin/Panel/Wojtek"]
+show_behind_parent = true
+margin_left = -100.388
+margin_top = 92.7644
+margin_right = 411.612
+margin_bottom = 348.764
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="Origin/Panel/Wojtek"]
+margin_left = 16.8447
+margin_top = 249.553
+margin_right = 304.845
+margin_bottom = 318.553
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Wojciech Sadlik"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Function" type="Label" parent="Origin/Panel/Wojtek"]
+margin_left = -0.899109
+margin_top = 289.666
+margin_right = 287.101
+margin_bottom = 336.666
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Koordynator
+Scenarzysta
+Sam nie wiem
+Murarz
+Tynkarz
+Akrobata"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Kacper" type="TextureRect" parent="Origin/Panel"]
+margin_left = 274.947
+margin_top = -18.759
+margin_right = 562.947
+margin_bottom = 301.241
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="Shadow" type="TextureRect" parent="Origin/Panel/Kacper"]
+show_behind_parent = true
+margin_left = -106.017
+margin_top = 146.925
+margin_right = 405.983
+margin_bottom = 402.925
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="Origin/Panel/Kacper"]
+margin_left = 21.4283
+margin_top = 300.214
+margin_right = 309.428
+margin_bottom = 369.214
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Kacper Mazela
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Function" type="Label" parent="Origin/Panel/Kacper"]
+margin_left = 103.289
+margin_top = 335.547
+margin_right = 391.289
+margin_bottom = 368.547
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Grafik"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Michal" type="TextureRect" parent="Origin/Panel"]
+margin_top = 80.0
+margin_right = 288.0
+margin_bottom = 400.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="Shadow" type="TextureRect" parent="Origin/Panel/Michal"]
+show_behind_parent = true
+margin_left = -103.757
+margin_top = 157.917
+margin_right = 408.243
+margin_bottom = 413.917
+mouse_filter = 2
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="Origin/Panel/Michal"]
+margin_left = 8.578
+margin_top = 303.182
+margin_right = 314.578
+margin_bottom = 372.182
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Michał Cembrowski"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Function" type="Label" parent="Origin/Panel/Michal"]
+margin_left = 106.161
+margin_top = 338.816
+margin_right = 394.161
+margin_bottom = 371.816
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Grafik"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FOLogo" type="TextureRect" parent="Origin/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -233.0
+margin_top = -219.609
+margin_right = 233.0
+margin_bottom = 48.3909
+mouse_filter = 2
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinkButton" type="LinkButton" parent="Origin/Panel/FOLogo"]
+margin_left = 49.0
+margin_top = 70.0
+margin_right = 417.0
+margin_bottom = 214.0
+shortcut_in_tooltip = false
+underline = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/show_panel = SubResource( 2 )
+[connection signal="gui_input" from="ColorRect" to="." method="_on_ColorRect_gui_input"]
+[connection signal="pressed" from="Origin/Panel/FOLogo/LinkButton" to="." method="_on_LinkButton_pressed"]

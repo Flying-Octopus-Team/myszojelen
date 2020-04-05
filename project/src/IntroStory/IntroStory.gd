@@ -6,6 +6,8 @@ onready var fade_layer = $FadeLayer
 onready var arrow_btn = $NextArrow
 onready var play_btn = $PlayBtn
 
+onready var developers_screen = $DevelopersScreen
+
 export(Array, Color) var fade_colors
 export var fade_time : float = 1.0
 
@@ -69,10 +71,25 @@ func start() -> void:
 	load_game()
 
 
-func _process(delta) -> void:
+func _unhandled_input(event) -> void:
+	if developers_screen.visible:
+		return
+	
 	if Input.is_action_just_pressed("next_slide"):
 		emit_signal("next_screen_requested")
 
 
 func load_game() -> void:
 	get_tree().change_scene_to(game_scene)
+
+
+func _on_Button_pressed():
+	developers_screen.show()
+
+
+func _on_NextArrow_pressed():
+	emit_signal("next_screen_requested")
+
+
+func _on_PlayBtn_pressed():
+	load_game()
