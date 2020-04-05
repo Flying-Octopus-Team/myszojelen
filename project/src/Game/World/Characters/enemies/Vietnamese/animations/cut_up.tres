@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/characters/Vietnamese/green/vietnamese_cutting_up1.png" type="Texture" id=2]
 
 [resource]
-resource_name = "cut_up"
+resource_name = "cut_up_green"
 length = 0.4
 loop = true
 tracks/0/type = "value"

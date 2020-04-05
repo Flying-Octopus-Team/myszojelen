@@ -15,7 +15,7 @@ onready var cutting_animation_player : AnimationPlayer = $CuttingAnimationPlayer
 func _ready() -> void:
 	randomize()
 	
-#	_rand_textures()
+	_rand_textures()
 	
 	prepare_time_to_next_move()
 	next_move_timer.start()
@@ -30,26 +30,22 @@ func _rand_textures() -> void:
 	
 	var textures_path = "res://assets/characters/Vietnamese/" + color + "/"
 	
-#	top_right_texture = load(textures_path + "vietnamese_up.png")
-#	bottom_right_texture = load(textures_path + "vietnamese_down.png")
+	top_right_texture = load(textures_path + "vietnamese_up.png")
+	bottom_right_texture = load(textures_path + "vietnamese_down.png")
+
+	textures = {
+		Facing.TOP_LEFT: top_right_texture,
+		Facing.TOP_RIGHT: top_right_texture,
+		Facing.BOTTOM_RIGHT: bottom_right_texture,
+		Facing.BOTTOM_LEFT: bottom_right_texture
+	}
 	
-#	textures = {
-#		Facing.TOP_LEFT: top_right_texture,
-#		Facing.TOP_RIGHT: top_right_texture,
-#		Facing.BOTTOM_RIGHT: bottom_right_texture,
-#		Facing.BOTTOM_LEFT: bottom_right_texture
-#	}
-#
-#	var cutting_up1 = load(textures_path + "vietnamese_cutting_up1.png")
-#	var cutting_up2 = load(textures_path + "vietnamese_cutting_up2.png")
-#	var cutting_down1 = load(textures_path + "vietnamese_cutting_down1.png")
-#	var cutting_down2 = load(textures_path + "vietnamese_cutting_down2.png")
-#
-#	var cut_up_ani = cutting_animation_player.get_animation("cut_up")
-#	var cut_down_ani = cutting_animation_player.get_animation("cut_down")
-#
-#	var sprite_track = cut_up_ani.find_track("Sprite")
-#	cut_up_ani.track_set_key_value()
+	cutting_animation = {
+		Facing.TOP_LEFT: "cut_up_" + color,
+		Facing.TOP_RIGHT: "cut_up_" + color,
+		Facing.BOTTOM_RIGHT: "cut_down_" + color,
+		Facing.BOTTOM_LEFT: "cut_down_" + color
+	} 
 
 
 func _on_state_changed(previous_state:int) -> void:

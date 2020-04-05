@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/vietnamese_blue_up.png-ada8d774af609719014c4c02ae1bc281.stex"
+path="res://.import/vietnamese_up.png-9ffae184a8431dcdada9029a9df31bba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Vietnamese/blue/vietnamese_blue_up.png"
-dest_files=[ "res://.import/vietnamese_blue_up.png-ada8d774af609719014c4c02ae1bc281.stex" ]
+source_file="res://assets/characters/Vietnamese/blue/vietnamese_up.png"
+dest_files=[ "res://.import/vietnamese_up.png-9ffae184a8431dcdada9029a9df31bba.stex" ]
 
 [params]
 
