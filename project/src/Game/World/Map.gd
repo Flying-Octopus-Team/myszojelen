@@ -263,7 +263,27 @@ func cut_tree(tree_map_pos:Vector2, cutting_speed:int) -> bool:
 
 
 func get_world_object_from_map_pos(map_pos:Vector2) -> WorldObject: 
-	for obj in world_objects.get_children():
+	var obj : WorldObject
+	obj = _get_world_object_from_map_pos_in_container(map_pos, world_objects)
+	
+	if obj != null:
+		return obj
+	
+	obj = _get_world_object_from_map_pos_in_container(map_pos, back_fences)
+	
+	if obj != null:
+		return obj
+	
+	obj = _get_world_object_from_map_pos_in_container(map_pos, front_fences)
+	
+	if obj != null:
+		return obj
+	
+	return null
+
+
+func _get_world_object_from_map_pos_in_container(map_pos:Vector2, container:Node) -> WorldObject:
+	for obj in container.get_children():
 		if not obj is WorldObject:
 			continue
 		

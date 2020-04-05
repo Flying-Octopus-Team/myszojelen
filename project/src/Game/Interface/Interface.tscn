@@ -140,7 +140,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 2
 text = "Udało się! 
-Drwale nie zagrażajż już twojemu gatunkowi. 
+Drwale nie zagrażają już twojemu gatunkowi. 
 Odbudowałeś populację Myszojeleni i rodzinny las!"
 align = 1
 [connection signal="pressed" from="Control/GameOverScreen/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]
