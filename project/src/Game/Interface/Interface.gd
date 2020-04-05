@@ -9,6 +9,8 @@ onready var game_over_screen : Control = $Control/GameOverScreen
 onready var level_won_screen : Control = $Control/LevelWonScreen
 onready var end_of_game_screen : Control = $Control/EndOfGameScreen
 
+onready var developers_screen = $DevelopersScreen
+
 const TEES_LEFT_PREFIX := "Pozostalo drzew: "
 
 enum Screen { NONE, LEVEL_WON, GAME_OVER, END_OF_GAME }
@@ -27,11 +29,15 @@ func reset() -> void:
 	game_over_screen.hide()
 	level_won_screen.hide()
 	end_of_game_screen.hide()
+	developers_screen.visible = false
 	current_screen = Screen.NONE
 
 
 func _unhandled_input(event) -> void:
 	if current_screen == Screen.NONE:
+		return
+	
+	if developers_screen.visible:
 		return
 	
 	if Input.is_action_just_pressed("next_slide"):
@@ -69,3 +75,7 @@ func _on_ReplayBtn_pressed():
 
 func _on_ResetGameBtn_pressed():
 	emit_signal("reset_game_requested")
+
+
+func _on_DevelopersButton_pressed():
+	developers_screen.show()

@@ -31,3 +31,7 @@ func _on_ColorRect_gui_input(event):
 
 func _on_LinkButton_pressed():
 	OS.shell_open("http://elf-vs-dwarves.pl/")
+
+
+func _on_XBtn_pressed():
+	hide()

@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/screens/gameover_screen.png" type="Texture" id=4]
+[ext_resource path="res://src/DevelopersScreen/DevelopersButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/screens/buttons/play_again/play_again_btn_hover.png" type="Texture" id=6]
+[ext_resource path="res://assets/screens/buttons/play_again/play_again_btn_pressed.png" type="Texture" id=7]
+[ext_resource path="res://assets/screens/buttons/play_again/play_again_btn.png" type="Texture" id=8]
+[ext_resource path="res://assets/screens/buttons/try_again/try_again_btn.png" type="Texture" id=9]
+[ext_resource path="res://assets/screens/buttons/try_again/try_again_btn_pressed.png" type="Texture" id=10]
+[ext_resource path="res://assets/screens/buttons/try_again/try_again_btn_hover.png" type="Texture" id=11]
+[ext_resource path="res://assets/screens/buttons/next_level/next_level_btn_pressed.png" type="Texture" id=12]
+[ext_resource path="res://assets/screens/buttons/next_level/next_level_btn_hover.png" type="Texture" id=13]
+[ext_resource path="res://assets/screens/buttons/next_level/next_level_btn.png" type="Texture" id=14]
+[ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=15]
 
 [node name="Interface" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -34,6 +45,7 @@ custom_fonts/font = ExtResource( 3 )
 text = "Pozostało drzew: 5"
 
 [node name="GameOverScreen" type="Control" parent="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -48,19 +60,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ReplayBtn" type="Button" parent="Control/GameOverScreen"]
-margin_left = 469.09
-margin_top = 653.023
-margin_right = 830.09
-margin_bottom = 710.023
-custom_fonts/font = ExtResource( 3 )
-text = "SPRÓBUJ PONOWNIE"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="ReplayBtn" type="TextureButton" parent="Control/GameOverScreen"]
+margin_left = 412.0
+margin_top = 537.0
+margin_right = 922.0
+margin_bottom = 727.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 11 )
+expand = true
+stretch_mode = 5
 
 [node name="LevelWonScreen" type="Control" parent="Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -72,13 +84,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
 
-[node name="NextLevelBtn" type="Button" parent="Control/LevelWonScreen"]
-margin_left = 464.177
-margin_top = 629.032
-margin_right = 816.177
-margin_bottom = 697.032
-custom_fonts/font = ExtResource( 3 )
-text = "NASTĘPNY POZIOM"
+[node name="NextLevelBtn" type="TextureButton" parent="Control/LevelWonScreen"]
+margin_left = 369.85
+margin_top = 557.14
+margin_right = 926.85
+margin_bottom = 724.14
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 13 )
+expand = true
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -104,6 +120,7 @@ Teraz biegnij ratować kolejny las..."
 align = 1
 
 [node name="EndOfGameScreen" type="Control" parent="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -115,13 +132,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
 
-[node name="ResetGameBtn" type="Button" parent="Control/EndOfGameScreen"]
-margin_left = 447.0
-margin_top = 629.032
-margin_right = 859.0
-margin_bottom = 697.032
-custom_fonts/font = ExtResource( 3 )
-text = "GRAJ JESZCZE RAZ"
+[node name="ResetGameBtn" type="TextureButton" parent="Control/EndOfGameScreen"]
+margin_left = 706.572
+margin_top = 532.338
+margin_right = 1220.57
+margin_bottom = 698.338
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control/EndOfGameScreen"]
 anchor_right = 1.0
@@ -143,6 +167,16 @@ text = "Udało się!
 Drwale nie zagrażają już twojemu gatunkowi. 
 Odbudowałeś populację Myszojeleni i rodzinny las!"
 align = 1
+
+[node name="DevelopersButton" parent="Control/EndOfGameScreen" instance=ExtResource( 5 )]
+margin_left = 64.1562
+margin_top = 520.987
+margin_right = 339.156
+margin_bottom = 659.987
+
+[node name="DevelopersScreen" parent="." instance=ExtResource( 15 )]
+visible = false
 [connection signal="pressed" from="Control/GameOverScreen/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]
 [connection signal="pressed" from="Control/LevelWonScreen/NextLevelBtn" to="." method="_on_NextLevelBtn_pressed"]
 [connection signal="pressed" from="Control/EndOfGameScreen/ResetGameBtn" to="." method="_on_ResetGameBtn_pressed"]
+[connection signal="pressed" from="Control/EndOfGameScreen/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]

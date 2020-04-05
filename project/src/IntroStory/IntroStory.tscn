@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/intro_story/intro_story2.png" type="Texture" id=1]
 [ext_resource path="res://assets/intro_story/intro_story1.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/fonts/tres/shojumaru_20.tres" type="DynamicFont" id=10]
 [ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=11]
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/DevelopersScreen/DevelopersButton.tscn" type="PackedScene" id=13]
 
 [node name="IntroStory" type="Control"]
 anchor_right = 1.0
@@ -63,16 +64,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Button" type="Button" parent="Story1"]
-margin_left = 67.5256
-margin_top = 621.236
-margin_right = 204.526
-margin_bottom = 660.236
-mouse_default_cursor_shape = 2
-text = "TWÓRCY"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="DevelopersButton" parent="Story1" instance=ExtResource( 13 )]
 
 [node name="Story2" type="TextureRect" parent="."]
 visible = false
@@ -170,6 +162,6 @@ texture_hover = ExtResource( 8 )
 
 [node name="DevelopersScreen" parent="." instance=ExtResource( 12 )]
 visible = false
-[connection signal="pressed" from="Story1/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Story1/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]
 [connection signal="pressed" from="NextArrow" to="." method="_on_NextArrow_pressed"]
 [connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]

@@ -83,13 +83,13 @@ func load_game() -> void:
 	get_tree().change_scene_to(game_scene)
 
 
-func _on_Button_pressed():
-	developers_screen.show()
-
-
 func _on_NextArrow_pressed():
 	emit_signal("next_screen_requested")
 
 
 func _on_PlayBtn_pressed():
 	load_game()
+
+
+func _on_DevelopersButton_pressed():
+	developers_screen.show()
