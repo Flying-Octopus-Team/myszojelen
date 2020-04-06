@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/developers/dominik.png" type="Texture" id=1]
 [ext_resource path="res://assets/developers/wojtek.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.gd" type="Script" id=7]
 [ext_resource path="res://assets/developers/x_btn.png" type="Texture" id=8]
 [ext_resource path="res://assets/developers/Michal.png" type="Texture" id=9]
+[ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=10]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.137255, 0.109804, 0.231373, 1 )
@@ -293,20 +294,16 @@ margin_bottom = 214.0
 shortcut_in_tooltip = false
 underline = 2
 
-[node name="XBtn" type="TextureButton" parent="Origin/Panel"]
+[node name="XBtn" parent="Origin/Panel" instance=ExtResource( 10 )]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -111.0
-margin_top = 13.0
-margin_right = -16.0
-margin_bottom = 107.0
-mouse_default_cursor_shape = 2
+margin_left = -109.179
+margin_top = 13.1722
+margin_right = -10.1787
+margin_bottom = 103.172
 texture_normal = ExtResource( 8 )
-expand = true
-stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_pressed = null
+texture_hover = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/show_panel = SubResource( 2 )
