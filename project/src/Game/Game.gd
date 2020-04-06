@@ -12,6 +12,7 @@ onready var fade_layer = $FadeLayer
 
 onready var main_theme = $MainTheme
 onready var menu_theme = $MenuTheme
+onready var lose_music = $LoseMusic
 
 var trees_left : int
 
@@ -30,8 +31,6 @@ func _ready() -> void:
 	interface.connect("replay_requested", self, "_on_replay_requested")
 	interface.connect("reset_game_requested", self, "_on_reset_game_requested")
 	
-	main_theme.play()
-	
 	_start()
 
 
@@ -47,6 +46,10 @@ func _start() -> void:
 
 
 func _start_game() -> void:
+	lose_music.force_stop()
+	menu_theme.force_stop()
+	main_theme.play()
+	
 	interface.reset()
 	world.reset()
 	_next_level()
@@ -70,6 +73,8 @@ func _on_tree_cutted() -> void:
 
 
 func _game_over() -> void:
+	main_theme.force_stop()
+	lose_music.play()
 	emit_signal("game_over")
 
 
@@ -82,6 +87,8 @@ func _on_level_won() -> void:
 
 
 func _show_next_level_screen() -> void:
+	main_theme.force_stop()
+	menu_theme.play()
 	emit_signal("level_won")
 
 
@@ -90,14 +97,19 @@ func _on_end_of_levels() -> void:
 
 
 func _finish_game() -> void:
+	main_theme.force_stop()
+	menu_theme.play()
 	emit_signal("end_of_levels")
 
 
 func _on_next_level_requested() -> void:
+	lose_music.force_stop()
+	menu_theme.force_stop()
 	_fade("_next_level")
 
 
 func _next_level() -> void:
+	main_theme.play()
 	interface.reset()
 	world.next_level()
 	_prepare_trees_left()
@@ -109,6 +121,9 @@ func _on_replay_requested() -> void:
 
 
 func _reset_level() -> void:
+	lose_music.force_stop()
+	main_theme.play()
+	
 	interface.reset()
 	world.reset_level()
 	_prepare_trees_left()
