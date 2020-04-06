@@ -14,24 +14,48 @@ var shot_particles_position : Dictionary = {
 
 onready var shot_sound = $ShotSound
 
+var direction = {
+	"UP": Vector2(0, -1),
+	"DOWN": Vector2(0, 1),
+	"LEFT": Vector2(-1, 0),
+	"RIGHT": Vector2(1, 0)
+}
+
 
 func _process(delta) -> void:
 	if Input.is_action_pressed("ui_up"):
 		get_tree().set_input_as_handled()
-		move(get_forward_dir())
+		move(direction["UP"])
+		_rotate_to(Facing.TOP_RIGHT)
+	
+	elif Input.is_action_pressed("ui_down"):
+		get_tree().set_input_as_handled()
+		move(direction["DOWN"])
+		_rotate_to(Facing.BOTTOM_LEFT)
+	
+	elif Input.is_action_pressed("ui_left"):
+		get_tree().set_input_as_handled()
+		move(direction["LEFT"])
+		_rotate_to(Facing.TOP_LEFT)
+	
+	elif Input.is_action_pressed("ui_right"):
+		get_tree().set_input_as_handled()
+		move(direction["RIGHT"])
+		_rotate_to(Facing.BOTTOM_RIGHT)
 
 
 func _unhandled_key_input(event):
-	if Input.is_action_just_pressed("ui_left"):
-		_rotate(-1)
-		get_tree().set_input_as_handled()
-	
-	elif Input.is_action_just_pressed("ui_right"):
-		_rotate(1)
-		get_tree().set_input_as_handled()
-	
-	elif Input.is_action_just_released("shot"):
+	if Input.is_action_just_released("shot"):
 		_shot()
+	
+#	if Input.is_action_just_pressed("ui_left"):
+#		_rotate(-1)
+#		get_tree().set_input_as_handled()
+#
+#	elif Input.is_action_just_pressed("ui_right"):
+#		_rotate(1)
+#		get_tree().set_input_as_handled()
+#
 
 
 func _unhandled_input(event) -> void:
