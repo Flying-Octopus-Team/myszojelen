@@ -106,3 +106,4 @@ anims/cut_up_green = ExtResource( 5 )
 
 [node name="TreeCuttingSound" parent="." index="5"]
 stream = ExtResource( 15 )
+volume_db = -10.0

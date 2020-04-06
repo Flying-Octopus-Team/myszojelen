@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/intro_story/intro_story2.png" type="Texture" id=1]
 [ext_resource path="res://assets/intro_story/intro_story1.png" type="Texture" id=2]
@@ -6,16 +6,15 @@
 [ext_resource path="res://src/IntroStory/IntroStory.gd" type="Script" id=4]
 [ext_resource path="res://src/FadeScreen/FadeLayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/intro_story/buttons/arrow.png" type="Texture" id=6]
-[ext_resource path="res://assets/intro_story/buttons/playBtn.png" type="Texture" id=7]
-[ext_resource path="res://assets/intro_story/buttons/playBtn_hover.png" type="Texture" id=8]
-[ext_resource path="res://assets/intro_story/buttons/playBtn_press.png" type="Texture" id=9]
+[ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Buttons/DevelopersButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/fonts/tres/shojumaru_20.tres" type="DynamicFont" id=10]
 [ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=11]
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/DevelopersScreen/DevelopersButton.tscn" type="PackedScene" id=13]
-[ext_resource path="res://assets/audio/sfx/change_screen.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/audio/sfx/Interface/change_screen.wav" type="AudioStream" id=14]
 [ext_resource path="res://src/MenuTheme/MenuTheme.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/audio/music/Oriental.wav" type="AudioStream" id=16]
+[ext_resource path="res://src/UISounds/ClickSound.tscn" type="PackedScene" id=17]
 
 [node name="IntroStory" type="Control"]
 anchor_right = 1.0
@@ -67,7 +66,11 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="DevelopersButton" parent="Story1" instance=ExtResource( 13 )]
+[node name="DevelopersButton" parent="Story1" instance=ExtResource( 8 )]
+margin_left = 33.6013
+margin_top = 544.082
+margin_right = 357.601
+margin_bottom = 678.082
 
 [node name="Story2" type="TextureRect" parent="."]
 visible = false
@@ -142,24 +145,20 @@ text = "Gazety szybko nazwały go Wojowniczym Myszojeleniem."
 align = 1
 autowrap = true
 
-[node name="NextArrow" type="TextureButton" parent="."]
-margin_left = 960.0
-margin_top = 544.0
-margin_right = 1272.0
-margin_bottom = 713.0
-mouse_default_cursor_shape = 2
+[node name="NextArrow" parent="." instance=ExtResource( 7 )]
+margin_left = 830.072
+margin_top = 543.544
+margin_right = 1289.07
+margin_bottom = 724.544
 texture_normal = ExtResource( 6 )
+texture_pressed = null
+texture_hover = null
 
-[node name="PlayBtn" type="TextureButton" parent="."]
-visible = false
-margin_left = 800.0
-margin_top = 464.0
-margin_right = 1282.0
-margin_bottom = 699.0
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 9 )
-texture_hover = ExtResource( 8 )
+[node name="PlayBtn" parent="." instance=ExtResource( 7 )]
+margin_left = 794.746
+margin_top = 481.143
+margin_right = 1276.75
+margin_bottom = 716.143
 
 [node name="FadeLayer" parent="." instance=ExtResource( 5 )]
 
@@ -172,6 +171,8 @@ stream = ExtResource( 14 )
 [node name="MenuTheme" parent="." instance=ExtResource( 15 )]
 stream = ExtResource( 16 )
 loop = true
+
+[node name="ClickSound" parent="." instance=ExtResource( 17 )]
 [connection signal="pressed" from="Story1/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]
 [connection signal="pressed" from="NextArrow" to="." method="_on_NextArrow_pressed"]
 [connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hover.wav-ee1f86891383428ad18711754e3a7eff.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Interface/hover.wav"
+dest_files=[ "res://.import/hover.wav-ee1f86891383428ad18711754e3a7eff.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
