@@ -35,3 +35,15 @@ func _on_LinkButton_pressed():
 
 func _on_XBtn_pressed():
 	hide()
+
+
+func _on_CC_3_LinkBtn_pressed():
+	OS.shell_open("https://creativecommons.org/licenses/by-sa/3.0/")
+
+
+func _on_glassocean_btn_pressed():
+	OS.shell_open("https://opengameart.org/users/hectavex")
+
+
+func _on_rasmus_btn_pressed():
+	OS.shell_open("https://opengameart.org/users/spring")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/developers/dominik.png" type="Texture" id=1]
 [ext_resource path="res://assets/developers/wojtek.png" type="Texture" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://assets/developers/x_btn.png" type="Texture" id=8]
 [ext_resource path="res://assets/developers/Michal.png" type="Texture" id=9]
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/fonts/tres/shojumaru_12.tres" type="DynamicFont" id=11]
+[ext_resource path="res://assets/small_shadow.png" type="Texture" id=12]
+[ext_resource path="res://assets/characters/Player/myszojelen_down.png" type="Texture" id=13]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.137255, 0.109804, 0.231373, 1 )
@@ -99,19 +102,19 @@ __meta__ = {
 }
 
 [node name="Dominik" type="TextureRect" parent="Origin/Panel"]
-margin_left = 814.0
-margin_top = 124.0
-margin_right = 1136.0
-margin_bottom = 444.0
+margin_left = 838.948
+margin_top = 64.7551
+margin_right = 1160.95
+margin_bottom = 384.755
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
 
 [node name="Shadow" type="TextureRect" parent="Origin/Panel/Dominik"]
 show_behind_parent = true
-margin_left = -109.0
+margin_left = -107.64
 margin_top = 102.0
-margin_right = 403.0
+margin_right = 404.36
 margin_bottom = 358.0
 mouse_filter = 2
 texture = ExtResource( 5 )
@@ -134,10 +137,10 @@ custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
 text = "Programista"
 
 [node name="Wojtek" type="TextureRect" parent="Origin/Panel"]
-margin_left = 585.0
-margin_top = 4.0
-margin_right = 873.0
-margin_bottom = 252.0
+margin_left = 566.632
+margin_top = -9.99393
+margin_right = 854.632
+margin_bottom = 245.006
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
@@ -173,7 +176,7 @@ custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
 text = "Koordynator
 Scenarzysta
-Sam nie wiem
+Sam nie wie
 Murarz
 Tynkarz
 Akrobata"
@@ -183,10 +186,10 @@ __meta__ = {
 }
 
 [node name="Kacper" type="TextureRect" parent="Origin/Panel"]
-margin_left = 274.947
-margin_top = -18.759
-margin_right = 562.947
-margin_bottom = 301.241
+margin_left = -9.83885
+margin_top = 47.6879
+margin_right = 278.161
+margin_bottom = 367.688
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
@@ -227,18 +230,20 @@ __meta__ = {
 }
 
 [node name="Michal" type="TextureRect" parent="Origin/Panel"]
-margin_top = 80.0
-margin_right = 288.0
-margin_bottom = 400.0
+margin_left = 246.0
+margin_top = -25.0
+margin_right = 534.0
+margin_bottom = 287.0
+mouse_filter = 2
 texture = ExtResource( 9 )
 expand = true
 stretch_mode = 6
 
 [node name="Shadow" type="TextureRect" parent="Origin/Panel/Michal"]
 show_behind_parent = true
-margin_left = -103.757
+margin_left = -104.707
 margin_top = 157.917
-margin_right = 408.243
+margin_right = 407.293
 margin_bottom = 413.917
 mouse_filter = 2
 texture = ExtResource( 5 )
@@ -274,10 +279,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -233.0
-margin_top = -219.609
-margin_right = 233.0
-margin_bottom = 48.3909
+margin_left = -594.608
+margin_top = -227.123
+margin_right = -128.608
+margin_bottom = 40.8768
 mouse_filter = 2
 texture = ExtResource( 4 )
 expand = true
@@ -294,6 +299,34 @@ margin_bottom = 214.0
 shortcut_in_tooltip = false
 underline = 2
 
+[node name="Myszojelen" type="TextureRect" parent="Origin/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -85.0
+margin_top = -175.642
+margin_right = 85.0
+margin_bottom = -12.642
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shadow" type="TextureRect" parent="Origin/Panel/Myszojelen"]
+show_behind_parent = true
+margin_left = -159.821
+margin_top = 6.32117
+margin_right = 352.179
+margin_bottom = 262.321
+mouse_filter = 2
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="XBtn" parent="Origin/Panel" instance=ExtResource( 10 )]
 anchor_left = 1.0
 anchor_right = 1.0
@@ -305,8 +338,95 @@ texture_normal = ExtResource( 8 )
 texture_pressed = null
 texture_hover = null
 
+[node name="MusicCredits" type="Control" parent="Origin/Panel"]
+margin_left = -16.0088
+margin_top = -1.91095
+margin_right = 23.9912
+margin_bottom = 38.0891
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Label" parent="Origin/Panel/MusicCredits"]
+margin_left = 957.122
+margin_top = 479.693
+margin_right = 1144.12
+margin_bottom = 512.693
+custom_fonts/font = ExtResource( 11 )
+text = "Autorzy muzyki:"
+align = 2
+
+[node name="glassocean" type="Label" parent="Origin/Panel/MusicCredits"]
+margin_left = 900.146
+margin_top = 507.564
+margin_right = 1144.15
+margin_bottom = 540.564
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
+text = "glassocean.net"
+align = 2
+
+[node name="glassocean_btn" type="TextureButton" parent="Origin/Panel/MusicCredits/glassocean"]
+margin_left = 118.0
+margin_top = 1.0
+margin_right = 248.0
+margin_bottom = 18.0
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rasmus" type="Label" parent="Origin/Panel/MusicCredits"]
+margin_left = 898.93
+margin_top = 532.894
+margin_right = 1142.93
+margin_bottom = 565.894
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
+text = "Rasmus Damsgaard"
+align = 2
+
+[node name="rasmus_btn" type="TextureButton" parent="Origin/Panel/MusicCredits/Rasmus"]
+margin_left = 87.0
+margin_top = -1.0
+margin_right = 248.0
+margin_bottom = 17.0
+mouse_default_cursor_shape = 2
+
+[node name="Licence" type="Label" parent="Origin/Panel/MusicCredits"]
+margin_left = 730.79
+margin_top = 564.147
+margin_right = 1064.79
+margin_bottom = 597.147
+custom_fonts/font = ExtResource( 11 )
+text = "Udostępnione na licencji"
+align = 2
+
+[node name="CCLicence" type="Label" parent="Origin/Panel/MusicCredits"]
+margin_left = 1070.36
+margin_top = 564.68
+margin_right = 1145.36
+margin_bottom = 593.68
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
+text = "CC-BY 3.0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CC_3_LinkBtn" type="TextureButton" parent="Origin/Panel/MusicCredits/CCLicence"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 77.0
+margin_bottom = 19.0
+mouse_default_cursor_shape = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/show_panel = SubResource( 2 )
 [connection signal="gui_input" from="ColorRect" to="." method="_on_ColorRect_gui_input"]
 [connection signal="pressed" from="Origin/Panel/FOLogo/LinkButton" to="." method="_on_LinkButton_pressed"]
 [connection signal="pressed" from="Origin/Panel/XBtn" to="." method="_on_XBtn_pressed"]
+[connection signal="pressed" from="Origin/Panel/MusicCredits/glassocean/glassocean_btn" to="." method="_on_glassocean_btn_pressed"]
+[connection signal="pressed" from="Origin/Panel/MusicCredits/Rasmus/rasmus_btn" to="." method="_on_rasmus_btn_pressed"]
+[connection signal="pressed" from="Origin/Panel/MusicCredits/CCLicence/CC_3_LinkBtn" to="." method="_on_CC_3_LinkBtn_pressed"]
