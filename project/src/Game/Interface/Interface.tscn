@@ -154,10 +154,10 @@ Odbudowałeś populację Myszojeleni i rodzinny las!"
 align = 1
 
 [node name="DevelopersButton" parent="Control/EndOfGameScreen" instance=ExtResource( 5 )]
-margin_left = 64.1562
-margin_top = 520.987
-margin_right = 339.156
-margin_bottom = 659.987
+margin_left = 53.2774
+margin_top = 530.772
+margin_right = 357.277
+margin_bottom = 697.772
 
 [node name="ResetGameBtn" parent="Control/EndOfGameScreen" instance=ExtResource( 16 )]
 anchor_left = 0.5

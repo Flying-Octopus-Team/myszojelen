@@ -67,10 +67,10 @@ valign = 1
 autowrap = true
 
 [node name="DevelopersButton" parent="Story1" instance=ExtResource( 8 )]
-margin_left = 33.6013
-margin_top = 544.082
-margin_right = 357.601
-margin_bottom = 678.082
+margin_left = 36.5847
+margin_top = 528.877
+margin_right = 360.585
+margin_bottom = 700.877
 
 [node name="Story2" type="TextureRect" parent="."]
 visible = false
@@ -160,10 +160,10 @@ margin_top = 481.143
 margin_right = 1276.75
 margin_bottom = 716.143
 
-[node name="FadeLayer" parent="." instance=ExtResource( 5 )]
-
 [node name="DevelopersScreen" parent="." instance=ExtResource( 12 )]
 visible = false
+
+[node name="FadeLayer" parent="." instance=ExtResource( 5 )]
 
 [node name="ChangeScreenSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
