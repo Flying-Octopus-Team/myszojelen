@@ -1,4 +1,4 @@
-# myszojelen
+# Wojowniczy Mszojeleń
 Game made on GameJam: https://www.zostanwdomurobgry.pl/
 
 ## Play the game online (and download for Windows / Linux):
