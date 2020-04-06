@@ -1,5 +1,10 @@
 # myszojelen
 Game made on GameJam: https://www.zostanwdomurobgry.pl/
 
-## Download version 1.0 for Windows:
-https://drive.google.com/open?id=1aNYt6zGYJd26wnnlU6gvilArEoP8q5gF
+## Play the game online (and download for Windows / Linux):
+https://flyingoctopus.itch.io/wojowniczy-myszojelen
+
+## Screen shot
+
+![Myszojelen w lesie](https://github.com/Ajver/myszojelen/blob/master/img/img2.png)
+![Zrzut ekranu z gry](https://github.com/Ajver/myszojelen/blob/master/img/img1.png)
