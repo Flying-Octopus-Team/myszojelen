@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/screens/buttons/next_level/next_level_btn.png" type="Texture" id=14]
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/Game/Interface/GameOverScreen.gd" type="Script" id=17]
 
 [node name="Interface" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -46,9 +47,9 @@ custom_fonts/font = ExtResource( 3 )
 text = "Pozostało drzew: 5"
 
 [node name="GameOverScreen" type="Control" parent="Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -73,6 +74,36 @@ margin_bottom = 0.0
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 10 )
 texture_hover = ExtResource( 11 )
+
+[node name="Quote" type="Label" parent="Control/GameOverScreen"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 100.551
+margin_bottom = 169.551
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "\"Each morning we are born again. What we do today is what matter most\""
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Author" type="Label" parent="Control/GameOverScreen"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -122.774
+margin_top = 158.707
+margin_right = -122.774
+margin_bottom = 227.707
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Buddha"
+align = 2
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LevelWonScreen" type="Control" parent="Control"]
 visible = false
@@ -121,6 +152,7 @@ Teraz biegnij ratować kolejny las..."
 align = 1
 
 [node name="EndOfGameScreen" type="Control" parent="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
