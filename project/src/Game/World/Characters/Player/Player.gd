@@ -21,11 +21,34 @@ export var joy_sensinitivy := 0.5
 export var wait_time_after_rotate := 0.2 
 onready var _time_after_rotate := wait_time_after_rotate
 
+var direction = {
+	"UP": Vector2(0, -1),
+	"DOWN": Vector2(0, 1),
+	"LEFT": Vector2(-1, 0),
+	"RIGHT": Vector2(1, 0)
+}
+
 
 func _process(delta) -> void:
 	if Input.is_action_pressed("ui_up"):
 		get_tree().set_input_as_handled()
-		move(get_forward_dir())
+		move(direction["UP"])
+		_rotate_to(Facing.TOP_RIGHT)
+	
+	elif Input.is_action_pressed("ui_down"):
+		get_tree().set_input_as_handled()
+		move(direction["DOWN"])
+		_rotate_to(Facing.BOTTOM_LEFT)
+	
+	elif Input.is_action_pressed("ui_left"):
+		get_tree().set_input_as_handled()
+		move(direction["LEFT"])
+		_rotate_to(Facing.TOP_LEFT)
+	
+	elif Input.is_action_pressed("ui_right"):
+		get_tree().set_input_as_handled()
+		move(direction["RIGHT"])
+		_rotate_to(Facing.BOTTOM_RIGHT)
 	
 	elif Input.get_connected_joypads().size() > 0:
 		var joy_vec = Vector2(
@@ -68,16 +91,17 @@ func _unhandled_input(event) -> void:
 
 
 func _process_key_input() -> void:
-	if Input.is_action_just_pressed("ui_left"):
-		_rotate(-1)
-		get_tree().set_input_as_handled()
-	
-	elif Input.is_action_just_pressed("ui_right"):
-		_rotate(1)
-		get_tree().set_input_as_handled()
-	
-	elif Input.is_action_just_pressed("shot"):
+	if Input.is_action_just_pressed("shot"):
 		_shot()
+	
+#	if Input.is_action_just_pressed("ui_left"):
+#		_rotate(-1)
+#		get_tree().set_input_as_handled()
+#
+#	elif Input.is_action_just_pressed("ui_right"):
+#		_rotate(1)
+#		get_tree().set_input_as_handled()
+#
 
 
 func _shot() -> void:
