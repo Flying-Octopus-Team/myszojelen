@@ -11,4 +11,5 @@ func _ready() -> void:
 
 
 func steer(delta:float) -> void:
-	$Joystick.steer(delta)
+	for c in get_children():
+		c.steer(delta)

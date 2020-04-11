@@ -25,25 +25,6 @@ onready var stering : Node = $Stering
 
 
 func _process(delta) -> void:
-	var requested_direction : int = -1
-	var force_move := false
-	
-	if Input.is_action_pressed("ui_up"):
-		force_move = Input.is_action_just_pressed("ui_up") and facing == Facing.TOP_RIGHT
-		requested_direction = Facing.TOP_RIGHT
-	
-	elif Input.is_action_pressed("ui_down"):
-		force_move = Input.is_action_just_pressed("ui_down") and facing == Facing.BOTTOM_LEFT
-		requested_direction = Facing.BOTTOM_LEFT
-	
-	elif Input.is_action_pressed("ui_left"):
-		force_move = Input.is_action_just_pressed("ui_left") and facing == Facing.TOP_LEFT
-		requested_direction = Facing.TOP_LEFT
-	
-	elif Input.is_action_pressed("ui_right"):
-		force_move = Input.is_action_just_pressed("ui_right") and facing == Facing.BOTTOM_RIGHT
-		requested_direction = Facing.BOTTOM_RIGHT
-	
 	stering.steer(delta)
 
 
