@@ -21,12 +21,7 @@ export var joy_sensinitivy := 0.5
 export var wait_time_after_rotate := 0.2 
 onready var _time_after_rotate := wait_time_after_rotate
 
-var direction = {
-	"UP": Vector2(0, -1),
-	"DOWN": Vector2(0, 1),
-	"LEFT": Vector2(-1, 0),
-	"RIGHT": Vector2(1, 0)
-}
+onready var stering : Node = $Stering
 
 
 func _process(delta) -> void:
@@ -49,42 +44,7 @@ func _process(delta) -> void:
 		force_move = Input.is_action_just_pressed("ui_right") and facing == Facing.BOTTOM_RIGHT
 		requested_direction = Facing.BOTTOM_RIGHT
 	
-	elif Input.get_connected_joypads().size() > 0:
-		requested_direction = _get_axis_from_joy()
-	
-	if requested_direction > -1:
-		if requested_direction != facing:
-			_rotate_to(requested_direction)
-			_time_after_rotate = 0.0
-		elif force_move or _time_after_rotate >= wait_time_after_rotate:
-			move(get_forward_dir())
-		else:
-			_time_after_rotate += delta
-		
-		get_tree().set_input_as_handled()
-
-
-func _get_axis_from_joy() -> int:
-	var joy_vec = Vector2(
-		Input.get_joy_axis(0, JOY_AXIS_0),
-		Input.get_joy_axis(0, JOY_AXIS_1)
-	)
-	
-	if joy_vec.length_squared() < joy_sensinitivy:
-		return -1
-	
-	var joy_angle = joy_vec.angle()
-	
-	if joy_angle < 0 and joy_angle > -HALF_PI:
-		return Facing.TOP_RIGHT
-	elif joy_angle < -HALF_PI and joy_angle > -PI:
-		return Facing.TOP_LEFT
-	elif joy_angle > 0 and joy_angle < HALF_PI:
-		return Facing.BOTTOM_RIGHT
-	elif joy_angle > HALF_PI and joy_angle < PI:
-		return Facing.BOTTOM_LEFT
-	
-	return -1
+	stering.steer(delta)
 
 
 func _unhandled_input(event) -> void:
