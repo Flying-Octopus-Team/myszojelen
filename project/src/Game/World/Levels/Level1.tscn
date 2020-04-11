@@ -19,7 +19,5 @@ position = Vector2( 2048, 1024 )
 [node name="Vietnamese4" parent="WorldObjects" index="3" instance=ExtResource( 3 )]
 position = Vector2( -256, 128 )
 
-[node name="ThickVietnamese" parent="WorldObjects" index="4" groups=[
-"character",
-] instance=ExtResource( 2 )]
+[node name="ThickVietnamese" parent="WorldObjects" index="4" instance=ExtResource( 2 )]
 position = Vector2( 768, 384 )
