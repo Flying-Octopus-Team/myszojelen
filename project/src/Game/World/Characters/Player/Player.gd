@@ -30,55 +30,61 @@ var direction = {
 
 
 func _process(delta) -> void:
+	var requested_direction : int = -1
+	var force_move := false
+	
 	if Input.is_action_pressed("ui_up"):
-		get_tree().set_input_as_handled()
-		move(direction["UP"])
-		_rotate_to(Facing.TOP_RIGHT)
+		force_move = Input.is_action_just_pressed("ui_up") and facing == Facing.TOP_RIGHT
+		requested_direction = Facing.TOP_RIGHT
 	
 	elif Input.is_action_pressed("ui_down"):
-		get_tree().set_input_as_handled()
-		move(direction["DOWN"])
-		_rotate_to(Facing.BOTTOM_LEFT)
+		force_move = Input.is_action_just_pressed("ui_down") and facing == Facing.BOTTOM_LEFT
+		requested_direction = Facing.BOTTOM_LEFT
 	
 	elif Input.is_action_pressed("ui_left"):
-		get_tree().set_input_as_handled()
-		move(direction["LEFT"])
-		_rotate_to(Facing.TOP_LEFT)
+		force_move = Input.is_action_just_pressed("ui_left") and facing == Facing.TOP_LEFT
+		requested_direction = Facing.TOP_LEFT
 	
 	elif Input.is_action_pressed("ui_right"):
-		get_tree().set_input_as_handled()
-		move(direction["RIGHT"])
-		_rotate_to(Facing.BOTTOM_RIGHT)
+		force_move = Input.is_action_just_pressed("ui_right") and facing == Facing.BOTTOM_RIGHT
+		requested_direction = Facing.BOTTOM_RIGHT
 	
 	elif Input.get_connected_joypads().size() > 0:
-		var joy_vec = Vector2(
-			Input.get_joy_axis(0, JOY_AXIS_0),
-			Input.get_joy_axis(0, JOY_AXIS_1)
-		)
-		
-		if joy_vec.length_squared() < joy_sensinitivy:
-			return
-		
-		var joy_angle = joy_vec.angle()
-		var axis : int
-		
-		
-		if joy_angle < 0 and joy_angle > -HALF_PI:
-			axis = Facing.TOP_RIGHT
-		elif joy_angle < -HALF_PI and joy_angle > -PI:
-			axis = Facing.TOP_LEFT
-		elif joy_angle > 0 and joy_angle < HALF_PI:
-			axis = Facing.BOTTOM_RIGHT
-		elif joy_angle > HALF_PI and joy_angle < PI:
-			axis = Facing.BOTTOM_LEFT
-		
-		if axis != facing:
-			_rotate_to(axis)
+		requested_direction = _get_axis_from_joy()
+	
+	if requested_direction > -1:
+		if requested_direction != facing:
+			_rotate_to(requested_direction)
 			_time_after_rotate = 0.0
-		elif _time_after_rotate >= wait_time_after_rotate:
+		elif force_move or _time_after_rotate >= wait_time_after_rotate:
 			move(get_forward_dir())
 		else:
 			_time_after_rotate += delta
+		
+		get_tree().set_input_as_handled()
+
+
+func _get_axis_from_joy() -> int:
+	var joy_vec = Vector2(
+		Input.get_joy_axis(0, JOY_AXIS_0),
+		Input.get_joy_axis(0, JOY_AXIS_1)
+	)
+	
+	if joy_vec.length_squared() < joy_sensinitivy:
+		return -1
+	
+	var joy_angle = joy_vec.angle()
+	
+	if joy_angle < 0 and joy_angle > -HALF_PI:
+		return Facing.TOP_RIGHT
+	elif joy_angle < -HALF_PI and joy_angle > -PI:
+		return Facing.TOP_LEFT
+	elif joy_angle > 0 and joy_angle < HALF_PI:
+		return Facing.BOTTOM_RIGHT
+	elif joy_angle > HALF_PI and joy_angle < PI:
+		return Facing.BOTTOM_LEFT
+	
+	return -1
 
 
 func _unhandled_input(event) -> void:
