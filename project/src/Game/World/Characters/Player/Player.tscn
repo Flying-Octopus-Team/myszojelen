@@ -9,8 +9,8 @@
 [ext_resource path="res://src/TouchScreenkLayer/TouchScreenStering.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Game/World/Characters/Player/Stering/Stering.gd" type="Script" id=8]
 [ext_resource path="res://src/Game/World/Characters/Player/Stering/Joystick.gd" type="Script" id=9]
-[ext_resource path="res://src/Game/World/Characters/Player/Stering/KeybordNormal.gd" type="Script" id=10]
-[ext_resource path="res://src/Game/World/Characters/Player/Stering/KeybordRotating.gd" type="Script" id=11]
+[ext_resource path="res://src/Game/World/Characters/Player/Stering/KeyboardNormal.gd" type="Script" id=10]
+[ext_resource path="res://src/Game/World/Characters/Player/Stering/KeyboardRotating.gd" type="Script" id=11]
 [ext_resource path="res://src/Game/World/Characters/Player/Stering/KeyboardDoubleKeys.gd" type="Script" id=12]
 [ext_resource path="res://src/Game/World/Characters/Player/Stering/Rotator.gd" type="Script" id=13]
 
@@ -83,7 +83,7 @@ script = ExtResource( 8 )
 [node name="Joystick" type="Node" parent="Stering" index="0"]
 script = ExtResource( 9 )
 
-[node name="KeybordRotating" type="Node" parent="Stering" index="1"]
+[node name="KeyboardRotating" type="Node" parent="Stering" index="1"]
 script = ExtResource( 11 )
 enabled = false
 
@@ -93,5 +93,5 @@ script = ExtResource( 13 )
 [node name="KeyboardDoubleKeys" type="Node" parent="Stering" index="3"]
 script = ExtResource( 12 )
 
-[node name="KeybordNormal" type="Node" parent="Stering" index="4"]
+[node name="KeyboardNormal" type="Node" parent="Stering" index="4"]
 script = ExtResource( 10 )
