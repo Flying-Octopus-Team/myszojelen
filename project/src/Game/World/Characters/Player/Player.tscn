@@ -62,7 +62,6 @@ texture = ExtResource( 4 )
 visible = false
 position = Vector2( 130, -20 )
 scale = Vector2( 1.42857, 1.42857 )
-emitting = false
 lifetime = 0.6
 one_shot = true
 explosiveness = 1.0

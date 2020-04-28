@@ -18,26 +18,27 @@ func steer(delta:float) -> void:
 		return
 	
 	if Input.is_action_pressed("ui_up"):
-		force_move = Input.is_action_just_pressed("ui_up") and facing == Facing.TOP_RIGHT
+		force_move = Input.is_action_just_pressed("ui_up")
 		requested_direction = Facing.TOP_RIGHT
 	
 	elif Input.is_action_pressed("ui_down"):
-		force_move = Input.is_action_just_pressed("ui_down") and facing == Facing.BOTTOM_LEFT
+		force_move = Input.is_action_just_pressed("ui_down")
 		requested_direction = Facing.BOTTOM_LEFT
 	
 	elif Input.is_action_pressed("ui_left"):
-		force_move = Input.is_action_just_pressed("ui_left") and facing == Facing.TOP_LEFT
+		force_move = Input.is_action_just_pressed("ui_left")
 		requested_direction = Character.Facing.TOP_LEFT
 	
 	elif Input.is_action_pressed("ui_right"):
-		force_move = Input.is_action_just_pressed("ui_right") and facing == Facing.BOTTOM_RIGHT
+		force_move = Input.is_action_just_pressed("ui_right")
 		requested_direction = Facing.BOTTOM_RIGHT
 	
 	if requested_direction > -1:
 		if requested_direction != facing:
 			player._rotate_to(requested_direction)
 			_time_after_rotate = 0.0
-		elif force_move or _time_after_rotate >= wait_time_after_rotate:
+		elif ((force_move and facing == requested_direction) 
+			or _time_after_rotate >= wait_time_after_rotate):
 			player.move(player.get_forward_dir())
 		else:
 			_time_after_rotate += delta
