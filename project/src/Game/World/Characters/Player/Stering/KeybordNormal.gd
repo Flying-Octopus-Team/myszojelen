@@ -8,6 +8,15 @@ func steer(delta:float) -> void:
 	
 	var Facing = Character.Facing
 	
+	if Input.is_action_just_pressed("rotate_left"):
+		player._rotate(-1)
+	
+	elif Input.is_action_just_pressed("rotate_right"):
+		player._rotate(1)
+	
+	if Input.is_key_pressed(KEY_CONTROL):
+		return
+	
 	if Input.is_action_pressed("ui_up"):
 		force_move = Input.is_action_just_pressed("ui_up") and facing == Facing.TOP_RIGHT
 		requested_direction = Facing.TOP_RIGHT
@@ -23,12 +32,6 @@ func steer(delta:float) -> void:
 	elif Input.is_action_pressed("ui_right"):
 		force_move = Input.is_action_just_pressed("ui_right") and facing == Facing.BOTTOM_RIGHT
 		requested_direction = Facing.BOTTOM_RIGHT
-	
-	elif Input.is_action_just_pressed("rotate_left"):
-		player._rotate(-1)
-	
-	elif Input.is_action_just_pressed("rotate_right"):
-		player._rotate(1)
 	
 	if requested_direction > -1:
 		if requested_direction != facing:
