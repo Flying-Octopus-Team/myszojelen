@@ -12,4 +12,9 @@ func _ready() -> void:
 
 func steer(delta:float) -> void:
 	for c in get_children():
-		c.steer(delta)
+		if not c.enabled:
+			continue
+		
+		if c.steer(delta):
+			get_tree().set_input_as_handled()
+			return

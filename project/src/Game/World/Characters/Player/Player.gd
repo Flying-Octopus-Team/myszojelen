@@ -40,15 +40,6 @@ func _unhandled_input(event) -> void:
 func _process_key_input() -> void:
 	if Input.is_action_just_pressed("shot"):
 		_shot()
-	
-#	if Input.is_action_just_pressed("ui_left"):
-#		_rotate(-1)
-#		get_tree().set_input_as_handled()
-#
-#	elif Input.is_action_just_pressed("ui_right"):
-#		_rotate(1)
-#		get_tree().set_input_as_handled()
-#
 
 
 func _shot() -> void:
@@ -72,6 +63,13 @@ func move_to(target_pos:Vector2) -> void:
 	set_process(false)
 	.move_to(target_pos)
 	yield(self, "move_end")
+	set_process(true)
+
+
+func _rotate(dir:int) -> void:
+	set_process(false)
+	._rotate(dir)
+	yield(animation_player, "animation_finished")
 	set_process(true)
 
 
