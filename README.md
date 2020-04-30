@@ -11,3 +11,6 @@ https://youtu.be/t4YO5KZatgE
 
 ![Myszojelen w lesie](https://github.com/Ajver/myszojelen/blob/master/img/img2.png)
 ![Zrzut ekranu z gry](https://github.com/Ajver/myszojelen/blob/master/img/img1.png)
+
+
+nauka gita
