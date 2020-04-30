@@ -155,10 +155,10 @@ texture_pressed = null
 texture_hover = null
 
 [node name="PlayBtn" parent="." instance=ExtResource( 7 )]
-margin_left = 794.746
-margin_top = 481.143
-margin_right = 1276.75
-margin_bottom = 716.143
+margin_left = 160.753
+margin_top = 256.753
+margin_right = 458.753
+margin_bottom = 329.753
 
 [node name="DevelopersScreen" parent="." instance=ExtResource( 12 )]
 visible = false
