@@ -15,6 +15,7 @@ script = ExtResource( 3 )
 [node name="World" parent="." instance=ExtResource( 2 )]
 
 [node name="Interface" parent="." instance=ExtResource( 1 )]
+layer = 32
 
 [node name="FadeLayer" parent="." instance=ExtResource( 5 )]
 

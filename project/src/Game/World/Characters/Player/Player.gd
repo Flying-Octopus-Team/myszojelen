@@ -21,41 +21,11 @@ export var joy_sensinitivy := 0.5
 export var wait_time_after_rotate := 0.2 
 onready var _time_after_rotate := wait_time_after_rotate
 
+onready var stering : Node = $Stering
+
 
 func _process(delta) -> void:
-	if Input.is_action_pressed("ui_up"):
-		get_tree().set_input_as_handled()
-		move(get_forward_dir())
-	
-	elif Input.get_connected_joypads().size() > 0:
-		var joy_vec = Vector2(
-			Input.get_joy_axis(0, JOY_AXIS_0),
-			Input.get_joy_axis(0, JOY_AXIS_1)
-		)
-		
-		if joy_vec.length_squared() < joy_sensinitivy:
-			return
-		
-		var joy_angle = joy_vec.angle()
-		var axis : int
-		
-		
-		if joy_angle < 0 and joy_angle > -HALF_PI:
-			axis = Facing.TOP_RIGHT
-		elif joy_angle < -HALF_PI and joy_angle > -PI:
-			axis = Facing.TOP_LEFT
-		elif joy_angle > 0 and joy_angle < HALF_PI:
-			axis = Facing.BOTTOM_RIGHT
-		elif joy_angle > HALF_PI and joy_angle < PI:
-			axis = Facing.BOTTOM_LEFT
-		
-		if axis != facing:
-			_rotate_to(axis)
-			_time_after_rotate = 0.0
-		elif _time_after_rotate >= wait_time_after_rotate:
-			move(get_forward_dir())
-		else:
-			_time_after_rotate += delta
+	stering.steer(delta)
 
 
 func _unhandled_input(event) -> void:
@@ -68,15 +38,7 @@ func _unhandled_input(event) -> void:
 
 
 func _process_key_input() -> void:
-	if Input.is_action_just_pressed("ui_left"):
-		_rotate(-1)
-		get_tree().set_input_as_handled()
-	
-	elif Input.is_action_just_pressed("ui_right"):
-		_rotate(1)
-		get_tree().set_input_as_handled()
-	
-	elif Input.is_action_just_pressed("shot"):
+	if Input.is_action_just_pressed("shot"):
 		_shot()
 
 
@@ -101,6 +63,13 @@ func move_to(target_pos:Vector2) -> void:
 	set_process(false)
 	.move_to(target_pos)
 	yield(self, "move_end")
+	set_process(true)
+
+
+func _rotate(dir:int) -> void:
+	set_process(false)
+	._rotate(dir)
+	yield(animation_player, "animation_finished")
 	set_process(true)
 
 
