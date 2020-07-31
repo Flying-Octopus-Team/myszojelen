@@ -1,10 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://src/Game/World/Levels/Level1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Game/World/Levels/Level_mid_dig.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Game/World/World.gd" type="Script" id=2]
-[ext_resource path="res://src/Game/World/Levels/Level2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/Game/World/Levels/Level3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Game/World/Levels/Level_digger_1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Game/World/Levels/Level_open_assault.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Game/World/Levels/Level_start_1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Game/World/Levels/Level_small_many.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Game/World/Levels/Level_two_paths.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Game/World/Levels/Level_small_assault.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Game/World/Levels/Level_start_2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Game/World/Levels/Level_im_fat.tscn" type="PackedScene" id=10]
 
 [node name="World" type="Node"]
 script = ExtResource( 2 )
-LevelScenes = [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ) ]
+LevelScenes = [ ExtResource( 5 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ) ]

@@ -11,6 +11,8 @@ var world_objects : Node2D
 export var top_right_texture : Texture
 export var bottom_right_texture : Texture
 
+export var move_speed : float = 1
+
 enum Facing {
 	TOP_LEFT, 
 	TOP_RIGHT,
@@ -28,7 +30,7 @@ onready var textures : Dictionary = {
 onready var sprite = $Pivot/Sprite
 onready var pivot = $Pivot
 onready var pivot_move_tween = $PivotMoveTween
-onready var animation_player = $AnimationPlayer
+onready var animation_player : AnimationPlayer = $AnimationPlayer
 
 var facing : int = Facing.BOTTOM_RIGHT
 
@@ -58,8 +60,8 @@ func move_to(target_pos:Vector2) -> void:
 	position = target_pos
 	
 	pivot.position = -diff_pos
-	pivot_move_tween.interpolate_property(pivot, "position", null, Vector2.ZERO, animation_player.current_animation_length)
-	
+	pivot_move_tween.interpolate_property(pivot, "position", null, Vector2.ZERO, animation_player.current_animation_length / move_speed)
+
 	pivot_move_tween.start()
 
 
