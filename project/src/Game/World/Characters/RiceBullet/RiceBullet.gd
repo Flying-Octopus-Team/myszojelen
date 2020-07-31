@@ -5,7 +5,6 @@ export var move_time : float
 
 var is_alive := true
 
-
 func _ready() -> void:
 	move_animation_name = "rice_move"
 	var all_fly_length = move_time * move_range
@@ -15,7 +14,7 @@ func _ready() -> void:
 
 
 func _process(delta) -> void:
-	if _hitted_something():
+	if _hit_something():
 		destroy()
 	
 	if not is_alive:
@@ -44,21 +43,23 @@ func _process(delta) -> void:
 	
 	move_range -= 1
 	if move_range <= 0:
-		_hitted_something()
+		_hit_something()
 		destroy()
 	else:
 		set_process(true)
 
 
-func _hitted_something() -> bool:
+func _hit_something() -> bool:
 	var map_pos = tile_map.world_to_map(position)
 	var target_object = tile_map.get_world_object_from_map_pos(map_pos)
 	
 	if target_object != null and target_object.type != Type.PLAYER:
 		if target_object.type == Type.ENEMY:
 			target_object.hit()
+		if target_object.type == Type.OBSTACLE:
+			target_object.try_to_move(get_forward_dir())
 		return true
-	
+
 	return false
 
 
