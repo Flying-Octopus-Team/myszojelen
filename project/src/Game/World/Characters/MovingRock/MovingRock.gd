@@ -10,7 +10,7 @@ extends Character
 func _ready():
 	pass # Replace with function body.
 
-# FIXME: Blocks first tile it started in
+# FIXME: Blocks some tiles it was in :v
 func try_to_move(direction : Vector2):
 	var current_map_pos = tile_map.world_to_map(position)
 	var target_pos = current_map_pos + direction
