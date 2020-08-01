@@ -57,11 +57,10 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_y = 2
 text = "Myszojelenie są gatunkiem, który uważano za wymarły. Jednak w zeszłym roku, po prawie 30 latach, zaobserwowano go ponownie w prowincji Khanh Hoa południowego Wietnamu.
 
-Naukowcy donoszą: powodem, przez który myszojelenie wymierają może być wycinka lasów tropikalnych na wielką skalę.
+Naukowcy donoszą: „powodem, przez który myszojelenie wymierają, może być wycinka lasów tropikalnych na wielką skalę”.
 
 An Nguyen z organizacji Global Wildlife Conservation (GWC) stwierdził:
-Gatunek myszojeleni przez długi czas funkcjonował tylko jako element naszej wyobraźni. Nie pozwolimy, by myszojelenie ponownie zniknęły nam z oczu! Odkrycie, że on dalej istnieje, motywuje nas do podjęcia działań mających na celu jak najszybszą ochronę gatunku.
-"
+ „gatunek myszojeleni przez długi czas funkcjonował tylko jako element naszej wyobraźni. Nie pozwolimy, by myszojelenie ponownie zniknęły nam z oczu! Odkrycie, że dalej istnieją, motywuje nas do podjęcia działań, mających na celu jak najszybszą ochronę gatunku”."
 align = 1
 valign = 1
 autowrap = true
@@ -103,9 +102,9 @@ custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0.14902, 0.14902, 0.14902, 1 )
 custom_constants/shadow_offset_y = 2
-text = "Co tak naprawdę się wydarzyło do dzisiaj stanowi zagadkę. Według pogłosek poprzez indywidualne wysiłki samego Ngueyena, udało się złapać pojedynczego osobnika, który następnie został zmodyfikowany genetycznie. Niektórzy twierdzą, że w sprawę może być zamieszana nawet cała GWC.
+text = "Co tak naprawdę się wydarzyło, do dzisiaj stanowi zagadkę. Według pogłosek, poprzez indywidualne wysiłki samego Ngueyena, udało się złapać pojedynczego osobnika, który następnie został zmodyfikowany genetycznie. Niektórzy twierdzą, że w sprawę może być zamieszana nawet cała GWC.
 
-Jednak niezbitym faktem pozostaje, że 6 kwietnia 2020 roku wietnamscy drwale zmierzyli się z nieoczekiwanym wręcz zjawiskiem, gdy to nieznany osobnik myszojelenia zaczął walkę z bezdusznymi ścinaczami drzew. Jego celem była odbudowa lasu tropikalnego oraz całego gatunku myszojeleni.
+Jednak faktem pozostaje, że 6 kwietnia 2020 roku wietnamscy drwale zmierzyli się z nieprawdopodobnym wręcz zjawiskiem, kiedy to nieznany myszojeleń zaczął walkę z bezdusznymi ścinaczami drzew. Jego celem była odbudowa lasu tropikalnego oraz całego gatunku myszojeleni.
 "
 align = 1
 valign = 1
