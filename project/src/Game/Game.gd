@@ -6,7 +6,7 @@ signal end_of_levels
 
 export var fade_color : Color
 
-onready var world : Node2D = $World
+onready var world : Node = $World
 onready var interface : CanvasLayer = $Interface
 onready var fade_layer = $FadeLayer
 
