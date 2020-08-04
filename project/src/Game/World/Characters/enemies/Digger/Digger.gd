@@ -37,4 +37,4 @@ func _change_texture_to_burried() -> void:
 		Facing.BOTTOM_LEFT, Facing.BOTTOM_RIGHT:
 			new_texture = buried_down_texture
 	
-	sprite.texture = buried_up_texture
+	sprite.texture = new_texture
