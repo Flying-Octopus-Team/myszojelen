@@ -9,14 +9,14 @@ class Quote:
 		author = a
 
 var quotes : Array = [
-	Quote.new("No matter how hard the past, you can always begin again.", "Buddha"),
-	Quote.new("Not until we are lost we begin to find ourselves.", "Henry David Thoreau"),
-	Quote.new("Turn your wounds into wisdom.", "Oprah Winfrey"),
-	Quote.new("You have to break down before you can break through.", "Marilyn Ferguson"),
-	Quote.new("Fall seven times and stand up eight.", "Japanese proverb"),
-	Quote.new("Each morning we are born again. What we do today is what matter most.", "Buddha"),
-	Quote.new("Do not let the behaviour of others destroy your inner peace.", "Dalai Lama"),
-	Quote.new("If the jungle is withered and you want to restore it to life, you must water each tree of that jungle.", "S. N. Goenka")
+	Quote.new("No matter how hard the past, you can always begin again", "Buddha"),
+	Quote.new("Not until we are lost we begin to find ourselves", "Henry David Thoreau"),
+	Quote.new("Turn your wounds into wisdom", "Oprah Winfrey"),
+	Quote.new("You have to break down before you can break through", "Marilyn Ferguson"),
+	Quote.new("Fall seven times and stand up eight", "Japanese proverb"),
+	Quote.new("Each morning we are born again. What we do today is what matter most", "Buddha"),
+	Quote.new("Do not let the behaviour of others destroy your inner peace", "Dalai Lama"),
+	Quote.new("If the jungle is withered and you want to restore it to life, you must water each tree of that jungle", "S. N. Goenka")
 ]
 
 onready var quote_label : Label = $Quote
@@ -43,5 +43,5 @@ func _rand_quote() -> void:
 
 
 func _show_quote(quote:Quote) -> void:
-	quote_label.text = "\"" + quote.quote + "\""
-	author_label.text = quote.author
+	quote_label.text = "„" + quote.quote + "”."
+	author_label.text = "– " + quote.author
