@@ -38,8 +38,9 @@ color_ramp = SubResource( 2 )
 script = ExtResource( 4 )
 top_right_texture = ExtResource( 1 )
 bottom_right_texture = ExtResource( 2 )
-cutting_speed = 3
-hp = 3
+move_speed = 2.0
+cut_speed_modifier = 2.0
+hp = 5
 
 [node name="Sprite" parent="Pivot" index="1"]
 position = Vector2( 0, 0 )
@@ -48,7 +49,6 @@ offset = Vector2( 0, 64 )
 [node name="FumesParticlesBack" type="Particles2D" parent="Pivot" index="2"]
 show_behind_parent = true
 position = Vector2( 0, 35.9391 )
-emitting = false
 amount = 12
 lifetime = 3.0
 local_coords = false
@@ -57,7 +57,6 @@ texture = ExtResource( 5 )
 
 [node name="FumesParticlesFront" type="Particles2D" parent="Pivot" index="3"]
 position = Vector2( 0, 152.931 )
-emitting = false
 amount = 24
 lifetime = 3.0
 local_coords = false

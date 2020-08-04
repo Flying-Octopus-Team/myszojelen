@@ -1,7 +1,7 @@
 extends Character
 class_name Enemy
 
-export var cutting_speed : int = 1
+export var cut_speed_modifier : float = 1.0
 
 export var hp : int = 1
 
@@ -14,6 +14,8 @@ var state : int = State.WALK setget set_state
 
 var cutted_tree : WorldObject = null
 
+func _ready():
+	next_move_timer.wait_time = 1 / move_speed
 
 func set_state(s:int) -> void:
 	var previous_state = state
@@ -131,7 +133,7 @@ func _cut_tree():
 	if facing != expected_facing:
 		_rotate_to(expected_facing)
 	
-	tile_map.cut_tree(tree_map_pos, cutting_speed)
+	tile_map.cut_tree(tree_map_pos, cut_speed_modifier)
 	
 	tree_cutting_sound.play()
 

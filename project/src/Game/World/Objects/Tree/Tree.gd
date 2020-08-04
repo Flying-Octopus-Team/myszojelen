@@ -2,7 +2,7 @@ extends WorldObject
 
 signal cutted
 
-export var life : int = 5
+export var life : float = 5.0
 export(Array, Texture) var textures : Array
 export var trunk_texture : Texture
 
@@ -14,11 +14,11 @@ func _ready() -> void:
 	$Sprite.texture = random_texture
 
 
-func cut(speed:int) -> bool:
+func cut(cut_speed_modifier: float) -> bool:
 	if life <= 0:
 		return false
 	
-	life -= speed
+	life -= 1 * cut_speed_modifier
 	
 	if life <= 0: # Died
 		die()

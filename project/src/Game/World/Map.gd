@@ -244,13 +244,13 @@ func get_used_cells_by_id_in_map_range(id) -> Array:
 
 
 # Returns false when tree was cutted
-func cut_tree(tree_map_pos:Vector2, cutting_speed:int) -> bool:
+func cut_tree(tree_map_pos:Vector2, cut_speed_modifier: float) -> bool:
 	var tree = get_world_object_from_map_pos(tree_map_pos)
 	if tree == null or tree.type != TREE_ID:
 		print("No tree on ", tree_map_pos)
 		return false
 	
-	if not tree.cut(cutting_speed):
+	if not tree.cut(cut_speed_modifier):
 		set_cellv(tree_map_pos, EMPTY_TILE)
 		obstacles.erase(tree_map_pos)
 		var point_index = calculate_point_index(tree_map_pos)
