@@ -12,8 +12,8 @@
 [ext_resource path="res://assets/fonts/tres/shojumaru_20.tres" type="DynamicFont" id=10]
 [ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=11]
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/audio/music/menu_theme.wav" type="AudioStream" id=13]
 [ext_resource path="res://assets/audio/sfx/Interface/change_screen.wav" type="AudioStream" id=14]
-[ext_resource path="res://assets/audio/music/Oriental.wav" type="AudioStream" id=16]
 [ext_resource path="res://src/UISounds/ClickSound.tscn" type="PackedScene" id=17]
 
 [node name="IntroStory" type="Control"]
@@ -170,7 +170,7 @@ stream = ExtResource( 14 )
 [node name="ClickSound" parent="." instance=ExtResource( 17 )]
 
 [node name="MenuTheme" parent="." instance=ExtResource( 9 )]
-stream = ExtResource( 16 )
+stream = ExtResource( 13 )
 autoplay = true
 [connection signal="pressed" from="Story1/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]
 [connection signal="pressed" from="NextArrow" to="." method="_on_NextArrow_pressed"]
