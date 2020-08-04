@@ -82,9 +82,9 @@ func _die() -> void:
 	animation_player.play("hop")
 	
 	if state == State.CUTTING:
-		set_state(State.IDLE)
 		cutting_animation_player.stop()
 		cutted_tree.stop_cutting()
 	
-	yield(get_tree().create_timer(0.5), "timeout")
-	queue_free()
+	set_state(State.IDLE)
+	
+	._die()
