@@ -57,6 +57,10 @@ boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://assets/icon.png"
 config/windows_native_icon="res://assets/icon.ico"
 
+[autoload]
+
+Settings="*res://src/PreloadedScripts/Settings.gd"
+
 [display]
 
 window/size/width=1280
