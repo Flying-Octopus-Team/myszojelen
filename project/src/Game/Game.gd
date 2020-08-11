@@ -5,8 +5,9 @@ signal level_won
 signal end_of_levels
 
 export var fade_color : Color
+export var end_delay_time := 1.0
 
-onready var world : Node2D = $World
+onready var world : Node = $World
 onready var interface : CanvasLayer = $Interface
 onready var fade_layer = $FadeLayer
 
@@ -82,6 +83,8 @@ func _on_level_won() -> void:
 	if not _is_game_running:
 		return
 	
+	yield(get_tree().create_timer(end_delay_time), "timeout")
+	
 	_is_game_running = false
 	_fade("_show_next_level_screen")
 
@@ -93,6 +96,8 @@ func _show_next_level_screen() -> void:
 
 
 func _on_end_of_levels() -> void:
+	yield(get_tree().create_timer(end_delay_time), "timeout")
+	
 	_fade("_finish_game")
 
 

@@ -38,4 +38,7 @@ texture = ExtResource( 2 )
 autostart = true
 
 [node name="TreeCuttingSound" type="AudioStreamPlayer" parent="." index="4"]
+
+[node name="FadeOutTween" type="Tween" parent="." index="5"]
+pause_mode = 2
 [connection signal="timeout" from="NextMoveTimer" to="." method="_on_NextMoveTimer_timeout"]

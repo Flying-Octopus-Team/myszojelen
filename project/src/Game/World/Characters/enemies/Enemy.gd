@@ -5,6 +5,9 @@ export var cut_speed_modifier : float = 1.0
 
 export var hp : int = 1
 
+export var fade_out_time := 1.0
+onready var fade_out_tween : Tween = $FadeOutTween
+
 onready var next_move_timer : Timer = $NextMoveTimer
 
 onready var tree_cutting_sound : AudioStreamPlayer = $TreeCuttingSound
@@ -16,6 +19,8 @@ var cutted_tree : WorldObject = null
 
 func _ready():
 	next_move_timer.wait_time = 1 / move_speed
+	fade_out_tween.connect("tween_all_completed", self, "_on_fade_out_completed")
+
 
 func set_state(s:int) -> void:
 	var previous_state = state
@@ -169,4 +174,9 @@ func die() -> void:
 
 # To override
 func _die() -> void:
+	fade_out_tween.interpolate_property(self, "modulate", null, Color(1.0, 1.0, 1.0, 0.0), fade_out_time)
+	fade_out_tween.start()
+
+
+func _on_fade_out_completed() -> void:
 	queue_free()
