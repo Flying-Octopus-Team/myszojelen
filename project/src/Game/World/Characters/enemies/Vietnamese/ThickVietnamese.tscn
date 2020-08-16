@@ -84,7 +84,6 @@ texture = ExtResource( 2 )
 
 [node name="HopParticles" type="Particles2D" parent="Pivot" index="2"]
 position = Vector2( 0, 127.877 )
-emitting = false
 amount = 30
 lifetime = 0.7
 one_shot = true
@@ -92,6 +91,9 @@ speed_scale = 2.0
 explosiveness = 1.0
 process_material = SubResource( 5 )
 texture = ExtResource( 5 )
+
+[node name="EatingAnimation" parent="Pivot" index="3"]
+frame = 1
 
 [node name="CuttingAnimationPlayer" parent="." index="4"]
 anims/thick_cutting_down = SubResource( 6 )
