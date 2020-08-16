@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/Game/World/Characters/enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Game/World/Characters/enemies/Vietnamese/Vietnamese.gd" type="Script" id=2]
@@ -15,9 +15,17 @@
 [ext_resource path="res://assets/characters/Vietnamese/blue/vietnamese_cutting_up1.png" type="Texture" id=13]
 [ext_resource path="res://assets/characters/Vietnamese/blue/vietnamese_cutting_up2.png" type="Texture" id=14]
 [ext_resource path="res://assets/audio/sfx/tree_cutting.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/characters/Vietnamese/blue/eating/1.png" type="Texture" id=16]
 
-[sub_resource type="Animation" id=1]
-resource_name = "cut_down_blue"
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "eating",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=3]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -33,8 +41,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 12 ), ExtResource( 11 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "cut_down_brown"
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -50,8 +57,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 10 ), ExtResource( 7 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "cut_up_blue"
+[sub_resource type="Animation" id=5]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -67,7 +73,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 13 ), ExtResource( 14 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -93,15 +99,22 @@ visible = true
 
 [node name="Sprite" parent="Pivot" index="1"]
 position = Vector2( 0, 0 )
-texture = ExtResource( 13 )
+texture = ExtResource( 16 )
 offset = Vector2( 0, -32 )
 
+[node name="EatingAnimation" type="AnimatedSprite" parent="Pivot" index="2"]
+visible = false
+position = Vector2( 0, -34.781 )
+scale = Vector2( 1.1, 1.1 )
+frames = SubResource( 2 )
+animation = "eating"
+
 [node name="CuttingAnimationPlayer" type="AnimationPlayer" parent="." index="4"]
-anims/cut_down_blue = SubResource( 1 )
-anims/cut_down_brown = SubResource( 2 )
+anims/cut_down_blue = SubResource( 3 )
+anims/cut_down_brown = SubResource( 4 )
 anims/cut_down_green = ExtResource( 6 )
-anims/cut_up_blue = SubResource( 3 )
-anims/cut_up_brown = SubResource( 4 )
+anims/cut_up_blue = SubResource( 5 )
+anims/cut_up_brown = SubResource( 6 )
 anims/cut_up_green = ExtResource( 5 )
 
 [node name="TreeCuttingSound" parent="." index="5"]
