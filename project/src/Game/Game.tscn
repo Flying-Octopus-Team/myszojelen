@@ -11,6 +11,7 @@
 
 [node name="Game" type="Node"]
 script = ExtResource( 3 )
+end_delay_time = 1.5
 
 [node name="World" parent="." instance=ExtResource( 2 )]
 

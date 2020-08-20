@@ -42,6 +42,7 @@ func _start() -> void:
 	
 	fade_layer.fade_in(fade_color)
 	yield(fade_layer, "faded_in")
+	_is_game_running = true
 	
 	get_tree().paused = false
 
