@@ -47,3 +47,7 @@ func _on_glassocean_btn_pressed():
 
 func _on_rasmus_btn_pressed():
 	OS.shell_open("https://opengameart.org/users/spring")
+
+
+func _on_SonicIdols_LinkBtn_pressed():
+	OS.shell_open("https://sonicidols.com")
