@@ -13,7 +13,7 @@
 [ext_resource path="res://assets/fonts/tres/shojumaru_12.tres" type="DynamicFont" id=11]
 [ext_resource path="res://assets/small_shadow.png" type="Texture" id=12]
 [ext_resource path="res://assets/characters/Player/myszojelen_down.png" type="Texture" id=13]
-[ext_resource path="res://assets/sonic idols logo.png" type="Texture" id=14]
+[ext_resource path="res://assets/developers/sonic idols logo.png" type="Texture" id=14]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.137255, 0.109804, 0.231373, 1 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sonic idols logo.png-a4f1777751f77221f2777c3879803ab3.stex"
+path="res://.import/sonic idols logo.png-493b76f64353dcb49d0f55fc6667f6b8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sonic idols logo.png"
-dest_files=[ "res://.import/sonic idols logo.png-a4f1777751f77221f2777c3879803ab3.stex" ]
+source_file="res://assets/developers/sonic idols logo.png"
+dest_files=[ "res://.import/sonic idols logo.png-493b76f64353dcb49d0f55fc6667f6b8.stex" ]
 
 [params]
 

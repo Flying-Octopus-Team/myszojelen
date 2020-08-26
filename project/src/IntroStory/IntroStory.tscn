@@ -161,11 +161,12 @@ margin_right = 1276.75
 margin_bottom = 716.143
 
 [node name="DevelopersScreen" parent="." instance=ExtResource( 12 )]
+visible = false
 
 [node name="SoundButton" parent="." instance=ExtResource( 13 )]
-margin_left = 56.9888
+margin_left = 49.8616
 margin_top = 53.1857
-margin_right = 221.989
+margin_right = 214.862
 margin_bottom = 221.186
 
 [node name="FadeLayer" parent="." instance=ExtResource( 5 )]
