@@ -16,7 +16,11 @@ var quotes : Array = [
 	Quote.new("Fall seven times and stand up eight", "Japanese proverb"),
 	Quote.new("Each morning we are born again. What we do today is what matter most", "Buddha"),
 	Quote.new("Do not let the behaviour of others destroy your inner peace", "Dalai Lama"),
-	Quote.new("If the jungle is withered and you want to restore it to life, you must water each tree of that jungle", "S. N. Goenka")
+	Quote.new("If the jungle is withered and you want to restore it to life, you must water each tree of that jungle", "S. N. Goenka"),
+	Quote.new("I cokolwiek uczynię, zamieni się na zawsze w to, co uczyniłam", "Wisława Szymborska"),
+	Quote.new("Ktoś tutaj był i był, a potem nagle zniknął i uporczywie go nie ma", "Wisława Szymborska"),
+	Quote.new("Nic dwa razy się nie zdarza i nie zdarzy. Z tej przyczyny zrodziliśmy się bez wprawy i pomrzemy bez rutyny", "Wisława Szymborska"),
+	Quote.new("Życie, choćby i długie, zawsze będzie krótkie", "Wisława Szymborska")
 ]
 
 onready var quote_label : Label = $Quote
