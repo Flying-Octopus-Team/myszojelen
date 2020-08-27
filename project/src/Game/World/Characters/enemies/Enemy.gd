@@ -1,9 +1,12 @@
 extends Character
 class_name Enemy
 
-export var cutting_speed : int = 1
+export var cut_speed_modifier : float = 1.0
 
 export var hp : int = 1
+
+export var fade_out_time := 1.0
+onready var fade_out_tween : Tween = $FadeOutTween
 
 onready var next_move_timer : Timer = $NextMoveTimer
 
@@ -13,6 +16,10 @@ enum State { IDLE, WALK, CUTTING }
 var state : int = State.WALK setget set_state
 
 var cutted_tree : WorldObject = null
+
+func _ready():
+	next_move_timer.wait_time = 1 / move_speed
+	fade_out_tween.connect("tween_all_completed", self, "_on_fade_out_completed")
 
 
 func set_state(s:int) -> void:
@@ -131,7 +138,7 @@ func _cut_tree():
 	if facing != expected_facing:
 		_rotate_to(expected_facing)
 	
-	tile_map.cut_tree(tree_map_pos, cutting_speed)
+	tile_map.cut_tree(tree_map_pos, cut_speed_modifier)
 	
 	tree_cutting_sound.play()
 
@@ -167,4 +174,9 @@ func die() -> void:
 
 # To override
 func _die() -> void:
+	fade_out_tween.interpolate_property(self, "modulate", null, Color(1.0, 1.0, 1.0, 0.0), fade_out_time)
+	fade_out_tween.start()
+
+
+func _on_fade_out_completed() -> void:
 	queue_free()

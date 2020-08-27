@@ -10,19 +10,19 @@
 [ext_resource path="res://assets/characters/Vietnamese/thick/thick_vietnamese_up.png" type="Texture" id=8]
 [ext_resource path="res://assets/characters/Vietnamese/thick/thick_vietnamese_down.png" type="Texture" id=9]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.270508, 0.15978, 0.0549469, 1, 0.375977, 0.189004, 0.055809, 0 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=6]
-curve = SubResource( 5 )
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 2
 emission_box_extents = Vector3( 60, 30, 1 )
 flag_disable_z = true
@@ -36,11 +36,10 @@ angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 100.0
-scale_curve = SubResource( 6 )
-color_ramp = SubResource( 4 )
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "thick_cutting_down"
+[sub_resource type="Animation" id=6]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -56,8 +55,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 2 ), ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "thick_cutting_up"
+[sub_resource type="Animation" id=7]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -77,23 +75,26 @@ tracks/0/keys = {
 script = ExtResource( 4 )
 top_right_texture = ExtResource( 8 )
 bottom_right_texture = ExtResource( 9 )
-hp = 2
-time_to_next_move = 0.9
+move_speed = 0.75
+hp = 10
+time_to_next_move = 0.7
 
 [node name="Sprite" parent="Pivot" index="1"]
 texture = ExtResource( 2 )
 
 [node name="HopParticles" type="Particles2D" parent="Pivot" index="2"]
 position = Vector2( 0, 127.877 )
-emitting = false
 amount = 30
 lifetime = 0.7
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
-process_material = SubResource( 7 )
+process_material = SubResource( 5 )
 texture = ExtResource( 5 )
 
+[node name="EatingAnimation" parent="Pivot" index="3"]
+frame = 1
+
 [node name="CuttingAnimationPlayer" parent="." index="4"]
-anims/thick_cutting_down = SubResource( 1 )
-anims/thick_cutting_up = SubResource( 2 )
+anims/thick_cutting_down = SubResource( 6 )
+anims/thick_cutting_up = SubResource( 7 )

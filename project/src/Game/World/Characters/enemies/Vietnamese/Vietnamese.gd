@@ -11,10 +11,13 @@ onready var cutting_animation : Dictionary = {
 } 
 
 onready var cutting_animation_player : AnimationPlayer = $CuttingAnimationPlayer
+onready var eating_animation : AnimatedSprite = $Pivot/EatingAnimation
 
 
 func _ready() -> void:
 	randomize()
+	
+	eating_animation.hide()
 	
 	_rand_textures()
 	
@@ -46,7 +49,27 @@ func _rand_textures() -> void:
 		Facing.TOP_RIGHT: "cut_up_" + color,
 		Facing.BOTTOM_RIGHT: "cut_down_" + color,
 		Facing.BOTTOM_LEFT: "cut_down_" + color
-	} 
+	}
+	
+	_setup_eating_animation(textures_path)
+
+
+func _setup_eating_animation(textures_path:String) -> void:
+	var eating_animation_frames := []
+	eating_animation_frames.resize(5)
+	
+	for i in range(1, 4):
+		var frame = load(textures_path + "eating/%d.png" % i)
+		eating_animation_frames[i-1] = frame
+	
+	eating_animation_frames[3] = eating_animation_frames[1]
+	eating_animation_frames[4] = eating_animation_frames[2]
+	
+	eating_animation.frames = SpriteFrames.new()
+	eating_animation.frames.add_animation("eating")
+	
+	for frame in eating_animation_frames:
+		eating_animation.frames.add_frame("eating", frame)
 
 
 func _on_state_changed(previous_state:int) -> void:
@@ -82,9 +105,13 @@ func _die() -> void:
 	animation_player.play("hop")
 	
 	if state == State.CUTTING:
-		set_state(State.IDLE)
 		cutting_animation_player.stop()
 		cutted_tree.stop_cutting()
 	
-	yield(get_tree().create_timer(0.5), "timeout")
-	queue_free()
+	set_state(State.IDLE)
+	
+	sprite.hide()
+	eating_animation.show()
+	eating_animation.play()
+	
+	._die()

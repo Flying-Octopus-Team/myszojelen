@@ -5,11 +5,11 @@ const HALF_PI = PI / 2.0
 export var joy_sensinitivy := 0.5 
 
 
-func steer(delta:float) -> void:
+func steer(delta:float) -> bool:
 	var requested_direction = _get_axis_from_joy()
 	
 	if requested_direction == -1:
-		return
+		return false
 	
 	if requested_direction != player.facing:
 		player._rotate_to(requested_direction)
@@ -21,7 +21,7 @@ func steer(delta:float) -> void:
 	else:
 		_time_after_rotate += delta
 	
-	get_tree().set_input_as_handled()
+	return true
 
 
 func _get_axis_from_joy() -> int:
