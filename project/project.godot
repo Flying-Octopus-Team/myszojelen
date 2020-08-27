@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="myszojelen"
-run/main_scene="res://src/IntroStory/IntroStory.tscn"
+run/main_scene="res://src/MainMenu/MainMenu.tscn"
 boot_splash/image="res://assets/fo-logo-big_1920.png"
 boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://assets/icon.png"

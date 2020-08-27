@@ -1,91 +1,97 @@
-[gd_scene format=2]
+[gd_scene load_steps=11 format=2]
 
-[node name="Menu" type="Control"]
+[ext_resource path="res://assets/MainMenu/menu.png" type="Texture" id=1]
+[ext_resource path="res://assets/MainMenu/board.png" type="Texture" id=2]
+[ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/MainMenu/new_game.png" type="Texture" id=4]
+[ext_resource path="res://assets/MainMenu/continue.png" type="Texture" id=5]
+[ext_resource path="res://assets/MainMenu/bye.png" type="Texture" id=6]
+[ext_resource path="res://assets/MainMenu/settings.png" type="Texture" id=7]
+[ext_resource path="res://src/MainMenu/MainMenu.gd" type="Script" id=8]
+[ext_resource path="res://src/IntroStory/IntroStory.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Game/Game.tscn" type="PackedScene" id=10]
+
+[node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+intro_story_scene = ExtResource( 9 )
+game_scene = ExtResource( 10 )
 
-[node name="TextureRect" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.505882, 0.960784, 0.898039, 1 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="TextureRect"]
-margin_left = 464.0
-margin_top = 142.0
-margin_right = 651.0
-margin_bottom = 945.0
-rect_rotation = 46.4424
-color = Color( 0.427451, 0.427451, 0.427451, 1 )
-
-[node name="ColorRect2" type="ColorRect" parent="TextureRect"]
-margin_left = 722.0
-margin_top = 304.0
-margin_right = 911.0
-margin_bottom = 1069.0
-rect_rotation = -42.3786
-color = Color( 0.427451, 0.427451, 0.427451, 1 )
-
-[node name="Foo" type="ColorRect" parent="TextureRect"]
+[node name="Board" type="TextureRect" parent="Background"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -336.533
-margin_top = -267.206
-margin_right = 330.467
-margin_bottom = 144.794
-color = Color( 0.760784, 0.752941, 0.513726, 1 )
+margin_left = -647.0
+margin_top = -414.0
+margin_right = 637.0
+margin_bottom = 414.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/Foo"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/separation = 20
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="ButtonsContainer" type="VBoxContainer" parent="Background/Board"]
+margin_left = 284.0
+margin_top = 155.0
+margin_right = 1044.0
+margin_bottom = 608.0
 
-[node name="Label" type="Label" parent="TextureRect/Foo/VBoxContainer"]
-margin_top = 110.0
-margin_right = 667.0
-margin_bottom = 143.0
-text = "Nowa Gra"
-align = 1
+[node name="NewGameBtn" parent="Background/Board/ButtonsContainer" instance=ExtResource( 3 )]
+margin_right = 760.0
+margin_bottom = 110.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 4 )
+texture_pressed = null
+texture_hover = null
+upscale_on_hover = true
+downscale_on_press = true
 
-[node name="Label2" type="Label" parent="TextureRect/Foo/VBoxContainer"]
-margin_top = 163.0
-margin_right = 667.0
-margin_bottom = 196.0
-text = "Kontynuuj"
-align = 1
+[node name="ContinueBtn" parent="Background/Board/ButtonsContainer" instance=ExtResource( 3 )]
+margin_top = 114.0
+margin_right = 760.0
+margin_bottom = 224.0
+size_flags_horizontal = 5
+size_flags_vertical = 3
+texture_normal = ExtResource( 5 )
+texture_pressed = null
+texture_hover = null
+upscale_on_hover = true
+downscale_on_press = true
 
-[node name="Label3" type="Label" parent="TextureRect/Foo/VBoxContainer"]
-margin_top = 216.0
-margin_right = 667.0
-margin_bottom = 249.0
-text = "Ustawienia"
-align = 1
+[node name="SettingsBtn" parent="Background/Board/ButtonsContainer" instance=ExtResource( 3 )]
+margin_top = 228.0
+margin_right = 760.0
+margin_bottom = 338.0
+size_flags_horizontal = 5
+size_flags_vertical = 3
+texture_normal = ExtResource( 7 )
+texture_pressed = null
+texture_hover = null
+upscale_on_hover = true
+downscale_on_press = true
 
-[node name="Label4" type="Label" parent="TextureRect/Foo/VBoxContainer"]
-margin_top = 269.0
-margin_right = 667.0
-margin_bottom = 302.0
-text = "Żegnam"
-align = 1
-
-[node name="ColorRect3" type="ColorRect" parent="TextureRect/Foo"]
-show_behind_parent = true
-margin_left = 320.0
-margin_top = -107.345
-margin_right = 354.0
-margin_bottom = 785.655
-color = Color( 0.196078, 0.192157, 0.192157, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="ExitBtn" parent="Background/Board/ButtonsContainer" instance=ExtResource( 3 )]
+margin_top = 342.0
+margin_right = 760.0
+margin_bottom = 453.0
+size_flags_horizontal = 5
+size_flags_vertical = 3
+texture_normal = ExtResource( 6 )
+texture_pressed = null
+texture_hover = null
+upscale_on_hover = true
+downscale_on_press = true
