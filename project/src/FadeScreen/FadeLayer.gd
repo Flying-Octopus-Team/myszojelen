@@ -21,11 +21,11 @@ func _on_tween_all_completed() -> void:
 		emit_signal("faded_out")
 
 
-func fade_in(color:Color, fade_time:float=1.0) -> void:
+func fade_in(color:Color=Color.black, fade_time:float=1.0) -> void:
 	_fade(color, fade_time, true)
 
 
-func fade_out(color:Color, fade_time:float=1.0) -> void:
+func fade_out(color:Color=Color.black, fade_time:float=1.0) -> void:
 	_fade(color, fade_time, false)
 
 

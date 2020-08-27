@@ -12,6 +12,7 @@ onready var change_screen_sound = $ChangeScreenSound
 
 export(Array, Color) var fade_colors
 export var fade_time : float = 1.0
+export var start_fade_time : float = 1.0
 
 onready var story_screens = [
 	$Story1,
@@ -36,7 +37,7 @@ func _ready() -> void:
 
 
 func start() -> void:
-	_show_screen(0)
+	_show_screen(0, start_fade_time)
 	
 	yield(fade_layer, "faded_in")
 	
@@ -78,8 +79,8 @@ func _fade_out(color_id:int) -> void:
 	fade_layer.fade_out(fade_colors[2], fade_time)
 
 
-func _show_screen(screen_id:int) -> void:
-	fade_layer.fade_in(fade_colors[screen_id], fade_time)
+func _show_screen(screen_id:int, custom_fade_time:float=fade_time) -> void:
+	fade_layer.fade_in(fade_colors[screen_id], custom_fade_time)
 	story_screens[screen_id].show()
 
 

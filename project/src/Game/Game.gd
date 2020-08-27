@@ -71,6 +71,7 @@ func _on_tree_cutted() -> void:
 	
 	if trees_left <= 0:
 		_is_game_running = false
+		main_theme.fade_out()
 		_fade("_game_over")
 
 
@@ -83,6 +84,8 @@ func _game_over() -> void:
 func _on_level_won() -> void:
 	if not _is_game_running:
 		return
+	
+	main_theme.fade_out()
 	
 	yield(get_tree().create_timer(end_delay_time), "timeout")
 	
@@ -110,11 +113,12 @@ func _finish_game() -> void:
 
 func _on_next_level_requested() -> void:
 	lose_music.force_stop()
-	menu_theme.force_stop()
+	menu_theme.fade_out()
 	_fade("_next_level")
 
 
 func _next_level() -> void:
+	menu_theme.force_stop()
 	main_theme.play()
 	interface.reset()
 	world.next_level()
@@ -123,6 +127,7 @@ func _next_level() -> void:
 
 
 func _on_replay_requested() -> void:
+	lose_music.fade_out()
 	_fade("_reset_level")
 
 
