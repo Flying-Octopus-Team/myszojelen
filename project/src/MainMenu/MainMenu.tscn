@@ -83,12 +83,10 @@ __meta__ = {
 }
 
 [node name="Train" type="TextureRect" parent="Background"]
-visible = false
-margin_left = 690.001
+margin_left = 690.038
 margin_top = 283.983
-margin_right = 1671.06
+margin_right = 1671.55
 margin_bottom = 882.974
-rect_scale = Vector2( 11.3743, 21 )
 rect_pivot_offset = Vector2( -30, 150 )
 texture = ExtResource( 15 )
 expand = true
@@ -168,11 +166,6 @@ texture_pressed = null
 texture_hover = null
 upscale_on_hover = true
 downscale_on_press = true
-
-[node name="Line2D" type="Line2D" parent="Background"]
-visible = false
-position = Vector2( -3.7818, 18.5362 )
-points = PoolVector2Array( 669.782, 415.214, 1313.5, 137.558 )
 
 [node name="SoundButton" parent="." instance=ExtResource( 14 )]
 margin_left = 24.0416
