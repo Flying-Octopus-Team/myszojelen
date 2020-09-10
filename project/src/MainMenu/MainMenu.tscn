@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/MainMenu/menu.png" type="Texture" id=1]
 [ext_resource path="res://assets/MainMenu/board.png" type="Texture" id=2]
@@ -14,6 +14,49 @@
 [ext_resource path="res://assets/audio/music/MenuTheme.wav" type="AudioStream" id=12]
 [ext_resource path="res://src/FadeScreen/FadeLayer.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/Buttons/SoundButton/SoundButton.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/MainMenu/train.png" type="Texture" id=15]
+
+[sub_resource type="Animation" id=1]
+resource_name = "TrainIn"
+length = 70.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10, 18, 36, 44, 45, 50 ),
+"transitions": PoolRealArray( 1, 1, 4.14105, 1, 1, 0.0883884, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 21, 21 ), Vector2( 21, 21 ), Vector2( -21, 21 ), Vector2( -0.1, 0.1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 38, 45 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 45, 50 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 690.049, 283.983 ), Vector2( 690, 283.983 ), Vector2( 780, 283.983 ) ]
+}
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -28,9 +71,34 @@ game_scene = ExtResource( 10 )
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -0.235962
+margin_top = -0.471954
+margin_right = -0.235962
+margin_bottom = -0.471924
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Train" type="TextureRect" parent="Background"]
+visible = false
+margin_left = 690.001
+margin_top = 283.983
+margin_right = 1671.06
+margin_bottom = 882.974
+rect_scale = Vector2( 11.3743, 21 )
+rect_pivot_offset = Vector2( -30, 150 )
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TrainAnimation" type="AnimationPlayer" parent="Background/Train"]
+anims/TrainIn = SubResource( 1 )
 
 [node name="Board" type="TextureRect" parent="Background"]
 anchor_left = 0.5
@@ -56,7 +124,7 @@ margin_bottom = 608.0
 
 [node name="NewGameBtn" parent="Background/Board/ButtonsContainer" instance=ExtResource( 3 )]
 margin_right = 760.0
-margin_bottom = 110.0
+margin_bottom = 148.0
 size_flags_vertical = 3
 texture_normal = ExtResource( 4 )
 texture_pressed = null
@@ -65,9 +133,9 @@ upscale_on_hover = true
 downscale_on_press = true
 
 [node name="ContinueBtn" parent="Background/Board/ButtonsContainer" instance=ExtResource( 3 )]
-margin_top = 114.0
+margin_top = 152.0
 margin_right = 760.0
-margin_bottom = 224.0
+margin_bottom = 300.0
 size_flags_horizontal = 5
 size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
@@ -77,6 +145,7 @@ upscale_on_hover = true
 downscale_on_press = true
 
 [node name="SettingsBtn" parent="Background/Board/ButtonsContainer" instance=ExtResource( 3 )]
+visible = false
 margin_top = 228.0
 margin_right = 760.0
 margin_bottom = 338.0
@@ -89,7 +158,7 @@ upscale_on_hover = true
 downscale_on_press = true
 
 [node name="ExitBtn" parent="Background/Board/ButtonsContainer" instance=ExtResource( 3 )]
-margin_top = 342.0
+margin_top = 304.0
 margin_right = 760.0
 margin_bottom = 453.0
 size_flags_horizontal = 5
@@ -99,6 +168,11 @@ texture_pressed = null
 texture_hover = null
 upscale_on_hover = true
 downscale_on_press = true
+
+[node name="Line2D" type="Line2D" parent="Background"]
+visible = false
+position = Vector2( -3.7818, 18.5362 )
+points = PoolVector2Array( 669.782, 415.214, 1313.5, 137.558 )
 
 [node name="SoundButton" parent="." instance=ExtResource( 14 )]
 margin_left = 24.0416

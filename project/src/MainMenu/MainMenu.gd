@@ -6,6 +6,7 @@ export var game_scene : PackedScene
 export var fade_color : Color = Color.black
 export var fade_time : float = 1.0
 
+onready var train_animation := $Background/Train/TrainAnimation
 onready var music_player := $MusicPlayer
 onready var fade_layer := $FadeLayer
 
@@ -17,6 +18,8 @@ func _ready() -> void:
 	find_node("ContinueBtn").connect("pressed", self, "_continue_game")
 	find_node("SettingsBtn").connect("pressed", self, "_open_settings")
 	find_node("ExitBtn").connect("pressed", self, "_exit_game")
+	
+	train_animation.play("TrainIn")
 	
 	music_player.call_deferred("play")
 
