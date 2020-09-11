@@ -10,14 +10,26 @@ onready var train_animation := $Background/Train/TrainAnimation
 onready var music_player := $MusicPlayer
 onready var fade_layer := $FadeLayer
 
+onready var main = find_node("MainButtons")
+onready var settings = find_node("SettingsScreen")
+
+onready var screens_dict := {
+	"main": main,
+	"settings": settings,
+}
+
 
 func _ready() -> void:
 	OS.window_maximized = true
 	
 	find_node("NewGameBtn").connect("pressed", self, "_new_game")
 	find_node("ContinueBtn").connect("pressed", self, "_continue_game")
-	find_node("SettingsBtn").connect("pressed", self, "_open_settings")
 	find_node("ExitBtn").connect("pressed", self, "_exit_game")
+	
+	find_node("SettingsBtn").connect("pressed", self, "_show_screen", [settings])
+	find_node("BackBtn").connect("pressed", self, "_show_screen", [main])
+	
+	_show_screen(main)
 	
 	train_animation.play("TrainIn")
 	
@@ -46,13 +58,17 @@ func _continue_game() -> void:
 	get_tree().change_scene_to(game_scene)
 
 
-func _open_settings() -> void:
-	print("Opening settings...")
+func _show_screen(screen_to_show) -> void:
+	for screen in screens_dict.values():
+		if screen != screen_to_show:
+			screen.hide()
+	
+	screen_to_show.show()
 
 
 func _disable_all_buttons() -> void:
-	for button in find_node("ButtonsContainer").get_children():
-		button.disabled = true
+	for button in main.get_children():
+		button.set_disabled(true)
 
 
 func _exit_game() -> void:

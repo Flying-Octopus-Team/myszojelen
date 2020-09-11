@@ -5,35 +5,57 @@ export var downscale_on_press := false
 
 
 func _ready() -> void:
-	connect("mouse_entered", $HoverSound, "play")
-	connect("button_down", $ClickSound, "play")
-	
 	rect_pivot_offset = rect_size * 0.5
-	
+	connect("mouse_entered", self, "_on_mouse_entered")
+	connect("mouse_exited", self, "_on_mouse_exited")
+	connect("button_down", self, "_on_button_down")
+	connect("button_up", self, "_on_button_up")
+
+
+func _on_mouse_entered() -> void:
 	if upscale_on_hover:
-		connect("mouse_entered", self, "_upscale")
-		connect("mouse_exited", self, "_reset_scale")
+		_upscale()
 	
+	if not disabled:
+		$HoverSound.play()
+
+
+func _on_mouse_exited() -> void:
+	if upscale_on_hover:
+		_reset_scale()
+
+
+func _on_button_down() -> void:
 	if downscale_on_press:
-		connect("button_down", self, "_downscale")
-		
-		var reset_method : String
-		
-		if upscale_on_hover:
-			reset_method = "_upscale"  
-		else:
-			reset_method = "_reset_scale"
+		_downscale()
 	
-		connect("button_up", self, reset_method)
+	if not disabled:
+		$ClickSound.play()
+
+
+func _on_button_up() -> void:
+	if upscale_on_hover:
+		_upscale()
+	else:
+		_reset_scale()
 
 
 func _upscale() -> void:
-	rect_scale = Vector2(1.05, 1.05)
+	if not disabled:
+		rect_scale = Vector2(1.05, 1.05)
 
 
 func _downscale() -> void:
-	rect_scale = Vector2(0.95, 0.95)
+	if not disabled:
+		rect_scale = Vector2(0.95, 0.95)
 
 
 func _reset_scale() -> void:
 	rect_scale = Vector2.ONE
+
+
+func set_disabled(dis:bool) -> void:
+	disabled = dis
+	
+	if dis:
+		_reset_scale()
