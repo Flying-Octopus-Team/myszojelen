@@ -1,9 +1,12 @@
 extends TextureButton
 
 
+func _init() -> void:
+	pressed = !Settings.muted
+
+
 func _ready() -> void:
 	Settings.connect("muted_changed", self, "_on_muted_changed")
-	pressed = !Settings.muted
 
 
 func _on_muted_changed(muted) -> void:

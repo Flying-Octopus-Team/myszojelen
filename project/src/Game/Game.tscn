@@ -22,7 +22,6 @@ layer = 32
 
 [node name="MenuTheme" parent="." instance=ExtResource( 4 )]
 stream = ExtResource( 8 )
-fade_out_time = 0.5
 
 [node name="MainTheme" parent="." instance=ExtResource( 4 )]
 stream = ExtResource( 6 )

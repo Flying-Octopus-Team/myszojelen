@@ -13,7 +13,7 @@ var master_volume := 0.8 setget set_master_volume
 var muted := false setget set_muted
 
 
-func _ready() -> void:
+func _init() -> void:
 	_load_from_file()
 
 
@@ -44,9 +44,6 @@ func _load_from_file() -> void:
 func set_master_volume(val:float, override_muted:bool=true, save:bool=true) -> void:
 	var previous_master_volume := master_volume
 	master_volume = val
-	
-	if val == 0.0:
-		pass
 	
 	_update_master_bus_volume()
 	
