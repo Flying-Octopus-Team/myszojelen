@@ -3,7 +3,7 @@
 [ext_resource path="res://src/Game/Interface/Interface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Game/World/World.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Game/Game.gd" type="Script" id=3]
-[ext_resource path="res://src/Music/MusicPlayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/MusicPlayer/MusicPlayer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/FadeScreen/FadeLayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/audio/music/chinese_chickens.ogg" type="AudioStream" id=6]
 [ext_resource path="res://assets/audio/music/wind_song.wav" type="AudioStream" id=7]
@@ -25,6 +25,8 @@ stream = ExtResource( 8 )
 
 [node name="MainTheme" parent="." instance=ExtResource( 4 )]
 stream = ExtResource( 6 )
+fade_out_time = 3.0
 
 [node name="LoseMusic" parent="." instance=ExtResource( 4 )]
 stream = ExtResource( 7 )
+fade_out_time = 3.0

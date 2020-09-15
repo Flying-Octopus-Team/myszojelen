@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/MusicPlayer/MusicPlayer.gd" type="Script" id=1]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="ReplayTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="FadeTween" type="Tween" parent="."]

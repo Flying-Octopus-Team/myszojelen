@@ -1,12 +1,17 @@
 extends TextureButton
 
 
+func _init() -> void:
+	pressed = !Settings.muted
+
+
 func _ready() -> void:
-	self.pressed = Settings.music_volume > Settings.NO_VOLUME
+	Settings.connect("muted_changed", self, "_on_muted_changed")
+
+
+func _on_muted_changed(muted) -> void:
+	pressed = !muted
 
 
 func _on_toggled(button_pressed:bool) -> void:
-	if button_pressed:
-		Settings.music_volume = Settings.FULL_VOLUME 
-	else:
-		Settings.music_volume = Settings.NO_VOLUME
+	Settings.set_muted(!button_pressed)
