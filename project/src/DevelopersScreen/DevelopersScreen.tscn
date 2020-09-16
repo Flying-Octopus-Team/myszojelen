@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/developers/dominik.png" type="Texture" id=1]
 [ext_resource path="res://assets/developers/wojtek.png" type="Texture" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://assets/fonts/tres/shojumaru_12.tres" type="DynamicFont" id=11]
 [ext_resource path="res://assets/small_shadow.png" type="Texture" id=12]
 [ext_resource path="res://assets/characters/Player/myszojelen_down.png" type="Texture" id=13]
+[ext_resource path="res://assets/developers/sonic idols logo.png" type="Texture" id=14]
+[ext_resource path="res://assets/developers/Piotr.png" type="Texture" id=15]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.137255, 0.109804, 0.231373, 1 )
@@ -67,7 +69,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 7 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_horizontal_guides_": [ 265.269, 284.399, 491.913 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 1183.12 ]
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -92,9 +96,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -575.0
+margin_left = -576.782
 margin_top = -300.0
-margin_right = 575.0
+margin_right = 573.218
 margin_bottom = 300.0
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
@@ -102,48 +106,55 @@ __meta__ = {
 }
 
 [node name="Dominik" type="TextureRect" parent="Origin/Panel"]
-margin_left = 838.948
-margin_top = 64.7551
-margin_right = 1160.95
-margin_bottom = 384.755
+margin_left = 718.69
+margin_top = -1.91095
+margin_right = 1040.69
+margin_bottom = 318.089
+rect_scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 1 )
 expand = true
-stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Shadow" type="TextureRect" parent="Origin/Panel/Dominik"]
 show_behind_parent = true
-margin_left = -107.64
+margin_left = -105.64
 margin_top = 102.0
-margin_right = 404.36
+margin_right = 406.36
 margin_bottom = 358.0
 mouse_filter = 2
 texture = ExtResource( 5 )
 
 [node name="Name" type="Label" parent="Origin/Panel/Dominik"]
-margin_left = 23.3742
-margin_top = 256.655
-margin_right = 311.375
-margin_bottom = 289.655
+margin_left = 24.647
+margin_top = 270.655
+margin_right = 312.648
+margin_bottom = 303.655
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
 text = "Dominik Zawlocki"
 
 [node name="Function" type="Label" parent="Origin/Panel/Dominik"]
 margin_left = 85.6515
-margin_top = 292.812
+margin_top = 305.539
 margin_right = 373.652
-margin_bottom = 325.812
+margin_bottom = 338.539
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
 text = "Programista"
 
 [node name="Wojtek" type="TextureRect" parent="Origin/Panel"]
-margin_left = 566.632
-margin_top = -9.99393
-margin_right = 854.632
-margin_bottom = 245.006
+margin_left = 626.051
+margin_top = 241.24
+margin_right = 914.051
+margin_bottom = 496.239
+rect_scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Shadow" type="TextureRect" parent="Origin/Panel/Wojtek"]
 show_behind_parent = true
@@ -185,21 +196,73 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Piotr" type="TextureRect" parent="Origin/Panel"]
+margin_left = 297.0
+margin_top = 231.0
+margin_right = 628.0
+margin_bottom = 524.0
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shadow" type="TextureRect" parent="Origin/Panel/Piotr"]
+show_behind_parent = true
+margin_left = -87.8313
+margin_top = 106.426
+margin_right = 424.169
+margin_bottom = 362.426
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="Origin/Panel/Piotr"]
+margin_left = 21.1288
+margin_top = 263.648
+margin_right = 309.129
+margin_bottom = 332.648
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Piotr Frankiewicz"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Function" type="Label" parent="Origin/Panel/Piotr"]
+margin_left = 19.9302
+margin_top = 303.964
+margin_right = 307.93
+margin_bottom = 350.964
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Programista"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Kacper" type="TextureRect" parent="Origin/Panel"]
-margin_left = -9.83885
-margin_top = 47.6879
-margin_right = 278.161
-margin_bottom = 367.688
+margin_left = 243.796
+margin_top = -21.8022
+margin_right = 531.796
+margin_bottom = 298.198
+rect_scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Shadow" type="TextureRect" parent="Origin/Panel/Kacper"]
 show_behind_parent = true
-margin_left = -106.017
-margin_top = 146.925
-margin_right = 405.983
-margin_bottom = 402.925
+margin_left = -107.817
+margin_top = 147.825
+margin_right = 404.183
+margin_bottom = 403.825
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -230,14 +293,18 @@ __meta__ = {
 }
 
 [node name="Michal" type="TextureRect" parent="Origin/Panel"]
-margin_left = 246.0
+margin_left = 474.69
 margin_top = -25.0
-margin_right = 534.0
+margin_right = 762.69
 margin_bottom = 287.0
+rect_scale = Vector2( 0.7, 0.7 )
 mouse_filter = 2
 texture = ExtResource( 9 )
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Shadow" type="TextureRect" parent="Origin/Panel/Michal"]
 show_behind_parent = true
@@ -279,10 +346,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -594.608
-margin_top = -227.123
-margin_right = -128.608
-margin_bottom = 40.8768
+margin_left = -584.309
+margin_top = -175.328
+margin_right = -233.309
+margin_bottom = 26.6721
 mouse_filter = 2
 texture = ExtResource( 4 )
 expand = true
@@ -292,22 +359,23 @@ __meta__ = {
 }
 
 [node name="LinkButton" type="LinkButton" parent="Origin/Panel/FOLogo"]
-margin_left = 49.0
-margin_top = 70.0
-margin_right = 417.0
-margin_bottom = 214.0
+margin_left = 23.7269
+margin_top = 45.1272
+margin_right = 332.727
+margin_bottom = 166.127
 shortcut_in_tooltip = false
 underline = 2
 
 [node name="Myszojelen" type="TextureRect" parent="Origin/Panel"]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -85.0
-margin_top = -175.642
-margin_right = 85.0
-margin_bottom = -12.642
+margin_left = -519.182
+margin_top = -295.142
+margin_right = -349.182
+margin_bottom = -132.142
 texture = ExtResource( 13 )
 expand = true
 stretch_mode = 6
@@ -339,10 +407,10 @@ texture_pressed = null
 texture_hover = null
 
 [node name="MusicCredits" type="Control" parent="Origin/Panel"]
-margin_left = -16.0088
-margin_top = -1.91095
-margin_right = 23.9912
-margin_bottom = 38.0891
+margin_left = -23.5598
+margin_top = -94.4106
+margin_right = 16.4402
+margin_bottom = -54.4106
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -355,12 +423,15 @@ margin_bottom = 512.693
 custom_fonts/font = ExtResource( 11 )
 text = "Autorzy muzyki:"
 align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="glassocean" type="Label" parent="Origin/Panel/MusicCredits"]
-margin_left = 900.146
-margin_top = 507.564
-margin_right = 1144.15
-margin_bottom = 540.564
+margin_left = 895.626
+margin_top = 592.871
+margin_right = 1139.63
+margin_bottom = 625.871
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
 text = "glassocean.net"
@@ -377,10 +448,10 @@ __meta__ = {
 }
 
 [node name="Rasmus" type="Label" parent="Origin/Panel/MusicCredits"]
-margin_left = 898.93
-margin_top = 532.894
-margin_right = 1142.93
-margin_bottom = 565.894
+margin_left = 896.412
+margin_top = 618.201
+margin_right = 1140.41
+margin_bottom = 651.201
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
 text = "Rasmus Damsgaard"
@@ -394,19 +465,22 @@ margin_bottom = 17.0
 mouse_default_cursor_shape = 2
 
 [node name="Licence" type="Label" parent="Origin/Panel/MusicCredits"]
-margin_left = 730.79
-margin_top = 564.147
-margin_right = 1064.79
-margin_bottom = 597.147
+margin_left = 726.937
+margin_top = 649.454
+margin_right = 1060.94
+margin_bottom = 682.454
 custom_fonts/font = ExtResource( 11 )
 text = "Udostępnione na licencji"
 align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CCLicence" type="Label" parent="Origin/Panel/MusicCredits"]
-margin_left = 1070.36
-margin_top = 564.68
-margin_right = 1145.36
-margin_bottom = 593.68
+margin_left = 1066.51
+margin_top = 649.987
+margin_right = 1141.51
+margin_bottom = 678.987
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
 text = "CC-BY 3.0"
@@ -421,6 +495,28 @@ margin_top = -2.0
 margin_right = 77.0
 margin_bottom = 19.0
 mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sonic idols" type="TextureRect" parent="Origin/Panel/MusicCredits"]
+margin_left = 988.011
+margin_top = 488.002
+margin_right = 1175.01
+margin_bottom = 593.002
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SonicIdols_LinkBtn" type="TextureButton" parent="Origin/Panel/MusicCredits/sonic idols"]
+margin_left = 17.0
+margin_top = 11.8909
+margin_right = 168.0
+margin_bottom = 102.891
+mouse_default_cursor_shape = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/show_panel = SubResource( 2 )
@@ -430,3 +526,4 @@ anims/show_panel = SubResource( 2 )
 [connection signal="pressed" from="Origin/Panel/MusicCredits/glassocean/glassocean_btn" to="." method="_on_glassocean_btn_pressed"]
 [connection signal="pressed" from="Origin/Panel/MusicCredits/Rasmus/rasmus_btn" to="." method="_on_rasmus_btn_pressed"]
 [connection signal="pressed" from="Origin/Panel/MusicCredits/CCLicence/CC_3_LinkBtn" to="." method="_on_CC_3_LinkBtn_pressed"]
+[connection signal="pressed" from="Origin/Panel/MusicCredits/sonic idols/SonicIdols_LinkBtn" to="." method="_on_SonicIdols_LinkBtn_pressed"]
