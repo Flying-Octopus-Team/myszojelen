@@ -1,5 +1,5 @@
 extends Node
-class_name SteringBaseScript
+class_name SteeringBaseScript
 
 var player : Character
 
@@ -13,7 +13,7 @@ export var enabled := true
 
 func _ready() -> void:
 	yield(get_parent(), "ready")
-	touchscreen_layer = player.get_node("TouchScreenStering")
+	touchscreen_layer = player.get_node("TouchScreenSteering")
 
 
 # To override

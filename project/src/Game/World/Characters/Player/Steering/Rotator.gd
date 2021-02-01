@@ -1,5 +1,5 @@
-extends SteringBaseScript
-
+extends SteeringBaseScript
+#???
 
 func steer(delta:float) -> bool:
 	if Input.is_action_just_pressed("rotate_left"):

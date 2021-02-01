@@ -21,11 +21,11 @@ export var joy_sensinitivy := 0.5
 export var wait_time_after_rotate := 0.2 
 onready var _time_after_rotate := wait_time_after_rotate
 
-onready var stering : Node = $Stering
+onready var steering : Node = $Steering
 
 
 func _process(delta) -> void:
-	stering.steer(delta)
+	steering.steer(delta)
 
 
 func _unhandled_input(event) -> void:

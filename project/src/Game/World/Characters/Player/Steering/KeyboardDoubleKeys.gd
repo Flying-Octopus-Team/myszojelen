@@ -1,4 +1,11 @@
-extends SteringBaseScript
+extends SteeringBaseScript
+
+var _direction_actions = {
+	"up": [ "ui_up", "ui_right" ],
+	"down": [ "ui_down", "ui_left" ],
+	"left": [ "ui_up", "ui_left" ],
+	"right": [ "ui_down", "ui_right" ]
+}
 
 
 func steer(delta:float) -> bool:
@@ -28,16 +35,19 @@ func steer(delta:float) -> bool:
 		if requested_direction != facing:
 			player._rotate_to(requested_direction)
 			_time_after_rotate = 0.0
-			return true
 		elif ((force_move and facing == requested_direction) 
 			or _time_after_rotate >= wait_time_after_rotate):
 			player.move(player.get_forward_dir())
-			return true
 		else:
 			_time_after_rotate += delta
+		
+		return true
 	
 	return false
 
 
 func _want_move_to_dir(dir:String) -> bool:
-	return Input.is_action_pressed("ui_" + dir)
+	return (
+		Input.is_action_pressed(_direction_actions[dir][0]) and
+		Input.is_action_pressed(_direction_actions[dir][1])
+	)

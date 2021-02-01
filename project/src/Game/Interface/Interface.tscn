@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
@@ -18,6 +18,13 @@
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/Game/Interface/GameOverScreen.gd" type="Script" id=17]
 [ext_resource path="res://src/Buttons/SoundButton/SoundButton.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/fonts/data/Shojumaru-Regular.ttf" type="DynamicFontData" id=19]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 19 )
 
 [node name="Interface" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -40,6 +47,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/HUD"]
+visible = false
 margin_left = 40.0
 margin_top = 40.0
 margin_right = 351.0
@@ -165,7 +173,6 @@ Teraz biegnij ratować kolejny las..."
 align = 1
 
 [node name="EndOfGameScreen" type="Control" parent="Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -216,6 +223,32 @@ margin_bottom = -4.91089
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 6 )
+
+[node name="Poll_link" parent="Control/EndOfGameScreen" instance=ExtResource( 16 )]
+margin_left = 794.563
+margin_top = 514.814
+margin_right = 1210.56
+margin_bottom = 561.814
+texture_normal = null
+texture_pressed = null
+texture_hover = null
+upscale_on_hover = true
+downscale_on_press = true
+
+[node name="Label" type="Label" parent="Control/EndOfGameScreen/Poll_link"]
+anchor_top = 3.507
+anchor_bottom = 3.507
+margin_left = 8.98987
+margin_top = -166.327
+margin_right = 424.99
+margin_bottom = -119.327
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = SubResource( 1 )
+text = "->Link do ankiety<-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DevelopersScreen" parent="." instance=ExtResource( 15 )]
 visible = false

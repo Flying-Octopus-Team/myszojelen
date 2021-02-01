@@ -2,7 +2,7 @@ extends Node
 
 onready var player = get_parent()
 
-var stering_type : int = 0
+var steering_type : int = 0
 
 
 func _ready() -> void:

@@ -97,10 +97,11 @@ __meta__ = {
 }
 
 [node name="Train" type="TextureRect" parent="Background"]
-margin_left = 690.038
+margin_left = 690.049
 margin_top = 283.983
-margin_right = 1671.55
+margin_right = 1671.56
 margin_bottom = 882.974
+rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( -30, 150 )
 texture = ExtResource( 15 )
 expand = true
@@ -134,6 +135,9 @@ margin_left = 284.0
 margin_top = 155.0
 margin_right = 1044.0
 margin_bottom = 608.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="NewGameBtn" parent="Background/Board/MainButtons" instance=ExtResource( 3 )]
 margin_right = 760.0
@@ -182,6 +186,7 @@ upscale_on_hover = true
 downscale_on_press = true
 
 [node name="SettingsScreen" type="MarginContainer" parent="Background/Board"]
+visible = false
 margin_left = 284.0
 margin_top = 158.0
 margin_right = 1044.0
@@ -259,6 +264,98 @@ downscale_on_press = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = " <-   Wróć"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PollScreen" type="MarginContainer" parent="Background/Board"]
+margin_left = 284.0
+margin_top = 158.0
+margin_right = 1044.0
+margin_bottom = 608.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/Board/PollScreen"]
+margin_right = 760.0
+margin_bottom = 450.0
+
+[node name="Poll_Back" parent="Background/Board/PollScreen/VBoxContainer" instance=ExtResource( 3 )]
+margin_right = 160.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 160, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = null
+texture_pressed = null
+texture_hover = null
+upscale_on_hover = true
+downscale_on_press = true
+
+[node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/Poll_Back"]
+margin_right = 40.0
+margin_bottom = 33.0
+text = "<- Wróć"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/Board/PollScreen/VBoxContainer"]
+margin_top = 36.0
+margin_right = 760.0
+margin_bottom = 414.0
+size_flags_vertical = 3
+
+[node name="Description" type="Label" parent="Background/Board/PollScreen/VBoxContainer/MarginContainer"]
+margin_top = 172.0
+margin_right = 760.0
+margin_bottom = 205.0
+text = "*Tutaj będzie opis*"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/Board/PollScreen/VBoxContainer"]
+margin_top = 418.0
+margin_right = 760.0
+margin_bottom = 450.0
+size_flags_vertical = 0
+
+[node name="Poll_link" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_right = 245.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 245, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = null
+texture_pressed = null
+texture_hover = null
+upscale_on_hover = true
+downscale_on_press = true
+
+[node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer/Poll_link"]
+margin_right = 40.0
+margin_bottom = 33.0
+text = "Link do Ankiety"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Poll_Continue" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 559.0
+margin_right = 760.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 201, 32 )
+size_flags_horizontal = 10
+size_flags_vertical = 0
+texture_normal = null
+texture_pressed = null
+texture_hover = null
+upscale_on_hover = true
+downscale_on_press = true
+
+[node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer/Poll_Continue"]
+margin_right = 40.0
+margin_bottom = 33.0
+text = "Kontynuuj ->"
 __meta__ = {
 "_edit_use_anchors_": false
 }
