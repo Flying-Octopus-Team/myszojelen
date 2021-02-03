@@ -42,6 +42,7 @@ func _prepare_current_level() -> void:
 	level.connect("tree_cutted", self, "emit_signal", ["tree_cutted"])
 	level.connect("level_won", self, "_on_level_won")
 	add_child(level)
+	get_node("../Interface/").find_node("HUD").visible = true
 
 
 func count_trees() -> int:

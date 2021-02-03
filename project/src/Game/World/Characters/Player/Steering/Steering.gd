@@ -16,5 +16,6 @@ func steer(delta:float) -> void:
 			continue
 		
 		if c.steer(delta):
+			c.player.find_node("steer_label").text = "Sterowanie: " + c.name
 			get_tree().set_input_as_handled()
 			return
