@@ -100,7 +100,6 @@ script = ExtResource( 8 )
 [node name="Numpad" type="Node" parent="Steering" index="0"]
 script = ExtResource( 19 )
 steering_name = "Numpad"
-enabled = false
 
 [node name="IOJK_rotation" type="Node" parent="Steering" index="1"]
 script = ExtResource( 18 )
@@ -125,6 +124,7 @@ enabled = false
 [node name="WSAD1_no_rotation" type="Node" parent="Steering" index="5"]
 script = ExtResource( 14 )
 steering_name = "wsad1_no_roation"
+enabled = false
 
 [node name="WSAD2_no_rotation" type="Node" parent="Steering" index="6"]
 script = ExtResource( 15 )

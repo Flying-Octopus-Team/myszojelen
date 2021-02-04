@@ -17,14 +17,23 @@ enum Facing {
 	TOP_LEFT, 
 	TOP_RIGHT,
 	BOTTOM_RIGHT,
-	BOTTOM_LEFT
+	BOTTOM_LEFT,
+	TOP,
+	BOTTOM,
+	LEFT,
+	RIGHT
 }
 
+#TODO
 onready var textures : Dictionary = {
 	Facing.TOP_LEFT: top_right_texture,
 	Facing.TOP_RIGHT: top_right_texture,
 	Facing.BOTTOM_RIGHT: bottom_right_texture,
-	Facing.BOTTOM_LEFT: bottom_right_texture
+	Facing.BOTTOM_LEFT: bottom_right_texture,
+	Facing.TOP: top_right_texture,
+	Facing.BOTTOM: bottom_right_texture,
+	Facing.RIGHT: top_right_texture,
+	Facing.LEFT: bottom_right_texture
 }
 
 onready var sprite = $Pivot/Sprite
@@ -86,6 +95,7 @@ func _rotate_to(to:int) -> void:
 	update_texture()
 
 
+#TODO
 func update_texture() -> void:
 	sprite.texture = textures[facing]
 	sprite.flip_h = (facing == Facing.TOP_LEFT or facing == Facing.BOTTOM_LEFT)
@@ -102,5 +112,17 @@ func get_forward_dir() -> Vector2:
 			dir.x = 1
 		Facing.BOTTOM_LEFT:
 			dir.y = 1
+		Facing.TOP:
+			dir.x = -1
+			dir.y = -1
+		Facing.BOTTOM:
+			dir.x = 1
+			dir.y = 1
+		Facing.LEFT:
+			dir.x = -1
+			dir.y = 1
+		Facing.RIGHT:
+			dir.x = 1
+			dir.y = -1
 	
 	return dir

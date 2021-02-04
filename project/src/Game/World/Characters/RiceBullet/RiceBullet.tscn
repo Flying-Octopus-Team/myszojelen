@@ -51,7 +51,6 @@ texture = ExtResource( 3 )
 offset = Vector2( 0, -64 )
 
 [node name="DestroyParticles" type="Particles2D" parent="Pivot" index="2"]
-emitting = false
 amount = 30
 lifetime = 0.5
 one_shot = true
