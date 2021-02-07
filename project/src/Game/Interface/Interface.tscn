@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
@@ -19,6 +19,12 @@
 [ext_resource path="res://src/Game/Interface/GameOverScreen.gd" type="Script" id=17]
 [ext_resource path="res://src/Buttons/SoundButton/SoundButton.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/fonts/data/Shojumaru-Regular.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://assets/Steering/wsad1_placeholder.png" type="Texture" id=20]
+[ext_resource path="res://src/Game/Interface/SteeringButton.gd" type="Script" id=21]
+[ext_resource path="res://assets/Steering/wsad2_placeholder.png" type="Texture" id=22]
+[ext_resource path="res://assets/Steering/iojk_placeholder.png" type="Texture" id=23]
+[ext_resource path="res://assets/Steering/numpad_placeholder.png" type="Texture" id=24]
+[ext_resource path="res://src/Game/Interface/SteeringContainer.gd" type="Script" id=25]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -49,11 +55,11 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/HUD"]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 361.0
-margin_bottom = 164.0
+margin_right = 351.0
+margin_bottom = 127.0
 
 [node name="TreesLeft" type="Label" parent="Control/HUD/VBoxContainer"]
-margin_right = 321.0
+margin_right = 311.0
 margin_bottom = 33.0
 custom_fonts/font = ExtResource( 3 )
 text = "Pozostało drzew: 5"
@@ -126,7 +132,6 @@ __meta__ = {
 }
 
 [node name="LevelWonScreen" type="Control" parent="Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -137,6 +142,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="NextLevelBtn" parent="Control/LevelWonScreen" instance=ExtResource( 16 )]
 anchor_left = 0.5
@@ -169,6 +177,227 @@ custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 2
 text = "Przepędziłeś drwali!
 Teraz biegnij ratować kolejny las..."
+align = 1
+
+[node name="ReplayBtn" parent="Control/LevelWonScreen" instance=ExtResource( 16 )]
+margin_left = 51.0
+margin_top = 31.0
+margin_right = 318.0
+margin_bottom = 66.0
+texture_normal = null
+texture_pressed = null
+texture_hover = null
+upscale_on_hover = true
+downscale_on_press = true
+
+[node name="Label" type="Label" parent="Control/LevelWonScreen/ReplayBtn"]
+margin_right = 40.0
+margin_bottom = 33.0
+text = "Powtórz poziom"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/LevelWonScreen"]
+margin_left = 1.0
+margin_top = 114.0
+margin_right = 1273.0
+margin_bottom = 147.0
+size_flags_vertical = 0
+text = "Wybierz sposób sterowania:"
+align = 1
+
+[node name="SteeringContainer" type="MarginContainer" parent="Control/LevelWonScreen"]
+margin_left = 1.0
+margin_top = 156.0
+margin_right = 1281.0
+margin_bottom = 587.0
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/LevelWonScreen/SteeringContainer"]
+margin_right = 1280.0
+margin_bottom = 431.0
+
+[node name="GridContainer" type="GridContainer" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer"]
+margin_right = 1268.0
+margin_bottom = 611.0
+size_flags_horizontal = 3
+columns = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer"]
+margin_right = 355.0
+margin_bottom = 201.0
+
+[node name="WSAD1_norot" type="TextureButton" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer"]
+margin_left = 113.0
+margin_right = 241.0
+margin_bottom = 128.0
+size_flags_horizontal = 4
+texture_normal = ExtResource( 20 )
+script = ExtResource( 21 )
+upscale_on_hover = true
+upscale_on_press = true
+steering_name = "WSAD1_norot"
+
+[node name="Label" type="Label" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer"]
+margin_top = 132.0
+margin_right = 355.0
+margin_bottom = 201.0
+text = "WSAD1
+ (wersja bez obrotów)"
+align = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer"]
+margin_left = 425.0
+margin_right = 744.0
+margin_bottom = 201.0
+size_flags_horizontal = 6
+
+[node name="WSAD1_rot" type="TextureButton" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer3"]
+margin_left = 95.0
+margin_right = 223.0
+margin_bottom = 128.0
+size_flags_horizontal = 4
+texture_normal = ExtResource( 20 )
+script = ExtResource( 21 )
+upscale_on_hover = true
+upscale_on_press = true
+steering_name = "WSAD1_rot"
+
+[node name="Label" type="Label" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer3"]
+margin_top = 132.0
+margin_right = 319.0
+margin_bottom = 201.0
+text = "WSAD1 
+(wersja z obrotami)"
+align = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer"]
+margin_left = 922.0
+margin_right = 1267.0
+margin_bottom = 201.0
+size_flags_horizontal = 10
+
+[node name="WSAD2_norot" type="TextureButton" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer4"]
+margin_left = 108.0
+margin_right = 236.0
+margin_bottom = 128.0
+size_flags_horizontal = 4
+texture_normal = ExtResource( 22 )
+script = ExtResource( 21 )
+upscale_on_hover = true
+upscale_on_press = true
+steering_name = "WSAD2_norot"
+
+[node name="Label" type="Label" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer4"]
+margin_top = 132.0
+margin_right = 345.0
+margin_bottom = 201.0
+text = "WSAD2
+(wersja bez obrotów)"
+align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer"]
+margin_top = 205.0
+margin_right = 355.0
+margin_bottom = 406.0
+
+[node name="WSAD2_rot" type="TextureButton" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer2"]
+margin_left = 113.0
+margin_right = 241.0
+margin_bottom = 128.0
+size_flags_horizontal = 4
+texture_normal = ExtResource( 22 )
+script = ExtResource( 21 )
+upscale_on_hover = true
+upscale_on_press = true
+steering_name = "WSAD2_rot"
+
+[node name="Label" type="Label" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer2"]
+margin_top = 132.0
+margin_right = 355.0
+margin_bottom = 201.0
+text = "WSAD2
+ (wersja z obrotami)"
+align = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer"]
+margin_left = 412.0
+margin_top = 205.0
+margin_right = 757.0
+margin_bottom = 406.0
+size_flags_horizontal = 6
+
+[node name="IOJK_norot" type="TextureButton" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer5"]
+margin_left = 108.0
+margin_right = 236.0
+margin_bottom = 128.0
+size_flags_horizontal = 4
+texture_normal = ExtResource( 23 )
+script = ExtResource( 21 )
+upscale_on_hover = true
+upscale_on_press = true
+steering_name = "IOJK_norot"
+
+[node name="Label" type="Label" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer5"]
+margin_top = 132.0
+margin_right = 345.0
+margin_bottom = 201.0
+text = "IOJK/QWAS
+(wersja bez obrotów)"
+align = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer"]
+margin_left = 948.0
+margin_top = 205.0
+margin_right = 1267.0
+margin_bottom = 406.0
+size_flags_horizontal = 10
+
+[node name="IOJK_rot" type="TextureButton" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer6"]
+margin_left = 95.0
+margin_right = 223.0
+margin_bottom = 128.0
+size_flags_horizontal = 4
+texture_normal = ExtResource( 23 )
+script = ExtResource( 21 )
+upscale_on_hover = true
+upscale_on_press = true
+steering_name = "IOJK_rot"
+
+[node name="Label" type="Label" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer6"]
+margin_top = 132.0
+margin_right = 319.0
+margin_bottom = 201.0
+text = "IOJK/QWAS
+(wersja z obrotami)"
+align = 1
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer"]
+margin_top = 410.0
+margin_right = 355.0
+margin_bottom = 611.0
+
+[node name="Numpad" type="TextureButton" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer7"]
+margin_left = 113.0
+margin_right = 241.0
+margin_bottom = 128.0
+size_flags_horizontal = 4
+texture_normal = ExtResource( 24 )
+script = ExtResource( 21 )
+upscale_on_hover = true
+upscale_on_press = true
+steering_name = "Numpad"
+
+[node name="Label" type="Label" parent="Control/LevelWonScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer7"]
+margin_top = 132.0
+margin_right = 355.0
+margin_bottom = 201.0
+text = "Numpad
+(wersja bez obrotów)"
 align = 1
 
 [node name="EndOfGameScreen" type="Control" parent="Control"]

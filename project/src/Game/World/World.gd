@@ -43,6 +43,8 @@ func _prepare_current_level() -> void:
 	level.connect("level_won", self, "_on_level_won")
 	add_child(level)
 	get_node("../Interface/").find_node("HUD").visible = true
+	var Steering = get_node("../Interface/").find_node("SteeringContainer").current_steering_type
+	level.find_node("Steering").ChangeSteering(Steering)
 
 
 func count_trees() -> int:

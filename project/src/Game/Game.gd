@@ -19,6 +19,7 @@ var trees_left : int
 
 var _is_game_running := false
 
+var level_counter : int = 1
 
 func _ready() -> void:
 	world.connect("tree_cutted", self, "_on_tree_cutted")
@@ -54,7 +55,7 @@ func _start_game() -> void:
 	
 	interface.reset()
 	world.reset()
-	_next_level()
+	_show_next_level_screen()#_next_level()
 
 
 func _prepare_trees_left() -> void:
@@ -90,6 +91,7 @@ func _on_level_won() -> void:
 	yield(get_tree().create_timer(end_delay_time), "timeout")
 	
 	_is_game_running = false
+	level_counter += 1
 	_fade("_show_next_level_screen")
 
 

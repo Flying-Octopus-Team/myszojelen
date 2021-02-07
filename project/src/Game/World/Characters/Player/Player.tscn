@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/characters/Player/myszojelen_up.png" type="Texture" id=1]
 [ext_resource path="res://src/Game/World/Characters/Character.tscn" type="PackedScene" id=2]
@@ -19,6 +19,10 @@
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/IOJK_no_rotation.gd" type="Script" id=17]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/IOJK_rotation.gd" type="Script" id=18]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/Numpad.gd" type="Script" id=19]
+[ext_resource path="res://assets/Steering/numpad_placeholder.png" type="Texture" id=20]
+[ext_resource path="res://assets/Steering/iojk_placeholder.png" type="Texture" id=21]
+[ext_resource path="res://assets/Steering/wsad2_placeholder.png" type="Texture" id=22]
+[ext_resource path="res://assets/Steering/wsad1_placeholder.png" type="Texture" id=23]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.30916, 1 )
@@ -45,6 +49,8 @@ damping = 400.0
 scale = 3.0
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
+
+[sub_resource type="StreamTexture" id=6]
 
 [node name="Player" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
@@ -85,11 +91,15 @@ volume_db = -10.0
 
 [node name="Steering_info" type="CanvasLayer" parent="." index="6"]
 
-[node name="steer_label" type="Label" parent="Steering_info" index="0"]
-margin_top = 143.0
-margin_right = 205.0
-margin_bottom = 176.0
-text = "sterowanie:"
+[node name="SteeringInfo" type="TextureRect" parent="Steering_info" index="0"]
+margin_left = 1129.72
+margin_top = 21.9865
+margin_right = 1257.72
+margin_bottom = 149.986
+grow_horizontal = 0
+size_flags_horizontal = 8
+texture = SubResource( 6 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -99,45 +109,43 @@ script = ExtResource( 8 )
 
 [node name="Numpad" type="Node" parent="Steering" index="0"]
 script = ExtResource( 19 )
-steering_name = "Numpad"
+texture = ExtResource( 20 )
+enabled = false
 
 [node name="IOJK_rotation" type="Node" parent="Steering" index="1"]
 script = ExtResource( 18 )
-steering_name = "iojk_rotation"
+texture = ExtResource( 21 )
 enabled = false
 
 [node name="IOJK_no_rotation" type="Node" parent="Steering" index="2"]
 script = ExtResource( 17 )
-steering_name = "iojk_no_rotation"
+texture = ExtResource( 21 )
 enabled = false
 
 [node name="WSAD2_rotation" type="Node" parent="Steering" index="3"]
 script = ExtResource( 16 )
-steering_name = "wsad2_rotation"
+texture = ExtResource( 22 )
 enabled = false
 
 [node name="WSAD1_rotation" type="Node" parent="Steering" index="4"]
 script = ExtResource( 10 )
-steering_name = "wsad1_rotation"
+texture = ExtResource( 23 )
 enabled = false
 
 [node name="WSAD1_no_rotation" type="Node" parent="Steering" index="5"]
 script = ExtResource( 14 )
-steering_name = "wsad1_no_roation"
+texture = ExtResource( 23 )
 enabled = false
 
 [node name="WSAD2_no_rotation" type="Node" parent="Steering" index="6"]
 script = ExtResource( 15 )
-steering_name = "wsad2_no_rotation"
 enabled = false
 
 [node name="Joystick" type="Node" parent="Steering" index="7"]
 script = ExtResource( 9 )
-steering_name = "Joystick"
 
 [node name="WSAD1_double_keys" type="Node" parent="Steering" index="8"]
 script = ExtResource( 12 )
-steering_name = "wsad1_double_keys"
 enabled = false
 
 [node name="KeyboardRotating" type="Node" parent="Steering" index="9"]

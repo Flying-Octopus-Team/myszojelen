@@ -17,7 +17,8 @@ enum Screen { NONE, LEVEL_WON, GAME_OVER, END_OF_GAME }
 var current_screen : int = Screen.NONE
 
 func _ready() -> void:
-	find_node("Poll_link").connect("pressed", self, "_Poll_link_pressed")
+	find_node("Poll_link").connect("pressed", self, "_on_Poll_link_pressed")
+	$Control/LevelWonScreen/ReplayBtn.connect("pressed", self, "_on_ReplayBtn_pressed")
 	reset()
 
 
@@ -56,6 +57,9 @@ func _on_game_over() -> void:
 
 
 func _on_level_won() -> void:
+	$Control/LevelWonScreen/ReplayBtn.visible = (get_parent().level_counter != 1)
+	$Control/LevelWonScreen/MarginContainer.visible = (get_parent().level_counter != 1)
+	$Control/LevelWonScreen/NextLevelBtn.disabled = true
 	level_won_screen.show()
 	current_screen = Screen.LEVEL_WON
 
@@ -81,5 +85,5 @@ func _on_DevelopersButton_pressed():
 	developers_screen.show()
 	
 	
-func _Poll_link_pressed() -> void:
+func _on_Poll_link_pressed() -> void:
 	OS.shell_open("https://www.example.com/")
