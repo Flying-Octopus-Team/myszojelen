@@ -15,23 +15,17 @@ func _ready() -> void:
 
 func _on_mouse_entered() -> void:
 	if upscale_on_hover:
-		_upscale()
+		upscale()
 
 
 func _on_mouse_exited() -> void:
 	if (upscale_on_hover and !is_pressed):
 		_reset_scale()
 
-
-func _on_button_down() -> void:
-	if upscale_on_press:
-		_upscale()
-		is_pressed = true
-
-
-func _upscale() -> void:
-	if not disabled:
+func upscale() -> void:
+	if not disabled and upscale_on_press:
 		rect_scale = Vector2(1.05, 1.05)
+		is_pressed = true
 
 func _reset_scale() -> void:
 	rect_scale = Vector2.ONE

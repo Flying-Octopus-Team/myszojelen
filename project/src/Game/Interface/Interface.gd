@@ -8,6 +8,8 @@ onready var trees_left_label : Label = find_node("TreesLeft")
 onready var game_over_screen : Control = $Control/GameOverScreen
 onready var level_won_screen : Control = $Control/LevelWonScreen
 onready var end_of_game_screen : Control = $Control/EndOfGameScreen
+onready var steering_screen : Control = $SteeringScreen
+onready var HUD : MarginContainer = $Control/HUD
 
 onready var developers_screen = $DevelopersScreen
 
@@ -30,6 +32,12 @@ func reset() -> void:
 	game_over_screen.hide()
 	level_won_screen.hide()
 	end_of_game_screen.hide()
+	
+	HUD.hide()
+	steering_screen.hide()
+	steering_screen.find_node("SteeringContainer").reset()
+	steering_screen.find_node("ContinueBtn").disabled = true
+	
 	developers_screen.visible = false
 	current_screen = Screen.NONE
 
@@ -57,9 +65,6 @@ func _on_game_over() -> void:
 
 
 func _on_level_won() -> void:
-	$Control/LevelWonScreen/ReplayBtn.visible = (get_parent().level_counter != 1)
-	$Control/LevelWonScreen/MarginContainer.visible = (get_parent().level_counter != 1)
-	$Control/LevelWonScreen/NextLevelBtn.disabled = true
 	level_won_screen.show()
 	current_screen = Screen.LEVEL_WON
 

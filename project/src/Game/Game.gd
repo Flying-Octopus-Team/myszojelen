@@ -55,7 +55,7 @@ func _start_game() -> void:
 	
 	interface.reset()
 	world.reset()
-	_show_next_level_screen()#_next_level()
+	_next_level()
 
 
 func _prepare_trees_left() -> void:
@@ -124,6 +124,8 @@ func _next_level() -> void:
 	main_theme.play()
 	interface.reset()
 	world.next_level()
+	yield(world, "world_ready")
+	
 	_prepare_trees_left()
 	_is_game_running = true
 
@@ -139,6 +141,7 @@ func _reset_level() -> void:
 	
 	interface.reset()
 	world.reset_level()
+	yield(world, "world_ready")
 	_prepare_trees_left()
 	_is_game_running = true
 

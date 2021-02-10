@@ -4,11 +4,14 @@ signal tree_cutted
 signal level_won
 signal end_of_levels
 
+signal steering_chosen
+
 export(Array, PackedScene) var LevelScenes
 
 var level : BaseLevel = null
 var current_level = -1
 
+signal world_ready
 
 func reset() -> void:
 	current_level = -1
@@ -25,6 +28,8 @@ func _on_level_won() -> void:
 func next_level() -> void:
 	current_level += 1
 	_prepare_current_level()
+	yield(self, "steering_chosen")
+	emit_signal("world_ready")
 
 
 func clear_level() -> void:
@@ -34,17 +39,28 @@ func clear_level() -> void:
 
 func reset_level() -> void:
 	_prepare_current_level()
+	yield(self, "steering_chosen")
+	emit_signal("world_ready")
 
 
 func _prepare_current_level() -> void:
 	clear_level()
+	
+	var interface = get_node("../Interface/")
+	interface.find_node("SteeringScreen").show()
+	yield(get_node("../Interface/SteeringScreen/ContinueBtn"), "pressed")
+	interface.find_node("SteeringScreen").hide()
+	
 	level = LevelScenes[current_level].instance()
 	level.connect("tree_cutted", self, "emit_signal", ["tree_cutted"])
 	level.connect("level_won", self, "_on_level_won")
 	add_child(level)
-	get_node("../Interface/").find_node("HUD").visible = true
-	var Steering = get_node("../Interface/").find_node("SteeringContainer").current_steering_type
+	interface.find_node("HUD").show()
+	
+	var Steering = interface.find_node("SteeringContainer").current_steering_type
 	level.find_node("Steering").ChangeSteering(Steering)
+	
+	emit_signal("steering_chosen")
 
 
 func count_trees() -> int:
