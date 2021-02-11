@@ -1,39 +1,38 @@
-extends SteeringBaseScript
+extends baseSteeringScript
 
+var force_move : bool = false
 
-func steer(delta:float) -> bool:
-	var requested_direction : int = -1
-	var force_move := false
-	var facing = player.facing
-	
-	var Facing = Character.Facing
+func _get_direction() -> int:
 	
 	if Input.is_action_pressed("move_up_left"):
 		force_move = Input.is_action_just_pressed("move_up_left")
-		requested_direction = Facing.TOP_LEFT
+		return facing_enum.TOP_LEFT
 	
 	elif Input.is_action_pressed("move_down_right"):
 		force_move = Input.is_action_just_pressed("move_down_right")
-		requested_direction = Facing.BOTTOM_RIGHT
+		return facing_enum.BOTTOM_RIGHT
 	
 	elif Input.is_action_pressed("move_bottom_left"):
 		force_move = Input.is_action_just_pressed("move_bottom_left")
-		requested_direction = Character.Facing.BOTTOM_LEFT
+		return facing_enum.BOTTOM_LEFT
 	
 	elif Input.is_action_pressed("move_up_right"):
 		force_move = Input.is_action_just_pressed("move_up_right")
-		requested_direction = Facing.TOP_RIGHT
+		return facing_enum.TOP_RIGHT
+		
+	return -1
+
+func steer(delta:float) -> void:
+	var requested_direction : int = _get_direction()
 	
-	if requested_direction > -1:
-		if requested_direction != facing:
-			player._rotate_to(requested_direction)
-			_time_after_rotate = 0.0
-			return true
-		elif ((force_move and facing == requested_direction) 
-			or _time_after_rotate >= wait_time_after_rotate):
-			player.move(player.get_forward_dir())
-			return true
-		else:
-			_time_after_rotate += delta
-	
-	return false
+	if requested_direction == -1:
+		return
+		
+	if requested_direction != player.facing:
+		player._rotate_to(requested_direction)
+		_time_after_rotate = 0.0
+	elif ((force_move and player.facing == requested_direction) 
+		or _time_after_rotate >= wait_time_after_rotate):
+		player.move(player.get_forward_dir())
+	else:
+		_time_after_rotate += delta

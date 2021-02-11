@@ -8,7 +8,7 @@ onready var trees_left_label : Label = find_node("TreesLeft")
 onready var game_over_screen : Control = $Control/GameOverScreen
 onready var level_won_screen : Control = $Control/LevelWonScreen
 onready var end_of_game_screen : Control = $Control/EndOfGameScreen
-onready var steering_screen : Control = $SteeringScreen
+#onready var steering_screen : Control = $SteeringScreen
 onready var HUD : MarginContainer = $Control/HUD
 
 onready var developers_screen = $DevelopersScreen
@@ -19,7 +19,7 @@ enum Screen { NONE, LEVEL_WON, GAME_OVER, END_OF_GAME }
 var current_screen : int = Screen.NONE
 
 func _ready() -> void:
-	find_node("Poll_link").connect("pressed", self, "_on_Poll_link_pressed")
+	$Control/EndOfGameScreen/PollLink.connect("pressed", self, "_on_PollLink_pressed")
 	$Control/LevelWonScreen/ReplayBtn.connect("pressed", self, "_on_ReplayBtn_pressed")
 	reset()
 
@@ -34,9 +34,9 @@ func reset() -> void:
 	end_of_game_screen.hide()
 	
 	HUD.hide()
-	steering_screen.hide()
-	steering_screen.find_node("SteeringContainer").reset()
-	steering_screen.find_node("ContinueBtn").disabled = true
+	$SteeringScreen.hide()
+	$SteeringScreen/SteeringContainer.reset()
+	$SteeringScreen/ContinueBtn.disabled = true
 	
 	developers_screen.visible = false
 	current_screen = Screen.NONE
@@ -90,5 +90,5 @@ func _on_DevelopersButton_pressed():
 	developers_screen.show()
 	
 	
-func _on_Poll_link_pressed() -> void:
+func _on_PollLink_pressed() -> void:
 	OS.shell_open("https://www.example.com/")

@@ -24,7 +24,7 @@ enum Facing {
 	RIGHT
 }
 
-#TODO
+#TODO add textures for directions: top left bottm right
 onready var textures : Dictionary = {
 	Facing.TOP_LEFT: top_right_texture,
 	Facing.TOP_RIGHT: top_right_texture,
@@ -95,7 +95,7 @@ func _rotate_to(to:int) -> void:
 	update_texture()
 
 
-#TODO
+#TODO add condition to flip_h when 8 directions textures are added
 func update_texture() -> void:
 	sprite.texture = textures[facing]
 	sprite.flip_h = (facing == Facing.TOP_LEFT or facing == Facing.BOTTOM_LEFT)

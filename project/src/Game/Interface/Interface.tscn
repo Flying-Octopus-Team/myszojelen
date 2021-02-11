@@ -252,7 +252,7 @@ texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 6 )
 
-[node name="Poll_link" parent="Control/EndOfGameScreen" instance=ExtResource( 16 )]
+[node name="PollLink" parent="Control/EndOfGameScreen" instance=ExtResource( 16 )]
 margin_left = 794.563
 margin_top = 514.814
 margin_right = 1210.56
@@ -263,7 +263,7 @@ texture_hover = null
 upscale_on_hover = true
 downscale_on_press = true
 
-[node name="Label" type="Label" parent="Control/EndOfGameScreen/Poll_link"]
+[node name="Label" type="Label" parent="Control/EndOfGameScreen/PollLink"]
 anchor_top = 3.507
 anchor_bottom = 3.507
 margin_left = 8.98987
@@ -282,7 +282,6 @@ __meta__ = {
 visible = false
 
 [node name="SteeringScreen" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -320,16 +319,16 @@ margin_right = 1280.0
 margin_bottom = 431.0
 
 [node name="GridContainer" type="GridContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer"]
-margin_right = 1280.0
+margin_right = 1268.0
 margin_bottom = 611.0
 size_flags_horizontal = 3
 columns = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer"]
+[node name="VBoxContainer1" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer"]
 margin_right = 355.0
 margin_bottom = 201.0
 
-[node name="WSAD1_norot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer"]
+[node name="WSAD1_norot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer1"]
 margin_left = 113.0
 margin_right = 241.0
 margin_bottom = 128.0
@@ -340,7 +339,7 @@ upscale_on_hover = true
 upscale_on_press = true
 steering_name = "WSAD1_norot"
 
-[node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer1"]
 margin_top = 132.0
 margin_right = 355.0
 margin_bottom = 201.0
@@ -348,13 +347,13 @@ text = "WSAD1
  (wersja bez obrotów)"
 align = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer"]
 margin_left = 425.0
 margin_right = 744.0
 margin_bottom = 201.0
 size_flags_horizontal = 6
 
-[node name="WSAD1_rot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer3"]
+[node name="WSAD1_rot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer2"]
 margin_left = 95.0
 margin_right = 223.0
 margin_bottom = 128.0
@@ -365,7 +364,7 @@ upscale_on_hover = true
 upscale_on_press = true
 steering_name = "WSAD1_rot"
 
-[node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer2"]
 margin_top = 132.0
 margin_right = 319.0
 margin_bottom = 201.0
@@ -373,13 +372,13 @@ text = "WSAD1
 (wersja z obrotami)"
 align = 1
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer"]
 margin_left = 922.0
 margin_right = 1267.0
 margin_bottom = 201.0
 size_flags_horizontal = 10
 
-[node name="WSAD2_norot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer4"]
+[node name="WSAD2_norot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer3"]
 margin_left = 108.0
 margin_right = 236.0
 margin_bottom = 128.0
@@ -390,7 +389,7 @@ upscale_on_hover = true
 upscale_on_press = true
 steering_name = "WSAD2_norot"
 
-[node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer4"]
+[node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer3"]
 margin_top = 132.0
 margin_right = 345.0
 margin_bottom = 201.0
@@ -398,12 +397,12 @@ text = "WSAD2
 (wersja bez obrotów)"
 align = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer"]
 margin_top = 205.0
 margin_right = 355.0
 margin_bottom = 406.0
 
-[node name="WSAD2_rot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer2"]
+[node name="WSAD2_rot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer4"]
 margin_left = 113.0
 margin_right = 241.0
 margin_bottom = 128.0
@@ -414,7 +413,7 @@ upscale_on_hover = true
 upscale_on_press = true
 steering_name = "WSAD2_rot"
 
-[node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer4"]
 margin_top = 132.0
 margin_right = 355.0
 margin_bottom = 201.0

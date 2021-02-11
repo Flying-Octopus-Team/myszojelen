@@ -46,18 +46,17 @@ func reset_level() -> void:
 func _prepare_current_level() -> void:
 	clear_level()
 	
-	var interface = get_node("../Interface/")
-	interface.find_node("SteeringScreen").show()
+	$"../Interface/SteeringScreen".show()
 	yield(get_node("../Interface/SteeringScreen/ContinueBtn"), "pressed")
-	interface.find_node("SteeringScreen").hide()
+	$"../Interface/SteeringScreen".hide()
 	
 	level = LevelScenes[current_level].instance()
 	level.connect("tree_cutted", self, "emit_signal", ["tree_cutted"])
 	level.connect("level_won", self, "_on_level_won")
 	add_child(level)
-	interface.find_node("HUD").show()
+	$"../Interface/Control/HUD".show()
 	
-	var Steering = interface.find_node("SteeringContainer").current_steering_type
+	var Steering = $"../Interface/SteeringScreen/SteeringContainer".current_steering_type
 	level.find_node("Steering").ChangeSteering(Steering)
 	
 	emit_signal("steering_chosen")

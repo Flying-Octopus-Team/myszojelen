@@ -281,7 +281,7 @@ __meta__ = {
 margin_right = 760.0
 margin_bottom = 450.0
 
-[node name="Poll_Back" parent="Background/Board/PollScreen/VBoxContainer" instance=ExtResource( 3 )]
+[node name="PollBack" parent="Background/Board/PollScreen/VBoxContainer" instance=ExtResource( 3 )]
 margin_right = 160.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 160, 32 )
@@ -293,7 +293,7 @@ texture_hover = null
 upscale_on_hover = true
 downscale_on_press = true
 
-[node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/Poll_Back"]
+[node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/PollBack"]
 margin_right = 40.0
 margin_bottom = 33.0
 text = "<- Wróć"
@@ -319,7 +319,7 @@ margin_right = 760.0
 margin_bottom = 450.0
 size_flags_vertical = 0
 
-[node name="Poll_link" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+[node name="PollLink" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 margin_right = 245.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 245, 32 )
@@ -331,7 +331,7 @@ texture_hover = null
 upscale_on_hover = true
 downscale_on_press = true
 
-[node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer/Poll_link"]
+[node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer/PollLink"]
 margin_right = 40.0
 margin_bottom = 33.0
 text = "Link do Ankiety"
@@ -339,7 +339,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Poll_Continue" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+[node name="PollContinue" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 margin_left = 559.0
 margin_right = 760.0
 margin_bottom = 32.0
@@ -352,7 +352,7 @@ texture_hover = null
 upscale_on_hover = true
 downscale_on_press = true
 
-[node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer/Poll_Continue"]
+[node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer/PollContinue"]
 margin_right = 40.0
 margin_bottom = 33.0
 text = "Kontynuuj ->"

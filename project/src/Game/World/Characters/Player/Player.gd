@@ -5,7 +5,6 @@ var RiceBullet = preload("res://src/Game/World/Characters/RiceBullet/RiceBullet.
 onready var shot_particles : Particles2D = $Pivot/Sprite/ShotParticles
 onready var shot_particles_default_x = shot_particles.position.x
 
-#TODO
 var shot_particles_position : Dictionary = {
 	Facing.TOP_LEFT: Vector2(-130, -60),
 	Facing.TOP_RIGHT: Vector2(130, -60),
@@ -78,7 +77,6 @@ func _rotate(dir:int) -> void:
 	set_process(true)
 
 
-#TODO
 func update_texture() -> void:
 	.update_texture()
 	

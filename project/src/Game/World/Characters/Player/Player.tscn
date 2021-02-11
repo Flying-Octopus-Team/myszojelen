@@ -110,48 +110,38 @@ script = ExtResource( 8 )
 [node name="Numpad" type="Node" parent="Steering" index="0"]
 script = ExtResource( 19 )
 texture = ExtResource( 20 )
-enabled = false
 
 [node name="IOJK_rotation" type="Node" parent="Steering" index="1"]
 script = ExtResource( 18 )
 texture = ExtResource( 21 )
-enabled = false
 
 [node name="IOJK_no_rotation" type="Node" parent="Steering" index="2"]
 script = ExtResource( 17 )
 texture = ExtResource( 21 )
-enabled = false
 
 [node name="WSAD2_rotation" type="Node" parent="Steering" index="3"]
 script = ExtResource( 16 )
 texture = ExtResource( 22 )
-enabled = false
 
 [node name="WSAD1_rotation" type="Node" parent="Steering" index="4"]
 script = ExtResource( 10 )
 texture = ExtResource( 23 )
-enabled = false
 
 [node name="WSAD1_no_rotation" type="Node" parent="Steering" index="5"]
 script = ExtResource( 14 )
 texture = ExtResource( 23 )
-enabled = false
 
 [node name="WSAD2_no_rotation" type="Node" parent="Steering" index="6"]
 script = ExtResource( 15 )
-enabled = false
 
 [node name="Joystick" type="Node" parent="Steering" index="7"]
 script = ExtResource( 9 )
 
 [node name="WSAD1_double_keys" type="Node" parent="Steering" index="8"]
 script = ExtResource( 12 )
-enabled = false
 
 [node name="KeyboardRotating" type="Node" parent="Steering" index="9"]
 script = ExtResource( 11 )
-enabled = false
 
 [node name="Rotator" type="Node" parent="Steering" index="10"]
 script = ExtResource( 13 )
-enabled = false

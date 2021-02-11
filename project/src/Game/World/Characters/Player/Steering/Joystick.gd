@@ -1,15 +1,15 @@
-extends SteeringBaseScript
+extends baseSteeringScript
 
 const HALF_PI = PI / 2.0
 
 export var joy_sensinitivy := 0.5 
 
 
-func steer(delta:float) -> bool:
+func steer(delta:float) -> void:
 	var requested_direction = _get_axis_from_joy()
 	
 	if requested_direction == -1:
-		return false
+		return
 	
 	if requested_direction != player.facing:
 		player._rotate_to(requested_direction)
@@ -21,7 +21,6 @@ func steer(delta:float) -> bool:
 	else:
 		_time_after_rotate += delta
 	
-	return true
 
 
 func _get_axis_from_joy() -> int:
@@ -45,12 +44,12 @@ func _get_axis_from_joy() -> int:
 	var joy_angle = joy_vec.angle()
 	
 	if joy_angle < 0 and joy_angle > -HALF_PI:
-		return Character.Facing.TOP_RIGHT
+		return facing_enum.TOP_RIGHT
 	elif joy_angle < -HALF_PI and joy_angle > -PI:
-		return Character.Facing.TOP_LEFT
+		return facing_enum.TOP_LEFT
 	elif joy_angle > 0 and joy_angle < HALF_PI:
-		return Character.Facing.BOTTOM_RIGHT
+		return facing_enum.BOTTOM_RIGHT
 	elif joy_angle > HALF_PI and joy_angle < PI:
-		return Character.Facing.BOTTOM_LEFT
+		return facing_enum.BOTTOM_LEFT
 	
 	return -1

@@ -30,9 +30,9 @@ func _ready() -> void:
 	
 	find_node("SettingsBtn").connect("pressed", self, "_show_screen", [settings])
 	find_node("BackBtn").connect("pressed", self, "_show_screen", [main])
-	find_node("Poll_Back").connect("pressed", self, "_show_screen", [main])
-	find_node("Poll_Continue").connect("pressed", self, "_new_game")
-	find_node("Poll_link").connect("pressed", self, "_Poll_link_pressed")
+	find_node("PollBack").connect("pressed", self, "_show_screen", [main])
+	find_node("PollContinue").connect("pressed", self, "_new_game")
+	find_node("PollLink").connect("pressed", self, "_PollLink_pressed")
 	
 	_show_screen(main)
 	
@@ -79,5 +79,5 @@ func _disable_all_buttons() -> void:
 func _exit_game() -> void:
 	get_tree().quit()
 
-func _Poll_link_pressed() -> void:
+func _PollLink_pressed() -> void:
 	OS.shell_open("https://www.example.com/")
