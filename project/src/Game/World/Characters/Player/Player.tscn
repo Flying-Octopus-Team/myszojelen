@@ -9,15 +9,15 @@
 [ext_resource path="res://src/TouchScreenkLayer/TouchScreenStering.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/Steering.gd" type="Script" id=8]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/Joystick.gd" type="Script" id=9]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD1_rotation.gd" type="Script" id=10]
+[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD1Rotation.gd" type="Script" id=10]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/KeyboardRotating.gd" type="Script" id=11]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD1_double_keys.gd" type="Script" id=12]
+[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD1DoubleKeys.gd" type="Script" id=12]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/Rotator.gd" type="Script" id=13]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD1_no_rotation.gd" type="Script" id=14]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD2_no_rotation.gd" type="Script" id=15]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD2_rotation.gd" type="Script" id=16]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/IOJK_no_rotation.gd" type="Script" id=17]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/IOJK_rotation.gd" type="Script" id=18]
+[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD1NoRotation.gd" type="Script" id=14]
+[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD2NoRotation.gd" type="Script" id=15]
+[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD2Rotation.gd" type="Script" id=16]
+[ext_resource path="res://src/Game/World/Characters/Player/Steering/IOJKNoRotation.gd" type="Script" id=17]
+[ext_resource path="res://src/Game/World/Characters/Player/Steering/IOJKRotation.gd" type="Script" id=18]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/Numpad.gd" type="Script" id=19]
 [ext_resource path="res://assets/Steering/numpad_placeholder.png" type="Texture" id=20]
 [ext_resource path="res://assets/Steering/iojk_placeholder.png" type="Texture" id=21]
@@ -89,9 +89,9 @@ volume_db = -10.0
 
 [node name="TouchScreenSteering" parent="." index="5" instance=ExtResource( 7 )]
 
-[node name="Steering_info" type="CanvasLayer" parent="." index="6"]
+[node name="SteeringInfoCanvas" type="CanvasLayer" parent="." index="6"]
 
-[node name="SteeringInfo" type="TextureRect" parent="Steering_info" index="0"]
+[node name="SteeringInfo" type="TextureRect" parent="SteeringInfoCanvas" index="0"]
 margin_left = 1129.72
 margin_top = 21.9865
 margin_right = 1257.72
@@ -111,33 +111,33 @@ script = ExtResource( 8 )
 script = ExtResource( 19 )
 texture = ExtResource( 20 )
 
-[node name="IOJK_rotation" type="Node" parent="Steering" index="1"]
+[node name="IOJKRotation" type="Node" parent="Steering" index="1"]
 script = ExtResource( 18 )
 texture = ExtResource( 21 )
 
-[node name="IOJK_no_rotation" type="Node" parent="Steering" index="2"]
+[node name="IOJKNoRotation" type="Node" parent="Steering" index="2"]
 script = ExtResource( 17 )
 texture = ExtResource( 21 )
 
-[node name="WSAD2_rotation" type="Node" parent="Steering" index="3"]
+[node name="WSAD2Rotation" type="Node" parent="Steering" index="3"]
 script = ExtResource( 16 )
 texture = ExtResource( 22 )
 
-[node name="WSAD1_rotation" type="Node" parent="Steering" index="4"]
+[node name="WSAD1Rotation" type="Node" parent="Steering" index="4"]
 script = ExtResource( 10 )
 texture = ExtResource( 23 )
 
-[node name="WSAD1_no_rotation" type="Node" parent="Steering" index="5"]
+[node name="WSAD1NoRotation" type="Node" parent="Steering" index="5"]
 script = ExtResource( 14 )
 texture = ExtResource( 23 )
 
-[node name="WSAD2_no_rotation" type="Node" parent="Steering" index="6"]
+[node name="WSAD2NoRotation" type="Node" parent="Steering" index="6"]
 script = ExtResource( 15 )
 
 [node name="Joystick" type="Node" parent="Steering" index="7"]
 script = ExtResource( 9 )
 
-[node name="WSAD1_double_keys" type="Node" parent="Steering" index="8"]
+[node name="WSAD1DoubleKeys" type="Node" parent="Steering" index="8"]
 script = ExtResource( 12 )
 
 [node name="KeyboardRotating" type="Node" parent="Steering" index="9"]

@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Game/World/Characters/enemies/Enemy.gd"
 }, {
+"base": "Node",
+"class": "SteeringBaseScript",
+"language": "GDScript",
+"path": "res://src/Game/World/Characters/Player/Steering/SteeringBaseScript.gd"
+}, {
 "base": "Enemy",
 "class": "Vietnamese",
 "language": "GDScript",
@@ -33,19 +38,14 @@ _global_script_classes=[ {
 "class": "WorldObject",
 "language": "GDScript",
 "path": "res://src/Game/World/Objects/WorldObject.gd"
-}, {
-"base": "Node",
-"class": "baseSteeringScript",
-"language": "GDScript",
-"path": "res://src/Game/World/Characters/Player/Steering/baseSteeringScript.gd"
 } ]
 _global_script_class_icons={
 "BaseLevel": "",
 "Character": "",
 "Enemy": "",
+"SteeringBaseScript": "",
 "Vietnamese": "",
-"WorldObject": "",
-"baseSteeringScript": ""
+"WorldObject": ""
 }
 
 [application]

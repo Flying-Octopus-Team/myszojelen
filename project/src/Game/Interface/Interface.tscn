@@ -328,7 +328,7 @@ columns = 3
 margin_right = 355.0
 margin_bottom = 201.0
 
-[node name="WSAD1_norot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer1"]
+[node name="WSAD1NoRot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer1"]
 margin_left = 113.0
 margin_right = 241.0
 margin_bottom = 128.0
@@ -337,7 +337,6 @@ texture_normal = ExtResource( 20 )
 script = ExtResource( 21 )
 upscale_on_hover = true
 upscale_on_press = true
-steering_name = "WSAD1_norot"
 
 [node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer1"]
 margin_top = 132.0
@@ -353,7 +352,7 @@ margin_right = 744.0
 margin_bottom = 201.0
 size_flags_horizontal = 6
 
-[node name="WSAD1_rot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer2"]
+[node name="WSAD1Rot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer2"]
 margin_left = 95.0
 margin_right = 223.0
 margin_bottom = 128.0
@@ -362,7 +361,6 @@ texture_normal = ExtResource( 20 )
 script = ExtResource( 21 )
 upscale_on_hover = true
 upscale_on_press = true
-steering_name = "WSAD1_rot"
 
 [node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer2"]
 margin_top = 132.0
@@ -378,7 +376,7 @@ margin_right = 1267.0
 margin_bottom = 201.0
 size_flags_horizontal = 10
 
-[node name="WSAD2_norot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer3"]
+[node name="WSAD2NoRot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer3"]
 margin_left = 108.0
 margin_right = 236.0
 margin_bottom = 128.0
@@ -387,7 +385,6 @@ texture_normal = ExtResource( 22 )
 script = ExtResource( 21 )
 upscale_on_hover = true
 upscale_on_press = true
-steering_name = "WSAD2_norot"
 
 [node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer3"]
 margin_top = 132.0
@@ -402,7 +399,7 @@ margin_top = 205.0
 margin_right = 355.0
 margin_bottom = 406.0
 
-[node name="WSAD2_rot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer4"]
+[node name="WSAD2Rot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer4"]
 margin_left = 113.0
 margin_right = 241.0
 margin_bottom = 128.0
@@ -411,7 +408,6 @@ texture_normal = ExtResource( 22 )
 script = ExtResource( 21 )
 upscale_on_hover = true
 upscale_on_press = true
-steering_name = "WSAD2_rot"
 
 [node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer4"]
 margin_top = 132.0
@@ -428,7 +424,7 @@ margin_right = 757.0
 margin_bottom = 406.0
 size_flags_horizontal = 6
 
-[node name="IOJK_norot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer5"]
+[node name="IOJKNoRot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer5"]
 margin_left = 108.0
 margin_right = 236.0
 margin_bottom = 128.0
@@ -437,7 +433,6 @@ texture_normal = ExtResource( 23 )
 script = ExtResource( 21 )
 upscale_on_hover = true
 upscale_on_press = true
-steering_name = "IOJK_norot"
 
 [node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer5"]
 margin_top = 132.0
@@ -454,7 +449,7 @@ margin_right = 1267.0
 margin_bottom = 406.0
 size_flags_horizontal = 10
 
-[node name="IOJK_rot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer6"]
+[node name="IOJKRot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer6"]
 margin_left = 95.0
 margin_right = 223.0
 margin_bottom = 128.0
@@ -463,7 +458,6 @@ texture_normal = ExtResource( 23 )
 script = ExtResource( 21 )
 upscale_on_hover = true
 upscale_on_press = true
-steering_name = "IOJK_rot"
 
 [node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer6"]
 margin_top = 132.0
@@ -487,7 +481,6 @@ texture_normal = ExtResource( 24 )
 script = ExtResource( 21 )
 upscale_on_hover = true
 upscale_on_press = true
-steering_name = "Numpad"
 
 [node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer7"]
 margin_top = 132.0

@@ -1,4 +1,4 @@
-extends baseSteeringScript
+extends SteeringBaseScript
 
 var force_move : bool = false
 

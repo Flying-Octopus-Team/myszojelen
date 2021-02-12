@@ -1,5 +1,5 @@
 extends Node
-class_name baseSteeringScript
+class_name SteeringBaseScript
 
 var player : Character
 

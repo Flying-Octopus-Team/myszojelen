@@ -2,7 +2,6 @@ extends TextureButton
 
 export var upscale_on_hover : bool = false
 export var upscale_on_press : bool = false
-export var steering_name : String =  ""
 
 onready var parent_name = get_parent().name
 
@@ -12,7 +11,7 @@ func _ready() -> void:
 	rect_pivot_offset = rect_size * 0.5
 	connect("mouse_entered", self, "_on_mouse_entered")
 	connect("mouse_exited", self, "_on_mouse_exited")
-	connect("pressed", get_parent().get_parent().get_parent().get_parent(), "change_steering", [steering_name, parent_name])
+	connect("pressed", get_parent().get_parent().get_parent().get_parent(), "change_steering", [self.name, parent_name])
 
 
 func _on_mouse_entered() -> void:

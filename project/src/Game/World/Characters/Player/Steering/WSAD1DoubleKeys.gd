@@ -1,4 +1,4 @@
-extends baseSteeringScript
+extends SteeringBaseScript
 
 var _direction_actions = {
 	"up": [ "ui_up", "ui_right" ],

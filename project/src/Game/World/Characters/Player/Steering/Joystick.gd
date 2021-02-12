@@ -1,4 +1,4 @@
-extends baseSteeringScript
+extends SteeringBaseScript
 
 const HALF_PI = PI / 2.0
 

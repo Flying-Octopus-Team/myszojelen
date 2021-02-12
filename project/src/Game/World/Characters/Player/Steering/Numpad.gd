@@ -1,4 +1,4 @@
-extends baseSteeringScript
+extends SteeringBaseScript
 
 func _get_direction() -> int:
 	

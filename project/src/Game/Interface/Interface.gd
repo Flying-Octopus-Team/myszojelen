@@ -8,7 +8,6 @@ onready var trees_left_label : Label = find_node("TreesLeft")
 onready var game_over_screen : Control = $Control/GameOverScreen
 onready var level_won_screen : Control = $Control/LevelWonScreen
 onready var end_of_game_screen : Control = $Control/EndOfGameScreen
-#onready var steering_screen : Control = $SteeringScreen
 onready var HUD : MarginContainer = $Control/HUD
 
 onready var developers_screen = $DevelopersScreen

@@ -1,21 +1,20 @@
-extends baseSteeringScript
+extends SteeringBaseScript
 
 func _get_direction() -> int:
 	
-	if (Input.is_action_pressed("move_up_right")):
+	if (Input.is_action_pressed("ui_up")):
 		return facing_enum.TOP_RIGHT
-	elif (Input.is_action_pressed("move_down_left")):
+	elif (Input.is_action_pressed("ui_down")):
 		return facing_enum.BOTTOM_LEFT
-	elif (Input.is_action_pressed("move_up_left")):
+	elif (Input.is_action_pressed("ui_left")):
 		return facing_enum.TOP_LEFT
-	elif (Input.is_action_pressed("move_down_right")):
+	elif (Input.is_action_pressed("ui_right")):
 		return facing_enum.BOTTOM_RIGHT
 		
 	return -1
 
 func steer(delta: float) -> void:
-	
-	var requested_direction : int = _get_direction()
+	var requested_direction : int  = _get_direction()
 		
 	if (requested_direction == -1):
 		return
