@@ -90,4 +90,4 @@ func _on_DevelopersButton_pressed():
 	
 	
 func _on_PollLink_pressed() -> void:
-	OS.shell_open("https://www.example.com/")
+	OS.shell_open("https://forms.gle/auhz4PorwtGVGCLs8")

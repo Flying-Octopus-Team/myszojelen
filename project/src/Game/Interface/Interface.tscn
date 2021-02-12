@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
@@ -18,19 +18,15 @@
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/Game/Interface/GameOverScreen.gd" type="Script" id=17]
 [ext_resource path="res://src/Buttons/SoundButton/SoundButton.tscn" type="PackedScene" id=18]
-[ext_resource path="res://assets/fonts/data/Shojumaru-Regular.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://assets/screens/buttons/poll/PollClick.png" type="Texture" id=19]
 [ext_resource path="res://assets/Steering/wsad1_placeholder.png" type="Texture" id=20]
 [ext_resource path="res://src/Game/Interface/SteeringButton.gd" type="Script" id=21]
 [ext_resource path="res://assets/Steering/wsad2_placeholder.png" type="Texture" id=22]
 [ext_resource path="res://assets/Steering/iojk_placeholder.png" type="Texture" id=23]
 [ext_resource path="res://assets/Steering/numpad_placeholder.png" type="Texture" id=24]
 [ext_resource path="res://src/Game/Interface/SteeringContainer.gd" type="Script" id=25]
-
-[sub_resource type="DynamicFont" id=1]
-size = 35
-outline_size = 3
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 19 )
+[ext_resource path="res://assets/screens/buttons/poll/Poll.png" type="Texture" id=26]
+[ext_resource path="res://assets/screens/buttons/poll/PollHover.png" type="Texture" id=27]
 
 [node name="Interface" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -133,6 +129,7 @@ __meta__ = {
 }
 
 [node name="LevelWonScreen" type="Control" parent="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -200,7 +197,6 @@ __meta__ = {
 }
 
 [node name="EndOfGameScreen" type="Control" parent="Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -253,35 +249,21 @@ texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 6 )
 
 [node name="PollLink" parent="Control/EndOfGameScreen" instance=ExtResource( 16 )]
-margin_left = 794.563
-margin_top = 514.814
-margin_right = 1210.56
-margin_bottom = 561.814
-texture_normal = null
-texture_pressed = null
-texture_hover = null
+margin_left = 678.0
+margin_top = 398.0
+margin_right = 1356.0
+margin_bottom = 581.0
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 27 )
 upscale_on_hover = true
 downscale_on_press = true
-
-[node name="Label" type="Label" parent="Control/EndOfGameScreen/PollLink"]
-anchor_top = 3.507
-anchor_bottom = 3.507
-margin_left = 8.98987
-margin_top = -166.327
-margin_right = 424.99
-margin_bottom = -119.327
-size_flags_horizontal = 2
-size_flags_vertical = 2
-custom_fonts/font = SubResource( 1 )
-text = "->Link do ankiety<-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="DevelopersScreen" parent="." instance=ExtResource( 15 )]
 visible = false
 
 [node name="SteeringScreen" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -319,7 +301,7 @@ margin_right = 1280.0
 margin_bottom = 431.0
 
 [node name="GridContainer" type="GridContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer"]
-margin_right = 1268.0
+margin_right = 1280.0
 margin_bottom = 611.0
 size_flags_horizontal = 3
 columns = 3
