@@ -11,7 +11,9 @@ onready var SteeringDict : Dictionary = {
 	"WSAD2Rot" : get_node("WSAD2Rotation"),
 	"IOJKNoRot" : get_node("IOJKNoRotation"),
 	"IOJKRot" : get_node("IOJKRotation"),
-	"Numpad" : get_node("Numpad")
+	"Numpad" : get_node("Numpad"),
+	"VirtualPad": get_node("Joystick"),
+	"ManualPad": get_node("Joystick")
 }
 
 var SteeringDictKey : String
@@ -28,3 +30,4 @@ func steer(delta:float) -> void:
 
 func ChangeSteering(new_steering_key) -> void:
 	SteeringDictKey = new_steering_key
+	$"../TouchScreenSteering".set_visible(SteeringDictKey == "VirtualPad")

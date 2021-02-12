@@ -371,10 +371,10 @@ text = "WSAD1
 align = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer"]
-margin_left = 922.0
-margin_right = 1267.0
+margin_left = 868.0
+margin_right = 1213.0
 margin_bottom = 201.0
-size_flags_horizontal = 10
+size_flags_horizontal = 6
 
 [node name="WSAD2NoRot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer3"]
 margin_left = 108.0
@@ -443,11 +443,11 @@ text = "IOJK/QWAS
 align = 1
 
 [node name="VBoxContainer6" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer"]
-margin_left = 948.0
+margin_left = 881.0
 margin_top = 205.0
-margin_right = 1267.0
+margin_right = 1200.0
 margin_bottom = 406.0
-size_flags_horizontal = 10
+size_flags_horizontal = 6
 
 [node name="IOJKRot" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer6"]
 margin_left = 95.0
@@ -489,6 +489,55 @@ margin_bottom = 201.0
 text = "Numpad
 (wersja bez obrotów)"
 align = 1
+
+[node name="VBoxContainer8" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer"]
+margin_left = 469.0
+margin_top = 410.0
+margin_right = 701.0
+margin_bottom = 611.0
+size_flags_horizontal = 6
+
+[node name="VirtualPad" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer8"]
+margin_left = 52.0
+margin_right = 180.0
+margin_bottom = 128.0
+size_flags_horizontal = 4
+texture_normal = ExtResource( 20 )
+script = ExtResource( 21 )
+upscale_on_hover = true
+upscale_on_press = true
+
+[node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer8"]
+margin_top = 132.0
+margin_right = 232.0
+margin_bottom = 165.0
+text = "Wirtualny pad"
+align = 1
+
+[node name="VBoxContainer9" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer"]
+margin_left = 977.0
+margin_top = 410.0
+margin_right = 1105.0
+margin_bottom = 611.0
+size_flags_horizontal = 6
+
+[node name="ManualPad" type="TextureButton" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer9"]
+margin_right = 128.0
+margin_bottom = 128.0
+size_flags_horizontal = 4
+texture_normal = ExtResource( 22 )
+script = ExtResource( 21 )
+upscale_on_hover = true
+upscale_on_press = true
+
+[node name="Label" type="Label" parent="SteeringScreen/SteeringContainer/ScrollContainer/GridContainer/VBoxContainer9"]
+margin_top = 132.0
+margin_right = 128.0
+margin_bottom = 165.0
+size_flags_vertical = 5
+text = "Pad"
+align = 1
+valign = 1
 
 [node name="ContinueBtn" parent="SteeringScreen" instance=ExtResource( 16 )]
 margin_left = 511.268
