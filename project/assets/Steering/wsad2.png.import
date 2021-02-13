@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wsad2_placeholder.png-a8867f8241ec5360c9aab2b89d023589.stex"
+path="res://.import/wsad2.png-851cb57640255ed3fd779497130a969a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Steering/wsad2_placeholder.png"
-dest_files=[ "res://.import/wsad2_placeholder.png-a8867f8241ec5360c9aab2b89d023589.stex" ]
+source_file="res://assets/Steering/wsad2.png"
+dest_files=[ "res://.import/wsad2.png-851cb57640255ed3fd779497130a969a.stex" ]
 
 [params]
 

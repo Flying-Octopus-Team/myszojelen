@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/iojk_placeholder.png-522abc84988833a7673b777fcde11537.stex"
+path="res://.import/wsad1.png-559802abec1db863fbf4f8fdd8144abf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Steering/iojk_placeholder.png"
-dest_files=[ "res://.import/iojk_placeholder.png-522abc84988833a7673b777fcde11537.stex" ]
+source_file="res://assets/Steering/wsad1.png"
+dest_files=[ "res://.import/wsad1.png-559802abec1db863fbf4f8fdd8144abf.stex" ]
 
 [params]
 
