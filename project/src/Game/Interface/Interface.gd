@@ -34,8 +34,6 @@ func reset() -> void:
 	
 	HUD.hide()
 	$SteeringScreen.hide()
-	$SteeringScreen/SteeringContainer.reset()
-	$SteeringScreen/ContinueBtn.disabled = true
 	
 	developers_screen.visible = false
 	current_screen = Screen.NONE

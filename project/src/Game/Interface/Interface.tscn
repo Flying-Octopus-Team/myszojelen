@@ -265,6 +265,7 @@ downscale_on_press = true
 visible = false
 
 [node name="SteeringScreen" type="Control" parent="."]
+pause_mode = 2
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -292,6 +293,7 @@ margin_left = 1.0
 margin_top = 156.0
 margin_right = 1281.0
 margin_bottom = 587.0
+rect_scale = Vector2( 0.998138, 1.16152 )
 script = ExtResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -547,25 +549,6 @@ size_flags_vertical = 5
 text = "Pad"
 align = 1
 valign = 1
-
-[node name="ContinueBtn" parent="SteeringScreen" instance=ExtResource( 16 )]
-margin_left = 511.268
-margin_top = 617.131
-margin_right = 680.268
-margin_bottom = 650.131
-texture_normal = null
-texture_pressed = null
-texture_hover = null
-upscale_on_hover = true
-downscale_on_press = true
-
-[node name="Label" type="Label" parent="SteeringScreen/ContinueBtn"]
-margin_right = 40.0
-margin_bottom = 33.0
-text = "Kontynuuj"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="pressed" from="Control/GameOverScreen/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]
 [connection signal="pressed" from="Control/LevelWonScreen/NextLevelBtn" to="." method="_on_NextLevelBtn_pressed"]
 [connection signal="pressed" from="Control/EndOfGameScreen/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]
