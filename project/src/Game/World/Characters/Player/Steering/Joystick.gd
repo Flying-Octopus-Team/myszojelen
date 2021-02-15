@@ -44,12 +44,12 @@ func _get_axis_from_joy() -> int:
 	var joy_angle = joy_vec.angle()
 	
 	if joy_angle < 0 and joy_angle > -HALF_PI:
-		return facing_enum.TOP_RIGHT
+		return Character.Facing.TOP_RIGHT
 	elif joy_angle < -HALF_PI and joy_angle > -PI:
-		return facing_enum.TOP_LEFT
+		return Character.Facing.TOP_LEFT
 	elif joy_angle > 0 and joy_angle < HALF_PI:
-		return facing_enum.BOTTOM_RIGHT
+		return Character.Facing.BOTTOM_RIGHT
 	elif joy_angle > HALF_PI and joy_angle < PI:
-		return facing_enum.BOTTOM_LEFT
+		return Character.Facing.BOTTOM_LEFT
 	
 	return -1

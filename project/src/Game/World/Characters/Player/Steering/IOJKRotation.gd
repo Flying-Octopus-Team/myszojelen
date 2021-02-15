@@ -6,19 +6,19 @@ func _get_direction() -> int:
 	
 	if Input.is_action_pressed("move_up_left"):
 		force_move = Input.is_action_just_pressed("move_up_left")
-		return facing_enum.TOP_LEFT
+		return Character.Facing.TOP_LEFT
 	
 	elif Input.is_action_pressed("move_down_right"):
 		force_move = Input.is_action_just_pressed("move_down_right")
-		return facing_enum.BOTTOM_RIGHT
+		return Character.Facing.BOTTOM_RIGHT
 	
 	elif Input.is_action_pressed("move_bottom_left"):
 		force_move = Input.is_action_just_pressed("move_bottom_left")
-		return facing_enum.BOTTOM_LEFT
+		return Character.Facing.BOTTOM_LEFT
 	
 	elif Input.is_action_pressed("move_up_right"):
 		force_move = Input.is_action_just_pressed("move_up_right")
-		return facing_enum.TOP_RIGHT
+		return Character.Facing.TOP_RIGHT
 		
 	return -1
 

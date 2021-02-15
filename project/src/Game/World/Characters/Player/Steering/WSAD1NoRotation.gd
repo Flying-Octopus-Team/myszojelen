@@ -3,13 +3,13 @@ extends SteeringBaseScript
 func _get_direction() -> int:
 	
 	if (Input.is_action_pressed("ui_up")):
-		return facing_enum.TOP_RIGHT
+		return Character.Facing.TOP_RIGHT
 	elif (Input.is_action_pressed("ui_down")):
-		return facing_enum.BOTTOM_LEFT
+		return Character.Facing.BOTTOM_LEFT
 	elif (Input.is_action_pressed("ui_left")):
-		return facing_enum.TOP_LEFT
+		return Character.Facing.TOP_LEFT
 	elif (Input.is_action_pressed("ui_right")):
-		return facing_enum.BOTTOM_RIGHT
+		return Character.Facing.BOTTOM_RIGHT
 		
 	return -1
 
