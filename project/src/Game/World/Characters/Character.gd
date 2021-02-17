@@ -10,6 +10,7 @@ var world_objects : Node2D
 
 export var top_right_texture : Texture
 export var bottom_right_texture : Texture
+export var right_texture : Texture
 
 export var move_speed : float = 1
 
@@ -24,7 +25,7 @@ enum Facing {
 	RIGHT
 }
 
-#TODO add textures for directions: top left bottm right
+#TODO add textures for directions: top bottom
 onready var textures : Dictionary = {
 	Facing.TOP_LEFT: top_right_texture,
 	Facing.TOP_RIGHT: top_right_texture,
@@ -32,8 +33,8 @@ onready var textures : Dictionary = {
 	Facing.BOTTOM_LEFT: bottom_right_texture,
 	Facing.TOP: top_right_texture,
 	Facing.BOTTOM: bottom_right_texture,
-	Facing.RIGHT: top_right_texture,
-	Facing.LEFT: bottom_right_texture
+	Facing.RIGHT: right_texture,
+	Facing.LEFT: right_texture
 }
 
 onready var sprite = $Pivot/Sprite
@@ -98,7 +99,7 @@ func _rotate_to(to:int) -> void:
 #TODO add condition to flip_h when 8 directions textures are added
 func update_texture() -> void:
 	sprite.texture = textures[facing]
-	sprite.flip_h = (facing == Facing.TOP_LEFT or facing == Facing.BOTTOM_LEFT)
+	sprite.flip_h = (facing == Facing.TOP_LEFT or facing == Facing.BOTTOM_LEFT or facing == Facing.LEFT)
 
 
 func get_forward_dir() -> Vector2:
