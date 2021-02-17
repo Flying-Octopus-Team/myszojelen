@@ -17,8 +17,9 @@ onready var lose_music = $LoseMusic
 
 var trees_left : int
 
-var _is_game_running := false
+var _is_game_running : bool = false
 
+var level_counter : int = 1
 
 func _ready() -> void:
 	world.connect("tree_cutted", self, "_on_tree_cutted")
@@ -36,15 +37,11 @@ func _ready() -> void:
 
 
 func _start() -> void:
-	get_tree().paused = true
 	
 	_start_game()
 	
 	fade_layer.fade_in(fade_color)
 	yield(fade_layer, "faded_in")
-	_is_game_running = true
-	
-	get_tree().paused = false
 
 
 func _start_game() -> void:
@@ -90,6 +87,7 @@ func _on_level_won() -> void:
 	yield(get_tree().create_timer(end_delay_time), "timeout")
 	
 	_is_game_running = false
+	level_counter += 1
 	_fade("_show_next_level_screen")
 
 
@@ -114,24 +112,27 @@ func _finish_game() -> void:
 func _on_next_level_requested() -> void:
 	lose_music.force_stop()
 	menu_theme.fade_out()
-	_fade("_next_level")
+	_fade("_next_level", true)
 
 
 func _next_level() -> void:
+	get_tree().paused = true
 	menu_theme.force_stop()
 	main_theme.play()
 	interface.reset()
 	world.next_level()
+	
 	_prepare_trees_left()
 	_is_game_running = true
 
 
 func _on_replay_requested() -> void:
 	lose_music.fade_out()
-	_fade("_reset_level")
+	_fade("_reset_level", true)
 
 
 func _reset_level() -> void:
+	get_tree().paused = true
 	lose_music.force_stop()
 	main_theme.play()
 	
@@ -145,7 +146,7 @@ func _on_reset_game_requested() -> void:
 	_fade("_start_game")
 
 
-func _fade(callback:String) -> void:
+func _fade(callback:String, keep_tree_paused: bool = false) -> void:
 	get_tree().paused = true
 	
 	fade_layer.fade_out(fade_color)
@@ -156,5 +157,4 @@ func _fade(callback:String) -> void:
 	fade_layer.fade_in(fade_color)
 	yield(fade_layer, "faded_in")
 	
-	get_tree().paused = false
-
+	get_tree().paused = keep_tree_paused

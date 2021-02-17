@@ -9,7 +9,11 @@ var shot_particles_position : Dictionary = {
 	Facing.TOP_LEFT: Vector2(-130, -60),
 	Facing.TOP_RIGHT: Vector2(130, -60),
 	Facing.BOTTOM_LEFT: Vector2(-130, -20),
-	Facing.BOTTOM_RIGHT: Vector2(130, -20)
+	Facing.BOTTOM_RIGHT: Vector2(130, -20),
+	Facing.TOP: Vector2(0, -60),
+	Facing.BOTTOM: Vector2(0, -20),
+	Facing.LEFT: Vector2(-130, 0),
+	Facing.RIGHT: Vector2(130, 0)
 }
 
 onready var shot_sound = $ShotSound
@@ -21,11 +25,11 @@ export var joy_sensinitivy := 0.5
 export var wait_time_after_rotate := 0.2 
 onready var _time_after_rotate := wait_time_after_rotate
 
-onready var stering : Node = $Stering
+onready var steering : Node = $Steering
 
 
 func _process(delta) -> void:
-	stering.steer(delta)
+	steering.steer(delta)
 
 
 func _unhandled_input(event) -> void:

@@ -9,7 +9,6 @@ export(Array, PackedScene) var LevelScenes
 var level : BaseLevel = null
 var current_level = -1
 
-
 func reset() -> void:
 	current_level = -1
 
@@ -38,10 +37,19 @@ func reset_level() -> void:
 
 func _prepare_current_level() -> void:
 	clear_level()
+	
 	level = LevelScenes[current_level].instance()
 	level.connect("tree_cutted", self, "emit_signal", ["tree_cutted"])
 	level.connect("level_won", self, "_on_level_won")
 	add_child(level)
+	$"../Interface/Control/HUD".show()
+	
+	$"../Interface/SteeringScreen".show()
+	yield(get_node("../Interface/SteeringScreen/SteeringContainer"), "steering_set")
+	$"../Interface/SteeringScreen".hide()
+	
+	var Steering = $"../Interface/SteeringScreen/SteeringContainer".steering_type
+	level.find_node("Steering").ChangeSteering(Steering)
 
 
 func count_trees() -> int:

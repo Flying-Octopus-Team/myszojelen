@@ -8,6 +8,7 @@ onready var trees_left_label : Label = find_node("TreesLeft")
 onready var game_over_screen : Control = $Control/GameOverScreen
 onready var level_won_screen : Control = $Control/LevelWonScreen
 onready var end_of_game_screen : Control = $Control/EndOfGameScreen
+onready var HUD : MarginContainer = $Control/HUD
 
 onready var developers_screen = $DevelopersScreen
 
@@ -16,8 +17,9 @@ const TEES_LEFT_PREFIX := "Pozostalo drzew: "
 enum Screen { NONE, LEVEL_WON, GAME_OVER, END_OF_GAME }
 var current_screen : int = Screen.NONE
 
-
 func _ready() -> void:
+	$Control/EndOfGameScreen/PollLink.connect("pressed", self, "_on_PollLink_pressed")
+	$Control/LevelWonScreen/ReplayBtn.connect("pressed", self, "_on_ReplayBtn_pressed")
 	reset()
 
 
@@ -29,6 +31,10 @@ func reset() -> void:
 	game_over_screen.hide()
 	level_won_screen.hide()
 	end_of_game_screen.hide()
+	
+	HUD.hide()
+	$SteeringScreen.hide()
+	
 	developers_screen.visible = false
 	current_screen = Screen.NONE
 
@@ -79,3 +85,7 @@ func _on_ResetGameBtn_pressed():
 
 func _on_DevelopersButton_pressed():
 	developers_screen.show()
+	
+	
+func _on_PollLink_pressed() -> void:
+	OS.shell_open("https://forms.gle/auhz4PorwtGVGCLs8")
