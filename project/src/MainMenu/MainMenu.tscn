@@ -275,14 +275,14 @@ __meta__ = {
 margin_left = 284.0
 margin_top = 158.0
 margin_right = 1044.0
-margin_bottom = 608.0
+margin_bottom = 611.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/Board/PollScreen"]
 margin_right = 760.0
-margin_bottom = 450.0
+margin_bottom = 453.0
 
 [node name="PollBack" parent="Background/Board/PollScreen/VBoxContainer" instance=ExtResource( 3 )]
 margin_right = 160.0
@@ -307,28 +307,27 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="Background/Board/PollScreen/VBoxContainer"]
 margin_top = 36.0
 margin_right = 760.0
-margin_bottom = 241.0
+margin_bottom = 379.0
 size_flags_vertical = 3
 
-[node name="Description" type="Label" parent="Background/Board/PollScreen/VBoxContainer/MarginContainer"]
-margin_top = 86.0
+[node name="Description" type="RichTextLabel" parent="Background/Board/PollScreen/VBoxContainer/MarginContainer"]
 margin_right = 760.0
-margin_bottom = 119.0
-text = "*Tutaj będzie opis*"
+margin_bottom = 343.0
+text = "Nasz dzielny Myszojeleń się rozwija, a my wraz z nim. Dlatego chcemy Was spytać o zdanie i przygotowaliśmy ankietę. Pomoże nam przybliżyć kierunek rozwoju gry i najlepszy sposób sterowania.
+Chcemy zebrać jak największy feedback, dlatego jeśli możesz – poleć tę grę znajomym i wspólnie pomóżcie Wojowniczemu Myszojeleniowi przegonić wietnamskich drwali i uratować lasy tropikalne."
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/Board/PollScreen/VBoxContainer"]
-margin_top = 245.0
+margin_top = 383.0
 margin_right = 760.0
-margin_bottom = 450.0
-size_flags_vertical = 3
+margin_bottom = 453.0
+size_flags_vertical = 8
 
 [node name="PollLink" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
-margin_top = 70.0
 margin_right = 285.0
-margin_bottom = 205.0
-rect_min_size = Vector2( 285, 135 )
+margin_bottom = 70.0
+rect_min_size = Vector2( 285, 70 )
 size_flags_horizontal = 0
-size_flags_vertical = 8
+size_flags_vertical = 2
 texture_normal = ExtResource( 19 )
 texture_pressed = ExtResource( 18 )
 texture_hover = ExtResource( 20 )
@@ -337,9 +336,9 @@ downscale_on_press = true
 
 [node name="PollContinue" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 margin_left = 559.0
-margin_top = 173.0
+margin_top = 38.0
 margin_right = 760.0
-margin_bottom = 205.0
+margin_bottom = 70.0
 rect_min_size = Vector2( 201, 32 )
 size_flags_horizontal = 10
 size_flags_vertical = 8
