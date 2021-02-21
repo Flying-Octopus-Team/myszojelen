@@ -11,6 +11,8 @@ var world_objects : Node2D
 export var top_right_texture : Texture
 export var bottom_right_texture : Texture
 export var right_texture : Texture
+export var top_texture: Texture
+export var bottom_texture: Texture
 
 export var move_speed : float = 1
 
@@ -31,8 +33,8 @@ onready var textures : Dictionary = {
 	Facing.TOP_RIGHT: top_right_texture,
 	Facing.BOTTOM_RIGHT: bottom_right_texture,
 	Facing.BOTTOM_LEFT: bottom_right_texture,
-	Facing.TOP: top_right_texture,
-	Facing.BOTTOM: bottom_right_texture,
+	Facing.TOP: top_texture,
+	Facing.BOTTOM: bottom_texture,
 	Facing.RIGHT: right_texture,
 	Facing.LEFT: right_texture
 }
