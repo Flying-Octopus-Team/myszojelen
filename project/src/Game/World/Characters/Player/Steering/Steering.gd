@@ -12,8 +12,8 @@ onready var SteeringDict : Dictionary = {
 	"IOJKNoRot" : get_node("IOJKNoRotation"),
 	"IOJKRot" : get_node("IOJKRotation"),
 	"Numpad" : get_node("Numpad"),
-	"VirtualPad": get_node("Joystick"),
-	"ManualPad": get_node("Joystick")
+	"VirtualPad": get_node("Joystick8Directions"),
+	"ManualPad": get_node("Joystick8Directions")
 }
 
 var SteeringDictKey : String
