@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://src/Game/Interface/SteeringButton.gd" type="Script" id=21]
 [ext_resource path="res://assets/Steering/qwas.png" type="Texture" id=22]
 [ext_resource path="res://assets/Steering/numpad.png" type="Texture" id=23]
+[ext_resource path="res://assets/Steering/numpadarrows.png" type="Texture" id=24]
 [ext_resource path="res://src/Game/Interface/SteeringContainer.gd" type="Script" id=25]
 [ext_resource path="res://assets/screens/buttons/poll/Poll.png" type="Texture" id=26]
 [ext_resource path="res://assets/screens/buttons/poll/PollHover.png" type="Texture" id=27]
@@ -413,7 +414,7 @@ margin_right = 258.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 200, 175 )
 size_flags_horizontal = 4
-texture_normal = ExtResource( 23 )
+texture_normal = ExtResource( 24 )
 expand = true
 stretch_mode = 4
 script = ExtResource( 21 )
