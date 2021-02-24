@@ -3,6 +3,7 @@ extends Node
 onready var player = get_parent()
 
 var steering_type : int = 0
+var steering_texture : Resource
 
 onready var SteeringDict : Dictionary = {
 	"WSAD1NoRot" : get_node("WSAD1NoRotation"),
@@ -25,9 +26,10 @@ func _ready() -> void:
 
 
 func steer(delta:float) -> void:
-	$"../SteeringInfoCanvas/SteeringInfo".texture = SteeringDict[SteeringDictKey].texture
+	$"../SteeringInfoCanvas/SteeringInfo".texture = steering_texture
 	SteeringDict[SteeringDictKey].steer(delta)
 
-func ChangeSteering(new_steering_key) -> void:
+func ChangeSteering(new_steering_key, new_steering_texture) -> void:
 	SteeringDictKey = new_steering_key
+	steering_texture = new_steering_texture
 	$"../TouchScreenSteering".set_visible(SteeringDictKey == "VirtualPad")

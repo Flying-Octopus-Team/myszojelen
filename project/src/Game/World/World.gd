@@ -49,7 +49,8 @@ func _prepare_current_level() -> void:
 	$"../Interface/SteeringScreen".hide()
 	
 	var Steering = $"../Interface/SteeringScreen/SteeringContainer".steering_type
-	level.find_node("Steering").ChangeSteering(Steering)
+	var Steering_texture =$"../Interface/SteeringScreen/SteeringContainer".steering_texture
+	level.find_node("Steering").ChangeSteering(Steering, Steering_texture)
 
 
 func count_trees() -> int:

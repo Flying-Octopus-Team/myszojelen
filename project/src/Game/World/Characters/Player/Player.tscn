@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/characters/Player/myszojelen_right_up.png" type="Texture" id=1]
 [ext_resource path="res://src/Game/World/Characters/Character.tscn" type="PackedScene" id=2]
@@ -19,11 +19,6 @@
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/IOJKNoRotation.gd" type="Script" id=17]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/IOJKRotation.gd" type="Script" id=18]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/Numpad.gd" type="Script" id=19]
-[ext_resource path="res://assets/Steering/numpad.png" type="Texture" id=20]
-[ext_resource path="res://assets/Steering/wsad2.png" type="Texture" id=21]
-[ext_resource path="res://assets/Steering/wsad1.png" type="Texture" id=22]
-[ext_resource path="res://assets/Steering/pad.png" type="Texture" id=23]
-[ext_resource path="res://assets/Steering/ijok.png" type="Texture" id=24]
 [ext_resource path="res://assets/characters/Player/myszojelen_right.png" type="Texture" id=25]
 [ext_resource path="res://assets/characters/Player/myszojelen_up.png" type="Texture" id=26]
 [ext_resource path="res://assets/characters/Player/myszojelen_down.png" type="Texture" id=27]
@@ -130,35 +125,27 @@ script = ExtResource( 8 )
 
 [node name="Numpad" type="Node" parent="Steering" index="0"]
 script = ExtResource( 19 )
-texture = ExtResource( 20 )
 
 [node name="IOJKRotation" type="Node" parent="Steering" index="1"]
 script = ExtResource( 18 )
-texture = ExtResource( 24 )
 
 [node name="IOJKNoRotation" type="Node" parent="Steering" index="2"]
 script = ExtResource( 17 )
-texture = ExtResource( 24 )
 
 [node name="WSAD2Rotation" type="Node" parent="Steering" index="3"]
 script = ExtResource( 16 )
-texture = ExtResource( 21 )
 
 [node name="WSAD1Rotation" type="Node" parent="Steering" index="4"]
 script = ExtResource( 10 )
-texture = ExtResource( 22 )
 
 [node name="WSAD1NoRotation" type="Node" parent="Steering" index="5"]
 script = ExtResource( 14 )
-texture = ExtResource( 22 )
 
 [node name="WSAD2NoRotation" type="Node" parent="Steering" index="6"]
 script = ExtResource( 15 )
-texture = ExtResource( 21 )
 
 [node name="Joystick" type="Node" parent="Steering" index="7"]
 script = ExtResource( 9 )
-texture = ExtResource( 23 )
 
 [node name="Joystick8Directions" type="Node" parent="Steering" index="8"]
 script = ExtResource( 28 )
