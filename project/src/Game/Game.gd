@@ -143,7 +143,7 @@ func _reset_level() -> void:
 
 
 func _on_reset_game_requested() -> void:
-	_fade("_start_game")
+	_fade("_start_game", true)
 
 
 func _fade(callback:String, keep_tree_paused: bool = false) -> void:
