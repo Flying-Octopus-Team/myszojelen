@@ -8,4 +8,4 @@ func steer(delta:float) -> void:
 		player._rotate(1)
 		
 	elif Input.is_action_just_pressed("ui_up"):
-		player.move()
+		player.move(player.get_forward_dir())
