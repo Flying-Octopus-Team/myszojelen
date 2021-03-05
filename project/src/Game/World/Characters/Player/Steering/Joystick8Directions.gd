@@ -15,7 +15,7 @@ func steer(delta:float) -> void:
 		player._rotate_to(requested_direction)
 		var animation_timer = Timer.new()
 		animation_timer.set_wait_time(wait_time_after_rotate)
-		animation_timer.start()
+		animation_timer.autostart = true
 		yield(animation_timer, "timeout")
 	player.move(player.get_forward_dir())
 	
