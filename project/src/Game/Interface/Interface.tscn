@@ -469,7 +469,7 @@ margin_right = 1175.0
 margin_bottom = 533.0
 size_flags_horizontal = 6
 
-[node name="Obroty" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer9"]
+[node name="KeyboardRotating" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer9"]
 margin_right = 200.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 200, 175 )
