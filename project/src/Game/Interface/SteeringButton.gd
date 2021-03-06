@@ -7,7 +7,7 @@ func _ready() -> void:
 	rect_pivot_offset = rect_size * 0.5
 	connect("mouse_entered", self, "_on_mouse_entered")
 	connect("mouse_exited", self, "_on_mouse_exited")
-	connect("pressed", get_parent().get_parent().get_parent().get_parent(), "set_steering", [self.name])
+	connect("pressed", get_parent().get_parent().get_parent(), "set_steering", [self.name, self.texture_normal])
 
 
 func _on_mouse_entered() -> void:

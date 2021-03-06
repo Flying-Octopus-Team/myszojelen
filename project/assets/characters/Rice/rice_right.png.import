@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/myszojelen_right.png-dd1c5dac5d68df7e7a25150f61d03eb1.stex"
+path="res://.import/rice_right.png-e15e64cc8dce11d5da4a6dd700f60503.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://myszojelen_right.png"
-dest_files=[ "res://.import/myszojelen_right.png-dd1c5dac5d68df7e7a25150f61d03eb1.stex" ]
+source_file="res://assets/characters/Rice/rice_right.png"
+dest_files=[ "res://.import/rice_right.png-e15e64cc8dce11d5da4a6dd700f60503.stex" ]
 
 [params]
 

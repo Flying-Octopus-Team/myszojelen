@@ -5,8 +5,6 @@ var player : Character
 
 var touchscreen_layer
 
-export var texture : Resource
-
 export var wait_time_after_rotate := 0.2 
 onready var _time_after_rotate := wait_time_after_rotate
 

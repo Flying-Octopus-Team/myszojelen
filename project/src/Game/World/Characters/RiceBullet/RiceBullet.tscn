@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Game/World/Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/characters/Rice/rice_up.png" type="Texture" id=2]
 [ext_resource path="res://assets/characters/Rice/rice_down.png" type="Texture" id=3]
 [ext_resource path="res://src/Game/World/Characters/RiceBullet/RiceBullet.gd" type="Script" id=4]
+[ext_resource path="res://assets/characters/Rice/rice_down_right.png" type="Texture" id=5]
+[ext_resource path="res://assets/characters/Rice/rice_right.png" type="Texture" id=6]
+[ext_resource path="res://assets/characters/Rice/rice_up_right.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "rice_move"
@@ -38,8 +41,11 @@ color_ramp = SubResource( 3 )
 [node name="RiceBullet" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 type = -1
-top_right_texture = ExtResource( 2 )
-bottom_right_texture = ExtResource( 3 )
+top_right_texture = ExtResource( 7 )
+bottom_right_texture = ExtResource( 5 )
+right_texture = ExtResource( 6 )
+top_texture = ExtResource( 2 )
+bottom_texture = ExtResource( 3 )
 move_range = 4
 move_time = 0.05
 
