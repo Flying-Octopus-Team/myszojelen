@@ -157,4 +157,5 @@ func _fade(callback:String, keep_tree_paused: bool = false) -> void:
 	fade_layer.fade_in(fade_color)
 	yield(fade_layer, "faded_in")
 	
-	get_tree().paused = keep_tree_paused
+	if (get_tree().paused):
+		get_tree().paused = keep_tree_paused
