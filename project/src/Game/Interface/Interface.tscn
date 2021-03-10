@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://assets/Steering/wsad2.png" type="Texture" id=29]
 [ext_resource path="res://assets/Steering/ijok.png" type="Texture" id=30]
 [ext_resource path="res://assets/Steering/obroty.png" type="Texture" id=31]
+[ext_resource path="res://assets/Steering/gamepad.png" type="Texture" id=32]
 
 [node name="Interface" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -455,7 +456,7 @@ margin_right = 200.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 200, 175 )
 size_flags_horizontal = 4
-texture_normal = ExtResource( 20 )
+texture_normal = ExtResource( 32 )
 expand = true
 stretch_mode = 4
 script = ExtResource( 21 )
