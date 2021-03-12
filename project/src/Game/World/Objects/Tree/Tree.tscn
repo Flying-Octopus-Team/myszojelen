@@ -112,6 +112,7 @@ offset = Vector2( 0, 32 )
 
 [node name="SticksParticles" type="Particles2D" parent="." index="1"]
 position = Vector2( 0, 96 )
+emitting = false
 amount = 30
 lifetime = 0.8
 randomness = 1.0
@@ -121,6 +122,7 @@ texture = ExtResource( 7 )
 
 [node name="SmokeParticles" type="Particles2D" parent="." index="2"]
 position = Vector2( 0, 96 )
+emitting = false
 amount = 40
 lifetime = 2.0
 randomness = 1.0
@@ -130,6 +132,7 @@ texture = ExtResource( 8 )
 
 [node name="CuttedParticles" type="Particles2D" parent="." index="3"]
 position = Vector2( 0, 80 )
+emitting = false
 amount = 50
 lifetime = 3.0
 one_shot = true
