@@ -22,7 +22,7 @@ func _on_level_won() -> void:
 
 
 func next_level() -> void:
-	current_level += 1
+	current_level = Settings.level+1
 	_prepare_current_level()
 
 

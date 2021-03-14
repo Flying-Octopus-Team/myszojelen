@@ -19,8 +19,6 @@ var trees_left : int
 
 var _is_game_running : bool = false
 
-var level_counter : int = 1
-
 func _ready() -> void:
 	world.connect("tree_cutted", self, "_on_tree_cutted")
 	world.connect("level_won", self, "_on_level_won")
@@ -50,7 +48,9 @@ func _start_game() -> void:
 	main_theme.play()
 	
 	interface.reset()
+	
 	world.reset()
+	
 	_next_level()
 
 
@@ -83,11 +83,11 @@ func _on_level_won() -> void:
 		return
 	
 	main_theme.fade_out()
+	Settings.set_level(Settings.level+1)
 	
 	yield(get_tree().create_timer(end_delay_time), "timeout")
 	
 	_is_game_running = false
-	level_counter += 1
 	_fade("_show_next_level_screen")
 
 
@@ -129,6 +129,7 @@ func _next_level() -> void:
 func _on_replay_requested() -> void:
 	lose_music.fade_out()
 	_fade("_reset_level", true)
+	Settings.level = -1
 
 
 func _reset_level() -> void:

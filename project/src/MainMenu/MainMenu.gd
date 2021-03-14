@@ -39,6 +39,9 @@ func _ready() -> void:
 	train_animation.play("TrainIn")
 	
 	music_player.call_deferred("play")
+	
+	if Settings.level == -1 : 
+		find_node("ContinueBtn").disabled = true
 
 
 func _new_game() -> void:
