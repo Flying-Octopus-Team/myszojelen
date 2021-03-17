@@ -12,6 +12,7 @@ const MIN_VOLUME := -70.0
 var master_volume := 0.8 setget set_master_volume
 var muted := false setget set_muted
 
+var level : int = -1 setget set_level
 
 func _init() -> void:
 	_load_from_file()
@@ -31,6 +32,8 @@ func _load_from_file() -> void:
 			if settings_dict:
 				if settings_dict.has("master_volume"):
 					master_volume = settings_dict["master_volume"]
+				if settings_dict.has("level"):
+					level = settings_dict["level"]
 				
 				needs_save = false
 	
@@ -79,6 +82,11 @@ func _update_master_bus_volume() -> void:
 	var volume : float = master_volume * (MAX_VOLUME - MIN_VOLUME) + MIN_VOLUME
 	AudioServer.set_bus_volume_db(0, volume)
 
+func set_level(value: int, save: bool = true) -> void:
+	level = value
+	
+	if save:
+		_save_to_file()
 
 func _save_to_file() -> void:
 	var file := File.new()
@@ -86,6 +94,7 @@ func _save_to_file() -> void:
 	
 	var dict_to_save := {
 		"master_volume": master_volume,
+		"level": level
 	}
 	
 	var str_dict := JSON.print(dict_to_save)

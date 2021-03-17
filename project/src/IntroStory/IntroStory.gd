@@ -93,6 +93,7 @@ func _unhandled_input(event) -> void:
 
 
 func load_game() -> void:
+	Settings.level = -1
 	get_tree().change_scene_to(game_scene)
 
 
