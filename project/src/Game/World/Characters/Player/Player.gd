@@ -11,9 +11,9 @@ var shot_particles_position : Dictionary = {
 	Facing.BOTTOM_LEFT: Vector2(-130, -20),
 	Facing.BOTTOM_RIGHT: Vector2(130, -20),
 	Facing.TOP: Vector2(0, -60),
-	Facing.BOTTOM: Vector2(0, -20),
-	Facing.LEFT: Vector2(-130, 0),
-	Facing.RIGHT: Vector2(130, 0)
+	Facing.BOTTOM: Vector2(0, 100),
+	Facing.LEFT: Vector2(-130, -30),
+	Facing.RIGHT: Vector2(130, -10)
 }
 
 onready var shot_sound = $ShotSound
@@ -52,7 +52,8 @@ func _shot() -> void:
 	world_objects.add_child(rice)
 	rice.position = position + tile_map.map_to_world(get_forward_dir())
 	rice.tile_map = tile_map
-	shot_particles.emitting = true
+	if (shot_particles.emitting): shot_particles.restart()
+	else: shot_particles.emitting = true
 	shot_sound.play()
 
 
@@ -81,4 +82,4 @@ func update_texture() -> void:
 	.update_texture()
 	
 	shot_particles.position = shot_particles_position[facing]
-	shot_particles.show_behind_parent = facing == Facing.TOP_LEFT or facing == Facing.TOP_RIGHT
+	shot_particles.show_behind_parent = facing == Facing.TOP_LEFT or facing == Facing.TOP_RIGHT or facing == Facing.TOP
