@@ -11,13 +11,14 @@ stages:
   - deploy
 
 variables:
-  EXPORT_NAME: test-project
+  PROJECT_DIRECTORY: project
+  EXPORT_NAME: wojowniczy_myszojelen
 
 linux:
   stage: export
   script:
     - mkdir -v -p build/linux
-    - cd $EXPORT_NAME
+    - cd $PROJECT_DIRECTORY
     - godot -v --export "Linux/X11" ../build/linux/$EXPORT_NAME.x86_64
   artifacts:
     name: $EXPORT_NAME-$CI_JOB_NAME
@@ -28,7 +29,7 @@ windows:
   stage: export
   script:
     - mkdir -v -p build/windows
-    - cd $EXPORT_NAME
+    - cd $PROJECT_DIRECTORY
     - godot -v --export "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
   artifacts:
     name: $EXPORT_NAME-$CI_JOB_NAME
@@ -39,7 +40,7 @@ web:
   stage: export
   script:
     - mkdir -v -p build/web
-    - cd $EXPORT_NAME
+    - cd $PROJECT_DIRECTORY
     - godot -v --export "HTML5" ../build/web/index.html
   artifacts:
     name: $EXPORT_NAME-$CI_JOB_NAME
