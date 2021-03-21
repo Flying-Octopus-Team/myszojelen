@@ -9,6 +9,7 @@ cache:
 stages:
   - export
   - deploy
+  - notification
 
 variables:
   PROJECT_DIRECTORY: project
@@ -95,3 +96,19 @@ itchio:web:
   only:
       - release
 
+success_notification:
+  stage: notification
+  script:
+    - wget https://raw.githubusercontent.com/Flying-Octopus-Team/gitlab-ci-discord-webhook/master/send.sh
+    - chmod +x send.sh
+    - ./send.sh success $WEBHOOK_URL
+  when: on_success
+
+
+failure_notification:
+  stage: notification
+  script:
+    - wget https://raw.githubusercontent.com/Flying-Octopus-Team/gitlab-ci-discord-webhook/master/send.sh
+    - chmod +x send.sh
+    - ./send.sh failure $WEBHOOK_URL
+  when: on_failure
