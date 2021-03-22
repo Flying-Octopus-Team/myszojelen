@@ -11,10 +11,6 @@ onready var world : Node = $World
 onready var interface : CanvasLayer = $Interface
 onready var fade_layer = $FadeLayer
 
-#onready var main_theme = $MainTheme
-#onready var menu_theme = $MenuTheme
-#onready var lose_music = $LoseMusic
-
 var trees_left : int
 
 var _is_game_running : bool = false
