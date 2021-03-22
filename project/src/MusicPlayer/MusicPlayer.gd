@@ -1,15 +1,15 @@
 extends AudioStreamPlayer
 
-export var fade_in := true
-export var fade_out := true
+var fade_in := true
+var fade_out := true
 
-export var fade_in_time := 0.5
-export var fade_out_time := 0.5
+var fade_in_time := 0.5
+var fade_out_time := 0.5
 
-export var looped := true
+var looped := true
 
 # How many seconds wait until rep lay on loop
-export var replay_delay := 0.0
+var replay_delay := 0.0
 
 onready var replay_timer : Timer = $ReplayTimer
 onready var tween : Tween = $FadeTween
@@ -19,6 +19,12 @@ const NORMAL_VOLUME : float = 0.0
 
 var _force_stopped := false
 
+var music_dictionary : Dictionary = {
+	"MenuTheme": "res://assets/audio/music/MenuTheme.wav",
+	"Oriental": "res://assets/audio/music/Oriental.wav",
+	"MainTheme": "res://assets/audio/music/chinese_chickens.ogg",
+	"LoseTheme": "res://assets/audio/music/wind_song.wav"
+}
 
 func _ready() -> void:
 	connect("finished", self, "_on_music_finished")
@@ -70,8 +76,11 @@ func _on_replay_timer_timeout() -> void:
 	if looped:
 		play()
 
-
-func play(from_position:float=0.0) -> void:
+func prepare_play(theme: String, from_position:float=0.0) -> void:
+	force_stop()
+	
+	self.stream = load(music_dictionary[theme])
+	
 	_force_stopped = false
 	
 	_prepare_tween()

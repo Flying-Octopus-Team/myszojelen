@@ -7,7 +7,6 @@ export var fade_color : Color = Color.black
 export var fade_time : float = 1.0
 
 onready var train_animation := $Background/Train/TrainAnimation
-onready var music_player := $MusicPlayer
 onready var fade_layer := $FadeLayer
 
 onready var main = find_node("MainButtons")
@@ -38,7 +37,7 @@ func _ready() -> void:
 	
 	train_animation.play("TrainIn")
 	
-	music_player.call_deferred("play")
+	MusicPlayer.call_deferred("prepare_play", "MenuTheme")
 	
 	if Settings.level == -1 : 
 		find_node("ContinueBtn").disabled = true
@@ -48,7 +47,7 @@ func _new_game() -> void:
 	_disable_all_buttons()
 	
 	fade_layer.fade_out(fade_color, fade_time)
-	music_player.fade_out()
+	MusicPlayer.fade_out()
 	
 	yield(fade_layer, "faded_out")
 	
@@ -59,7 +58,7 @@ func _continue_game() -> void:
 	_disable_all_buttons()
 	
 	fade_layer.fade_out(fade_color, fade_time)
-	music_player.fade_out()
+	MusicPlayer.fade_out()
 	
 	yield(fade_layer, "faded_out")
 	

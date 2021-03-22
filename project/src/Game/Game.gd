@@ -11,9 +11,9 @@ onready var world : Node = $World
 onready var interface : CanvasLayer = $Interface
 onready var fade_layer = $FadeLayer
 
-onready var main_theme = $MainTheme
-onready var menu_theme = $MenuTheme
-onready var lose_music = $LoseMusic
+#onready var main_theme = $MainTheme
+#onready var menu_theme = $MenuTheme
+#onready var lose_music = $LoseMusic
 
 var trees_left : int
 
@@ -43,9 +43,7 @@ func _start() -> void:
 
 
 func _start_game() -> void:
-	lose_music.force_stop()
-	menu_theme.force_stop()
-	main_theme.play()
+	MusicPlayer.prepare_play("MainTheme")
 	
 	interface.reset()
 	
@@ -68,13 +66,12 @@ func _on_tree_cutted() -> void:
 	
 	if trees_left <= 0:
 		_is_game_running = false
-		main_theme.fade_out()
+		MusicPlayer.fade_out()
 		_fade("_game_over")
 
 
 func _game_over() -> void:
-	main_theme.force_stop()
-	lose_music.play()
+	MusicPlayer.prepare_play("LoseTheme")
 	emit_signal("game_over")
 
 
@@ -82,7 +79,7 @@ func _on_level_won() -> void:
 	if not _is_game_running:
 		return
 	
-	main_theme.fade_out()
+	MusicPlayer.fade_out()
 	Settings.set_level(Settings.level+1)
 	
 	yield(get_tree().create_timer(end_delay_time), "timeout")
@@ -92,8 +89,7 @@ func _on_level_won() -> void:
 
 
 func _show_next_level_screen() -> void:
-	main_theme.force_stop()
-	menu_theme.play()
+	MusicPlayer.prepare_play("MenuTheme")
 	emit_signal("level_won")
 
 
@@ -104,21 +100,18 @@ func _on_end_of_levels() -> void:
 
 
 func _finish_game() -> void:
-	main_theme.force_stop()
-	menu_theme.play()
+	MusicPlayer.prepare_play("MenuTheme")
 	emit_signal("end_of_levels")
 
 
 func _on_next_level_requested() -> void:
-	lose_music.force_stop()
-	menu_theme.fade_out()
+	MusicPlayer.fade_out()
 	_fade("_next_level", true)
 
 
 func _next_level() -> void:
 	get_tree().paused = true
-	menu_theme.force_stop()
-	main_theme.play()
+	MusicPlayer.prepare_play("MainTheme")
 	interface.reset()
 	world.next_level()
 	
@@ -127,15 +120,14 @@ func _next_level() -> void:
 
 
 func _on_replay_requested() -> void:
-	lose_music.fade_out()
+	MusicPlayer.fade_out()
 	_fade("_reset_level", true)
 	Settings.level = -1
 
 
 func _reset_level() -> void:
 	get_tree().paused = true
-	lose_music.force_stop()
-	main_theme.play()
+	MusicPlayer.prepare_play("MainTheme")
 	
 	interface.reset()
 	world.reset_level()
