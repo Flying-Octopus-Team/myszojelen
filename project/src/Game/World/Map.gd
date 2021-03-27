@@ -7,6 +7,7 @@ const EMPTY_TILE = -1
 const TREE_ID = 0
 const FENCE_UP_ID = 1
 const FENCE_DOWN_ID = 2
+const TRANSPARENT_ID = 5
 
 # You can only create an AStar node from code, not from the Scene tab
 onready var astar_node = AStar.new()
@@ -44,6 +45,8 @@ func _tile_map_to_world() -> void:
 		0: load("res://src/Game/World/Objects/Tree/Tree.tscn")
 	}
 	
+	tile_set.tile_set_texture(TREE_ID, tex_100)
+	
 	if not 100 in tile_set.get_tiles_ids():
 		tile_set.create_tile(100)
 		tile_set.tile_set_texture(100, tex_100)
@@ -62,6 +65,7 @@ func _tile_map_to_world() -> void:
 			obj = scenes[id].instance()
 		else:
 			obj = WorldObject.new()
+			obj.visible = false
 			var sprite = Sprite.new()
 			sprite.texture = tile_set.tile_get_texture(id)
 			sprite.centered = false
