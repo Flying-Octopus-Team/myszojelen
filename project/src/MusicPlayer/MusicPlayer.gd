@@ -76,10 +76,11 @@ func _on_replay_timer_timeout() -> void:
 	if looped:
 		play()
 
-func prepare_play(theme: String, from_position:float=0.0) -> void:
+func play(from_position:float=0.0, theme: String="") -> void:
 	force_stop()
 	
-	self.stream = load(music_dictionary[theme])
+	if !theme.empty():
+		 self.stream = load(music_dictionary[theme])
 	
 	_force_stopped = false
 	

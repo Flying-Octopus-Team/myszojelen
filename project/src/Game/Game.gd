@@ -39,7 +39,7 @@ func _start() -> void:
 
 
 func _start_game() -> void:
-	MusicPlayer.prepare_play("MainTheme")
+	MusicPlayer.play(0.0, "MainTheme")
 	
 	interface.reset()
 	
@@ -67,7 +67,7 @@ func _on_tree_cutted() -> void:
 
 
 func _game_over() -> void:
-	MusicPlayer.prepare_play("LoseTheme")
+	MusicPlayer.play(0.0, "LoseTheme")
 	emit_signal("game_over")
 
 
@@ -85,7 +85,7 @@ func _on_level_won() -> void:
 
 
 func _show_next_level_screen() -> void:
-	MusicPlayer.prepare_play("MenuTheme")
+	MusicPlayer.play(0.0, "MenuTheme")
 	emit_signal("level_won")
 
 
@@ -96,7 +96,7 @@ func _on_end_of_levels() -> void:
 
 
 func _finish_game() -> void:
-	MusicPlayer.prepare_play("MenuTheme")
+	MusicPlayer.play(0.0, "MenuTheme")
 	emit_signal("end_of_levels")
 
 
@@ -107,7 +107,7 @@ func _on_next_level_requested() -> void:
 
 func _next_level() -> void:
 	get_tree().paused = true
-	MusicPlayer.prepare_play("MainTheme")
+	MusicPlayer.play(0.0, "MainTheme")
 	interface.reset()
 	world.next_level()
 	
@@ -123,7 +123,7 @@ func _on_replay_requested() -> void:
 
 func _reset_level() -> void:
 	get_tree().paused = true
-	MusicPlayer.prepare_play("MainTheme")
+	MusicPlayer.play(0.0, "MainTheme")
 	
 	interface.reset()
 	world.reset_level()

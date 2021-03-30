@@ -34,7 +34,7 @@ func _ready() -> void:
 	play_btn.hide()
 	
 	call_deferred("start")
-	MusicPlayer.call_deferred("prepare_play", "Oriental")
+	MusicPlayer.call_deferred("play", [0.0, "Oriental"])
 
 
 func start() -> void:
