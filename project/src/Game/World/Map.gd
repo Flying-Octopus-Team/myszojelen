@@ -64,14 +64,6 @@ func _tile_map_to_world() -> void:
 			obj = scenes[id].instance()
 		else:
 			obj = WorldObject.new()
-			obj.visible = false
-			var sprite = Sprite.new()
-			sprite.texture = tile_set.tile_get_texture(id)
-			sprite.centered = false
-			sprite.offset = tile_set.tile_get_texture_offset(id)
-			sprite.offset.x = -sprite.texture.get_width() * 0.5
-			sprite.flip_h = is_cell_x_flipped(tile_pos.x, tile_pos.y)
-			obj.add_child(sprite)
 		
 		obj.position = map_to_world(tile_pos)
 		
