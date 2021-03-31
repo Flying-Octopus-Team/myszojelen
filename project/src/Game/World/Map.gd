@@ -24,8 +24,6 @@ onready var obstacles = get_used_cells()
 onready var _half_cell_size = Vector2()
 
 var world_objects : Node
-var back_fences : Node
-var front_fences : Node
 
 export var tex_100 : Texture
 export var tex_101 : Texture
@@ -67,12 +65,7 @@ func _tile_map_to_world() -> void:
 		
 		obj.position = map_to_world(tile_pos)
 		
-		if id == FENCE_UP_ID:
-			front_fences.add_child(obj)
-		elif id == FENCE_DOWN_ID:
-			back_fences.add_child(obj)
-		else:
-			world_objects.add_child(obj)
+		world_objects.add_child(obj)
 
 
 # Loops through all cells within the map's bounds and
@@ -261,20 +254,7 @@ func get_world_object_from_map_pos(map_pos:Vector2) -> WorldObject:
 	var obj : WorldObject
 	obj = _get_world_object_from_map_pos_in_container(map_pos, world_objects)
 	
-	if obj != null:
-		return obj
-	
-	obj = _get_world_object_from_map_pos_in_container(map_pos, back_fences)
-	
-	if obj != null:
-		return obj
-	
-	obj = _get_world_object_from_map_pos_in_container(map_pos, front_fences)
-	
-	if obj != null:
-		return obj
-	
-	return null
+	return obj
 
 
 func _get_world_object_from_map_pos_in_container(map_pos:Vector2, container:Node) -> WorldObject:

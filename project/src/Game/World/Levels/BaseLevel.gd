@@ -14,8 +14,6 @@ func _ready() -> void:
 	var characters = get_tree().get_nodes_in_group("character")
 	
 	map.world_objects = world_objects
-	map.front_fences = $FrontFences
-	map.back_fences = $BackFences
 	
 	for c in characters:
 		c.tile_map = map
