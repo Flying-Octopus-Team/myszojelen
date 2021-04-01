@@ -66,7 +66,15 @@ func _tile_map_to_world() -> void:
 		obj.position = map_to_world(tile_pos)
 		
 		world_objects.add_child(obj)
+	
+	for character in get_children():
+		var obj: WorldObject = WorldObject.new()
 
+		obj.position = character.position
+		obj.type = character.type
+		obj.tilemap_index = character.get_index()
+		
+		world_objects.add_child(obj)
 
 # Loops through all cells within the map's bounds and
 # adds all points to the astar_node, except the obstacles
@@ -267,7 +275,6 @@ func _get_world_object_from_map_pos_in_container(map_pos:Vector2, container:Node
 				return obj
 	
 	return null
-
 
 func on_enemy_died() -> void:
 	emit_signal("enemy_killed")

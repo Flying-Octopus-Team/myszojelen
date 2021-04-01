@@ -75,6 +75,8 @@ func move_to(target_pos:Vector2) -> void:
 	pivot_move_tween.interpolate_property(pivot, "position", null, Vector2.ZERO, animation_player.current_animation_length / move_speed)
 
 	pivot_move_tween.start()
+	
+	tile_map.get_world_object_from_map_pos(tile_map.world_to_map(previous_position)).position = position
 
 
 func _on_move_end(object: Object, key: NodePath) -> void:

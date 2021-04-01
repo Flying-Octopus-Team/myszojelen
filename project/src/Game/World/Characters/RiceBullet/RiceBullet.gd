@@ -55,9 +55,9 @@ func _hit_something() -> bool:
 	
 	if target_object != null and target_object.type != Type.PLAYER:
 		if target_object.type == Type.ENEMY:
-			target_object.hit()
+			tile_map.get_child(target_object.tilemap_index).hit()
 		if target_object.type == Type.OBSTACLE:
-			target_object.try_to_move(get_forward_dir())
+			tile_map.get_child(target_object.tilemap_index).try_to_move(get_forward_dir())
 		return true
 
 	return false
