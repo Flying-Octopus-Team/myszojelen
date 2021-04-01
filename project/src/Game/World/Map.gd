@@ -49,6 +49,15 @@ func _tile_map_to_world() -> void:
 		tile_set.tile_set_texture(100, tex_100)
 		tile_set.create_tile(101)
 		tile_set.tile_set_texture(101, tex_101)
+		
+	for character in get_children():
+		var obj: WorldObject = WorldObject.new()
+
+		obj.position = character.position
+		obj.type = character.type
+		obj.tilemap_name = character.get_name()
+		
+		world_objects.add_child(obj)
 	
 	for tile_pos in all_tiles:
 		var id = get_cell(tile_pos.x, tile_pos.y)
@@ -64,15 +73,6 @@ func _tile_map_to_world() -> void:
 			obj = WorldObject.new()
 		
 		obj.position = map_to_world(tile_pos)
-		
-		world_objects.add_child(obj)
-	
-	for character in get_children():
-		var obj: WorldObject = WorldObject.new()
-
-		obj.position = character.position
-		obj.type = character.type
-		obj.tilemap_index = character.get_index()
 		
 		world_objects.add_child(obj)
 

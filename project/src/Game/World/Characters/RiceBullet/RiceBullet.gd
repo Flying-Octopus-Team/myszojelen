@@ -54,10 +54,11 @@ func _hit_something() -> bool:
 	var target_object = tile_map.get_world_object_from_map_pos(map_pos)
 	
 	if target_object != null and target_object.type != Type.PLAYER:
+		var target_object_path = "./"+target_object.tilemap_name
 		if target_object.type == Type.ENEMY:
-			tile_map.get_child(target_object.tilemap_index).hit()
+			tile_map.get_node(target_object_path).hit()
 		if target_object.type == Type.OBSTACLE:
-			tile_map.get_child(target_object.tilemap_index).try_to_move(get_forward_dir())
+			tile_map.get_node(target_object_path).try_to_move(get_forward_dir())
 		return true
 
 	return false
