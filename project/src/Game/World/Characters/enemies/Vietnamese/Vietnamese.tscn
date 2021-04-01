@@ -21,7 +21,7 @@
 [ext_resource path="res://assets/characters/Vietnamese/thick/eating/2g.png" type="Texture" id=19]
 [ext_resource path="res://assets/characters/Vietnamese/thick/eating/1g.png" type="Texture" id=20]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 20 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
@@ -29,7 +29,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -45,7 +45,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 12 ), ExtResource( 11 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -61,7 +61,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 10 ), ExtResource( 7 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -77,7 +77,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 13 ), ExtResource( 14 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -111,15 +111,15 @@ offset = Vector2( 0, -32 )
 visible = false
 position = Vector2( 0, -34.781 )
 scale = Vector2( 1.1, 1.1 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "eating"
 
 [node name="CuttingAnimationPlayer" type="AnimationPlayer" parent="." index="4"]
-anims/cut_down_blue = SubResource( 3 )
-anims/cut_down_brown = SubResource( 4 )
+anims/cut_down_blue = SubResource( 2 )
+anims/cut_down_brown = SubResource( 3 )
 anims/cut_down_green = ExtResource( 6 )
-anims/cut_up_blue = SubResource( 5 )
-anims/cut_up_brown = SubResource( 6 )
+anims/cut_up_blue = SubResource( 4 )
+anims/cut_up_brown = SubResource( 5 )
 anims/cut_up_green = ExtResource( 5 )
 
 [node name="TreeCuttingSound" parent="." index="5"]
