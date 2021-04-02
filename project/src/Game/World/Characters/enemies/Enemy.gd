@@ -162,6 +162,7 @@ func die() -> void:
 	
 	type = Type.EMPTY
 	tile_map.set_cellv(tile_map.world_to_map(position), tile_map.EMPTY_TILE)
+	tile_map.get_world_object_from_map_pos(tile_map.world_to_map(position)).type = WorldObject.Type.EMPTY
 	
 	if previous_position != null:
 		tile_map.set_cellv(tile_map.world_to_map(previous_position), tile_map.EMPTY_TILE)

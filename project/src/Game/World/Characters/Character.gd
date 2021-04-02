@@ -76,7 +76,9 @@ func move_to(target_pos:Vector2) -> void:
 
 	pivot_move_tween.start()
 	
-	tile_map.get_world_object_from_map_pos(tile_map.world_to_map(previous_position)).position = position
+	var enemys_world_object = tile_map.get_world_object_from_map_pos(tile_map.world_to_map(previous_position))
+	if enemys_world_object:
+		enemys_world_object.position = position
 
 
 func _on_move_end(object: Object, key: NodePath) -> void:
