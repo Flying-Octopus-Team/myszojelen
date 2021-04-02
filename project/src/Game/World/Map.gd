@@ -65,12 +65,16 @@ func _tile_map_to_world() -> void:
 		if id >= 100: # Some WorldObject
 			continue
 		
-		var obj : WorldObject
+		var obj : WorldObject = WorldObject.new()
 		
 		if id == TREE_ID:
-			obj = scenes[id].instance()
-		else:
-			obj = WorldObject.new()
+			obj.type = TREE_ID
+			
+			var new_tree : WorldObject = scenes[id].instance()
+			new_tree.position = map_to_world(tile_pos)
+			
+			add_child(new_tree)
+			obj.tilemap_name = new_tree.get_name()
 		
 		obj.position = map_to_world(tile_pos)
 		
@@ -246,7 +250,8 @@ func cut_tree(tree_map_pos:Vector2, cut_speed_modifier: float) -> bool:
 		print("No tree on ", tree_map_pos)
 		return false
 	
-	if not tree.cut(cut_speed_modifier):
+	var tree_tilemap_path = "./" + tree.tilemap_name
+	if not get_node(tree_tilemap_path).cut(cut_speed_modifier):
 		set_cellv(tree_map_pos, EMPTY_TILE)
 		obstacles.erase(tree_map_pos)
 		var point_index = calculate_point_index(tree_map_pos)

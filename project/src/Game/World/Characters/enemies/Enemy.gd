@@ -45,7 +45,8 @@ func _on_NextMoveTimer_timeout():
 			if tree_pos == null:
 				_go_to_tree()
 			else:
-				cutted_tree = tile_map.get_world_object_from_map_pos(tree_pos)
+				var cutted_tree_tilemap_path = "./" + tile_map.get_world_object_from_map_pos(tree_pos).tilemap_name
+				cutted_tree = tile_map.get_node(cutted_tree_tilemap_path)
 				cutted_tree.connect("cutted", self, "_on_cutted_tree_cutted")
 				set_state(State.CUTTING)
 				_on_NextMoveTimer_timeout()
