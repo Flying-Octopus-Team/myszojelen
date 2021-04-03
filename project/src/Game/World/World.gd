@@ -7,14 +7,10 @@ signal end_of_levels
 export(Array, PackedScene) var LevelScenes
 
 var level : BaseLevel = null
-var current_level = -1
-
-func reset() -> void:
-	current_level = -1
 
 
 func _on_level_won() -> void:
-	if current_level >= LevelScenes.size()-1: # The last level
+	if GameSave.get_level() >= LevelScenes.size()-1: # The last level
 		emit_signal("end_of_levels")
 		return
 	
@@ -22,7 +18,6 @@ func _on_level_won() -> void:
 
 
 func next_level() -> void:
-	current_level = Settings.level+1
 	_prepare_current_level()
 
 
@@ -38,7 +33,7 @@ func reset_level() -> void:
 func _prepare_current_level() -> void:
 	clear_level()
 	
-	level = LevelScenes[current_level].instance()
+	level = LevelScenes[GameSave.get_level()].instance()
 	level.connect("tree_cutted", self, "emit_signal", ["tree_cutted"])
 	level.connect("level_won", self, "_on_level_won")
 	add_child(level)

@@ -61,6 +61,7 @@ config/windows_native_icon="res://assets/icon.ico"
 
 Settings="*res://src/PreloadedScripts/Settings.gd"
 MusicPlayer="*res://src/MusicPlayer/MusicPlayer.tscn"
+GameSave="*res://src/PreloadedScripts/GameSave.gd"
 
 [display]
 
