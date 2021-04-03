@@ -55,4 +55,4 @@ func get_level() -> int:
 
 func next_level() -> void:
 	set_level(level+1)
-	
+
