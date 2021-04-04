@@ -13,6 +13,7 @@ func _load_level() -> void:
 	if file.file_exists(SETTINGS_FILE_PATH):
 		file.open(SETTINGS_FILE_PATH, File.READ)
 		var str_file_content : String = file.get_as_text()
+		file.close()
 		
 		if str_file_content:
 			var settings_dict = JSON.parse(str_file_content).result
@@ -41,7 +42,8 @@ func _load_save_dictionary() -> Dictionary:
 	if file.file_exists(SETTINGS_FILE_PATH):
 		file.open(SETTINGS_FILE_PATH, File.READ)
 		var str_file_content : String = file.get_as_text()
-		
+		file.close()
+
 		if str_file_content:
 			return JSON.parse(str_file_content).result
 	return {}
