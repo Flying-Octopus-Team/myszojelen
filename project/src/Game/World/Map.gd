@@ -55,7 +55,7 @@ func _tile_map_to_world() -> void:
 
 		obj.position = character.position
 		obj.type = character.type
-		obj.tilemap_name = character.get_name()
+		obj.tilemap_path = character.get_path()
 		
 		world_objects.add_child(obj)
 	
@@ -74,7 +74,7 @@ func _tile_map_to_world() -> void:
 			new_tree.position = map_to_world(tile_pos)
 			
 			add_child(new_tree)
-			obj.tilemap_name = new_tree.get_name()
+			obj.tilemap_path = new_tree.get_path()
 		
 		obj.position = map_to_world(tile_pos)
 		
@@ -250,8 +250,7 @@ func cut_tree(tree_map_pos:Vector2, cut_speed_modifier: float) -> bool:
 		print("No tree on ", tree_map_pos)
 		return false
 	
-	var tree_tilemap_path = "./" + tree.tilemap_name
-	if not get_node(tree_tilemap_path).cut(cut_speed_modifier):
+	if not get_node(tree.tilemap_path).cut(cut_speed_modifier):
 		set_cellv(tree_map_pos, EMPTY_TILE)
 		obstacles.erase(tree_map_pos)
 		var point_index = calculate_point_index(tree_map_pos)
