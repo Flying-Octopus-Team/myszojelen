@@ -1,6 +1,6 @@
 extends TileMap
 
-signal tree_cutted
+signal tree_cut
 signal enemy_killed
 
 const EMPTY_TILE = -1
@@ -243,7 +243,7 @@ func get_used_cells_by_id_in_map_range(id) -> Array:
 	return cells
 
 
-# Returns false when tree was cutted
+# Returns false when tree was cut
 func cut_tree(tree_map_pos:Vector2, cut_speed_modifier: float) -> bool:
 	var tree = get_world_object_from_map_pos(tree_map_pos)
 	if tree == null or tree.type != TREE_ID:
@@ -256,7 +256,7 @@ func cut_tree(tree_map_pos:Vector2, cut_speed_modifier: float) -> bool:
 		var point_index = calculate_point_index(tree_map_pos)
 		astar_node.add_point(point_index, Vector3(tree_map_pos.x, tree_map_pos.y, 0.0))
 		astar_connect_walkable_point(tree_map_pos)
-		emit_signal("tree_cutted")
+		emit_signal("tree_cut")
 		return false
 	
 	return true

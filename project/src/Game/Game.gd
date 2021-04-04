@@ -16,7 +16,7 @@ var trees_left : int
 var _is_game_running : bool = false
 
 func _ready() -> void:
-	world.connect("tree_cutted", self, "_on_tree_cutted")
+	world.connect("tree_cut", self, "_on_tree_cut")
 	world.connect("level_won", self, "_on_level_won")
 	world.connect("end_of_levels", self, "_on_end_of_levels")
 	connect("game_over", interface, "_on_game_over")
@@ -53,7 +53,7 @@ func _prepare_trees_left() -> void:
 	interface.set_trees_left(trees_left)
 
 
-func _on_tree_cutted() -> void:
+func _on_tree_cut() -> void:
 	if not _is_game_running:
 		return
 	
