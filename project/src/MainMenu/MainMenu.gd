@@ -32,6 +32,8 @@ func _ready() -> void:
 	find_node("PollBack").connect("pressed", self, "_show_screen", [main])
 	find_node("PollContinue").connect("pressed", self, "_new_game")
 	find_node("PollLink").connect("pressed", self, "_PollLink_pressed")
+
+	find_node("PollContinue").connect("pressed", GameSave, "set_level", [0])
 	
 	_show_screen(main)
 	
@@ -39,7 +41,7 @@ func _ready() -> void:
 	
 	MusicPlayer.call_deferred("play", [0.0, "MenuTheme"])
 	
-	if Settings.level == -1 : 
+	if GameSave.get_level() == 0:
 		find_node("ContinueBtn").disabled = true
 
 
