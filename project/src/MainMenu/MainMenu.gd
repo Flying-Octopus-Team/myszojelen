@@ -39,7 +39,7 @@ func _ready() -> void:
 	
 	train_animation.play("TrainIn")
 	
-	MusicPlayer.call_deferred("play", [0.0, "MenuTheme"])
+	MusicPlayer.call_deferred("play", 0.0, "MenuTheme")
 	
 	if GameSave.get_level() == 0:
 		find_node("ContinueBtn").disabled = true
