@@ -106,7 +106,7 @@ func _die() -> void:
 	
 	if state == State.CUTTING:
 		cutting_animation_player.stop()
-		cutted_tree.stop_cutting()
+		cut_tree.stop_cutting()
 	
 	set_state(State.IDLE)
 	
