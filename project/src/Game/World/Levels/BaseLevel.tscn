@@ -120,7 +120,7 @@
 [sub_resource type="TileSet" id=2]
 0/name = "tree1.png 0"
 0/texture = ExtResource( 6 )
-0/tex_offset = Vector2( 0, -172 )
+0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 512, 512 )
 0/tile_mode = 0
