@@ -1,7 +1,7 @@
 extends Node2D
 class_name BaseLevel
 
-signal tree_cutted
+signal tree_cut
 signal level_won
 
 onready var map : TileMap = $Map
@@ -14,9 +14,6 @@ func _ready() -> void:
 	var characters = get_tree().get_nodes_in_group("character")
 	
 	map.world_objects = world_objects
-	map.front_fences = $FrontFences
-	map.back_fences = $BackFences
-	map.hide()
 	
 	for c in characters:
 		c.tile_map = map
@@ -26,12 +23,12 @@ func _ready() -> void:
 		if c is Enemy:
 			enemies_left += 1
 	
-	map.connect("tree_cutted", self, "_on_tree_cutted")
+	map.connect("tree_cut", self, "_on_tree_cut")
 	map.connect("enemy_killed", self, "_on_ememy_killed")
 
 
-func _on_tree_cutted() -> void:
-	emit_signal("tree_cutted")
+func _on_tree_cut() -> void:
+	emit_signal("tree_cut")
 
 
 func _on_ememy_killed() -> void:

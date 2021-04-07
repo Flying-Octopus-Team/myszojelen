@@ -18,7 +18,7 @@ onready var SteeringDict : Dictionary = {
 	"KeyboardRotating": get_node("KeyboardRotating")
 }
 
-var SteeringDictKey : String
+var SteeringDictKey : String = "WSAD1NoRot"
 
 func _ready() -> void:
 	for c in get_children():

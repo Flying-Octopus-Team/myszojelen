@@ -130,7 +130,7 @@ visibility_rect = Rect2( -20, -20, 40, 40 )
 process_material = SubResource( 8 )
 texture = ExtResource( 8 )
 
-[node name="CuttedParticles" type="Particles2D" parent="." index="3"]
+[node name="cutParticles" type="Particles2D" parent="." index="3"]
 position = Vector2( 0, 80 )
 emitting = false
 amount = 50

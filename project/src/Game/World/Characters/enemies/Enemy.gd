@@ -15,7 +15,7 @@ onready var tree_cutting_sound : AudioStreamPlayer = $TreeCuttingSound
 enum State { IDLE, WALK, CUTTING }
 var state : int = State.WALK setget set_state
 
-var cutted_tree : WorldObject = null
+var cut_tree : WorldObject = null
 
 func _ready():
 	next_move_timer.wait_time = 1 / move_speed
@@ -45,8 +45,8 @@ func _on_NextMoveTimer_timeout():
 			if tree_pos == null:
 				_go_to_tree()
 			else:
-				cutted_tree = tile_map.get_world_object_from_map_pos(tree_pos)
-				cutted_tree.connect("cutted", self, "_on_cutted_tree_cutted")
+				cut_tree = tile_map.get_node(tile_map.get_world_object_from_map_pos(tree_pos).tilemap_path)
+				cut_tree.connect("cut", self, "_on_cut_tree_cut")
 				set_state(State.CUTTING)
 				_on_NextMoveTimer_timeout()
 		State.CUTTING:
@@ -132,7 +132,7 @@ func get_path_to_closest_tree_world_pos() -> Array:
 
 
 func _cut_tree():
-	var tree_map_pos = tile_map.world_to_map(cutted_tree.position)
+	var tree_map_pos = tile_map.world_to_map(cut_tree.position)
 	
 	var expected_facing = get_expected_facint_based_on_target_map_position(tree_map_pos)
 	if facing != expected_facing:
@@ -143,7 +143,7 @@ func _cut_tree():
 	tree_cutting_sound.play()
 
 
-func _on_cutted_tree_cutted() -> void:
+func _on_cut_tree_cut() -> void:
 	set_state(State.WALK)
 
 
@@ -157,11 +157,12 @@ func hit() -> void:
 func die() -> void:
 	set_state(State.IDLE)
 	
-	if cutted_tree:
-		cutted_tree.stop_cutting()
+	if cut_tree:
+		cut_tree.stop_cutting()
 	
 	type = Type.EMPTY
 	tile_map.set_cellv(tile_map.world_to_map(position), tile_map.EMPTY_TILE)
+	tile_map.get_world_object_from_map_pos(tile_map.world_to_map(position)).type = WorldObject.Type.EMPTY
 	
 	if previous_position != null:
 		tile_map.set_cellv(tile_map.world_to_map(previous_position), tile_map.EMPTY_TILE)

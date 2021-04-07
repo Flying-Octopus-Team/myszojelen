@@ -14,77 +14,107 @@ tile_data = PoolIntArray( -655358, 4, 0, -655357, 4, 0, -655356, 4, 0, -655355, 
 tile_data = PoolIntArray( -589821, 4, 0, -589814, 4, 0, -524288, 3, 0, -458745, 3, 0, -393216, 4, 0, -327676, 4, 0, -327672, 4, 0, -327663, 3, 0, -262137, 4, 0, -262128, 4, 0, -131074, 4, 0, -196596, 4, 0, -196593, 4, 0, -131068, 4, 0, -131060, 3, 0, -131051, 4, 0, -1, 3, 0, -65536, 536870914, 0, -65535, 536870914, 0, -65534, 536870914, 0, -65533, 536870914, 0, -65532, 536870914, 0, -65531, 536870914, 0, -65530, 536870914, 0, -65529, 536870914, 0, -65528, 536870914, 0, -65527, 536870914, 0, -65526, 536870914, 0, -65525, 536870914, 0, -65524, 536870914, 0, -65523, 536870914, 0, -65522, 536870914, 0, -65521, 536870914, 0, -65520, 536870914, 0, -65519, 536870914, 0, -65518, 536870914, 0, -65517, 536870914, 0, -65516, 536870914, 0, -65515, 3, 0, -65514, 3, 0, 65535, 2, 0, 18, 3, 0, 21, 536870913, 0, 131067, 3, 0, 131071, 2, 0, 65538, 3, 0, 65545, 3, 0, 65549, 3, 0, 65557, 536870913, 0, 196607, 2, 0, 131093, 536870913, 0, 262140, 4, 0, 262143, 2, 0, 196608, 3, 0, 196613, 3, 0, 196616, 4, 0, 196620, 4, 0, 196625, 3, 0, 196629, 536870913, 0, 327679, 2, 0, 262147, 3, 0, 262149, 536870914, 0, 262150, 536870914, 0, 262151, 536870914, 0, 262152, 536870914, 0, 262156, 536870914, 0, 262157, 536870914, 0, 262158, 536870914, 0, 262159, 536870914, 0, 262164, 4, 0, 262165, 536870913, 0, 393209, 4, 0, 393215, 2, 0, 327684, 2, 0, 327694, 0, 0, 327696, 536870913, 0, 327701, 536870913, 0, 327707, 4, 0, 458750, 4, 0, 458751, 2, 0, 393220, 2, 0, 393222, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 536870913, 0, 393237, 536870913, 0, 393239, 3, 0, 393242, 4, 0, 524287, 2, 0, 458753, 3, 0, 458756, 2, 0, 458758, 0, 0, 458759, 0, 0, 458761, 0, 0, 458768, 536870913, 0, 458769, 3, 0, 458771, 4, 0, 458773, 536870913, 0, 589822, 3, 0, 589823, 2, 0, 524291, 3, 0, 524292, 2, 0, 524304, 536870913, 0, 524309, 536870913, 0, 524318, 3, 0, 655354, 4, 0, 655359, 2, 0, 589825, 4, 0, 589836, 0, 0, 589845, 536870913, 0, 720895, 2, 0, 655370, 0, 0, 655379, 3, 0, 655381, 536870913, 0, 786423, 4, 0, 786430, 4, 0, 786431, 2, 0, 720897, 3, 0, 720917, 536870913, 0, 720922, 3, 0, 720923, 3, 0, 851966, 3, 0, 851967, 2, 0, 786436, 2, 0, 786448, 536870913, 0, 786453, 536870913, 0, 786458, 3, 0, 917499, 4, 0, 917501, 4, 0, 917503, 2, 0, 851971, 3, 0, 851972, 2, 0, 851974, 0, 0, 851975, 0, 0, 851980, 0, 0, 851981, 0, 0, 851984, 536870913, 0, 851985, 4, 0, 851987, 3, 0, 851989, 536870913, 0, 983039, 2, 0, 917504, 3, 0, 917508, 2, 0, 917510, 0, 0, 917517, 0, 0, 917520, 536870913, 0, 917525, 536870913, 0, 917535, 3, 0, 1048575, 2, 0, 983043, 4, 0, 983044, 2, 0, 983056, 536870913, 0, 983060, 4, 0, 983061, 536870913, 0, 1114111, 2, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048597, 536870913, 0, 1048600, 3, 0, 1179643, 4, 0, 1179647, 2, 0, 1114113, 4, 0, 1114117, 4, 0, 1114120, 4, 0, 1114129, 3, 0, 1114133, 536870913, 0, 1114139, 3, 0, 1245180, 4, 0, 1245183, 2, 0, 1179659, 3, 0, 1179663, 3, 0, 1179669, 536870913, 0, 1310719, 2, 0, 1245187, 4, 0, 1245191, 4, 0, 1245201, 4, 0, 1245205, 536870913, 0, 1376255, 2, 0, 1310726, 3, 0, 1310732, 4, 0, 1310741, 536870913, 0, 1310745, 3, 0, 1310750, 3, 0, 1441791, 3, 0, 1376256, 1, 0, 1376257, 1, 0, 1376258, 1, 0, 1376259, 1, 0, 1376260, 1, 0, 1376261, 1, 0, 1376262, 1, 0, 1376263, 1, 0, 1376264, 1, 0, 1376265, 1, 0, 1376266, 1, 0, 1376267, 1, 0, 1376268, 1, 0, 1376269, 1, 0, 1376270, 1, 0, 1376271, 1, 0, 1376272, 1, 0, 1376273, 1, 0, 1376274, 1, 0, 1376275, 1, 0, 1376276, 1, 0, 1376277, 3, 0, 1441804, 3, 0, 1507329, 4, 0, 1507335, 4, 0, 1572882, 3, 0, 1638418, 3, 0, 1703960, 3, 0, 1769490, 4, 0, 1835018, 4, 0, 1835020, 4, 0, 1835021, 4, 0 )
 map_size = Vector2( 21, 21 )
 
-[node name="Player" parent="WorldObjects" index="0"]
-position = Vector2( 0, 2304 )
+[node name="Player" parent="Map" index="0"]
+position = Vector2( -253.984, 2465.36 )
 
-[node name="ThickVietnamese" parent="WorldObjects" index="1" instance=ExtResource( 4 )]
+[node name="ThickVietnamese" parent="Map" index="1" groups=[
+"character",
+] instance=ExtResource( 4 )]
 position = Vector2( -2048, 3584 )
+type = 101
 
-[node name="ThickVietnamese2" parent="WorldObjects" index="2" instance=ExtResource( 4 )]
+[node name="ThickVietnamese2" parent="Map" index="2" groups=[
+"character",
+] instance=ExtResource( 4 )]
 position = Vector2( -2560, 3072 )
+type = 101
 
-[node name="ThickVietnamese3" parent="WorldObjects" index="3" instance=ExtResource( 4 )]
+[node name="ThickVietnamese3" parent="Map" index="3" groups=[
+"character",
+] instance=ExtResource( 4 )]
 position = Vector2( -2304, 1664 )
+type = 101
 
-[node name="ThickVietnamese4" parent="WorldObjects" index="4" instance=ExtResource( 4 )]
+[node name="ThickVietnamese4" parent="Map" index="4" groups=[
+"character",
+] instance=ExtResource( 4 )]
 position = Vector2( -1024, 1024 )
+type = 101
 
-[node name="ThickVietnamese5" parent="WorldObjects" index="5" instance=ExtResource( 4 )]
+[node name="ThickVietnamese5" parent="Map" index="5" groups=[
+"character",
+] instance=ExtResource( 4 )]
 position = Vector2( -3072, 2048 )
+type = 101
 
-[node name="ThickVietnamese10" parent="WorldObjects" index="6" instance=ExtResource( 4 )]
+[node name="ThickVietnamese10" parent="Map" index="6" groups=[
+"character",
+] instance=ExtResource( 4 )]
 position = Vector2( 768, 4480 )
+type = 101
 
-[node name="ThickVietnamese9" parent="WorldObjects" index="7" instance=ExtResource( 4 )]
+[node name="ThickVietnamese9" parent="Map" index="7" groups=[
+"character",
+] instance=ExtResource( 4 )]
 position = Vector2( 256, 4480 )
+type = 101
 
-[node name="ThickVietnamese8" parent="WorldObjects" index="8" instance=ExtResource( 4 )]
+[node name="ThickVietnamese8" parent="Map" index="8" groups=[
+"character",
+] instance=ExtResource( 4 )]
 position = Vector2( 1280, 3712 )
+type = 101
 
-[node name="ThickVietnamese7" parent="WorldObjects" index="9" instance=ExtResource( 4 )]
+[node name="ThickVietnamese7" parent="Map" index="9" groups=[
+"character",
+] instance=ExtResource( 4 )]
 position = Vector2( 2816, 3200 )
+type = 101
 
-[node name="ThickVietnamese6" parent="WorldObjects" index="10" instance=ExtResource( 4 )]
+[node name="ThickVietnamese6" parent="Map" index="10" groups=[
+"character",
+] instance=ExtResource( 4 )]
 position = Vector2( -256, 4224 )
+type = 101
 
-[node name="Vietnamese" parent="WorldObjects" index="11" instance=ExtResource( 2 )]
+[node name="Vietnamese" parent="Map" index="11" instance=ExtResource( 2 )]
 position = Vector2( 3072, 2560 )
 
-[node name="Vietnamese2" parent="WorldObjects" index="12" instance=ExtResource( 2 )]
+[node name="Vietnamese2" parent="Map" index="12" instance=ExtResource( 2 )]
 position = Vector2( -1280, 3968 )
 
-[node name="Vietnamese4" parent="WorldObjects" index="13" instance=ExtResource( 2 )]
+[node name="Vietnamese4" parent="Map" index="13" instance=ExtResource( 2 )]
 position = Vector2( 2048, 1536 )
 
-[node name="Vietnamese3" parent="WorldObjects" index="14" instance=ExtResource( 2 )]
+[node name="Vietnamese3" parent="Map" index="14" instance=ExtResource( 2 )]
 position = Vector2( 1024, 1024 )
 
-[node name="Vietnamese7" parent="WorldObjects" index="15" instance=ExtResource( 2 )]
+[node name="Vietnamese7" parent="Map" index="15" instance=ExtResource( 2 )]
 position = Vector2( 0, 512 )
 
-[node name="Vietnamese8" parent="WorldObjects" index="16" instance=ExtResource( 2 )]
+[node name="Vietnamese8" parent="Map" index="16" instance=ExtResource( 2 )]
 position = Vector2( 512, 512 )
 
-[node name="Vietnamese9" parent="WorldObjects" index="17" instance=ExtResource( 2 )]
+[node name="Vietnamese9" parent="Map" index="17" instance=ExtResource( 2 )]
 position = Vector2( 0, 768 )
 
-[node name="Vietnamese10" parent="WorldObjects" index="18" instance=ExtResource( 2 )]
+[node name="Vietnamese10" parent="Map" index="18" instance=ExtResource( 2 )]
 position = Vector2( -512, 256 )
 
-[node name="Vietnamese6" parent="WorldObjects" index="19" instance=ExtResource( 2 )]
+[node name="Vietnamese6" parent="Map" index="19" instance=ExtResource( 2 )]
 position = Vector2( -768, 640 )
 
-[node name="Digger" parent="WorldObjects" index="20" instance=ExtResource( 3 )]
+[node name="Digger" parent="Map" index="20" instance=ExtResource( 3 )]
 position = Vector2( 3584, 2048 )
 
-[node name="Digger2" parent="WorldObjects" index="21" instance=ExtResource( 3 )]
+[node name="Digger2" parent="Map" index="21" instance=ExtResource( 3 )]
 position = Vector2( -4608, 2560 )
 
-[node name="Digger4" parent="WorldObjects" index="22" instance=ExtResource( 3 )]
+[node name="Digger4" parent="Map" index="22" instance=ExtResource( 3 )]
 position = Vector2( 0, 4864 )
 
-[node name="Digger3" parent="WorldObjects" index="23" instance=ExtResource( 3 )]
+[node name="Digger3" parent="Map" index="23" instance=ExtResource( 3 )]
 position = Vector2( 4096, 2560 )
 
-[node name="Vietnamese5" parent="WorldObjects" index="24" instance=ExtResource( 2 )]
+[node name="Vietnamese5" parent="Map" index="24" instance=ExtResource( 2 )]
 position = Vector2( -3584, 2560 )

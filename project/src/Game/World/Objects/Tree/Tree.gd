@@ -1,6 +1,6 @@
 extends WorldObject
 
-signal cutted
+signal cut
 
 export var life : float = 5.0
 export(Array, Texture) var textures : Array
@@ -32,12 +32,12 @@ func cut(cut_speed_modifier: float) -> bool:
 
 func die() -> void:
 	stop_cutting()
-	$CuttedParticles.emitting = true
+	$cutParticles.emitting = true
 	$Sprite.texture = trunk_texture
 	
 	type = Type.EMPTY
 	
-	emit_signal("cutted")
+	emit_signal("cut")
 
 
 func start_cutting() -> void:

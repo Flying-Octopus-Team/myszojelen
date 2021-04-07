@@ -1,6 +1,6 @@
 extends Node
 
-signal tree_cutted
+signal tree_cut
 signal level_won
 signal end_of_levels
 
@@ -33,8 +33,9 @@ func reset_level() -> void:
 func _prepare_current_level() -> void:
 	clear_level()
 	
+	level.connect("tree_cut", self, "emit_signal", ["tree_cut"])
 	level = LevelScenes[GameSave.get_level()].instance()
-	level.connect("tree_cutted", self, "emit_signal", ["tree_cutted"])
+  
 	level.connect("level_won", self, "_on_level_won")
 	add_child(level)
 	$"../Interface/Control/HUD".show()

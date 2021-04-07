@@ -1,6 +1,6 @@
 extends TileMap
 
-signal tree_cutted
+signal tree_cut
 signal enemy_killed
 
 const EMPTY_TILE = -1
@@ -24,8 +24,6 @@ onready var obstacles = get_used_cells()
 onready var _half_cell_size = Vector2()
 
 var world_objects : Node
-var back_fences : Node
-var front_fences : Node
 
 export var tex_100 : Texture
 export var tex_101 : Texture
@@ -44,11 +42,22 @@ func _tile_map_to_world() -> void:
 		0: load("res://src/Game/World/Objects/Tree/Tree.tscn")
 	}
 	
+	tile_set.tile_set_texture(TREE_ID, tex_100)
+	
 	if not 100 in tile_set.get_tiles_ids():
 		tile_set.create_tile(100)
 		tile_set.tile_set_texture(100, tex_100)
 		tile_set.create_tile(101)
 		tile_set.tile_set_texture(101, tex_101)
+		
+	for character in get_children():
+		var obj: WorldObject = WorldObject.new()
+
+		obj.position = character.position
+		obj.type = character.type
+		obj.tilemap_path = character.get_path()
+		
+		world_objects.add_child(obj)
 	
 	for tile_pos in all_tiles:
 		var id = get_cell(tile_pos.x, tile_pos.y)
@@ -56,29 +65,20 @@ func _tile_map_to_world() -> void:
 		if id >= 100: # Some WorldObject
 			continue
 		
-		var obj : WorldObject
+		var obj : WorldObject = WorldObject.new()
 		
 		if id == TREE_ID:
-			obj = scenes[id].instance()
-		else:
-			obj = WorldObject.new()
-			var sprite = Sprite.new()
-			sprite.texture = tile_set.tile_get_texture(id)
-			sprite.centered = false
-			sprite.offset = tile_set.tile_get_texture_offset(id)
-			sprite.offset.x = -sprite.texture.get_width() * 0.5
-			sprite.flip_h = is_cell_x_flipped(tile_pos.x, tile_pos.y)
-			obj.add_child(sprite)
+			obj.type = TREE_ID
+			
+			var new_tree : WorldObject = scenes[id].instance()
+			new_tree.position = map_to_world(tile_pos)
+			
+			add_child(new_tree)
+			obj.tilemap_path = new_tree.get_path()
 		
 		obj.position = map_to_world(tile_pos)
 		
-		if id == FENCE_UP_ID:
-			front_fences.add_child(obj)
-		elif id == FENCE_DOWN_ID:
-			back_fences.add_child(obj)
-		else:
-			world_objects.add_child(obj)
-
+		world_objects.add_child(obj)
 
 # Loops through all cells within the map's bounds and
 # adds all points to the astar_node, except the obstacles
@@ -243,20 +243,20 @@ func get_used_cells_by_id_in_map_range(id) -> Array:
 	return cells
 
 
-# Returns false when tree was cutted
+# Returns false when tree was cut
 func cut_tree(tree_map_pos:Vector2, cut_speed_modifier: float) -> bool:
 	var tree = get_world_object_from_map_pos(tree_map_pos)
 	if tree == null or tree.type != TREE_ID:
 		print("No tree on ", tree_map_pos)
 		return false
 	
-	if not tree.cut(cut_speed_modifier):
+	if not get_node(tree.tilemap_path).cut(cut_speed_modifier):
 		set_cellv(tree_map_pos, EMPTY_TILE)
 		obstacles.erase(tree_map_pos)
 		var point_index = calculate_point_index(tree_map_pos)
 		astar_node.add_point(point_index, Vector3(tree_map_pos.x, tree_map_pos.y, 0.0))
 		astar_connect_walkable_point(tree_map_pos)
-		emit_signal("tree_cutted")
+		emit_signal("tree_cut")
 		return false
 	
 	return true
@@ -266,20 +266,7 @@ func get_world_object_from_map_pos(map_pos:Vector2) -> WorldObject:
 	var obj : WorldObject
 	obj = _get_world_object_from_map_pos_in_container(map_pos, world_objects)
 	
-	if obj != null:
-		return obj
-	
-	obj = _get_world_object_from_map_pos_in_container(map_pos, back_fences)
-	
-	if obj != null:
-		return obj
-	
-	obj = _get_world_object_from_map_pos_in_container(map_pos, front_fences)
-	
-	if obj != null:
-		return obj
-	
-	return null
+	return obj
 
 
 func _get_world_object_from_map_pos_in_container(map_pos:Vector2, container:Node) -> WorldObject:
@@ -292,7 +279,6 @@ func _get_world_object_from_map_pos_in_container(map_pos:Vector2, container:Node
 				return obj
 	
 	return null
-
 
 func on_enemy_died() -> void:
 	emit_signal("enemy_killed")
