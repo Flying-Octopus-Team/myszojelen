@@ -26,6 +26,9 @@ func _ready() -> void:
 	interface.connect("next_level_requested", self, "_on_next_level_requested")
 	interface.connect("replay_requested", self, "_on_replay_requested")
 	interface.connect("reset_game_requested", self, "_on_reset_game_requested")
+
+	connect("level_won", GameSave, "next_level")
+	interface.connect("reset_game_requested", GameSave, "set_level", [0])
 	
 	_start()
 
@@ -42,8 +45,6 @@ func _start_game() -> void:
 	MusicPlayer.play(0.0, "MainTheme")
 	
 	interface.reset()
-	
-	world.reset()
 	
 	_next_level()
 
@@ -76,7 +77,6 @@ func _on_level_won() -> void:
 		return
 	
 	MusicPlayer.fade_out()
-	Settings.set_level(Settings.level+1)
 	
 	yield(get_tree().create_timer(end_delay_time), "timeout")
 	
@@ -118,7 +118,6 @@ func _next_level() -> void:
 func _on_replay_requested() -> void:
 	MusicPlayer.fade_out()
 	_fade("_reset_level", true)
-	Settings.level = -1
 
 
 func _reset_level() -> void:
