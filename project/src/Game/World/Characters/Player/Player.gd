@@ -2,8 +2,9 @@ extends Character
 
 var RiceBullet = preload("res://src/Game/World/Characters/RiceBullet/RiceBullet.tscn")
 
-onready var shot_particles : Particles2D = $Pivot/Sprite/ShotParticles
-onready var shot_particles_default_x = shot_particles.position.x
+var ShotParticle = preload("res://src/Game/World/Characters/Player/ShotParticles.tscn")
+
+onready var shot_particles_path : Sprite = $Pivot/Sprite
 
 var shot_particles_position : Dictionary = {
 	Facing.TOP_LEFT: Vector2(-130, -60),
@@ -52,8 +53,9 @@ func _shot() -> void:
 	world_objects.add_child(rice)
 	rice.position = position + tile_map.map_to_world(get_forward_dir())
 	rice.tile_map = tile_map
-	if (shot_particles.emitting): shot_particles.restart()
-	else: shot_particles.emitting = true
+	var shot_particle = ShotParticle.instance()
+	shot_particle.init(shot_particles_position[facing], facing == Facing.TOP_LEFT or facing == Facing.TOP_RIGHT or facing == Facing.TOP)
+	shot_particles_path.add_child(shot_particle)
 	shot_sound.play()
 
 
@@ -80,6 +82,3 @@ func _rotate(dir:int) -> void:
 
 func update_texture() -> void:
 	.update_texture()
-	
-	shot_particles.position = shot_particles_position[facing]
-	shot_particles.show_behind_parent = facing == Facing.TOP_LEFT or facing == Facing.TOP_RIGHT or facing == Facing.TOP

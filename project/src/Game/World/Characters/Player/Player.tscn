@@ -1,10 +1,9 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/characters/Player/myszojelen_right_up.png" type="Texture" id=1]
 [ext_resource path="res://src/Game/World/Characters/Character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Game/World/Characters/Player/Player.gd" type="Script" id=3]
 [ext_resource path="res://assets/characters/Player/myszojelen_right_down.png" type="Texture" id=4]
-[ext_resource path="res://assets/smoke.png" type="Texture" id=5]
 [ext_resource path="res://assets/audio/sfx/shot.wav" type="AudioStream" id=6]
 [ext_resource path="res://src/TouchScreenkLayer/TouchScreenStering.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/Steering.gd" type="Script" id=8]
@@ -24,33 +23,7 @@
 [ext_resource path="res://assets/characters/Player/myszojelen_down.png" type="Texture" id=27]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/Joystick8Directions.gd" type="Script" id=28]
 
-[sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.30916, 1 )
-colors = PoolColorArray( 0.1875, 0.1875, 0.1875, 1, 0.582031, 0.582031, 0.582031, 1, 0.285156, 0.285156, 0.285156, 0 )
-
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
-
-[sub_resource type="Curve" id=3]
-_data = [ Vector2( 0, 0.477273 ), 0.0, 0.613636, 0, 0, Vector2( 0.403509, 1 ), 0.971591, 0.971591, 0, 0, Vector2( 1, 1 ), -1.37903, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
-
-[sub_resource type="ParticlesMaterial" id=5]
-lifetime_randomness = 0.5
-flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
-gravity = Vector3( 0, -200, 0 )
-initial_velocity = 200.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-damping = 400.0
-scale = 3.0
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
-
-[sub_resource type="StreamTexture" id=6]
+[sub_resource type="StreamTexture" id=7]
 
 [node name="Player" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
@@ -71,20 +44,12 @@ drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 
+[node name="Shadow" parent="Pivot" index="0"]
+position = Vector2( 0, 126.986 )
+
 [node name="Sprite" parent="Pivot" index="1"]
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 4 )
-
-[node name="ShotParticles" type="Particles2D" parent="Pivot/Sprite" index="0"]
-position = Vector2( 130, -20 )
-scale = Vector2( 1.42857, 1.42857 )
-emitting = false
-lifetime = 0.6
-one_shot = true
-explosiveness = 1.0
-randomness = 1.0
-process_material = SubResource( 5 )
-texture = ExtResource( 5 )
 
 [node name="ShotSound" type="AudioStreamPlayer" parent="." index="4"]
 stream = ExtResource( 6 )
@@ -113,7 +78,7 @@ margin_bottom = 196.986
 grow_horizontal = 0
 rect_min_size = Vector2( 150, 175 )
 size_flags_horizontal = 8
-texture = SubResource( 6 )
+texture = SubResource( 7 )
 expand = true
 stretch_mode = 5
 __meta__ = {
