@@ -6,6 +6,8 @@ var ShotParticle = preload("res://src/Game/World/Characters/Player/ShotParticles
 
 onready var shot_particles_path : Sprite = $Pivot/Sprite
 
+onready var smoke_particles : Particles2D = $Pivot/Sprite/SmokeParticles
+
 var shot_particles_position : Dictionary = {
 	Facing.TOP_LEFT: Vector2(-130, -60),
 	Facing.TOP_RIGHT: Vector2(130, -60),
@@ -53,9 +55,16 @@ func _shot() -> void:
 	world_objects.add_child(rice)
 	rice.position = position + tile_map.map_to_world(get_forward_dir())
 	rice.tile_map = tile_map
+
+	#temporary setup, until we decide which version is better
+
 	var shot_particle = ShotParticle.instance()
 	shot_particle.init(shot_particles_position[facing], facing == Facing.TOP_LEFT or facing == Facing.TOP_RIGHT or facing == Facing.TOP)
 	shot_particles_path.add_child(shot_particle)
+
+	
+	smoke_particles.emitting = true
+
 	shot_sound.play()
 
 
@@ -82,3 +91,6 @@ func _rotate(dir:int) -> void:
 
 func update_texture() -> void:
 	.update_texture()
+
+	smoke_particles.position = shot_particles_position[facing]
+	smoke_particles.show_behind_parent = facing == Facing.TOP_LEFT or facing == Facing.TOP_RIGHT or facing == Facing.TOP
