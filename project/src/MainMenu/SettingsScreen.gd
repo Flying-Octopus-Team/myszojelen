@@ -7,3 +7,4 @@ func _ready():
 	master_volume_slider.value = Settings.master_volume
 	
 	master_volume_slider.connect("value_changed", MusicPlayer, "set_volume")
+	master_volume_slider.connect("value_changed", Settings, "set_master_volume")

@@ -187,7 +187,6 @@ upscale_on_hover = true
 downscale_on_press = true
 
 [node name="SettingsScreen" type="MarginContainer" parent="Background/Board"]
-visible = false
 margin_left = 284.0
 margin_top = 158.0
 margin_right = 1044.0
@@ -271,6 +270,7 @@ __meta__ = {
 }
 
 [node name="PollScreen" type="MarginContainer" parent="Background/Board"]
+visible = false
 margin_left = 284.0
 margin_top = 158.0
 margin_right = 1044.0

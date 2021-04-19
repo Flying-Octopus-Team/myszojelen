@@ -6,7 +6,7 @@ const MAX_VOLUME := 0.0
 const MIN_VOLUME := -70.0
 
 # Value between 0 - 1
-var master_volume := 0.8
+var master_volume := 0.8 setget set_master_volume
 
 func _init() -> void:
 	_load_from_file()
@@ -34,6 +34,10 @@ func _load_from_file() -> void:
 	
 	if needs_save:
 		_save_to_file()
+
+func set_master_volume(value: float) -> void:
+	master_volume = value
+	_save_to_file()
 
 func _save_to_file() -> void:
 	var file := File.new()
