@@ -15,7 +15,7 @@ onready var replay_timer : Timer = $ReplayTimer
 onready var tween : Tween = $FadeTween
 
 const MIN_VOLUME : float = -100.0
-const NORMAL_VOLUME : float = 0.0
+var volume : float = 0.0 setget set_volume
 
 var _force_stopped := false
 
@@ -42,7 +42,7 @@ func _prepare_tween() -> void:
 
 
 func fade_in() -> void:
-	_fade_volume(MIN_VOLUME, NORMAL_VOLUME, fade_in_time, Tween.TRANS_EXPO)
+	_fade_volume(MIN_VOLUME, volume, fade_in_time, Tween.TRANS_EXPO)
 
 
 func delayed_fade_out() -> void:
@@ -51,7 +51,7 @@ func delayed_fade_out() -> void:
 
 
 func fade_out(delay:float = 0.0) -> void:
-	_fade_volume(NORMAL_VOLUME, MIN_VOLUME, fade_out_time, Tween.TRANS_LINEAR, delay)
+	_fade_volume(volume, MIN_VOLUME, fade_out_time, Tween.TRANS_LINEAR, delay)
 
 
 func _fade_volume(from:float, to:float, duration:float, trans_type:int, delay:float=0.0) -> void:
@@ -87,6 +87,11 @@ func play(from_position:float=0.0, theme: String="") -> void:
 	_prepare_tween()
 	
 	if not fade_in:
-		volume_db = NORMAL_VOLUME
+		volume_db = volume
 	
 	.play()
+
+
+func set_volume(value: float) -> void:
+	volume = value
+	set_volume_db(value)
