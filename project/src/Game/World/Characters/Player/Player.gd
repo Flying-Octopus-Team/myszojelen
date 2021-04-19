@@ -28,6 +28,9 @@ onready var _time_after_rotate := wait_time_after_rotate
 onready var steering : Node = $Steering
 
 
+func _ready():
+	$ShotSound.set_volume_db(Settings.audio_effects_volume)
+
 func _process(delta) -> void:
 	steering.steer(delta)
 

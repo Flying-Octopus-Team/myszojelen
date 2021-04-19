@@ -223,17 +223,42 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Ustawienia"
 align = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/Board/SettingsScreen/VBoxContainer"]
+[node name="MasterVolume" type="HBoxContainer" parent="Background/Board/SettingsScreen/VBoxContainer"]
 margin_top = 105.0
 margin_right = 640.0
 margin_bottom = 138.0
 
-[node name="Label" type="Label" parent="Background/Board/SettingsScreen/VBoxContainer/HBoxContainer"]
-margin_right = 150.0
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/VBoxContainer/MasterVolume"]
+margin_right = 121.0
 margin_bottom = 33.0
-text = "Głośność"
+text = "Muzyka"
 
-[node name="MasterVolumeSlider" type="HSlider" parent="Background/Board/SettingsScreen/VBoxContainer/HBoxContainer"]
+[node name="MasterVolumeSlider" type="HSlider" parent="Background/Board/SettingsScreen/VBoxContainer/MasterVolume"]
+margin_left = 340.0
+margin_top = 8.0
+margin_right = 640.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 10
+size_flags_vertical = 4
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area_highlight = SubResource( 3 )
+custom_styles/grabber_area = SubResource( 3 )
+min_value = -75.0
+max_value = 0.0
+step = 0.0
+
+[node name="SoundEffects" type="HBoxContainer" parent="Background/Board/SettingsScreen/VBoxContainer"]
+margin_top = 158.0
+margin_right = 640.0
+margin_bottom = 191.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/VBoxContainer/SoundEffects"]
+margin_right = 280.0
+margin_bottom = 33.0
+text = "Efekty dźwiękowe"
+
+[node name="SoundEffectsSlider" type="HSlider" parent="Background/Board/SettingsScreen/VBoxContainer/SoundEffects"]
 margin_left = 340.0
 margin_top = 8.0
 margin_right = 640.0

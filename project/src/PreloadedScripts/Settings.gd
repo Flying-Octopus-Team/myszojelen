@@ -5,8 +5,11 @@ const SETTINGS_FILE_PATH := "user://settings.json"
 const MAX_VOLUME := 0.0
 const MIN_VOLUME := -70.0
 
-# Value between 0 - 1
-var master_volume := 0.8 setget set_master_volume
+signal audio_effects_volume_changed(value)
+
+var master_volume := 0.0 setget set_master_volume
+
+var audio_effects_volume : float = 0.0 setget set_audio_effects_volume
 
 func _init() -> void:
 	_load_from_file()
@@ -14,7 +17,6 @@ func _init() -> void:
 
 func _load_from_file() -> void:
 	var file := File.new()
-	var needs_save := true
 	
 	if file.file_exists(SETTINGS_FILE_PATH):
 		file.open(SETTINGS_FILE_PATH, File.READ)
@@ -25,19 +27,25 @@ func _load_from_file() -> void:
 			var settings_dict = JSON.parse(str_file_content).result
 			
 			if settings_dict:
+
 				if settings_dict.has("master_volume"):
 					master_volume = settings_dict["master_volume"]
 				
-				needs_save = false
+				if settings_dict.has("audio_effects"):
+					set_audio_effects_volume(settings_dict["audio_effects"], false)
+				
+				
 	
 	MusicPlayer.set_volume(master_volume)
-	
-	if needs_save:
-		_save_to_file()
 
-func set_master_volume(value: float) -> void:
+func set_master_volume(value: float, needs_save : bool = true) -> void:
 	master_volume = value
-	_save_to_file()
+	if needs_save: _save_to_file()
+
+func set_audio_effects_volume(value: float, needs_save : bool = true) -> void:
+	audio_effects_volume = value
+	emit_signal("audio_effects_volume_changed", value)
+	if needs_save: _save_to_file()
 
 func _save_to_file() -> void:
 	var file := File.new()
@@ -45,6 +53,7 @@ func _save_to_file() -> void:
 	
 	var dict_to_save := {
 		"master_volume": master_volume,
+		"audio_effects": audio_effects_volume,
 		"level": GameSave.get_level()
 	}
 	

@@ -21,6 +21,8 @@ func _ready():
 	next_move_timer.wait_time = 1 / move_speed
 	fade_out_tween.connect("tween_all_completed", self, "_on_fade_out_completed")
 
+	$TreeCuttingSound.set_volume_db(Settings.audio_effects_volume)
+
 
 func set_state(s:int) -> void:
 	var previous_state = state
