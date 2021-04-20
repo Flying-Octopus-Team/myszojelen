@@ -80,7 +80,8 @@ func play(from_position:float=0.0, theme: String="") -> void:
 	force_stop()
 	
 	if !theme.empty():
-		 self.stream = load(music_dictionary[theme])
+		self.stream = load(music_dictionary[theme])
+		yield(get_tree().create_timer(0.1), "timeout")
 	
 	_force_stopped = false
 	
