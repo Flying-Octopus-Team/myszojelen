@@ -10,6 +10,5 @@ func _hide_screen() -> void:
 	$"../../".hide()
 
 func show_screen() -> void:
-	print("aaaa")
 	get_tree().paused = true
 	$"../../".show()
