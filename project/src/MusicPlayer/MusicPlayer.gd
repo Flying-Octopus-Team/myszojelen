@@ -15,7 +15,7 @@ onready var replay_timer : Timer = $ReplayTimer
 onready var tween : Tween = $FadeTween
 
 const MIN_VOLUME : float = -100.0
-var volume : float = 0.0 setget set_volume
+var volume : float = 1.0 setget set_volume
 
 var _force_stopped := false
 
@@ -94,5 +94,5 @@ func play(from_position:float=0.0, theme: String="") -> void:
 
 
 func set_volume(value: float) -> void:
-	volume = value
-	set_volume_db(value)
+	volume = linear2db(value)
+	set_volume_db(volume)

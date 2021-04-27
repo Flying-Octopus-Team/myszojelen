@@ -50,6 +50,10 @@ func _process_key_input() -> void:
 
 
 func _shot() -> void:
+
+	if $ShotSound.get_volume_db() != Settings.audio_effects_volume:
+		$ShotSound.set_volume_db(Settings.audio_effects_volume)
+
 	var rice = RiceBullet.instance()
 	rice.facing = facing
 	world_objects.add_child(rice)

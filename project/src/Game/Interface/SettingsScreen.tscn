@@ -86,8 +86,7 @@ size_flags_vertical = 4
 custom_styles/slider = SubResource( 1 )
 custom_styles/grabber_area_highlight = SubResource( 2 )
 custom_styles/grabber_area = SubResource( 2 )
-min_value = -75.0
-max_value = 0.0
+max_value = 1.0
 step = 0.0
 
 [node name="SoundEffects" type="HBoxContainer" parent="SettingsScreen/VBoxContainer"]
@@ -111,8 +110,7 @@ size_flags_vertical = 4
 custom_styles/slider = SubResource( 1 )
 custom_styles/grabber_area_highlight = SubResource( 2 )
 custom_styles/grabber_area = SubResource( 2 )
-min_value = -75.0
-max_value = 0.0
+max_value = 1.0
 step = 0.0
 
 [node name="BackBtn" parent="SettingsScreen/VBoxContainer" instance=ExtResource( 3 )]
