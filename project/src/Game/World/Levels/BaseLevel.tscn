@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/fence_up.png" type="Texture" id=1]
 [ext_resource path="res://assets/ground/grass/rice.png" type="Texture" id=2]
@@ -13,9 +13,11 @@
 [ext_resource path="res://src/Game/World/Map.gd" type="Script" id=11]
 [ext_resource path="res://assets/ground/rocks/rocks2.png" type="Texture" id=12]
 [ext_resource path="res://assets/ground/Transparent.png" type="Texture" id=13]
+[ext_resource path="res://assets/ground/rocks/rock_map_full.png" type="Texture" id=14]
 [ext_resource path="res://assets/ground/desert/desert3.png" type="Texture" id=15]
 [ext_resource path="res://assets/ground/desert/desert1.png" type="Texture" id=16]
 [ext_resource path="res://assets/ground/desert/desert2.png" type="Texture" id=17]
+[ext_resource path="res://assets/ground/rocks/rock_quad.png" type="Texture" id=18]
 
 [sub_resource type="TileSet" id=1]
 0/name = "riseless.png 0"
@@ -188,6 +190,75 @@
 4/shape_one_way_margin = 0.0
 4/shapes = [  ]
 4/z_index = 0
+5/name = "rocks_row_right"
+5/texture = ExtResource( 14 )
+5/tex_offset = Vector2( 0, -128 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 1536, 384 )
+5/tile_mode = 1
+5/autotile/bitmask_mode = 1
+5/autotile/bitmask_flags = [ Vector2( 0, 0 ), 48, Vector2( 0, 1 ), 4, Vector2( 1, 0 ), 56, Vector2( 1, 1 ), 4, Vector2( 2, 0 ), 24, Vector2( 3, 2 ), 256, Vector2( 3, 3 ), 260, Vector2( 3, 4 ), 260, Vector2( 3, 5 ), 260, Vector2( 4, 2 ), 320, Vector2( 4, 3 ), 325, Vector2( 4, 4 ), 325, Vector2( 4, 5 ), 325, Vector2( 5, 2 ), 320, Vector2( 5, 3 ), 325, Vector2( 5, 4 ), 325, Vector2( 5, 5 ), 325, Vector2( 6, 2 ), 320, Vector2( 6, 3 ), 325, Vector2( 6, 4 ), 325, Vector2( 6, 5 ), 325, Vector2( 7, 2 ), 325, Vector2( 7, 3 ), 5, Vector2( 8, 2 ), 325, Vector2( 8, 3 ), 5, Vector2( 9, 2 ), 325, Vector2( 9, 3 ), 5, Vector2( 10, 2 ), 325, Vector2( 10, 3 ), 5, Vector2( 11, 2 ), 321, Vector2( 11, 3 ), 261, Vector2( 11, 4 ), 260, Vector2( 11, 5 ), 260, Vector2( 12, 2 ), 320, Vector2( 12, 3 ), 325, Vector2( 12, 4 ), 325, Vector2( 12, 5 ), 325, Vector2( 13, 2 ), 320, Vector2( 13, 3 ), 325, Vector2( 13, 4 ), 325, Vector2( 13, 5 ), 325, Vector2( 14, 2 ), 320, Vector2( 14, 3 ), 325, Vector2( 14, 4 ), 325, Vector2( 14, 5 ), 325, Vector2( 15, 2 ), 320, Vector2( 15, 3 ), 325, Vector2( 15, 4 ), 325, Vector2( 15, 5 ), 325, Vector2( 16, 0 ), 325, Vector2( 16, 1 ), 325, Vector2( 16, 2 ), 325, Vector2( 16, 3 ), 5, Vector2( 17, 0 ), 325, Vector2( 17, 1 ), 325, Vector2( 17, 2 ), 325, Vector2( 17, 3 ), 5, Vector2( 18, 0 ), 325, Vector2( 18, 1 ), 325, Vector2( 18, 2 ), 325, Vector2( 18, 3 ), 5, Vector2( 19, 0 ), 325, Vector2( 19, 1 ), 325, Vector2( 19, 2 ), 325, Vector2( 19, 3 ), 5, Vector2( 20, 0 ), 65, Vector2( 20, 1 ), 65, Vector2( 20, 2 ), 65, Vector2( 20, 3 ), 1 ]
+5/autotile/icon_coordinate = Vector2( 0, 0 )
+5/autotile/tile_size = Vector2( 512, 384 )
+5/autotile/spacing = 0
+5/autotile/occluder_map = [  ]
+5/autotile/navpoly_map = [  ]
+5/autotile/priority_map = [  ]
+5/autotile/z_index_map = [  ]
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "rocks_row_left"
+6/texture = ExtResource( 14 )
+6/tex_offset = Vector2( 0, -128 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 384, 1536, 352 )
+6/tile_mode = 1
+6/autotile/bitmask_mode = 1
+6/autotile/bitmask_flags = [ Vector2( 0, 0 ), 18, Vector2( 1, 0 ), 146, Vector2( 2, 0 ), 144 ]
+6/autotile/icon_coordinate = Vector2( 0, 0 )
+6/autotile/tile_size = Vector2( 512, 384 )
+6/autotile/spacing = 0
+6/autotile/occluder_map = [  ]
+6/autotile/navpoly_map = [  ]
+6/autotile/priority_map = [  ]
+6/autotile/z_index_map = [  ]
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "rock_quad.png 7"
+7/texture = ExtResource( 18 )
+7/tex_offset = Vector2( 0, -176 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 0, 2048, 512 )
+7/tile_mode = 1
+7/autotile/bitmask_mode = 0
+7/autotile/bitmask_flags = [ Vector2( 0, 0 ), 288, Vector2( 1, 0 ), 306, Vector2( 2, 0 ), 177, Vector2( 3, 0 ), 216 ]
+7/autotile/icon_coordinate = Vector2( 0, 0 )
+7/autotile/tile_size = Vector2( 512, 512 )
+7/autotile/spacing = 0
+7/autotile/occluder_map = [  ]
+7/autotile/navpoly_map = [  ]
+7/autotile/priority_map = [  ]
+7/autotile/z_index_map = [  ]
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource( 8 )
