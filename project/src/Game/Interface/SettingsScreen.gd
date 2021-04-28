@@ -11,7 +11,7 @@ func _hide_screen() -> void:
 
 func show_screen() -> void:
 	master_volume_slider.value = Settings.master_volume
-	audio_effects_slider.value = db2linear(Settings.audio_effects_volume)
+	audio_effects_slider.value = Settings.audio_effects_volume
 
 	get_tree().paused = true
 	$"../../".show()

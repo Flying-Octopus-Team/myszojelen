@@ -5,7 +5,7 @@ onready var audio_effects_slider : HSlider = $VBoxContainer/SoundEffects/SoundEf
 
 func _ready():
 	master_volume_slider.value = Settings.master_volume
-	audio_effects_slider.value = db2linear(Settings.audio_effects_volume)
+	audio_effects_slider.value = Settings.audio_effects_volume
 	
 	master_volume_slider.connect("value_changed", MusicPlayer, "set_volume")
 	master_volume_slider.connect("value_changed", Settings, "set_master_volume")

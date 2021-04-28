@@ -64,5 +64,5 @@ func set_disabled(dis:bool) -> void:
 		_reset_scale()
 
 func set_audio_volume(value: float) -> void:
-	$HoverSound.set_volume_db(value)
-	$ClickSound.set_volume_db(value)
+	$HoverSound.set_volume_db(linear2db(value))
+	$ClickSound.set_volume_db(linear2db(value))

@@ -43,7 +43,7 @@ func set_master_volume(value: float, needs_save : bool = true) -> void:
 	if needs_save: _save_to_file()
 
 func set_audio_effects_volume(value: float, needs_save : bool = true) -> void:
-	audio_effects_volume = linear2db(value)
+	audio_effects_volume = value
 	emit_signal("audio_effects_volume_changed", audio_effects_volume)
 	if needs_save: _save_to_file()
 
@@ -53,7 +53,7 @@ func _save_to_file() -> void:
 	
 	var dict_to_save := {
 		"master_volume": master_volume,
-		"audio_effects": db2linear(audio_effects_volume),
+		"audio_effects": audio_effects_volume,
 		"level": GameSave.get_level()
 	}
 	
