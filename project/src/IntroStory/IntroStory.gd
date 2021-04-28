@@ -29,6 +29,9 @@ func _ready() -> void:
 	for i in range(1, story_screens.size()):
 		var screen = story_screens[i]
 		screen.hide()
+
+	$ChangeScreenSound.set_volume_db(Settings.audio_effects_volume)
+	$ClickSound.set_volume_db(Settings.audio_effects_volume)
 	
 	arrow_btn.show()
 	play_btn.hide()

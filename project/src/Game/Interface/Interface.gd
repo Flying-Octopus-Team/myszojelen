@@ -10,6 +10,8 @@ onready var level_won_screen : Control = $Control/LevelWonScreen
 onready var end_of_game_screen : Control = $Control/EndOfGameScreen
 onready var HUD : MarginContainer = $Control/HUD
 
+onready var settings_screen : Control = $Settings
+
 onready var developers_screen = $DevelopersScreen
 
 const TEES_LEFT_PREFIX := "Pozostalo drzew: "
@@ -20,6 +22,7 @@ var current_screen : int = Screen.NONE
 func _ready() -> void:
 	$Control/EndOfGameScreen/PollLink.connect("pressed", self, "_on_PollLink_pressed")
 	$Control/LevelWonScreen/ReplayBtn.connect("pressed", self, "_on_ReplayBtn_pressed")
+	HUD.get_node("VBoxContainer/SettingsBtn").connect("pressed", settings_screen.get_node("TextureRect/SettingsScreen"), "show_screen")
 	reset()
 
 
@@ -34,6 +37,8 @@ func reset() -> void:
 	
 	HUD.hide()
 	$SteeringScreen.hide()
+	
+	settings_screen.hide()
 	
 	developers_screen.visible = false
 	current_screen = Screen.NONE

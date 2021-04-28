@@ -11,6 +11,9 @@ func _ready() -> void:
 	connect("button_down", self, "_on_button_down")
 	connect("button_up", self, "_on_button_up")
 
+	Settings.connect("audio_effects_volume_changed", self, "set_audio_volume")
+	set_audio_volume(Settings.audio_effects_volume)
+
 
 func _on_mouse_entered() -> void:
 	if upscale_on_hover:
@@ -59,3 +62,7 @@ func set_disabled(dis:bool) -> void:
 	
 	if dis:
 		_reset_scale()
+
+func set_audio_volume(value: float) -> void:
+	$HoverSound.set_volume_db(linear2db(value))
+	$ClickSound.set_volume_db(linear2db(value))

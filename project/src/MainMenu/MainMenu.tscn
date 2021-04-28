@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/MainMenu/menu.png" type="Texture" id=1]
 [ext_resource path="res://assets/MainMenu/board.png" type="Texture" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://src/IntroStory/IntroStory.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Game/Game.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/FadeScreen/FadeLayer.tscn" type="PackedScene" id=13]
-[ext_resource path="res://src/Buttons/SoundButton/SoundButton.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/MainMenu/train.png" type="Texture" id=15]
 [ext_resource path="res://assets/fonts/tres/shojumaru_48.tres" type="DynamicFont" id=16]
 [ext_resource path="res://src/MainMenu/SettingsScreen.gd" type="Script" id=17]
@@ -187,7 +186,6 @@ upscale_on_hover = true
 downscale_on_press = true
 
 [node name="SettingsScreen" type="MarginContainer" parent="Background/Board"]
-visible = false
 margin_left = 284.0
 margin_top = 158.0
 margin_right = 1044.0
@@ -224,17 +222,17 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Ustawienia"
 align = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/Board/SettingsScreen/VBoxContainer"]
+[node name="MasterVolume" type="HBoxContainer" parent="Background/Board/SettingsScreen/VBoxContainer"]
 margin_top = 105.0
 margin_right = 640.0
 margin_bottom = 138.0
 
-[node name="Label" type="Label" parent="Background/Board/SettingsScreen/VBoxContainer/HBoxContainer"]
-margin_right = 150.0
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/VBoxContainer/MasterVolume"]
+margin_right = 121.0
 margin_bottom = 33.0
-text = "Głośność"
+text = "Muzyka"
 
-[node name="MasterVolumeSlider" type="HSlider" parent="Background/Board/SettingsScreen/VBoxContainer/HBoxContainer"]
+[node name="MasterVolumeSlider" type="HSlider" parent="Background/Board/SettingsScreen/VBoxContainer/MasterVolume"]
 margin_left = 340.0
 margin_top = 8.0
 margin_right = 640.0
@@ -247,6 +245,32 @@ custom_styles/grabber_area_highlight = SubResource( 3 )
 custom_styles/grabber_area = SubResource( 3 )
 max_value = 1.0
 step = 0.0
+value = 1.0
+
+[node name="SoundEffects" type="HBoxContainer" parent="Background/Board/SettingsScreen/VBoxContainer"]
+margin_top = 158.0
+margin_right = 640.0
+margin_bottom = 191.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/VBoxContainer/SoundEffects"]
+margin_right = 280.0
+margin_bottom = 33.0
+text = "Efekty dźwiękowe"
+
+[node name="SoundEffectsSlider" type="HSlider" parent="Background/Board/SettingsScreen/VBoxContainer/SoundEffects"]
+margin_left = 340.0
+margin_top = 8.0
+margin_right = 640.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 10
+size_flags_vertical = 4
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area_highlight = SubResource( 3 )
+custom_styles/grabber_area = SubResource( 3 )
+max_value = 1.0
+step = 0.0
+value = 1.0
 
 [node name="BackBtn" parent="Background/Board/SettingsScreen/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 377.0
@@ -270,6 +294,7 @@ __meta__ = {
 }
 
 [node name="PollScreen" type="MarginContainer" parent="Background/Board"]
+visible = false
 margin_left = 284.0
 margin_top = 158.0
 margin_right = 1044.0
@@ -353,11 +378,5 @@ text = "Kontynuuj ->"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="SoundButton" parent="." instance=ExtResource( 14 )]
-margin_left = 24.0416
-margin_top = 18.3848
-margin_right = 113.042
-margin_bottom = 104.385
 
 [node name="FadeLayer" parent="." instance=ExtResource( 13 )]

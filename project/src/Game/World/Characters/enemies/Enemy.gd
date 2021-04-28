@@ -21,6 +21,8 @@ func _ready():
 	next_move_timer.wait_time = 1 / move_speed
 	fade_out_tween.connect("tween_all_completed", self, "_on_fade_out_completed")
 
+	$TreeCuttingSound.set_volume_db(linear2db(Settings.audio_effects_volume))
+
 
 func set_state(s:int) -> void:
 	var previous_state = state
@@ -132,6 +134,10 @@ func get_path_to_closest_tree_world_pos() -> Array:
 
 
 func _cut_tree():
+
+	if tree_cutting_sound.get_volume_db() != linear2db(Settings.audio_effects_volume):
+		tree_cutting_sound.set_volume_db(linear2db(Settings.audio_effects_volume))
+
 	var tree_map_pos = tile_map.world_to_map(cut_tree.position)
 	
 	var expected_facing = get_expected_facint_based_on_target_map_position(tree_map_pos)
