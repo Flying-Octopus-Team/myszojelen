@@ -1,16 +1,15 @@
 extends Node
 
-signal muted_changed(muted)
-signal master_volume_changed(master_volume)
-
 const SETTINGS_FILE_PATH := "user://settings.json"
 
 const MAX_VOLUME := 0.0
-const MIN_VOLUME := -70.0
+const MIN_VOLUME := -80.0
 
-# Value between 0 - 1
-var master_volume := 0.8 setget set_master_volume
-var muted := false setget set_muted
+signal audio_effects_volume_changed(value)
+
+var master_volume := 1.0 setget set_master_volume
+
+var audio_effects_volume : float = 1.0 setget set_audio_effects_volume
 
 func _init() -> void:
 	_load_from_file()
@@ -18,7 +17,6 @@ func _init() -> void:
 
 func _load_from_file() -> void:
 	var file := File.new()
-	var needs_save := true
 	
 	if file.file_exists(SETTINGS_FILE_PATH):
 		file.open(SETTINGS_FILE_PATH, File.READ)
@@ -29,56 +27,25 @@ func _load_from_file() -> void:
 			var settings_dict = JSON.parse(str_file_content).result
 			
 			if settings_dict:
+
 				if settings_dict.has("master_volume"):
 					master_volume = settings_dict["master_volume"]
 				
-				needs_save = false
+				if settings_dict.has("audio_effects"):
+					set_audio_effects_volume(settings_dict["audio_effects"], false)
+				
+				
 	
-	set_master_volume(master_volume, true, false)
-	
-	if needs_save:
-		_save_to_file()
+	MusicPlayer.set_volume(master_volume)
 
+func set_master_volume(value: float, needs_save : bool = true) -> void:
+	master_volume = value
+	if needs_save: _save_to_file()
 
-# Takes value between 0 and 1 (0 means min volume, 1 mens max volume)
-func set_master_volume(val:float, override_muted:bool=true, save:bool=true) -> void:
-	var previous_master_volume := master_volume
-	master_volume = val
-	
-	_update_master_bus_volume()
-	
-	if previous_master_volume != master_volume:
-		emit_signal("master_volume_changed", master_volume)
-	
-	if override_muted:
-		var was_muted := muted
-		muted = master_volume <= 0.0
-		
-		if was_muted != muted:
-			emit_signal("muted_changed", muted)
-	
-	if save:
-		_save_to_file()
-
-
-func set_muted(m:bool) -> void:
-	var was_muted := muted
-	
-	muted = m
-	
-	if muted:
-		AudioServer.set_bus_volume_db(0, MIN_VOLUME)
-	else:
-		_update_master_bus_volume()
-	
-	if was_muted != muted:
-		emit_signal("muted_changed", muted)
-
-
-func _update_master_bus_volume() -> void:
-	var volume : float = master_volume * (MAX_VOLUME - MIN_VOLUME) + MIN_VOLUME
-	AudioServer.set_bus_volume_db(0, volume)
-
+func set_audio_effects_volume(value: float, needs_save : bool = true) -> void:
+	audio_effects_volume = value
+	emit_signal("audio_effects_volume_changed", audio_effects_volume)
+	if needs_save: _save_to_file()
 
 func _save_to_file() -> void:
 	var file := File.new()
@@ -86,6 +53,7 @@ func _save_to_file() -> void:
 	
 	var dict_to_save := {
 		"master_volume": master_volume,
+		"audio_effects": audio_effects_volume,
 		"level": GameSave.get_level()
 	}
 	

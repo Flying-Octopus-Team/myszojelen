@@ -28,6 +28,9 @@ onready var _time_after_rotate := wait_time_after_rotate
 onready var steering : Node = $Steering
 
 
+func _ready():
+	$ShotSound.set_volume_db(linear2db(Settings.audio_effects_volume))
+
 func _process(delta) -> void:
 	steering.steer(delta)
 
@@ -47,6 +50,10 @@ func _process_key_input() -> void:
 
 
 func _shot() -> void:
+
+	if $ShotSound.get_volume_db() != linear2db(Settings.audio_effects_volume):
+		$ShotSound.set_volume_db(linear2db(Settings.audio_effects_volume))
+
 	var rice = RiceBullet.instance()
 	rice.facing = facing
 	world_objects.add_child(rice)
