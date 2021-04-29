@@ -133,7 +133,7 @@ func astar_update_walkable_point(point, connect_points: bool = true) -> void:
 		# If you set this value to false, it becomes a one-way path
 		# As we loop through all points we can set it to false
 		if connect_points:
-			astar_node.connect_points(point_index, point_relative_index, false)
+			astar_node.connect_points(point_index, point_relative_index, true)
 		else:
 			astar_node.disconnect_points(point_index, point_relative_index, true)
 
