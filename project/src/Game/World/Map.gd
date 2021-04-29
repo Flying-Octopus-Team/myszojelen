@@ -108,10 +108,10 @@ func astar_add_walkable_cells(obstacles = []):
 # orthogonal grids, hex grids, tower defense games...
 func astar_connect_walkable_cells(points_array):
 	for point in points_array:
-		astar_connect_walkable_point(point)
+		astar_update_walkable_point(point)
 
 
-func astar_connect_walkable_point(point) -> void:
+func astar_update_walkable_point(point, connect_points: bool = true) -> void:
 	var point_index = calculate_point_index(point)
 	# For every cell in the map, we check the one to the top, right.
 	# left and bottom of it. If it's in the map and not an obstalce,
@@ -132,24 +132,10 @@ func astar_connect_walkable_point(point) -> void:
 		# connection to be bilateral: from point A to B and B to A
 		# If you set this value to false, it becomes a one-way path
 		# As we loop through all points we can set it to false
-		astar_node.connect_points(point_index, point_relative_index, false)
-
-
-# This is a variation of the method above
-# It connects cells horizontally, vertically AND diagonally
-func astar_connect_walkable_cells_diagonal(points_array):
-	for point in points_array:
-		var point_index = calculate_point_index(point)
-		for local_y in range(3):
-			for local_x in range(3):
-				var point_relative = Vector2(point.x + local_x - 1, point.y + local_y - 1)
-				var point_relative_index = calculate_point_index(point_relative)
-
-				if point_relative == point or is_outside_map_bounds(point_relative):
-					continue
-				if not astar_node.has_point(point_relative_index):
-					continue
-				astar_node.connect_points(point_index, point_relative_index, true)
+		if connect_points:
+			astar_node.connect_points(point_index, point_relative_index, false)
+		else:
+			astar_node.disconnect_points(point_index, point_relative_index, true)
 
 
 func is_outside_map_bounds(point):
@@ -255,7 +241,7 @@ func cut_tree(tree_map_pos:Vector2, cut_speed_modifier: float) -> bool:
 		obstacles.erase(tree_map_pos)
 		var point_index = calculate_point_index(tree_map_pos)
 		astar_node.add_point(point_index, Vector3(tree_map_pos.x, tree_map_pos.y, 0.0))
-		astar_connect_walkable_point(tree_map_pos)
+		astar_update_walkable_point(tree_map_pos)
 		emit_signal("tree_cut")
 		return false
 	
