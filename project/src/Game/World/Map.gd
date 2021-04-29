@@ -13,11 +13,6 @@ onready var astar_node = AStar.new()
 # The Tilemap node doesn't have clear bounds so we're defining the map's limits here
 export(Vector2) var map_size = Vector2(11, 11)
 
-# The path start and end variables use setter methods
-# You can find them at the bottom of the script
-var path_start_position = Vector2() setget _set_path_start_position
-var path_end_position = Vector2() setget _set_path_end_position
-
 var _point_path = []
 
 onready var obstacles = get_used_cells()
@@ -30,8 +25,6 @@ export var tex_101 : Texture
 
 
 func _ready():
-	var walkable_cells_list = astar_add_walkable_cells(obstacles)
-	astar_connect_walkable_cells(walkable_cells_list)
 	call_deferred("_tile_map_to_world")
 
 
@@ -147,9 +140,7 @@ func calculate_point_index(point):
 
 
 func find_path(world_start, world_end):
-	self.path_start_position = world_to_map(world_start)
-	self.path_end_position = world_to_map(world_end)
-	_recalculate_path()
+	_recalculate_path(world_start, world_end)
 	var path_world = []
 	for point in _point_path:
 		var point_world = map_to_world(Vector2(point.x, point.y)) + _half_cell_size
@@ -157,32 +148,12 @@ func find_path(world_start, world_end):
 	return path_world
 
 
-func _recalculate_path():
-	var start_point_index = calculate_point_index(path_start_position)
-	var end_point_index = calculate_point_index(path_end_position)
+func _recalculate_path(map_start, map_end):
+	var start_point_index = calculate_point_index(map_start)
+	var end_point_index = calculate_point_index(map_end)
 	# This method gives us an array of points. Note you need the start and end
 	# points' indices as input
 	_point_path = astar_node.get_point_path(start_point_index, end_point_index)
-
-
-# Setters for the start and end path values.
-func _set_path_start_position(value):
-	if value in obstacles:
-		return
-	if is_outside_map_bounds(value):
-		return
-
-	path_start_position = value
-
-
-func _set_path_end_position(value):
-	if value in obstacles:
-		return
-	if is_outside_map_bounds(value):
-		return
-
-	path_end_position = value
-
 
 func request_move(pawn, direction):
 	var cell_start = world_to_map(pawn.position)
