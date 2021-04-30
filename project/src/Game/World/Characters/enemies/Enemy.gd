@@ -143,11 +143,11 @@ func get_path_to_closest_tree_world_pos() -> Array:
 	return closest_path
 
 
-func _get_trees_array() -> Array:
+func _get_trees_array() -> PoolVector2Array:
 	if tile_map.get_cellv(targetted_tree) != tile_map.TREE_ID:
 		return tile_map.get_used_cells_by_id_in_map_range(tile_map.TREE_ID)
 	else: 
-		return [targetted_tree]
+		return PoolVector2Array([targetted_tree])
 
 
 func _add_position_in_astar() -> void:
