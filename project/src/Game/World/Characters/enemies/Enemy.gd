@@ -121,10 +121,10 @@ func get_path_to_closest_tree_world_pos() -> Array:
 		trees = [targetted_tree]
 
 	var map_position = tile_map.world_to_map(position)
-	var this_astar_index = tile_map.calculate_point_index(map_position)
+	var this_astar_index = tile_map.astar_node.calculate_point_index(map_position)
 
 	tile_map.astar_node.add_point(this_astar_index, Vector3(map_position.x, map_position.y, 0.0))
-	tile_map.astar_update_walkable_point(tile_map.world_to_map(position))
+	tile_map.astar_node.update_walkable_point(tile_map.world_to_map(position))
 
 	
 	
@@ -140,14 +140,14 @@ func get_path_to_closest_tree_world_pos() -> Array:
 			Vector2(tree.x, tree.y - 1)])
 		
 		for point_relative in points_relative:
-			var path_to_tree = tile_map.find_path(map_position, point_relative)
+			var path_to_tree = tile_map.astar_node.find_path(map_position, point_relative)
 			
 			if path_to_tree.size() > 0 and (first_iteration or path_to_tree.size() < closest_path.size()):
 				closest_path = path_to_tree
 				targetted_tree = tree
 				first_iteration = false
 	
-	tile_map.astar_update_walkable_point(tile_map.world_to_map(position), false)
+	tile_map.astar_node.update_walkable_point(tile_map.world_to_map(position), false)
 	tile_map.astar_node.remove_point(this_astar_index)
 	closest_path.pop_front()
 	return closest_path

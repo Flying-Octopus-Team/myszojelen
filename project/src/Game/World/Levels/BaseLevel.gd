@@ -26,8 +26,8 @@ func _ready() -> void:
 	map.connect("tree_cut", self, "_on_tree_cut")
 	map.connect("enemy_killed", self, "_on_ememy_killed")
 
-	var walkable_cells_list = map.astar_add_walkable_cells(map.obstacles)
-	map.astar_connect_walkable_cells(walkable_cells_list)
+	var walkable_cells_list = map.astar_node.add_walkable_cells(map.obstacles)
+	map.astar_node.connect_walkable_cells(walkable_cells_list)
 
 func _on_tree_cut() -> void:
 	emit_signal("tree_cut")

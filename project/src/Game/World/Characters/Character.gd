@@ -84,11 +84,11 @@ func move_to(target_pos:Vector2) -> void:
 	var previous_position_map = tile_map.world_to_map(previous_position)
 	var position_map = tile_map.world_to_map(position)
 
-	tile_map.astar_update_walkable_point(position_map)
-	tile_map.astar_node.remove_point(tile_map.calculate_point_index(position_map))
+	tile_map.astar_node.update_walkable_point(position_map)
+	tile_map.astar_node.remove_point(tile_map.astar_node.calculate_point_index(position_map))
 
-	tile_map.astar_node.add_point(tile_map.calculate_point_index(previous_position_map), Vector3(previous_position_map.x, previous_position_map.y, 0.0))
-	tile_map.astar_update_walkable_point(previous_position_map)
+	tile_map.astar_node.add_point(tile_map.astar_node.calculate_point_index(previous_position_map), Vector3(previous_position_map.x, previous_position_map.y, 0.0))
+	tile_map.astar_node.update_walkable_point(previous_position_map)
 
 func _on_move_end(object: Object, key: NodePath) -> void:
 	if previous_position:

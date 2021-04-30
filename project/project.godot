@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Game/World/Characters/enemies/Enemy.gd"
 }, {
+"base": "AStar",
+"class": "PathFinding",
+"language": "GDScript",
+"path": "res://src/Game/World/AstarPathFinding.gd"
+}, {
 "base": "Node",
 "class": "SteeringBaseScript",
 "language": "GDScript",
@@ -43,6 +48,7 @@ _global_script_class_icons={
 "BaseLevel": "",
 "Character": "",
 "Enemy": "",
+"PathFinding": "",
 "SteeringBaseScript": "",
 "Vietnamese": "",
 "WorldObject": ""
