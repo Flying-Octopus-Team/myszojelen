@@ -30,20 +30,11 @@ position = Vector2( 1280, 1152 )
 [node name="Vietnamese9" parent="Map" index="7" instance=ExtResource( 3 )]
 position = Vector2( 2048, 1538 )
 
-[node name="ThickVietnamese" parent="Map" index="8" groups=[
-"character",
-] instance=ExtResource( 2 )]
+[node name="ThickVietnamese" parent="Map" index="8" instance=ExtResource( 2 )]
 position = Vector2( 256, 384 )
-type = 101
 
-[node name="ThickVietnamese2" parent="Map" index="9" groups=[
-"character",
-] instance=ExtResource( 2 )]
+[node name="ThickVietnamese2" parent="Map" index="9" instance=ExtResource( 2 )]
 position = Vector2( 1280, 640 )
-type = 101
 
-[node name="ThickVietnamese3" parent="Map" index="10" groups=[
-"character",
-] instance=ExtResource( 2 )]
+[node name="ThickVietnamese3" parent="Map" index="10" instance=ExtResource( 2 )]
 position = Vector2( 1792, 1152 )
-type = 101
