@@ -58,6 +58,7 @@ func _ready() -> void:
 
 func setup_map() -> void:
 	tile_map.set_cellv(tile_map.world_to_map(position), type)
+	tile_map.obstacles.append(tile_map.world_to_map(position))
 
 
 func move_to(target_pos:Vector2) -> void:
@@ -80,6 +81,14 @@ func move_to(target_pos:Vector2) -> void:
 	if character_world_object:
 		character_world_object.position = position
 
+	var previous_position_map = tile_map.world_to_map(previous_position)
+	var position_map = tile_map.world_to_map(position)
+
+	tile_map.astar_node.update_walkable_point(position_map)
+	tile_map.astar_node.remove_point(tile_map.astar_node.calculate_point_index(position_map))
+
+	tile_map.astar_node.add_point(tile_map.astar_node.calculate_point_index(previous_position_map), Vector3(previous_position_map.x, previous_position_map.y, 0.0))
+	tile_map.astar_node.update_walkable_point(previous_position_map)
 
 func _on_move_end(object: Object, key: NodePath) -> void:
 	if previous_position:

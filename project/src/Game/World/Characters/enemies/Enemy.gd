@@ -17,6 +17,9 @@ var state : int = State.WALK setget set_state
 
 var cut_tree : WorldObject = null
 
+var path_to_tree = []
+var targetted_tree : Vector2
+
 func _ready():
 	next_move_timer.wait_time = 1 / move_speed
 	fade_out_tween.connect("tween_all_completed", self, "_on_fade_out_completed")
@@ -45,7 +48,9 @@ func _on_NextMoveTimer_timeout():
 				
 			var tree_pos = _get_nearest_tree_map_position()
 			if tree_pos == null:
-				_go_to_tree()
+				var move_success = _go_to_tree()
+				if not move_success:
+					path_to_tree = get_path_to_closest_tree_world_pos()
 			else:
 				cut_tree = tile_map.get_node(tile_map.get_world_object_from_map_pos(tree_pos).tilemap_path)
 				cut_tree.connect("cut", self, "_on_cut_tree_cut")
@@ -58,11 +63,7 @@ func _on_NextMoveTimer_timeout():
 func _get_nearest_tree_map_position():
 	var pos_on_map = tile_map.world_to_map(position)
 	
-	var points_relative = PoolVector2Array([
-		Vector2(pos_on_map.x + 1, pos_on_map.y),
-		Vector2(pos_on_map.x - 1, pos_on_map.y),
-		Vector2(pos_on_map.x, pos_on_map.y + 1),
-		Vector2(pos_on_map.x, pos_on_map.y - 1)])
+	var points_relative = _get_relative_positions(pos_on_map)
 	
 	for point_relative in points_relative:
 		var cell : int = tile_map.get_cellv(point_relative)
@@ -72,16 +73,19 @@ func _get_nearest_tree_map_position():
 	return null
 
 
-func _go_to_tree() -> void:
-	var path_to_target_tree = get_path_to_closest_tree_world_pos()
+func _go_to_tree() -> bool:
+	if	path_to_tree.size() < 1:
+		return false
 	
-	if path_to_target_tree.size() < 2:
-		return
-	
-	var target_pos = tile_map.request_move_world_pos(self, path_to_target_tree[1])
-	if target_pos != null:
-		set_facing_base_on_target_position(target_pos)
-		move_to(target_pos)
+	var target_pos = tile_map.request_move_world_pos(self, path_to_tree[0])
+	if target_pos == null:
+		return false
+
+	set_facing_base_on_target_position(target_pos)
+	move_to(target_pos)
+
+	path_to_tree.pop_front()
+	return true
 
 
 func set_facing_base_on_target_position(target_position:Vector2) -> void:
@@ -104,34 +108,70 @@ func get_expected_facint_based_on_target_map_position(target_map_pos:Vector2) ->
 		return Facing.TOP_RIGHT
 
 
+func _get_relative_positions(position) -> PoolVector2Array:
+	return PoolVector2Array([
+		Vector2(position.x + 1, position.y),
+		Vector2(position.x - 1, position.y),
+		Vector2(position.x, position.y + 1),
+		Vector2(position.x, position.y - 1)
+	])
+
 func get_path_to_closest_tree_world_pos() -> Array:
-	var trees = tile_map.get_used_cells_by_id_in_map_range(tile_map.TREE_ID)
+
+	_add_position_in_astar()
+
+	var closest_path : Array = _get_path_for_trees_array(_get_trees_array())
 	
-	if trees.empty():
-		return []
-	
-	var closest_path : Array = []
-	var first_iteration := true
-	
-	for i in range(0, trees.size()):
-		var tree = trees[i] 
-		
-		var points_relative = PoolVector2Array([
-			Vector2(tree.x + 1, tree.y),
-			Vector2(tree.x - 1, tree.y),
-			Vector2(tree.x, tree.y + 1),
-			Vector2(tree.x, tree.y - 1)])
-		
-		for point_relative in points_relative:
-			var near_tree_world_pos = tile_map.map_to_world(point_relative)
-			var path_to_tree = tile_map.find_path(position, near_tree_world_pos)
-			
-			if path_to_tree.size() > 0 and (first_iteration or path_to_tree.size() < closest_path.size()):
-				closest_path = path_to_tree
-				first_iteration = false
-	
+	_remove_position_in_astar()
+
+	closest_path.pop_front()
 	return closest_path
 
+
+func _get_path_for_relative_points(relative_points: PoolVector2Array) -> PoolVector2Array:
+	var map_position = tile_map.world_to_map(position)
+	var closest_path: PoolVector2Array = []
+
+	for point_relative in relative_points:
+		var path_to_relative_point = tile_map.astar_node.find_path(map_position, point_relative)
+		if not path_to_relative_point.empty() and (closest_path.empty() or path_to_relative_point.size() < closest_path.size()):
+			closest_path = path_to_relative_point
+
+	return closest_path
+
+
+func _get_path_for_trees_array(trees: PoolVector2Array) -> PoolVector2Array:
+	var closest_path : PoolVector2Array = []
+
+	for tree in trees:
+		var new_closest_path = _get_path_for_relative_points(_get_relative_positions(tree))
+		if not new_closest_path.empty() and (closest_path.empty() or new_closest_path.size() < closest_path.size()):
+			closest_path = new_closest_path
+			targetted_tree = tree
+
+	return closest_path
+
+
+func _get_trees_array() -> PoolVector2Array:
+	if tile_map.get_cellv(targetted_tree) != tile_map.TREE_ID:
+		return tile_map.get_used_cells_by_id_in_map_range(tile_map.TREE_ID)
+	
+	return PoolVector2Array([targetted_tree])
+
+
+func _add_position_in_astar() -> void:
+	var map_position = tile_map.world_to_map(position)
+	var this_astar_index = tile_map.astar_node.calculate_point_index(map_position)
+
+	tile_map.astar_node.add_point(this_astar_index, Vector3(map_position.x, map_position.y, 0.0))
+	tile_map.astar_node.update_walkable_point(tile_map.world_to_map(position))
+
+func _remove_position_in_astar() -> void:
+	var map_position = tile_map.world_to_map(position)
+	var this_astar_index = tile_map.astar_node.calculate_point_index(map_position)
+
+	tile_map.astar_node.update_walkable_point(map_position, false)
+	tile_map.astar_node.remove_point(this_astar_index)
 
 func _cut_tree():
 
