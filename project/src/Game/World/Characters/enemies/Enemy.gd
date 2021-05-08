@@ -117,25 +117,10 @@ func _get_relative_positions(position) -> PoolVector2Array:
 	])
 
 func get_path_to_closest_tree_world_pos() -> Array:
-	var trees = _get_trees_array()
 
-	var map_position = tile_map.world_to_map(position)
 	_add_position_in_astar()
 
-	var closest_path : Array = []
-	var first_iteration := true
-	
-	for tree in trees:
-		
-		var points_relative = _get_relative_positions(tree)
-		
-		for point_relative in points_relative:
-			var path_to_tree = tile_map.astar_node.find_path(map_position, point_relative)
-			
-			if path_to_tree.size() > 0 and (first_iteration or path_to_tree.size() < closest_path.size()):
-				closest_path = path_to_tree
-				targetted_tree = tree
-				first_iteration = false
+	var closest_path : Array = _get_path_for_trees_array(_get_trees_array())
 	
 	_remove_position_in_astar()
 
@@ -143,11 +128,35 @@ func get_path_to_closest_tree_world_pos() -> Array:
 	return closest_path
 
 
+func _get_path_for_relative_points(relative_points: PoolVector2Array) -> PoolVector2Array:
+	var map_position = tile_map.world_to_map(position)
+	var closest_path: PoolVector2Array = []
+
+	for point_relative in relative_points:
+		var path_to_relative_point = tile_map.astar_node.find_path(map_position, point_relative)
+		if not path_to_relative_point.empty() and (closest_path.empty() or path_to_relative_point.size() < closest_path.size()):
+			closest_path = path_to_relative_point
+
+	return closest_path
+
+
+func _get_path_for_trees_array(trees: PoolVector2Array) -> PoolVector2Array:
+	var closest_path : PoolVector2Array = []
+
+	for tree in trees:
+		var new_closest_path = _get_path_for_relative_points(_get_relative_positions(tree))
+		if not new_closest_path.empty() and (closest_path.empty() or new_closest_path.size() < closest_path.size()):
+			closest_path = new_closest_path
+			targetted_tree = tree
+
+	return closest_path
+
+
 func _get_trees_array() -> PoolVector2Array:
 	if tile_map.get_cellv(targetted_tree) != tile_map.TREE_ID:
 		return tile_map.get_used_cells_by_id_in_map_range(tile_map.TREE_ID)
-	else: 
-		return PoolVector2Array([targetted_tree])
+	
+	return PoolVector2Array([targetted_tree])
 
 
 func _add_position_in_astar() -> void:
