@@ -186,6 +186,7 @@ upscale_on_hover = true
 downscale_on_press = true
 
 [node name="SettingsScreen" type="MarginContainer" parent="Background/Board"]
+visible = false
 margin_left = 284.0
 margin_top = 158.0
 margin_right = 1044.0
@@ -294,7 +295,6 @@ __meta__ = {
 }
 
 [node name="PollScreen" type="MarginContainer" parent="Background/Board"]
-visible = false
 margin_left = 284.0
 margin_top = 158.0
 margin_right = 1044.0
@@ -374,7 +374,7 @@ downscale_on_press = true
 [node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer/PollContinue"]
 margin_right = 40.0
 margin_bottom = 33.0
-text = "Kontynuuj ->"
+text = "KEY1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
