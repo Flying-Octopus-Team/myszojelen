@@ -14,7 +14,7 @@ onready var settings_screen : Control = $Settings
 
 onready var developers_screen = $DevelopersScreen
 
-const TEES_LEFT_PREFIX := "Pozostalo drzew: "
+const TEES_LEFT_PREFIX := "TREES_KEY"
 
 enum Screen { NONE, LEVEL_WON, GAME_OVER, END_OF_GAME }
 var current_screen : int = Screen.NONE
@@ -27,7 +27,7 @@ func _ready() -> void:
 
 
 func set_trees_left(tres_left:int) -> void:
-	trees_left_label.text = TEES_LEFT_PREFIX + str(tres_left)
+	trees_left_label.text = tr(TEES_LEFT_PREFIX) + " " + str(tres_left)
 
 
 func reset() -> void:

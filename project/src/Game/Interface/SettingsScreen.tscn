@@ -66,7 +66,7 @@ margin_right = 995.0
 margin_bottom = 65.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Ustawienia"
+text = "SETTINGS_TITLE"
 align = 1
 
 [node name="MasterVolume" type="HBoxContainer" parent="SettingsScreen/VBoxContainer"]
@@ -75,9 +75,9 @@ margin_right = 995.0
 margin_bottom = 138.0
 
 [node name="Label" type="Label" parent="SettingsScreen/VBoxContainer/MasterVolume"]
-margin_right = 121.0
+margin_right = 170.0
 margin_bottom = 33.0
-text = "Muzyka"
+text = "MUSIC_KEY"
 
 [node name="MasterVolumeSlider" type="HSlider" parent="SettingsScreen/VBoxContainer/MasterVolume"]
 margin_left = 695.0
@@ -99,9 +99,9 @@ margin_right = 995.0
 margin_bottom = 191.0
 
 [node name="Label" type="Label" parent="SettingsScreen/VBoxContainer/SoundEffects"]
-margin_right = 280.0
+margin_right = 312.0
 margin_bottom = 33.0
-text = "Efekty dźwiękowe"
+text = "AUDIO_EFFECTS_KEY"
 
 [node name="SoundEffectsSlider" type="HSlider" parent="SettingsScreen/VBoxContainer/SoundEffects"]
 margin_left = 695.0
@@ -128,7 +128,7 @@ margin_top = 47.0
 margin_right = 731.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
-text = "KEY1"
+text = "LANGUAGE_KEY"
 
 [node name="English" type="TextureButton" parent="SettingsScreen/VBoxContainer/Language"]
 margin_left = 735.0
@@ -162,7 +162,7 @@ downscale_on_press = true
 [node name="Label" type="Label" parent="SettingsScreen/VBoxContainer/BackBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-text = " <-   Wróć"
+text = "BACK_KEY"
 __meta__ = {
 "_edit_use_anchors_": false
 }

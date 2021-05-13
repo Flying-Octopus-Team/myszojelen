@@ -1,3 +1,16 @@
 ,en,pl
-KEY1,buenos dias,konnichi wa
-KEY2,aaaaaa,bbbbbbb
+SETTINGS_TITLE,Settings,Ustawienia
+MUSIC_KEY,Music,Muzyka
+AUDIO_EFFECTS_KEY,Audio effects,Efekty dźwiękowe
+LANGUAGE_KEY,Language,Język
+BACK_KEY,<- Return,<- Wróć
+CONTINUE_KEY,Continue ->,Kontynuuj ->
+CREDITS_KEY,Credits,Poznaj twórców
+TREES_KEY,Trees left:,Pozostało drzew:
+REPLAY_KEY,Replay level,Powtórz poziom
+LEVEL_WON_KEY,Placeholder,"Przepędziłeś drwali!
+Teraz biegnij ratować kolejny las..."
+GAME_FINISHED_KEY,Placeholder,"Udało się! 
+Drwale nie zagrażają już twojemu gatunkowi. 
+Odbudowałeś populację Myszojeleni i rodzinny las!"
+STEERING_KEY,Choose steering type:,Wybierz sposób sterowania:

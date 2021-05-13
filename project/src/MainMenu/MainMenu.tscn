@@ -190,6 +190,7 @@ upscale_on_hover = true
 downscale_on_press = true
 
 [node name="SettingsScreen" type="MarginContainer" parent="Background/Board"]
+visible = false
 margin_left = 284.0
 margin_top = 158.0
 margin_right = 1044.0
@@ -223,7 +224,7 @@ margin_right = 640.0
 margin_bottom = 65.0
 custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "KEY2"
+text = "SETTINGS_TITLE"
 align = 1
 
 [node name="MasterVolume" type="HBoxContainer" parent="Background/Board/SettingsScreen/VBoxContainer"]
@@ -232,9 +233,9 @@ margin_right = 640.0
 margin_bottom = 138.0
 
 [node name="Label" type="Label" parent="Background/Board/SettingsScreen/VBoxContainer/MasterVolume"]
-margin_right = 121.0
+margin_right = 170.0
 margin_bottom = 33.0
-text = "Muzyka"
+text = "MUSIC_KEY"
 
 [node name="MasterVolumeSlider" type="HSlider" parent="Background/Board/SettingsScreen/VBoxContainer/MasterVolume"]
 margin_left = 340.0
@@ -257,9 +258,9 @@ margin_right = 640.0
 margin_bottom = 191.0
 
 [node name="Label" type="Label" parent="Background/Board/SettingsScreen/VBoxContainer/SoundEffects"]
-margin_right = 280.0
+margin_right = 312.0
 margin_bottom = 33.0
-text = "Efekty dźwiękowe"
+text = "AUDIO_EFFECTS_KEY"
 
 [node name="SoundEffectsSlider" type="HSlider" parent="Background/Board/SettingsScreen/VBoxContainer/SoundEffects"]
 margin_left = 340.0
@@ -287,7 +288,7 @@ margin_top = 47.0
 margin_right = 376.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
-text = "KEY1"
+text = "LANGUAGE_KEY"
 
 [node name="English" type="TextureButton" parent="Background/Board/SettingsScreen/VBoxContainer/Language"]
 margin_left = 380.0
@@ -308,9 +309,9 @@ texture_normal = ExtResource( 21 )
 texture_pressed = ExtResource( 14 )
 
 [node name="BackBtn" parent="Background/Board/SettingsScreen/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 378.0
+margin_top = 395.0
 margin_right = 160.0
-margin_bottom = 410.0
+margin_bottom = 427.0
 rect_min_size = Vector2( 160, 32 )
 size_flags_horizontal = 0
 size_flags_vertical = 10
@@ -323,13 +324,12 @@ downscale_on_press = true
 [node name="Label" type="Label" parent="Background/Board/SettingsScreen/VBoxContainer/BackBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-text = " <-   Wróć"
+text = "BACK_KEY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PollScreen" type="MarginContainer" parent="Background/Board"]
-visible = false
 margin_left = 284.0
 margin_top = 158.0
 margin_right = 1044.0
@@ -357,7 +357,7 @@ downscale_on_press = true
 [node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/PollBack"]
 margin_right = 40.0
 margin_bottom = 33.0
-text = "<- Wróć"
+text = "BACK_KEY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -409,7 +409,7 @@ downscale_on_press = true
 [node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer/PollContinue"]
 margin_right = 40.0
 margin_bottom = 33.0
-text = "KEY1"
+text = "CONTINUE_KEY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
