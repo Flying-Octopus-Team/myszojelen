@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
@@ -21,15 +21,11 @@
 [ext_resource path="res://assets/screens/buttons/poll/PollClick.png" type="Texture" id=19]
 [ext_resource path="res://assets/Steering/pad.png" type="Texture" id=20]
 [ext_resource path="res://src/Game/Interface/SteeringButton.gd" type="Script" id=21]
-[ext_resource path="res://assets/Steering/qwas.png" type="Texture" id=22]
 [ext_resource path="res://assets/Steering/numpad.png" type="Texture" id=23]
-[ext_resource path="res://assets/Steering/numpadarrows.png" type="Texture" id=24]
 [ext_resource path="res://src/Game/Interface/SteeringContainer.gd" type="Script" id=25]
 [ext_resource path="res://assets/screens/buttons/poll/Poll.png" type="Texture" id=26]
 [ext_resource path="res://assets/screens/buttons/poll/PollHover.png" type="Texture" id=27]
 [ext_resource path="res://assets/Steering/wsad1.png" type="Texture" id=28]
-[ext_resource path="res://assets/Steering/wsad2.png" type="Texture" id=29]
-[ext_resource path="res://assets/Steering/ijok.png" type="Texture" id=30]
 [ext_resource path="res://assets/Steering/obroty.png" type="Texture" id=31]
 [ext_resource path="res://assets/Steering/gamepad.png" type="Texture" id=32]
 [ext_resource path="res://src/Game/Interface/SettingsScreen.tscn" type="PackedScene" id=33]
@@ -45,6 +41,7 @@ __meta__ = {
 }
 
 [node name="HUD" type="MarginContainer" parent="Control"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 custom_constants/margin_right = 40
@@ -269,7 +266,6 @@ visible = false
 
 [node name="SteeringScreen" type="Control" parent="."]
 pause_mode = 2
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -305,7 +301,7 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="SteeringScreen/SteeringContainer"]
 margin_right = 1291.0
-margin_bottom = 533.0
+margin_bottom = 354.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 columns = 3
@@ -316,7 +312,7 @@ margin_right = 313.0
 margin_bottom = 175.0
 size_flags_horizontal = 6
 
-[node name="WSAD1NoRot" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer1"]
+[node name="4Directions" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer1"]
 margin_right = 200.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 200, 175 )
@@ -330,18 +326,17 @@ upscale_on_hover = true
 upscale_on_press = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 544.0
-margin_right = 744.0
+margin_left = 431.0
+margin_right = 858.0
 margin_bottom = 175.0
-size_flags_horizontal = 6
 
-[node name="WSAD2NoRot" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer2"]
-margin_right = 200.0
+[node name="8Directions" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer2"]
+margin_left = 113.0
+margin_right = 313.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 200, 175 )
 size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 29 )
+texture_normal = ExtResource( 23 )
 expand = true
 stretch_mode = 4
 script = ExtResource( 21 )
@@ -354,13 +349,12 @@ margin_right = 1175.0
 margin_bottom = 175.0
 size_flags_horizontal = 6
 
-[node name="IOJKNoRot" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer3"]
+[node name="VirtualPad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer3"]
 margin_right = 200.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 200, 175 )
 size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 30 )
+texture_normal = ExtResource( 20 )
 expand = true
 stretch_mode = 4
 script = ExtResource( 21 )
@@ -374,84 +368,7 @@ margin_right = 313.0
 margin_bottom = 354.0
 size_flags_horizontal = 6
 
-[node name="IOJKNoRot" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer4"]
-margin_right = 200.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 22 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
-
-[node name="VBoxContainer5" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 431.0
-margin_top = 179.0
-margin_right = 858.0
-margin_bottom = 354.0
-
-[node name="Numpad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer5"]
-margin_left = 113.0
-margin_right = 313.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
-size_flags_horizontal = 4
-texture_normal = ExtResource( 23 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
-
-[node name="VBoxContainer6" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 862.0
-margin_top = 179.0
-margin_right = 1289.0
-margin_bottom = 354.0
-
-[node name="Numpad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer6"]
-margin_left = 113.0
-margin_right = 313.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
-size_flags_horizontal = 4
-texture_normal = ExtResource( 24 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
-
-[node name="VBoxContainer7" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 113.0
-margin_top = 358.0
-margin_right = 313.0
-margin_bottom = 533.0
-size_flags_horizontal = 6
-
-[node name="VirtualPad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer7"]
-margin_right = 200.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
-size_flags_horizontal = 4
-texture_normal = ExtResource( 20 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
-
-[node name="VBoxContainer8" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 544.0
-margin_top = 358.0
-margin_right = 744.0
-margin_bottom = 533.0
-size_flags_horizontal = 6
-
-[node name="ManualPad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer8"]
+[node name="ManualPad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer4"]
 margin_right = 200.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 200, 175 )
@@ -463,14 +380,14 @@ script = ExtResource( 21 )
 upscale_on_hover = true
 upscale_on_press = true
 
-[node name="VBoxContainer9" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 975.0
-margin_top = 358.0
-margin_right = 1175.0
-margin_bottom = 533.0
+[node name="VBoxContainer5" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
+margin_left = 544.0
+margin_top = 179.0
+margin_right = 744.0
+margin_bottom = 354.0
 size_flags_horizontal = 6
 
-[node name="KeyboardRotating" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer9"]
+[node name="Rotating" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer5"]
 margin_right = 200.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 200, 175 )
@@ -484,6 +401,7 @@ upscale_on_press = true
 
 [node name="Settings" type="Control" parent="."]
 pause_mode = 2
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {

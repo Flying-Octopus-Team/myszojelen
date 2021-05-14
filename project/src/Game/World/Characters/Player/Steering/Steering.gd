@@ -6,16 +6,11 @@ var steering_type : int = 0
 var steering_texture : Resource
 
 onready var SteeringDict : Dictionary = {
-	"WSAD1NoRot" : get_node("WSAD1NoRotation"),
-	"WSAD1Rot" : get_node("WSAD1Rotation"),
-	"WSAD2NoRot" : get_node("WSAD2NoRotation"),
-	"WSAD2Rot" : get_node("WSAD2Rotation"),
-	"IOJKNoRot" : get_node("IOJKNoRotation"),
-	"IOJKRot" : get_node("IOJKRotation"),
-	"Numpad" : get_node("Numpad"),
+	"4Directions" : get_node("4Directions"),
+	"8Directions" : get_node("8Directions"),
 	"VirtualPad": get_node("Joystick8Directions"),
 	"ManualPad": get_node("Joystick8Directions"),
-	"KeyboardRotating": get_node("KeyboardRotating")
+	"Rotating": get_node("Rotating")
 }
 
 var SteeringDictKey : String = "WSAD1NoRot"
