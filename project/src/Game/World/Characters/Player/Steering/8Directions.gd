@@ -2,25 +2,25 @@ extends SteeringBaseScript
 
 func _get_direction() -> int:
 	
-	if (Input.is_action_pressed("move_up_left") 
-		or (Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_left"))):
+	if (Input.is_action_pressed("8directions_up_left") 
+		or (Input.is_action_pressed("8directions_up") and Input.is_action_pressed("8directions_left"))):
 		return Character.Facing.TOP_LEFT
-	elif (Input.is_action_pressed("move_up_right")
-		or (Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_right"))):
+	elif (Input.is_action_pressed("8directions_up_right")
+		or (Input.is_action_pressed("8directions_up") and Input.is_action_pressed("8directions_right"))):
 		return Character.Facing.TOP_RIGHT
-	elif (Input.is_action_pressed("move_down_left")
-		or (Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left"))):
+	elif (Input.is_action_pressed("8directions_down_left")
+		or (Input.is_action_pressed("8directions_down") and Input.is_action_pressed("8directions_left"))):
 		return Character.Facing.BOTTOM_LEFT
-	elif (Input.is_action_pressed("move_down_right") 
-		or (Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right"))):
+	elif (Input.is_action_pressed("8directions_down_right") 
+		or (Input.is_action_pressed("8directions_down") and Input.is_action_pressed("8directions_right"))):
 		return Character.Facing.BOTTOM_RIGHT
-	elif (Input.is_action_pressed("ui_up")):
+	elif (Input.is_action_pressed("8directions_up")):
 		return Character.Facing.TOP
-	elif (Input.is_action_pressed("ui_down")):
+	elif (Input.is_action_pressed("8directions_down")):
 		return Character.Facing.BOTTOM
-	elif (Input.is_action_pressed("ui_left")):
+	elif (Input.is_action_pressed("8directions_left")):
 		return Character.Facing.LEFT
-	elif (Input.is_action_pressed("ui_right")):
+	elif (Input.is_action_pressed("8directions_right")):
 		return Character.Facing.RIGHT
 		
 	return -1

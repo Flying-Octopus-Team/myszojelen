@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/characters/Player/myszojelen_right_up.png" type="Texture" id=1]
 [ext_resource path="res://src/Game/World/Characters/Character.tscn" type="PackedScene" id=2]
@@ -44,8 +44,6 @@ scale = 3.0
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 
-[sub_resource type="StreamTexture" id=6]
-
 [node name="Player" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 type = 100
@@ -87,34 +85,7 @@ volume_db = -10.0
 [node name="TouchScreenSteering" parent="." index="5" instance=ExtResource( 7 )]
 hide_on_non_touchscreen = false
 
-[node name="SteeringInfoCanvas" type="CanvasLayer" parent="." index="6"]
-
-[node name="ColorRect" type="ColorRect" parent="SteeringInfoCanvas" index="0"]
-margin_left = 1096.72
-margin_top = 16.986
-margin_right = 1256.72
-margin_bottom = 126.986
-rect_min_size = Vector2( 160, 110 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SteeringInfo" type="TextureRect" parent="SteeringInfoCanvas" index="1"]
-margin_left = 1101.72
-margin_top = 21.986
-margin_right = 1251.72
-margin_bottom = 196.986
-grow_horizontal = 0
-rect_min_size = Vector2( 150, 175 )
-size_flags_horizontal = 8
-texture = SubResource( 6 )
-expand = true
-stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Steering" type="Node" parent="." index="7"]
+[node name="Steering" type="Node" parent="." index="6"]
 script = ExtResource( 8 )
 
 [node name="8Directions" type="Node" parent="Steering" index="0"]

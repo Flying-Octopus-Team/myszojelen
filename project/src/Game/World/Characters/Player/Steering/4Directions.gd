@@ -2,13 +2,13 @@ extends SteeringBaseScript
 
 func _get_direction() -> int:
 	
-	if (Input.is_action_pressed("ui_up")):
+	if (Input.is_action_pressed("4directions_up")):
 		return Character.Facing.TOP_RIGHT
-	elif (Input.is_action_pressed("ui_down")):
+	elif (Input.is_action_pressed("4directions_down")):
 		return Character.Facing.BOTTOM_LEFT
-	elif (Input.is_action_pressed("ui_left")):
+	elif (Input.is_action_pressed("4directions_left")):
 		return Character.Facing.TOP_LEFT
-	elif (Input.is_action_pressed("ui_right")):
+	elif (Input.is_action_pressed("4directions_right")):
 		return Character.Facing.BOTTOM_RIGHT
 		
 	return -1

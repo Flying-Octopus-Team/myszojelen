@@ -45,7 +45,7 @@ func _unhandled_input(event) -> void:
 
 
 func _process_key_input() -> void:
-	if Input.is_action_just_pressed("shot"):
+	if Input.is_action_just_pressed("shot_keyboard") or Input.is_action_just_pressed("shot_pad"):
 		_shot()
 
 

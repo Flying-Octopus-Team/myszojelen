@@ -40,13 +40,14 @@ func _prepare_current_level() -> void:
 	add_child(level)
 	$"../Interface/Control/HUD".show()
 	
-	$"../Interface/SteeringScreen".show()
-	yield(get_node("../Interface/SteeringScreen/SteeringContainer"), "steering_set")
-	$"../Interface/SteeringScreen".hide()
+	if SteeringSave.steering_type == "none":
+		$"../Interface/SteeringScreen".show()
+		yield(get_node("../Interface/SteeringScreen/SteeringContainer"), "steering_set")
+		$"../Interface/SteeringScreen".hide()
+	else:
+		get_tree().paused = false
 	
-	var Steering = $"../Interface/SteeringScreen/SteeringContainer".steering_type
-	var Steering_texture =$"../Interface/SteeringScreen/SteeringContainer".steering_texture
-	level.find_node("Steering").ChangeSteering(Steering, Steering_texture)
+	level.find_node("Steering").change_steering()
 
 
 func count_trees() -> int:
