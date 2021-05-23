@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/MainMenu/menu.png" type="Texture" id=1]
 [ext_resource path="res://assets/MainMenu/board.png" type="Texture" id=2]
@@ -80,6 +80,42 @@ color = Color( 0.141176, 0.223529, 0.843137, 1 )
 grow_begin = -6.0
 grow_end = 0.0
 thickness = 4
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 0.980392, 0.933333, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.196078, 0.180392, 0.180392, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="Theme" id=4]
+PopupMenu/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.7, 0.7, 0.7, 0.8 )
+PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
+PopupMenu/colors/font_color_hover = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = null
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = null
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = SubResource( 5 )
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -350,6 +386,7 @@ text = "STEERING_TYPE_KEY"
 margin_left = 312.0
 margin_right = 403.0
 margin_bottom = 39.0
+theme = SubResource( 4 )
 text = "None"
 items = [ "4 Directions", ExtResource( 11 ), 0, false, false, 0, 0, null, "", false, "8 Directions", ExtResource( 12 ), 0, false, false, 1, 0, null, "", false, "Virtual Pad", ExtResource( 14 ), 0, false, false, 2, 0, null, "", false, "Pad", ExtResource( 22 ), 0, false, false, 3, 0, null, "", false, "Rotations", ExtResource( 21 ), 0, false, false, 4, 0, null, "", false ]
 
