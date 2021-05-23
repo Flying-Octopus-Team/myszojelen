@@ -81,7 +81,7 @@ grow_begin = -6.0
 grow_end = 0.0
 thickness = 4
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 1, 0.980392, 0.933333, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -97,7 +97,7 @@ expand_margin_right = 8.0
 expand_margin_top = 8.0
 expand_margin_bottom = 8.0
 
-[sub_resource type="Theme" id=4]
+[sub_resource type="Theme" id=5]
 PopupMenu/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 PopupMenu/colors/font_color_accel = Color( 0.7, 0.7, 0.7, 0.8 )
 PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
@@ -113,7 +113,7 @@ PopupMenu/icons/unchecked = null
 PopupMenu/styles/hover = null
 PopupMenu/styles/labeled_separator_left = null
 PopupMenu/styles/labeled_separator_right = null
-PopupMenu/styles/panel = SubResource( 5 )
+PopupMenu/styles/panel = SubResource( 4 )
 PopupMenu/styles/panel_disabled = null
 PopupMenu/styles/separator = null
 
@@ -245,11 +245,10 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/Board/SettingsScreen"]
-visible = false
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
-margin_bottom = 429.0
+margin_bottom = 452.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
@@ -338,9 +337,9 @@ __meta__ = {
 }
 
 [node name="BackBtn" parent="Background/Board/SettingsScreen/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 377.0
+margin_top = 400.0
 margin_right = 160.0
-margin_bottom = 409.0
+margin_bottom = 432.0
 rect_min_size = Vector2( 160, 32 )
 size_flags_horizontal = 0
 size_flags_vertical = 10
@@ -359,10 +358,11 @@ __meta__ = {
 }
 
 [node name="SteeringSettings" type="VBoxContainer" parent="Background/Board/SettingsScreen"]
+visible = false
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
-margin_bottom = 429.0
+margin_bottom = 452.0
 script = ExtResource( 23 )
 
 [node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings"]
@@ -386,7 +386,7 @@ text = "STEERING_TYPE_KEY"
 margin_left = 312.0
 margin_right = 403.0
 margin_bottom = 39.0
-theme = SubResource( 4 )
+theme = SubResource( 5 )
 text = "None"
 items = [ "4 Directions", ExtResource( 11 ), 0, false, false, 0, 0, null, "", false, "8 Directions", ExtResource( 12 ), 0, false, false, 1, 0, null, "", false, "Virtual Pad", ExtResource( 14 ), 0, false, false, 2, 0, null, "", false, "Pad", ExtResource( 22 ), 0, false, false, 3, 0, null, "", false, "Rotations", ExtResource( 21 ), 0, false, false, 4, 0, null, "", false ]
 
@@ -399,42 +399,107 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Up" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions"]
+[node name="UpHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions"]
 margin_right = 640.0
 margin_bottom = 39.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions/UpHBox"]
+margin_top = 3.0
+margin_right = 40.0
+margin_bottom = 36.0
+text = "Up"
+
+[node name="Up" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions/UpHBox"]
+margin_left = 44.0
+margin_right = 640.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 24 )
 action_name = "4directions_up"
 
-[node name="Left" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions"]
+[node name="LeftHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions"]
 margin_top = 43.0
 margin_right = 640.0
 margin_bottom = 82.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions/LeftHBox"]
+margin_top = 3.0
+margin_right = 67.0
+margin_bottom = 36.0
+text = "Left"
+
+[node name="Left" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions/LeftHBox"]
+margin_left = 71.0
+margin_right = 640.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 24 )
 action_name = "4directions_left"
 
-[node name="Right" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions"]
+[node name="RightHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions"]
 margin_top = 86.0
 margin_right = 640.0
 margin_bottom = 125.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions/RightHBox"]
+margin_top = 3.0
+margin_right = 84.0
+margin_bottom = 36.0
+text = "Right"
+
+[node name="Right" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions/RightHBox"]
+margin_left = 88.0
+margin_right = 640.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 24 )
 action_name = "4directions_right"
 
-[node name="Down" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions"]
+[node name="DownHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions"]
 margin_top = 129.0
 margin_right = 640.0
 margin_bottom = 168.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions/DownHBox"]
+margin_top = 3.0
+margin_right = 84.0
+margin_bottom = 36.0
+text = "Down"
+
+[node name="Down" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions/DownHBox"]
+margin_left = 88.0
+margin_right = 640.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 24 )
 action_name = "4directions_down"
 
-[node name="Shot" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions"]
+[node name="ShotHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions"]
 margin_top = 172.0
 margin_right = 640.0
 margin_bottom = 211.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions/ShotHBox"]
+margin_top = 3.0
+margin_right = 76.0
+margin_bottom = 36.0
+text = "Shot"
+
+[node name="Shot" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls4Directions/ShotHBox"]
+margin_left = 80.0
+margin_right = 640.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 24 )
 action_name = "shot_keyboard"
 
@@ -455,74 +520,191 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Up" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
+[node name="UpHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
 margin_right = 628.0
 margin_bottom = 39.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/UpHBox"]
+margin_top = 3.0
+margin_right = 40.0
+margin_bottom = 36.0
+text = "Up"
+
+[node name="Up" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/UpHBox"]
+margin_left = 44.0
+margin_right = 628.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 25 )
 action_name = "8directions_up"
 
-[node name="UpLeft" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
+[node name="UpLeftHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
 margin_top = 43.0
 margin_right = 628.0
 margin_bottom = 82.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/UpLeftHBox"]
+margin_top = 3.0
+margin_right = 117.0
+margin_bottom = 36.0
+text = "Up Left"
+
+[node name="UpLeft" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/UpLeftHBox"]
+margin_left = 121.0
+margin_right = 628.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 25 )
 action_name = "8directions_up_left"
 
-[node name="UpRight" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
+[node name="UpRightHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
 margin_top = 86.0
 margin_right = 628.0
 margin_bottom = 125.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/UpRightHBox"]
+margin_top = 3.0
+margin_right = 134.0
+margin_bottom = 36.0
+text = "Up Right"
+
+[node name="UpRight" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/UpRightHBox"]
+margin_left = 138.0
+margin_right = 628.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 25 )
 action_name = "8directions_up_roght"
 
-[node name="Down" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
+[node name="DownHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
 margin_top = 129.0
 margin_right = 628.0
 margin_bottom = 168.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/DownHBox"]
+margin_top = 3.0
+margin_right = 84.0
+margin_bottom = 36.0
+text = "Down"
+
+[node name="Down" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/DownHBox"]
+margin_left = 88.0
+margin_right = 628.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 25 )
 action_name = "8directions_down"
 
-[node name="DownLeft" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
+[node name="DownLeftHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
 margin_top = 172.0
 margin_right = 628.0
 margin_bottom = 211.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/DownLeftHBox"]
+margin_top = 3.0
+margin_right = 161.0
+margin_bottom = 36.0
+text = "Down Left"
+
+[node name="DownLeft" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/DownLeftHBox"]
+margin_left = 165.0
+margin_right = 628.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 25 )
 action_name = "8directions_down_left"
 
-[node name="DownRight" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
+[node name="DownRightHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
 margin_top = 215.0
 margin_right = 628.0
 margin_bottom = 254.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/DownRightHBox"]
+margin_top = 3.0
+margin_right = 178.0
+margin_bottom = 36.0
+text = "Down Right"
+
+[node name="DownRight" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/DownRightHBox"]
+margin_left = 182.0
+margin_right = 628.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 25 )
 action_name = "8directions_down_right"
 
-[node name="Left" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
+[node name="LeftHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
 margin_top = 258.0
 margin_right = 628.0
 margin_bottom = 297.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/LeftHBox"]
+margin_top = 3.0
+margin_right = 67.0
+margin_bottom = 36.0
+text = "Left"
+
+[node name="Left" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/LeftHBox"]
+margin_left = 71.0
+margin_right = 628.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 25 )
 action_name = "8directions_left"
 
-[node name="Right" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
+[node name="RightHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
 margin_top = 301.0
 margin_right = 628.0
 margin_bottom = 340.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/RightHBox"]
+margin_top = 3.0
+margin_right = 84.0
+margin_bottom = 36.0
+text = "Right"
+
+[node name="Right" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/RightHBox"]
+margin_left = 88.0
+margin_right = 628.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 25 )
 action_name = "8directions_right"
 
-[node name="Shot" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
+[node name="ShotHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer"]
 margin_top = 344.0
 margin_right = 628.0
 margin_bottom = 383.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/ShotHBox"]
+margin_top = 3.0
+margin_right = 76.0
+margin_bottom = 36.0
+text = "Shot"
+
+[node name="Shot" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/Controls8Directions/VBoxContainer/ShotHBox"]
+margin_left = 80.0
+margin_right = 628.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 25 )
 action_name = "shot_keyboard"
 
@@ -530,15 +712,28 @@ action_name = "shot_keyboard"
 visible = false
 margin_top = 80.0
 margin_right = 640.0
-margin_bottom = 113.0
+margin_bottom = 119.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Shot" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsPad"]
-margin_right = 12.0
+[node name="ShotHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsPad"]
+margin_right = 640.0
 margin_bottom = 39.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsPad/ShotHBox"]
+margin_top = 3.0
+margin_right = 76.0
+margin_bottom = 36.0
+text = "Shot"
+
+[node name="Shot" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsPad/ShotHBox"]
+margin_left = 80.0
+margin_right = 640.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 26 )
 action_name = "shot_pad"
 
@@ -560,41 +755,96 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Up" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations"]
+[node name="UpHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations"]
 margin_right = 640.0
 margin_bottom = 39.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations/UpHBox"]
+margin_top = 3.0
+margin_right = 40.0
+margin_bottom = 36.0
+text = "Up"
+
+[node name="Up" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations/UpHBox"]
+margin_left = 44.0
+margin_right = 640.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 26 )
 action_name = "rotation_up"
 
-[node name="Right" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations"]
+[node name="RightHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations"]
 margin_top = 43.0
 margin_right = 640.0
 margin_bottom = 82.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations/RightHBox"]
+margin_top = 3.0
+margin_right = 84.0
+margin_bottom = 36.0
+text = "Right"
+
+[node name="Right" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations/RightHBox"]
+margin_left = 88.0
+margin_right = 640.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 action_name = "rotation_right"
 
-[node name="Left" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations"]
+[node name="LeftHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations"]
 margin_top = 86.0
 margin_right = 640.0
 margin_bottom = 125.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations/LeftHBox"]
+margin_top = 3.0
+margin_right = 67.0
+margin_bottom = 36.0
+text = "Left"
+
+[node name="Left" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations/LeftHBox"]
+margin_left = 71.0
+margin_right = 640.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 26 )
 action_name = "rotation_left"
 
-[node name="Shot" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations"]
+[node name="ShotHBox" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations"]
 margin_top = 129.0
 margin_right = 640.0
 margin_bottom = 168.0
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations/ShotHBox"]
+margin_top = 3.0
+margin_right = 76.0
+margin_bottom = 36.0
+text = "Shot"
+
+[node name="Shot" type="Button" parent="Background/Board/SettingsScreen/SteeringSettings/ControlsRotations/ShotHBox"]
+margin_left = 80.0
+margin_right = 640.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
 flat = true
+align = 0
 script = ExtResource( 26 )
 action_name = "shot_keyboard"
 
 [node name="BackBtn" parent="Background/Board/SettingsScreen/SteeringSettings" instance=ExtResource( 3 )]
-margin_top = 377.0
+margin_top = 400.0
 margin_right = 160.0
-margin_bottom = 409.0
+margin_bottom = 432.0
 rect_min_size = Vector2( 160, 32 )
 size_flags_horizontal = 0
 size_flags_vertical = 10
