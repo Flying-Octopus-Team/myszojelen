@@ -39,6 +39,8 @@ func _ready() -> void:
 	call_deferred("start")
 	MusicPlayer.call_deferred("play", 0.0, "Oriental")
 
+	story_screens[2].texture = load(tr("INTRO_STORY_TEXTURE_KEY"))
+
 
 func start() -> void:
 	_show_screen(0, start_fade_time)
