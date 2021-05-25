@@ -2,30 +2,35 @@ extends SteeringBaseScript
 
 func _get_direction() -> int:
 	
-	if (Input.is_action_pressed("8directions_up_left") and not InputMap.get_action_list("8directions_up_left").empty()):
+	if _if_player_pressed_action("8directions_up_left"):
 		return Character.Facing.TOP_LEFT
-	elif (Input.is_action_pressed("8directions_up_right") and not InputMap.get_action_list("8directions_up_right").empty()):
+	elif _if_player_pressed_action("8directions_up_right"):
 		return Character.Facing.TOP_RIGHT
-	elif (Input.is_action_pressed("8directions_down_left") and not InputMap.get_action_list("8directions_down_left").empty()):
+	elif _if_player_pressed_action("8directions_down_left"):
 		return Character.Facing.BOTTOM_LEFT
-	elif (Input.is_action_pressed("8directions_down_right") and not InputMap.get_action_list("8directions_down_right").empty()):
+	elif _if_player_pressed_action("8directions_down_right"):
 		return Character.Facing.BOTTOM_RIGHT
-	elif (Input.is_action_pressed("8directions_up") and not InputMap.get_action_list("8directions_up").empty()):
+	elif _if_player_pressed_action("8directions_up"):
 		return Character.Facing.TOP
-	elif (Input.is_action_pressed("8directions_down") and not InputMap.get_action_list("8directions_down").empty()):
+	elif _if_player_pressed_action("8directions_down"):
 		return Character.Facing.BOTTOM
-	elif (Input.is_action_pressed("8directions_left") and not InputMap.get_action_list("8directions_left").empty()):
+	elif _if_player_pressed_action("8directions_left"):
 		return Character.Facing.LEFT
-	elif (Input.is_action_pressed("8directions_right") and not InputMap.get_action_list("8directions_right").empty()):
+	elif _if_player_pressed_action("8directions_right"):
 		return Character.Facing.RIGHT
 		
-	return -1
+	return Character.Facing.NULL
+
+
+func _if_player_pressed_action(action: String) -> bool:
+	return Input.is_action_pressed(action) and not InputMap.get_action_list(action).empty()
+
 
 func steer(delta: float) -> void:
 	
 	var requested_direction = _get_direction()
 	
-	if (requested_direction == -1):
+	if (requested_direction == Character.Facing.NULL):
 		return
 		
 	if (requested_direction != player.facing):

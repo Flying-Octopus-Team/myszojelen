@@ -45,9 +45,13 @@ func _unhandled_input(event) -> void:
 
 
 func _process_key_input() -> void:
-	if ((Input.is_action_just_pressed("shot_keyboard") and not InputMap.get_action_list("shot_keyboard").empty())
-		or (Input.is_action_just_pressed("shot_pad") and not InputMap.get_action_list("shot_pad").empty())):
+	if _check_if_player_shot():
 		_shot()
+
+
+func _check_if_player_shot() -> bool:
+	return ((Input.is_action_just_pressed("shot_keyboard") and not InputMap.get_action_list("shot_keyboard").empty())
+		or (Input.is_action_just_pressed("shot_pad") and not InputMap.get_action_list("shot_pad").empty()))
 
 
 func _shot() -> void:
