@@ -15,7 +15,7 @@ func _set_values() -> void:
 	master_volume_slider.value = Settings.master_volume
 	audio_effects_slider.value = Settings.audio_effects_volume
 
-	_set_language(-1)
+	_match_language()
 
 
 func _connect_signals() -> void:
@@ -29,8 +29,12 @@ func _connect_signals() -> void:
 
 
 func _set_language(language: int) -> void:
-	if language >= 0: Settings.set_language(language)
+	Settings.set_language(language)
 
+	_match_language()
+
+
+func _match_language() -> void:
 	match Settings.language:
 		Settings.Language_enum.english:
 			language_en_button.pressed = true
