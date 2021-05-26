@@ -6,6 +6,12 @@ func _ready() -> void:
 	menu.get_popup().connect("id_pressed", self, "_set_steering")
 	get_node("BackBtn").connect("pressed", self, "hide")
 
+	_set_menu_text()
+	if SteeringSave.steering_type != "none": 
+		get_node("Controls"+SteeringSave.steering_type).show()
+
+
+func _set_menu_text() -> void:
 	match SteeringSave.steering_type:
 		"4Directions":
 			menu.text = "4 Directions"
@@ -17,8 +23,6 @@ func _ready() -> void:
 			menu.text = "Pad"
 		"Rotations":
 			menu.text = "Rotations"
-	if SteeringSave.steering_type != "none": 
-		get_node("Controls"+SteeringSave.steering_type).show()
 
 
 func hide() -> void:
@@ -33,18 +37,7 @@ func _set_steering(id: int) -> void:
 		get_node("Controls"+SteeringSave.steering_type).hide()
 
 	menu.text = steering_string
-	match steering_string:
-		"4 Directions":
-			get_node("Controls4Directions").show()
-			SteeringSave.set_steering_type("4Directions")
-		"8 Directions":
-			get_node("Controls8Directions").show()
-			SteeringSave.set_steering_type("8Directions")
-		"Pad":
-			get_node("ControlsPad").show()
-			SteeringSave.set_steering_type("Pad")
-		"Rotations":
-			get_node("ControlsRotations").show()
-			SteeringSave.set_steering_type("Rotations")
-		"Virtual Pad":
-			SteeringSave.set_steering_type("VirtualPad")
+
+	steering_string = steering_string.replace(" ", "")
+	get_node("Controls"+steering_string).show()
+	SteeringSave.set_steering_type(steering_string)
