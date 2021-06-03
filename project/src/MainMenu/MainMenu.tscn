@@ -248,7 +248,7 @@ __meta__ = {
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
-margin_bottom = 452.0
+margin_bottom = 429.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
@@ -337,9 +337,9 @@ __meta__ = {
 }
 
 [node name="BackBtn" parent="Background/Board/SettingsScreen/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 400.0
+margin_top = 377.0
 margin_right = 160.0
-margin_bottom = 432.0
+margin_bottom = 409.0
 rect_min_size = Vector2( 160, 32 )
 size_flags_horizontal = 0
 size_flags_vertical = 10
@@ -362,7 +362,7 @@ visible = false
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
-margin_bottom = 452.0
+margin_bottom = 429.0
 script = ExtResource( 23 )
 
 [node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings"]
@@ -507,7 +507,7 @@ action_name = "shot_keyboard"
 visible = false
 margin_top = 80.0
 margin_right = 640.0
-margin_bottom = 355.0
+margin_bottom = 372.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.5
 scroll_horizontal_enabled = false
@@ -841,10 +841,16 @@ align = 0
 script = ExtResource( 26 )
 action_name = "shot_keyboard"
 
-[node name="BackBtn" parent="Background/Board/SettingsScreen/SteeringSettings" instance=ExtResource( 3 )]
-margin_top = 400.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="Background/Board/SettingsScreen/SteeringSettings"]
+margin_top = 80.0
+margin_right = 640.0
+margin_bottom = 113.0
+size_flags_vertical = 10
+
+[node name="BackBtn" parent="Background/Board/SettingsScreen/SteeringSettings/HBoxContainer2" instance=ExtResource( 3 )]
+margin_top = 1.0
 margin_right = 160.0
-margin_bottom = 432.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 160, 32 )
 size_flags_horizontal = 0
 size_flags_vertical = 10
@@ -854,10 +860,30 @@ texture_hover = null
 upscale_on_hover = true
 downscale_on_press = true
 
-[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/BackBtn"]
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/HBoxContainer2/BackBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = " <-   Wróć"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetBtn" parent="Background/Board/SettingsScreen/SteeringSettings/HBoxContainer2" instance=ExtResource( 3 )]
+margin_left = 378.0
+margin_right = 640.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 262, 33 )
+size_flags_horizontal = 10
+texture_normal = null
+texture_pressed = null
+texture_hover = null
+upscale_on_hover = true
+downscale_on_press = true
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/SteeringSettings/HBoxContainer2/ResetBtn"]
+margin_right = 40.0
+margin_bottom = 33.0
+text = "Restore default"
 __meta__ = {
 "_edit_use_anchors_": false
 }

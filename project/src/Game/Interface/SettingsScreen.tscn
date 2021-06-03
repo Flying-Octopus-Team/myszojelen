@@ -372,7 +372,12 @@ flat = true
 script = ExtResource( 11 )
 action_name = "shot_keyboard"
 
-[node name="BackBtn" parent="SettingsScreen/SteeringSettings" instance=ExtResource( 3 )]
+[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsScreen/SteeringSettings"]
+margin_right = 995.0
+margin_bottom = 609.0
+size_flags_vertical = 10
+
+[node name="BackBtn" parent="SettingsScreen/SteeringSettings/HBoxContainer2" instance=ExtResource( 3 )]
 margin_top = 577.0
 margin_right = 160.0
 margin_bottom = 609.0
@@ -385,7 +390,28 @@ texture_hover = null
 upscale_on_hover = true
 downscale_on_press = true
 
-[node name="Label" type="Label" parent="SettingsScreen/SteeringSettings/BackBtn"]
+[node name="Label" type="Label" parent="SettingsScreen/SteeringSettings/HBoxContainer2/BackBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = " <-   Wróć"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetBtn" parent="SettingsScreen/SteeringSettings/HBoxContainer2" instance=ExtResource( 3 )]
+margin_top = 577.0
+margin_right = 160.0
+margin_bottom = 609.0
+rect_min_size = Vector2( 160, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 10
+texture_normal = null
+texture_pressed = null
+texture_hover = null
+upscale_on_hover = true
+downscale_on_press = true
+
+[node name="Label" type="Label" parent="SettingsScreen/SteeringSettings/HBoxContainer2/ResetBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = " <-   Wróć"

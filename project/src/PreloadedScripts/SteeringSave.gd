@@ -1,6 +1,7 @@
 extends Node
 
 const CONFIG_FILE = "user://input.cfg"
+const DEFAULT_CONFIG_FILE = "user://default_input.cfg"
 const INPUT_ACTIONS = ["rotation_left", "rotation_right", "rotation_up", "4directions_left", "4directions_up", "4directions_right", "4directions_down", "8directions_up", "8directions_up_left", "8directions_up_right", "8directions_left", "8directions_right", "8directions_down", "8directions_down_left", "8directions_down_right"]
 
 var steering_type : String = "none" setget set_steering_type
@@ -11,6 +12,9 @@ func _init() -> void:
 
 
 func _load_input() -> void:
+
+	_create_default_file_if_needed()
+
 	config_file = ConfigFile.new()
 
 	var err = config_file.load(CONFIG_FILE)
@@ -18,6 +22,15 @@ func _load_input() -> void:
 		_load_from_file()
 	else:
 		save_input()
+
+
+func _create_default_file_if_needed() -> void:
+	config_file = ConfigFile.new()
+
+	var err = config_file.load(DEFAULT_CONFIG_FILE)
+
+	if err != OK:
+		save_input(DEFAULT_CONFIG_FILE)
 
 
 func _load_from_file() -> void:
@@ -41,12 +54,28 @@ func _set_action_to_keybind(action) -> void:
 	InputMap.action_add_event(action, event)
 
 
-func save_input() -> void:
+func save_input(save_file_name: String = CONFIG_FILE) -> void:
 	for action in INPUT_ACTIONS:
 		_save_action_to_file(action)
 	
 	config_file.set_value("steering_type", "name", steering_type)
-	config_file.save(CONFIG_FILE)
+	config_file.save(save_file_name)
+
+
+func reset_file() -> void:
+	var directory = Directory.new()
+
+	directory.remove(CONFIG_FILE)
+
+	config_file = ConfigFile.new()
+
+	var err = config_file.load(DEFAULT_CONFIG_FILE)
+	if err == OK:
+		_load_from_file()
+
+	save_input()
+	get_tree().reload_current_scene()
+
 
 
 func _save_action_to_file(action: String) -> void:

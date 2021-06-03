@@ -4,7 +4,8 @@ onready var menu : MenuButton = $HBoxContainer/MenuButton
 
 func _ready() -> void:
 	menu.get_popup().connect("id_pressed", self, "_set_steering")
-	get_node("BackBtn").connect("pressed", self, "hide")
+	get_node("HBoxContainer2/BackBtn").connect("pressed", self, "hide")
+	get_node("HBoxContainer2/ResetBtn").connect("pressed", SteeringSave, "reset_file")
 
 	_set_menu_text()
 	if SteeringSave.steering_type != "none": 
@@ -23,6 +24,8 @@ func _set_menu_text() -> void:
 			menu.text = "Pad"
 		"Rotations":
 			menu.text = "Rotations"
+		_:
+			menu.text = "None"
 
 
 func hide() -> void:
