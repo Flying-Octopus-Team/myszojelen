@@ -66,6 +66,8 @@ func _add_new_pad_keybind_to_inputmap(event: InputEventJoypadButton) -> void:
 		InputMap.action_erase_event(action_name, action_list[0])
 	InputMap.action_add_event(action_name, event)
 
+	_erase_keybind_from_other_actions("Button " + str(event.button_index))
+
 
 func _erase_keybind_from_other_actions(scancode: String) -> void:
 	for other_action_hbox in $"../../".get_children():

@@ -50,8 +50,8 @@ func _process_key_input() -> void:
 
 
 func _check_if_player_shot() -> bool:
-	return ((Input.is_action_just_pressed("shot_keyboard") and not InputMap.get_action_list("shot_keyboard").empty())
-		or (Input.is_action_just_pressed("shot_pad") and not InputMap.get_action_list("shot_pad").empty()))
+	return ((Input.is_action_just_pressed("shot_keyboard") and not InputMap.get_action_list("shot_keyboard").empty() and SteeringSave.steering_type != "Pad")
+		or (Input.is_action_just_pressed("shot_pad") and not InputMap.get_action_list("shot_pad").empty()) and SteeringSave.steering_type == "Pad")
 
 
 func _shot() -> void:

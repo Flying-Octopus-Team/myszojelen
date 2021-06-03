@@ -2,7 +2,7 @@ extends Node
 
 const CONFIG_FILE = "user://input.cfg"
 const DEFAULT_CONFIG_FILE = "user://default_input.cfg"
-const INPUT_ACTIONS = ["rotation_left", "rotation_right", "rotation_up", "4directions_left", "4directions_up", "4directions_right", "4directions_down", "8directions_up", "8directions_up_left", "8directions_up_right", "8directions_left", "8directions_right", "8directions_down", "8directions_down_left", "8directions_down_right"]
+const INPUT_ACTIONS = ["rotation_left", "rotation_right", "rotation_up", "4directions_left", "4directions_up", "4directions_right", "4directions_down", "8directions_up", "8directions_up_left", "8directions_up_right", "8directions_left", "8directions_right", "8directions_down", "8directions_down_left", "8directions_down_right", "shot_pad", "shot_keyboard"]
 
 var steering_type : String = "none" setget set_steering_type
 var config_file : ConfigFile
@@ -46,13 +46,31 @@ func _set_action_to_keybind(action) -> void:
 	if config_file.get_value("steering", action) == "":
 		return
 
-	var scancode = OS.find_scancode_from_string(config_file.get_value("steering", action))
+	var action_value : String = config_file.get_value("steering", action)
 
-	var event = InputEventKey.new()
-	event.scancode = scancode
+	if action_value.substr(0, 22) == "InputEventJoypadButton":
+		InputMap.action_add_event(action, _get_input_joypadbutton_from_string(action_value))
+	else:
+		var scancode = OS.find_scancode_from_string(config_file.get_value("steering", action))
 
-	InputMap.action_add_event(action, event)
+		var event = InputEventKey.new()
+		event.scancode = scancode
 
+		InputMap.action_add_event(action, event)
+
+
+func _get_input_joypadbutton_from_string(value: String) -> InputEventJoypadButton:
+	value = value.substr(25, value.length())
+
+	var properties : PoolStringArray = value.split(", ")
+
+	var event : InputEventJoypadButton = InputEventJoypadButton.new()
+	for property in properties:
+		var property_array : PoolStringArray = property.split("=")
+
+		event.set_indexed(property_array[0], int(property_array[1]))
+
+	return event
 
 func save_input(save_file_name: String = CONFIG_FILE) -> void:
 	for action in INPUT_ACTIONS:
@@ -83,8 +101,11 @@ func _save_action_to_file(action: String) -> void:
 	if not action_list.empty():
 		var action_event = action_list[0]
 
-		var scancode = OS.get_scancode_string(action_event.scancode)
-		config_file.set_value("steering", action, scancode)
+		if action_event is InputEventJoypadButton:
+			config_file.set_value("steering", action, action_event.as_text())
+		else:
+			var scancode = OS.get_scancode_string(action_event.scancode)
+			config_file.set_value("steering", action, scancode)
 	else:
 		config_file.set_value("steering", action, "")
 
