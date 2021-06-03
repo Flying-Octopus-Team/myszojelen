@@ -368,7 +368,7 @@ margin_right = 313.0
 margin_bottom = 354.0
 size_flags_horizontal = 6
 
-[node name="ManualPad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer4"]
+[node name="Pad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer4"]
 margin_right = 200.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 200, 175 )
@@ -387,7 +387,7 @@ margin_right = 744.0
 margin_bottom = 354.0
 size_flags_horizontal = 6
 
-[node name="Rotating" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer5"]
+[node name="Rotations" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer5"]
 margin_right = 200.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 200, 175 )

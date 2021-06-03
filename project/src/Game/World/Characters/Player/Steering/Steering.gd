@@ -10,7 +10,7 @@ onready var SteeringDict : Dictionary = {
 	"8Directions" : get_node("8Directions"),
 	"VirtualPad": get_node("Joystick8Directions"),
 	"Pad": get_node("Joystick8Directions"),
-	"Rotating": get_node("Rotating")
+	"Rotations": get_node("Rotating")
 }
 
 var SteeringDictKey : String = "4Directions"
