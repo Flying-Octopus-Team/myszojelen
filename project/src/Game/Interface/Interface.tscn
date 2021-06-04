@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
@@ -21,14 +21,16 @@
 [ext_resource path="res://assets/screens/buttons/poll/PollClick.png" type="Texture" id=19]
 [ext_resource path="res://assets/Steering/pad.png" type="Texture" id=20]
 [ext_resource path="res://src/Game/Interface/SteeringButton.gd" type="Script" id=21]
+[ext_resource path="res://assets/MainMenu/settingsboard.png" type="Texture" id=22]
 [ext_resource path="res://assets/Steering/numpad.png" type="Texture" id=23]
+[ext_resource path="res://src/MainMenu/SettingsScreen.tscn" type="PackedScene" id=24]
 [ext_resource path="res://src/Game/Interface/SteeringContainer.gd" type="Script" id=25]
 [ext_resource path="res://assets/screens/buttons/poll/Poll.png" type="Texture" id=26]
 [ext_resource path="res://assets/screens/buttons/poll/PollHover.png" type="Texture" id=27]
 [ext_resource path="res://assets/Steering/wsad1.png" type="Texture" id=28]
+[ext_resource path="res://src/Game/Interface/SettingsScreen.gd" type="Script" id=29]
 [ext_resource path="res://assets/Steering/obroty.png" type="Texture" id=31]
 [ext_resource path="res://assets/Steering/gamepad.png" type="Texture" id=32]
-[ext_resource path="res://src/Game/Interface/SettingsScreen.tscn" type="PackedScene" id=33]
 
 [node name="Interface" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -401,7 +403,6 @@ upscale_on_press = true
 
 [node name="Settings" type="Control" parent="."]
 pause_mode = 2
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -414,7 +415,20 @@ margin_bottom = 1000.0
 rect_scale = Vector2( 1.28317, 0.725384 )
 color = Color( 0, 0, 0, 0.737255 )
 
-[node name="TextureRect" parent="Settings" instance=ExtResource( 33 )]
+[node name="TextureRect" type="TextureRect" parent="Settings"]
+margin_left = -146.107
+margin_top = -34.4104
+margin_right = 1773.89
+margin_bottom = 1045.59
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 22 )
+
+[node name="SettingsScreen" parent="Settings/TextureRect" instance=ExtResource( 24 )]
+margin_left = 432.0
+margin_top = 155.0
+margin_right = 1558.0
+margin_bottom = 827.0
+script = ExtResource( 29 )
 [connection signal="pressed" from="Control/GameOverScreen/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]
 [connection signal="pressed" from="Control/LevelWonScreen/NextLevelBtn" to="." method="_on_NextLevelBtn_pressed"]
 [connection signal="pressed" from="Control/EndOfGameScreen/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]

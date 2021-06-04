@@ -7,6 +7,9 @@ func _ready() -> void:
 	get_node("HBoxContainer2/BackBtn").connect("pressed", self, "hide")
 	get_node("HBoxContainer2/ResetBtn").connect("pressed", SteeringSave, "reset_file")
 
+	update_controls_menu()
+
+func update_controls_menu() -> void:
 	_set_menu_text()
 	if SteeringSave.steering_type != "none": 
 		get_node("Controls"+SteeringSave.steering_type).show()

@@ -22,6 +22,7 @@ func _ready() -> void:
 
 
 func steer(delta:float) -> void:
+	change_steering()
 	SteeringDict[SteeringDictKey].steer(delta)
 
 func change_steering() -> void:

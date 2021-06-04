@@ -46,8 +46,6 @@ func _prepare_current_level() -> void:
 		$"../Interface/SteeringScreen".hide()
 	else:
 		get_tree().paused = false
-	
-	level.find_node("Steering").change_steering()
 
 
 func count_trees() -> int:
