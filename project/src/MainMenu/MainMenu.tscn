@@ -14,6 +14,10 @@
 [ext_resource path="res://assets/Steering/8directions_icon.png" type="Texture" id=12]
 [ext_resource path="res://src/FadeScreen/FadeLayer.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/Steering/virtualpad_icon.png" type="Texture" id=14]
+[ext_resource path="res://assets/language-icons/en_selected.png" type="Texture" id=11]
+[ext_resource path="res://assets/language-icons/en.png" type="Texture" id=12]
+[ext_resource path="res://src/FadeScreen/FadeLayer.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/language-icons/pl_selected.png" type="Texture" id=14]
 [ext_resource path="res://assets/MainMenu/train.png" type="Texture" id=15]
 [ext_resource path="res://assets/fonts/tres/shojumaru_48.tres" type="DynamicFont" id=16]
 [ext_resource path="res://src/MainMenu/SettingsScreen.gd" type="Script" id=17]
@@ -26,6 +30,7 @@
 [ext_resource path="res://src/MainMenu/InputButton.gd" type="Script" id=24]
 [ext_resource path="res://src/MainMenu/Inputbutton.gd" type="Script" id=25]
 [ext_resource path="res://src/MainMenu/inputbutton.gd" type="Script" id=26]
+[ext_resource path="res://assets/language-icons/pl.png" type="Texture" id=21]
 
 [sub_resource type="Animation" id=1]
 resource_name = "TrainIn"
@@ -231,10 +236,11 @@ upscale_on_hover = true
 downscale_on_press = true
 
 [node name="SettingsScreen" type="MarginContainer" parent="Background/Board"]
+visible = false
 margin_left = 284.0
 margin_top = 158.0
 margin_right = 1044.0
-margin_bottom = 607.0
+margin_bottom = 608.0
 custom_constants/margin_right = 60
 custom_constants/margin_top = 20
 custom_constants/margin_left = 60
@@ -248,7 +254,7 @@ __meta__ = {
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
-margin_bottom = 429.0
+margin_bottom = 430.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
@@ -264,7 +270,7 @@ margin_right = 640.0
 margin_bottom = 65.0
 custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Ustawienia"
+text = "SETTINGS_TITLE"
 align = 1
 
 [node name="MasterVolume" type="HBoxContainer" parent="Background/Board/SettingsScreen/VBoxContainer"]
@@ -273,9 +279,9 @@ margin_right = 640.0
 margin_bottom = 138.0
 
 [node name="Label" type="Label" parent="Background/Board/SettingsScreen/VBoxContainer/MasterVolume"]
-margin_right = 121.0
+margin_right = 170.0
 margin_bottom = 33.0
-text = "Muzyka"
+text = "MUSIC_KEY"
 
 [node name="MasterVolumeSlider" type="HSlider" parent="Background/Board/SettingsScreen/VBoxContainer/MasterVolume"]
 margin_left = 340.0
@@ -298,9 +304,9 @@ margin_right = 640.0
 margin_bottom = 191.0
 
 [node name="Label" type="Label" parent="Background/Board/SettingsScreen/VBoxContainer/SoundEffects"]
-margin_right = 280.0
+margin_right = 312.0
 margin_bottom = 33.0
-text = "Efekty dźwiękowe"
+text = "AUDIO_EFFECTS_KEY"
 
 [node name="SoundEffectsSlider" type="HSlider" parent="Background/Board/SettingsScreen/VBoxContainer/SoundEffects"]
 margin_left = 340.0
@@ -316,6 +322,37 @@ custom_styles/grabber_area = SubResource( 3 )
 max_value = 1.0
 step = 0.0
 value = 1.0
+
+[node name="Language" type="HBoxContainer" parent="Background/Board/SettingsScreen/VBoxContainer"]
+margin_top = 211.0
+margin_right = 640.0
+margin_bottom = 339.0
+alignment = 2
+
+[node name="Label" type="Label" parent="Background/Board/SettingsScreen/VBoxContainer/Language"]
+margin_top = 47.0
+margin_right = 376.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+text = "LANGUAGE_KEY"
+
+[node name="English" type="TextureButton" parent="Background/Board/SettingsScreen/VBoxContainer/Language"]
+margin_left = 380.0
+margin_right = 508.0
+margin_bottom = 128.0
+size_flags_horizontal = 9
+toggle_mode = true
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 11 )
+
+[node name="Polish" type="TextureButton" parent="Background/Board/SettingsScreen/VBoxContainer/Language"]
+margin_left = 512.0
+margin_right = 640.0
+margin_bottom = 128.0
+size_flags_horizontal = 8
+toggle_mode = true
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 14 )
 
 [node name="SteeringBtn" parent="Background/Board/SettingsScreen/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 211.0
@@ -336,10 +373,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+
 [node name="BackBtn" parent="Background/Board/SettingsScreen/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 377.0
+margin_top = 395.0
 margin_right = 160.0
-margin_bottom = 409.0
+margin_bottom = 427.0
 rect_min_size = Vector2( 160, 32 )
 size_flags_horizontal = 0
 size_flags_vertical = 10
@@ -352,7 +390,7 @@ downscale_on_press = true
 [node name="Label" type="Label" parent="Background/Board/SettingsScreen/VBoxContainer/BackBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-text = " <-   Wróć"
+text = "BACK_KEY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -889,7 +927,6 @@ __meta__ = {
 }
 
 [node name="PollScreen" type="MarginContainer" parent="Background/Board"]
-visible = false
 margin_left = 284.0
 margin_top = 158.0
 margin_right = 1044.0
@@ -917,7 +954,7 @@ downscale_on_press = true
 [node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/PollBack"]
 margin_right = 40.0
 margin_bottom = 33.0
-text = "<- Wróć"
+text = "BACK_KEY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -969,7 +1006,7 @@ downscale_on_press = true
 [node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer/PollContinue"]
 margin_right = 40.0
 margin_bottom = 33.0
-text = "Kontynuuj ->"
+text = "CONTINUE_KEY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
