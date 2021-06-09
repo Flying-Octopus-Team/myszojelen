@@ -26,7 +26,7 @@ func _connect_signals() -> void:
 	master_volume_slider.connect("value_changed", Settings, "set_master_volume")
 
 	audio_effects_slider.connect("value_changed", Settings, "set_audio_effects_volume")
-  language_en_button.connect("pressed", self, "_set_language", [Settings.Language_enum.english])
+	language_en_button.connect("pressed", self, "_set_language", [Settings.Language_enum.english])
 	language_pl_button.connect("pressed", self, "_set_language", [Settings.Language_enum.polish])
 
 	steering_btn.connect("pressed", self, "_show_steering_screen")	
