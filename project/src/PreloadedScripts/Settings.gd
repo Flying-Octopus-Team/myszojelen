@@ -11,6 +11,10 @@ var master_volume := 1.0 setget set_master_volume
 
 var audio_effects_volume : float = 1.0 setget set_audio_effects_volume
 
+enum Language_enum {english, polish}
+
+var language : int = Language_enum.english setget set_language
+
 func _init() -> void:
 	_load_from_file()
 
@@ -33,6 +37,9 @@ func _load_from_file() -> void:
 				
 				if settings_dict.has("audio_effects"):
 					set_audio_effects_volume(settings_dict["audio_effects"], false)
+
+				if settings_dict.has("language"):
+					language = settings_dict["language"]
 				
 				
 	
@@ -47,6 +54,10 @@ func set_audio_effects_volume(value: float, needs_save : bool = true) -> void:
 	emit_signal("audio_effects_volume_changed", audio_effects_volume)
 	if needs_save: _save_to_file()
 
+func set_language(value: int) -> void:
+	language = value
+	_save_to_file()
+
 func _save_to_file() -> void:
 	var file := File.new()
 	file.open(SETTINGS_FILE_PATH, File.WRITE)
@@ -54,7 +65,8 @@ func _save_to_file() -> void:
 	var dict_to_save := {
 		"master_volume": master_volume,
 		"audio_effects": audio_effects_volume,
-		"level": GameSave.get_level()
+		"level": GameSave.get_level(),
+		"language": language
 	}
 	
 	var str_dict := JSON.print(dict_to_save)

@@ -215,6 +215,10 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="bullet"
 
+[locale]
+
+translations=PoolStringArray( "res://assets/Translations.csv", "res://assets/Translations.en.translation", "res://assets/Translations.pl.translation" )
+
 [rendering]
 
 quality/driver/fallback_to_gles2=true

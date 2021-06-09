@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/tres/shojumaru_48.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/MainMenu/settingsboard.png" type="Texture" id=2]
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Game/Interface/SettingsScreen.gd" type="Script" id=4]
+[ext_resource path="res://assets/language-icons/pl_selected.png" type="Texture" id=5]
+[ext_resource path="res://assets/language-icons/pl.png" type="Texture" id=6]
+[ext_resource path="res://assets/language-icons/en_selected.png" type="Texture" id=7]
+[ext_resource path="res://assets/language-icons/en.png" type="Texture" id=8]
 
 [sub_resource type="StyleBoxLine" id=1]
 color = Color( 0.596078, 0.0235294, 0.117647, 1 )
@@ -62,7 +66,7 @@ margin_right = 995.0
 margin_bottom = 65.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Ustawienia"
+text = "SETTINGS_TITLE"
 align = 1
 
 [node name="MasterVolume" type="HBoxContainer" parent="SettingsScreen/VBoxContainer"]
@@ -71,9 +75,9 @@ margin_right = 995.0
 margin_bottom = 138.0
 
 [node name="Label" type="Label" parent="SettingsScreen/VBoxContainer/MasterVolume"]
-margin_right = 121.0
+margin_right = 170.0
 margin_bottom = 33.0
-text = "Muzyka"
+text = "MUSIC_KEY"
 
 [node name="MasterVolumeSlider" type="HSlider" parent="SettingsScreen/VBoxContainer/MasterVolume"]
 margin_left = 695.0
@@ -95,9 +99,9 @@ margin_right = 995.0
 margin_bottom = 191.0
 
 [node name="Label" type="Label" parent="SettingsScreen/VBoxContainer/SoundEffects"]
-margin_right = 280.0
+margin_right = 312.0
 margin_bottom = 33.0
-text = "Efekty dźwiękowe"
+text = "AUDIO_EFFECTS_KEY"
 
 [node name="SoundEffectsSlider" type="HSlider" parent="SettingsScreen/VBoxContainer/SoundEffects"]
 margin_left = 695.0
@@ -112,6 +116,35 @@ custom_styles/grabber_area_highlight = SubResource( 2 )
 custom_styles/grabber_area = SubResource( 2 )
 max_value = 1.0
 step = 0.0
+
+[node name="Language" type="HBoxContainer" parent="SettingsScreen/VBoxContainer"]
+margin_top = 211.0
+margin_right = 995.0
+margin_bottom = 339.0
+alignment = 2
+
+[node name="Label" type="Label" parent="SettingsScreen/VBoxContainer/Language"]
+margin_top = 47.0
+margin_right = 731.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+text = "LANGUAGE_KEY"
+
+[node name="English" type="TextureButton" parent="SettingsScreen/VBoxContainer/Language"]
+margin_left = 735.0
+margin_right = 863.0
+margin_bottom = 128.0
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Polish" type="TextureButton" parent="SettingsScreen/VBoxContainer/Language"]
+margin_left = 867.0
+margin_right = 995.0
+margin_bottom = 128.0
+toggle_mode = true
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
 
 [node name="BackBtn" parent="SettingsScreen/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 577.0
@@ -129,7 +162,7 @@ downscale_on_press = true
 [node name="Label" type="Label" parent="SettingsScreen/VBoxContainer/BackBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-text = " <-   Wróć"
+text = "BACK_KEY"
 __meta__ = {
 "_edit_use_anchors_": false
 }

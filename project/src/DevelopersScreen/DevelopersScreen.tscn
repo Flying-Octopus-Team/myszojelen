@@ -16,8 +16,6 @@
 [ext_resource path="res://assets/developers/sonic idols logo.png" type="Texture" id=14]
 [ext_resource path="res://assets/developers/Piotr.png" type="Texture" id=15]
 
-
-
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.137255, 0.109804, 0.231373, 1 )
 corner_radius_top_left = 16
@@ -367,6 +365,9 @@ margin_right = 332.727
 margin_bottom = 166.127
 shortcut_in_tooltip = false
 underline = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Myszojelen" type="TextureRect" parent="Origin/Panel"]
 visible = false
