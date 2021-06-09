@@ -48,7 +48,7 @@ func _set_action_to_keybind(action) -> void:
 
 	var action_value : String = config_file.get_value("steering", action)
 
-	if action_value.substr(0, 22) == "InputEventJoypadButton":
+	if action_value.begins_with("InputEventJoypadButton"):
 		InputMap.action_add_event(action, _get_input_joypadbutton_from_string(action_value))
 	else:
 		var scancode = OS.find_scancode_from_string(config_file.get_value("steering", action))
@@ -60,7 +60,7 @@ func _set_action_to_keybind(action) -> void:
 
 
 func _get_input_joypadbutton_from_string(value: String) -> InputEventJoypadButton:
-	value = value.substr(25, value.length())
+	value = value.trim_prefix("InputEventJoypadButton :")
 
 	var properties : PoolStringArray = value.split(", ")
 
