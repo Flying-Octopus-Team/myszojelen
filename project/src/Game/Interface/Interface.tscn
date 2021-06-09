@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
@@ -21,14 +21,16 @@
 [ext_resource path="res://assets/screens/buttons/poll/PollClick.png" type="Texture" id=19]
 [ext_resource path="res://assets/Steering/pad.png" type="Texture" id=20]
 [ext_resource path="res://src/Game/Interface/SteeringButton.gd" type="Script" id=21]
+[ext_resource path="res://assets/MainMenu/settingsboard.png" type="Texture" id=22]
 [ext_resource path="res://assets/Steering/numpad.png" type="Texture" id=23]
+[ext_resource path="res://src/MainMenu/SettingsScreen.tscn" type="PackedScene" id=24]
 [ext_resource path="res://src/Game/Interface/SteeringContainer.gd" type="Script" id=25]
 [ext_resource path="res://assets/screens/buttons/poll/Poll.png" type="Texture" id=26]
 [ext_resource path="res://assets/screens/buttons/poll/PollHover.png" type="Texture" id=27]
 [ext_resource path="res://assets/Steering/wsad1.png" type="Texture" id=28]
+[ext_resource path="res://src/Game/Interface/SettingsScreen.gd" type="Script" id=29]
 [ext_resource path="res://assets/Steering/obroty.png" type="Texture" id=31]
 [ext_resource path="res://assets/Steering/gamepad.png" type="Texture" id=32]
-[ext_resource path="res://src/Game/Interface/SettingsScreen.tscn" type="PackedScene" id=33]
 
 [node name="Interface" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -54,7 +56,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/HUD"]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 235.0
+margin_right = 207.0
 margin_bottom = 179.0
 
 [node name="TreesLeft" type="Label" parent="Control/HUD/VBoxContainer"]
@@ -166,9 +168,9 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/LevelWonScreen/MarginContainer"]
-margin_top = 58.0
+margin_top = 40.0
 margin_right = 1280.0
-margin_bottom = 91.0
+margin_bottom = 73.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
@@ -411,7 +413,23 @@ margin_bottom = 1000.0
 rect_scale = Vector2( 1.28317, 0.725384 )
 color = Color( 0, 0, 0, 0.737255 )
 
-[node name="TextureRect" parent="Settings" instance=ExtResource( 33 )]
+[node name="TextureRect" type="TextureRect" parent="Settings"]
+margin_left = -156.131
+margin_top = -49.9246
+margin_right = 1763.87
+margin_bottom = 1030.08
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsScreen" parent="Settings/TextureRect" instance=ExtResource( 24 )]
+margin_left = 415.0
+margin_top = 145.0
+margin_right = 1571.0
+margin_bottom = 856.0
+script = ExtResource( 29 )
 [connection signal="pressed" from="Control/GameOverScreen/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]
 [connection signal="pressed" from="Control/LevelWonScreen/NextLevelBtn" to="." method="_on_NextLevelBtn_pressed"]
 [connection signal="pressed" from="Control/EndOfGameScreen/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]
