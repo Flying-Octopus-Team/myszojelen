@@ -12,6 +12,8 @@ func _ready() -> void:
 	if hide_on_non_touchscreen:
 		set_visible(OS.has_touchscreen_ui_hint())
 
+	$Container/ShotButton.connect("pressed", self, "shoot")
+
 
 func set_visible(v:bool) -> void:
 	visible = v
@@ -24,3 +26,7 @@ func get_joy_vec() -> Vector2:
 
 func get_joy_angle() -> float:
 	return joy.get_angle()
+
+
+func shoot() -> void:
+	get_parent()._shot()

@@ -24,7 +24,8 @@ enum Facing {
 	TOP,
 	BOTTOM,
 	LEFT,
-	RIGHT
+	RIGHT,
+	NULL
 }
 
 #TODO add textures for directions: top bottom

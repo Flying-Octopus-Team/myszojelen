@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/characters/Player/myszojelen_right_up.png" type="Texture" id=1]
 [ext_resource path="res://src/Game/World/Characters/Character.tscn" type="PackedScene" id=2]
@@ -9,16 +9,10 @@
 [ext_resource path="res://src/TouchScreenkLayer/TouchScreenStering.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/Steering.gd" type="Script" id=8]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/Joystick.gd" type="Script" id=9]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD1Rotation.gd" type="Script" id=10]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/KeyboardRotating.gd" type="Script" id=11]
+[ext_resource path="res://src/Game/World/Characters/Player/Steering/Rotating.gd" type="Script" id=11]
 [ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD1DoubleKeys.gd" type="Script" id=12]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/Rotator.gd" type="Script" id=13]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD1NoRotation.gd" type="Script" id=14]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD2NoRotation.gd" type="Script" id=15]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/WSAD2Rotation.gd" type="Script" id=16]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/IOJKNoRotation.gd" type="Script" id=17]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/IOJKRotation.gd" type="Script" id=18]
-[ext_resource path="res://src/Game/World/Characters/Player/Steering/Numpad.gd" type="Script" id=19]
+[ext_resource path="res://src/Game/World/Characters/Player/Steering/4Directions.gd" type="Script" id=14]
+[ext_resource path="res://src/Game/World/Characters/Player/Steering/8Directions.gd" type="Script" id=19]
 [ext_resource path="res://assets/characters/Player/myszojelen_right.png" type="Texture" id=25]
 [ext_resource path="res://assets/characters/Player/myszojelen_up.png" type="Texture" id=26]
 [ext_resource path="res://assets/characters/Player/myszojelen_down.png" type="Texture" id=27]
@@ -49,8 +43,6 @@ damping = 400.0
 scale = 3.0
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
-
-[sub_resource type="StreamTexture" id=6]
 
 [node name="Player" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
@@ -93,68 +85,23 @@ volume_db = -10.0
 [node name="TouchScreenSteering" parent="." index="5" instance=ExtResource( 7 )]
 hide_on_non_touchscreen = false
 
-[node name="SteeringInfoCanvas" type="CanvasLayer" parent="." index="6"]
-
-[node name="ColorRect" type="ColorRect" parent="SteeringInfoCanvas" index="0"]
-margin_left = 1096.72
-margin_top = 16.986
-margin_right = 1256.72
-margin_bottom = 126.986
-rect_min_size = Vector2( 160, 110 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SteeringInfo" type="TextureRect" parent="SteeringInfoCanvas" index="1"]
-margin_left = 1101.72
-margin_top = 21.986
-margin_right = 1251.72
-margin_bottom = 196.986
-grow_horizontal = 0
-rect_min_size = Vector2( 150, 175 )
-size_flags_horizontal = 8
-texture = SubResource( 6 )
-expand = true
-stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Steering" type="Node" parent="." index="7"]
+[node name="Steering" type="Node" parent="." index="6"]
 script = ExtResource( 8 )
 
-[node name="Numpad" type="Node" parent="Steering" index="0"]
+[node name="8Directions" type="Node" parent="Steering" index="0"]
 script = ExtResource( 19 )
 
-[node name="IOJKRotation" type="Node" parent="Steering" index="1"]
-script = ExtResource( 18 )
-
-[node name="IOJKNoRotation" type="Node" parent="Steering" index="2"]
-script = ExtResource( 17 )
-
-[node name="WSAD2Rotation" type="Node" parent="Steering" index="3"]
-script = ExtResource( 16 )
-
-[node name="WSAD1Rotation" type="Node" parent="Steering" index="4"]
-script = ExtResource( 10 )
-
-[node name="WSAD1NoRotation" type="Node" parent="Steering" index="5"]
+[node name="4Directions" type="Node" parent="Steering" index="1"]
 script = ExtResource( 14 )
 
-[node name="WSAD2NoRotation" type="Node" parent="Steering" index="6"]
-script = ExtResource( 15 )
-
-[node name="Joystick" type="Node" parent="Steering" index="7"]
+[node name="Joystick" type="Node" parent="Steering" index="2"]
 script = ExtResource( 9 )
 
-[node name="Joystick8Directions" type="Node" parent="Steering" index="8"]
+[node name="Joystick8Directions" type="Node" parent="Steering" index="3"]
 script = ExtResource( 28 )
 
-[node name="WSAD1DoubleKeys" type="Node" parent="Steering" index="9"]
+[node name="WSAD1DoubleKeys" type="Node" parent="Steering" index="4"]
 script = ExtResource( 12 )
 
-[node name="KeyboardRotating" type="Node" parent="Steering" index="10"]
+[node name="Rotating" type="Node" parent="Steering" index="5"]
 script = ExtResource( 11 )
-
-[node name="Rotator" type="Node" parent="Steering" index="11"]
-script = ExtResource( 13 )
