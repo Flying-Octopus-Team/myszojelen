@@ -4,6 +4,8 @@ const CONFIG_FILE = "user://input.cfg"
 const DEFAULT_CONFIG_FILE = "user://default_input.cfg"
 const INPUT_ACTIONS = ["rotation_left", "rotation_right", "rotation_up", "4directions_left", "4directions_up", "4directions_right", "4directions_down", "8directions_up", "8directions_up_left", "8directions_up_right", "8directions_left", "8directions_right", "8directions_down", "8directions_down_left", "8directions_down_right", "shot_pad", "shot_keyboard"]
 
+const GAME_VERSION = 1.3
+
 var steering_type : String = "none" setget set_steering_type
 var config_file : ConfigFile
 
@@ -34,12 +36,26 @@ func _create_default_file_if_needed() -> void:
 
 
 func _load_from_file() -> void:
+
+	if not _check_version():
+		return
+
 	for action in config_file.get_section_keys("steering"):
 		InputMap.action_erase_event(action, InputMap.get_action_list(action)[0])
 
 		_set_action_to_keybind(action)
 
 	steering_type = config_file.get_value("steering_type", "name")
+
+
+func _check_version() -> bool:
+	var version = config_file.get_value("version", "value", 1.0)
+	
+	if version != GAME_VERSION:
+		reset_file()
+		return false
+
+	return true
 
 
 func _set_action_to_keybind(action) -> void:
@@ -49,7 +65,7 @@ func _set_action_to_keybind(action) -> void:
 	var action_value : String = config_file.get_value("steering", action)
 
 	if action_value.begins_with("InputEventJoypadButton"):
-		InputMap.action_add_event(action, _get_input_joypadbutton_from_string(action_value))
+		InputMap.action_add_event(action, _parse_input_joypadbutton_from_string(action_value))
 	else:
 		var scancode = OS.find_scancode_from_string(config_file.get_value("steering", action))
 
@@ -59,7 +75,7 @@ func _set_action_to_keybind(action) -> void:
 		InputMap.action_add_event(action, event)
 
 
-func _get_input_joypadbutton_from_string(value: String) -> InputEventJoypadButton:
+func _parse_input_joypadbutton_from_string(value: String) -> InputEventJoypadButton:
 	value = value.trim_prefix("InputEventJoypadButton :")
 
 	var properties : PoolStringArray = value.split(", ")
@@ -77,6 +93,8 @@ func save_input(save_file_name: String = CONFIG_FILE) -> void:
 		_save_action_to_file(action)
 	
 	config_file.set_value("steering_type", "name", steering_type)
+	config_file.set_value("version", "value", GAME_VERSION)
+
 	config_file.save(save_file_name)
 
 
