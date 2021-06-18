@@ -5,7 +5,7 @@ const SETTINGS_FILE_PATH := "user://settings.json"
 const MAX_VOLUME := 0.0
 const MIN_VOLUME := -80.0
 
-const GAME_VERSION := 1.3
+const CONFIG_VERSION := 1.3
 
 signal audio_effects_volume_changed(value)
 
@@ -57,7 +57,7 @@ func _check_version(settings_dict: Dictionary) -> bool:
 	if settings_dict.has("version"):
 		version = settings_dict["version"]
 
-	if version != GAME_VERSION:
+	if version != CONFIG_VERSION:
 		_reset_settings()
 		return false
 	
@@ -75,7 +75,7 @@ func _reset_settings() -> void:
 		"audio_effects": audio_effects_volume,
 		"level": GameSave.get_level(),
 		"language": language,
-		"version": GAME_VERSION
+		"version": CONFIG_VERSION
 	}
 	
 	var str_dict := JSON.print(dict_to_save)
@@ -107,7 +107,7 @@ func _save_to_file() -> void:
 		"audio_effects": audio_effects_volume,
 		"level": GameSave.get_level(),
 		"language": language,
-		"version": GAME_VERSION
+		"version": CONFIG_VERSION
 	}
 	
 	var str_dict := JSON.print(dict_to_save)
