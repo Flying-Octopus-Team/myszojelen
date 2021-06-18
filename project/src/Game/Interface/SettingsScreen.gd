@@ -13,5 +13,7 @@ func show_screen() -> void:
 	master_volume_slider.value = Settings.master_volume
 	audio_effects_slider.value = Settings.audio_effects_volume
 
+	$SteeringSettings.update_controls_menu()
+
 	get_tree().paused = true
 	$"../../".show()
