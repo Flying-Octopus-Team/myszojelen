@@ -27,6 +27,9 @@ func clear_level() -> void:
 
 
 func reset_level() -> void:
+	if get_parent().is_level_won:
+		GameSave.previous_level()
+		
 	_prepare_current_level()
 
 
