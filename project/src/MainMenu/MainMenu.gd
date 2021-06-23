@@ -32,8 +32,6 @@ func _ready() -> void:
 	find_node("PollBack").connect("pressed", self, "_show_screen", [main])
 	find_node("PollContinue").connect("pressed", self, "_new_game")
 	find_node("PollLink").connect("pressed", self, "_PollLink_pressed")
-
-	find_node("PollContinue").connect("pressed", GameSave, "set_level", [0])
 	
 	_show_screen(main)
 	
@@ -47,6 +45,8 @@ func _ready() -> void:
 
 func _new_game() -> void:
 	_disable_all_buttons()
+
+	GameSave.set_level(0)
 	
 	fade_layer.fade_out(fade_color, fade_time)
 	MusicPlayer.fade_out()
@@ -78,6 +78,10 @@ func _show_screen(screen_to_show) -> void:
 func _disable_all_buttons() -> void:
 	for button in main.get_children():
 		button.set_disabled(true)
+
+	find_node("PollContinue").set_disabled(true)
+	find_node("PollBack").set_disabled(true)
+	find_node("PollLink").set_disabled(true)
 
 
 func _exit_game() -> void:
