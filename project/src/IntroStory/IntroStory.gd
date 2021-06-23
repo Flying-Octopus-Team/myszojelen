@@ -30,7 +30,7 @@ func _ready() -> void:
 		var screen = story_screens[i]
 		screen.hide()
 
-	$ChangeScreenSound.set_volume_db(Settings.audio_effects_volume)
+	change_screen_sound.set_volume_db(linear2db(Settings.audio_effects_volume))
 	$ClickSound.set_volume_db(Settings.audio_effects_volume)
 	
 	arrow_btn.show()
