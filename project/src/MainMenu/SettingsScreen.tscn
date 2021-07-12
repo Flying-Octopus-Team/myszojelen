@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/MainMenu/SettingsScreen.gd" type="Script" id=1]
 [ext_resource path="res://src/MainMenu/inputbutton.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/Steering/8directions_icon.png" type="Texture" id=7]
 [ext_resource path="res://assets/language-icons/pl_selected.png" type="Texture" id=8]
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/slider/grabber_small.png" type="Texture" id=10]
 [ext_resource path="res://assets/fonts/tres/shojumaru_48.tres" type="DynamicFont" id=11]
 [ext_resource path="res://src/MainMenu/InputButton.gd" type="Script" id=12]
 [ext_resource path="res://src/MainMenu/Inputbutton.gd" type="Script" id=13]
@@ -18,13 +19,13 @@
 [ext_resource path="res://assets/Steering/virtualpad_icon.png" type="Texture" id=17]
 
 [sub_resource type="StyleBoxLine" id=1]
-color = Color( 0.596078, 0.0235294, 0.117647, 1 )
+color = Color( 0.121569, 0.0666667, 0.0352941, 1 )
 grow_begin = -6.0
 grow_end = -6.0
 thickness = 4
 
 [sub_resource type="StyleBoxLine" id=2]
-color = Color( 0.141176, 0.223529, 0.843137, 1 )
+color = Color( 0.576471, 0.431373, 0.262745, 1 )
 grow_begin = -6.0
 grow_end = 0.0
 thickness = 4
@@ -83,7 +84,7 @@ __meta__ = {
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
-margin_bottom = 478.0
+margin_bottom = 484.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
@@ -105,21 +106,23 @@ align = 1
 [node name="MasterVolume" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 105.0
 margin_right = 640.0
-margin_bottom = 138.0
+margin_bottom = 148.0
 
 [node name="Label" type="Label" parent="VBoxContainer/MasterVolume"]
+margin_top = 5.0
 margin_right = 170.0
-margin_bottom = 33.0
+margin_bottom = 38.0
 text = "MUSIC_KEY"
 
 [node name="MasterVolumeSlider" type="HSlider" parent="VBoxContainer/MasterVolume"]
 margin_left = 340.0
-margin_top = 8.0
 margin_right = 640.0
-margin_bottom = 24.0
+margin_bottom = 43.0
 rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 4
+custom_icons/grabber_highlight = ExtResource( 10 )
+custom_icons/grabber = ExtResource( 10 )
 custom_styles/slider = SubResource( 1 )
 custom_styles/grabber_area_highlight = SubResource( 2 )
 custom_styles/grabber_area = SubResource( 2 )
@@ -128,23 +131,25 @@ step = 0.0
 value = 1.0
 
 [node name="SoundEffects" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 158.0
+margin_top = 168.0
 margin_right = 640.0
-margin_bottom = 191.0
+margin_bottom = 211.0
 
 [node name="Label" type="Label" parent="VBoxContainer/SoundEffects"]
+margin_top = 5.0
 margin_right = 312.0
-margin_bottom = 33.0
+margin_bottom = 38.0
 text = "AUDIO_EFFECTS_KEY"
 
 [node name="SoundEffectsSlider" type="HSlider" parent="VBoxContainer/SoundEffects"]
 margin_left = 340.0
-margin_top = 8.0
 margin_right = 640.0
-margin_bottom = 24.0
+margin_bottom = 43.0
 rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 4
+custom_icons/grabber_highlight = ExtResource( 10 )
+custom_icons/grabber = ExtResource( 10 )
 custom_styles/slider = SubResource( 1 )
 custom_styles/grabber_area_highlight = SubResource( 2 )
 custom_styles/grabber_area = SubResource( 2 )
@@ -153,9 +158,9 @@ step = 0.0
 value = 1.0
 
 [node name="Language" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 211.0
+margin_top = 231.0
 margin_right = 640.0
-margin_bottom = 339.0
+margin_bottom = 359.0
 alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/Language"]
@@ -184,9 +189,9 @@ texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 8 )
 
 [node name="SteeringBtn" parent="VBoxContainer" instance=ExtResource( 9 )]
-margin_top = 359.0
+margin_top = 379.0
 margin_right = 640.0
-margin_bottom = 392.0
+margin_bottom = 412.0
 rect_min_size = Vector2( 356, 33 )
 texture_normal = null
 texture_pressed = null
@@ -203,9 +208,9 @@ __meta__ = {
 }
 
 [node name="BackBtn" parent="VBoxContainer" instance=ExtResource( 9 )]
-margin_top = 426.0
+margin_top = 432.0
 margin_right = 160.0
-margin_bottom = 458.0
+margin_bottom = 464.0
 rect_min_size = Vector2( 160, 32 )
 size_flags_horizontal = 0
 size_flags_vertical = 10
@@ -228,7 +233,7 @@ visible = false
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
-margin_bottom = 478.0
+margin_bottom = 484.0
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="SteeringSettings"]
