@@ -13,6 +13,8 @@ onready var main = find_node("MainButtons")
 onready var settings = find_node("SettingsScreen")
 onready var pollscreen = find_node("PollScreen")
 
+var gui_steering = GUISteering.new()
+
 onready var screens_dict := {
 	"main": main,
 	"settings": settings,
@@ -41,7 +43,13 @@ func _ready() -> void:
 	
 	if GameSave.get_level() == 0:
 		find_node("ContinueBtn").disabled = true
+	
+	grab_focus()
 
+func _gui_input(event):
+	if gui_steering.get_action(event) != gui_steering.gui_actions.none:
+		get_node(get_focus_neighbour(MARGIN_BOTTOM)).grab_focus()
+	accept_event()
 
 func _new_game() -> void:
 	_disable_all_buttons()

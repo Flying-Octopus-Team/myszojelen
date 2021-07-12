@@ -2,12 +2,16 @@ extends TextureButton
 
 export var upscale_on_hover := false
 export var downscale_on_press := false
+export var should_scale : bool = true
 
 
 func _ready() -> void:
 	rect_pivot_offset = rect_size * 0.5
-	connect("mouse_entered", self, "_on_mouse_entered")
-	connect("mouse_exited", self, "_on_mouse_exited")
+
+	if should_scale:
+		connect("mouse_entered", self, "_on_mouse_entered")
+		connect("mouse_exited", self, "_on_mouse_exited")
+
 	connect("button_down", self, "_on_button_down")
 	connect("button_up", self, "_on_button_up")
 
