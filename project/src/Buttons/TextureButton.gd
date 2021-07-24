@@ -67,6 +67,18 @@ func set_disabled(dis:bool) -> void:
 	if dis:
 		_reset_scale()
 
+func handle_on_focus_entered() -> void:
+	set_scale(Vector2(1.3, 1.3))
+
+func handle_on_focus_exited() -> void:
+	_reset_scale()
+
+func handle_action(action: int) -> void:
+	if action == GUISteering.gui_actions.left or action == GUISteering.gui_actions.right:
+		return
+	
+	emit_signal("pressed")
+
 func set_audio_volume(value: float) -> void:
 	$HoverSound.set_volume_db(linear2db(value))
 	$ClickSound.set_volume_db(linear2db(value))

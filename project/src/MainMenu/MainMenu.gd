@@ -13,8 +13,6 @@ onready var main = find_node("MainButtons")
 onready var settings = find_node("SettingsScreen")
 onready var pollscreen = find_node("PollScreen")
 
-var gui_steering = GUISteering.new()
-
 onready var screens_dict := {
 	"main": main,
 	"settings": settings,
@@ -25,7 +23,7 @@ onready var screens_dict := {
 func _ready() -> void:
 	OS.window_maximized = true
 	
-	find_node("NewGameBtn").connect("pressed", self, "_show_screen", [pollscreen])#_new_game
+	find_node("NewGameBtn").connect("pressed", self, "_new_game")
 	find_node("ContinueBtn").connect("pressed", self, "_continue_game")
 	find_node("ExitBtn").connect("pressed", self, "_exit_game")
 	
@@ -44,12 +42,6 @@ func _ready() -> void:
 	if GameSave.get_level() == 0:
 		find_node("ContinueBtn").disabled = true
 	
-	grab_focus()
-
-func _gui_input(event):
-	if gui_steering.get_action(event) != gui_steering.gui_actions.none:
-		get_node(get_focus_neighbour(MARGIN_BOTTOM)).grab_focus()
-	accept_event()
 
 func _new_game() -> void:
 	_disable_all_buttons()
@@ -84,7 +76,8 @@ func _show_screen(screen_to_show) -> void:
 
 
 func _disable_all_buttons() -> void:
-	for button in main.get_children():
+	for hboxcontainer in main.get_children():
+		var button = hboxcontainer.get_child(2)
 		button.set_disabled(true)
 
 	find_node("PollContinue").set_disabled(true)

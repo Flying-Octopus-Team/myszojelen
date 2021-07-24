@@ -97,3 +97,16 @@ func _disable_all_buttons() -> void:
 		for button in action_hbox.get_children():
 			if button is Button:
 				button.disable()
+
+
+func handle_on_focus_entered() -> void:
+	set_scale(Vector2(1.3, 1.3))
+
+func handle_on_focus_exited() -> void:
+	set_scale(Vector2.ONE)
+
+func handle_action(action: int) -> void:
+	if action == GUISteering.gui_actions.left or action == GUISteering.gui_actions.right:
+		return
+
+	emit_signal("pressed")

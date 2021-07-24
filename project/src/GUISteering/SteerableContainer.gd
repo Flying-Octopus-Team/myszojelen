@@ -1,10 +1,7 @@
-extends TextureRect
+extends HBoxContainer
 
 class_name SteerableContainer
 
-export var focus_texture : Texture
-
-var is_first_input : bool = true
 var should_handle_input : bool = true
 
 var gui_steering = GUISteering.new()
@@ -21,35 +18,55 @@ func _gui_input(event):
 
 	if not should_handle_input:
 		return
-	
-	if is_first_input:
-		is_first_input = false
-		return
-
+		
 	if event is InputEventMouseMotion and not has_focus():
 		grab_focus()
 
-	match gui_steering.get_action(event):
+	_match_input_event(gui_steering.get_action(event))
+
+func _match_input_event(event):
+
+	match event:
 		gui_steering.gui_actions.down:
 			get_node(get_focus_neighbour(MARGIN_BOTTOM)).grab_focus()
 
 		gui_steering.gui_actions.up:
 			get_node(get_focus_neighbour(MARGIN_TOP)).grab_focus()
 
+		gui_steering.gui_actions.left:
+			if get_focus_neighbour(MARGIN_LEFT) != "":
+				get_node(get_focus_neighbour(MARGIN_LEFT)).grab_focus()
+			else:
+				get_action_child().handle_action(gui_steering.gui_actions.left)
+
+		gui_steering.gui_actions.right:
+			if get_focus_neighbour(MARGIN_RIGHT):
+				get_node(get_focus_neighbour(MARGIN_RIGHT)).grab_focus()
+			else:
+				get_action_child().handle_action(gui_steering.gui_actions.right)
+
+		gui_steering.gui_actions.press:
+			get_action_child().handle_action(gui_steering.gui_actions.press)
+
 func _on_focus_entered(): 
-	set_texture(focus_texture)
+	get_action_child().handle_on_focus_entered()
 	$FocusSound.play()
 
-	if SteeringSave.steering_type == "Pad" or SteeringSave.steering_type == "VirtualPad":
-		should_handle_input = false
-		yield(get_tree().create_timer(0.2), "timeout")
-		should_handle_input = true
+	_create_delay()
+
+func _create_delay() -> void:
+	should_handle_input = false
+	yield(get_tree().create_timer(0.15), "timeout")
+	should_handle_input = true
 
 func _on_focus_exited():
-	set_texture(null)
-	is_first_input = true
+	get_action_child().handle_on_focus_exited()
+
 
 func set_audio_volume(value: float) -> void:
 	$FocusSound.set_volume_db(linear2db(value))
 	$ActionSound.set_volume_db(linear2db(value))
-	
+
+
+func get_action_child():
+	return get_child(get_child_count()-1)
