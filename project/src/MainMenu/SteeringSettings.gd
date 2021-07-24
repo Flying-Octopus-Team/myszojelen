@@ -1,11 +1,11 @@
-extends VBoxContainer
+extends FocusableVBoxContainer
 
-onready var menu : MenuButton = $HBoxContainer/MenuButton
+onready var menu : MenuButton = $MenuButtonContainer/MenuButton
 
 func _ready() -> void:
 	menu.get_popup().connect("id_pressed", self, "_set_steering")
-	get_node("HBoxContainer2/BackBtn").connect("pressed", self, "hide")
-	get_node("HBoxContainer2/ResetBtn").connect("pressed", SteeringSave, "reset_file")
+	get_node("HBoxContainer2/BackBtnContainer/BackBtn").connect("pressed", self, "hide")
+	get_node("HBoxContainer2/ResetBtnContainer/ResetBtn").connect("pressed", SteeringSave, "reset_file")
 
 	update_controls_menu()
 
@@ -34,7 +34,7 @@ func _set_menu_text() -> void:
 
 func hide() -> void:
 	.hide()
-	$"../VBoxContainer".show()
+	$"../MainSettings".show()
 
 
 func _set_steering(id: int) -> void:
