@@ -25,7 +25,6 @@ func _pressed() -> void:
 func _input(event):
 	if event is InputEventKey and pressed_button:
 		get_tree().set_input_as_handled()
-		set_process_input(false)
 
 		if not event.is_action("ui_cancel"):
 			_add_new_keybind_to_inputmap(event)
@@ -81,13 +80,11 @@ func _erase_keybind_from_other_actions(scancode: String) -> void:
 
 func _enable() -> void:
 	text = ">"+text+"<"
-	set_process_input(true)
 	pressed_button = true
 
 		
 func disable() -> void:
 	if pressed_button == true:
-		set_process_input(false)
 		pressed_button = false
 		text = text.substr(1, text.length()-2)
 
@@ -109,4 +106,4 @@ func handle_action(action: int) -> void:
 	if action == GUISteering.gui_actions.left or action == GUISteering.gui_actions.right:
 		return
 
-	emit_signal("pressed")
+	_pressed()

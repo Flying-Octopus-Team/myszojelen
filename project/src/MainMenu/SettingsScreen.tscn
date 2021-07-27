@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/MainMenu/MainSettings.gd" type="Script" id=1]
 [ext_resource path="res://src/MainMenu/inputbutton.gd" type="Script" id=2]
@@ -22,6 +22,9 @@
 [ext_resource path="res://src/GUISteering/FocusableLanguageContainer.gd" type="Script" id=20]
 [ext_resource path="res://src/GUISteering/FocusableSlider.gd" type="Script" id=21]
 [ext_resource path="res://src/GUISteering/SteerableMenuButton.gd" type="Script" id=22]
+[ext_resource path="res://assets/screens/themes/PopupTheme.tres" type="Theme" id=24]
+[ext_resource path="res://src/GUISteering/FocusableVBoxContainer.gd" type="Script" id=25]
+[ext_resource path="res://src/MainMenu/SteeringButton.gd" type="Script" id=26]
 
 [sub_resource type="StyleBoxLine" id=1]
 color = Color( 0.121569, 0.0666667, 0.0352941, 1 )
@@ -34,42 +37,6 @@ color = Color( 0.576471, 0.431373, 0.262745, 1 )
 grow_begin = -6.0
 grow_end = 0.0
 thickness = 4
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 1, 0.980392, 0.933333, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 0.196078, 0.180392, 0.180392, 1 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-expand_margin_left = 8.0
-expand_margin_right = 8.0
-expand_margin_top = 8.0
-expand_margin_bottom = 8.0
-
-[sub_resource type="Theme" id=4]
-PopupMenu/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
-PopupMenu/colors/font_color_accel = Color( 0.7, 0.7, 0.7, 0.8 )
-PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
-PopupMenu/colors/font_color_hover = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
-PopupMenu/constants/hseparation = 4
-PopupMenu/constants/vseparation = 4
-PopupMenu/fonts/font = null
-PopupMenu/icons/checked = null
-PopupMenu/icons/radio_checked = null
-PopupMenu/icons/radio_unchecked = null
-PopupMenu/icons/submenu = null
-PopupMenu/icons/unchecked = null
-PopupMenu/styles/hover = null
-PopupMenu/styles/labeled_separator_left = null
-PopupMenu/styles/labeled_separator_right = null
-PopupMenu/styles/panel = SubResource( 3 )
-PopupMenu/styles/panel_disabled = null
-PopupMenu/styles/separator = null
 
 [node name="SettingsScreen" type="MarginContainer"]
 margin_left = 284.0
@@ -308,16 +275,130 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MenuButton" type="MenuButton" parent="SteeringSettings/MenuButtonContainer"]
+[node name="MenuButton" type="Button" parent="SteeringSettings/MenuButtonContainer"]
 margin_left = 312.0
 margin_right = 403.0
 margin_bottom = 39.0
 focus_mode = 1
-theme = SubResource( 4 )
 enabled_focus_mode = 1
 text = "None"
-items = [ "4 Directions", ExtResource( 16 ), 0, false, false, 0, 0, null, "", false, "8 Directions", ExtResource( 7 ), 0, false, false, 1, 0, null, "", false, "Virtual Pad", ExtResource( 17 ), 0, false, false, 2, 0, null, "", false, "Pad", ExtResource( 14 ), 0, false, false, 3, 0, null, "", false, "Rotations", ExtResource( 15 ), 0, false, false, 4, 0, null, "", false ]
 script = ExtResource( 22 )
+
+[node name="PopupPanel" type="PopupPanel" parent="SteeringSettings/MenuButtonContainer/MenuButton"]
+visible = true
+margin_left = 16.0
+margin_right = 175.0
+margin_bottom = 526.0
+theme = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FocusableVBoxContainer" type="VBoxContainer" parent="SteeringSettings/MenuButtonContainer/MenuButton/PopupPanel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 154.0
+margin_bottom = 521.0
+focus_neighbour_bottom = NodePath("4DirectionsHBox")
+focus_mode = 1
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4DirectionsHBox" parent="SteeringSettings/MenuButtonContainer/MenuButton/PopupPanel/FocusableVBoxContainer" instance=ExtResource( 18 )]
+margin_right = 149.0
+margin_bottom = 100.0
+focus_neighbour_top = NodePath("../RotationsHBox")
+focus_neighbour_bottom = NodePath("../8DirectionsHBox")
+
+[node name="TextureButton" type="TextureButton" parent="SteeringSettings/MenuButtonContainer/MenuButton/PopupPanel/FocusableVBoxContainer/4DirectionsHBox"]
+margin_right = 149.0
+margin_bottom = 100.0
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 16 )
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+steering_string = "4 Directions"
+
+[node name="8DirectionsHBox" parent="SteeringSettings/MenuButtonContainer/MenuButton/PopupPanel/FocusableVBoxContainer" instance=ExtResource( 18 )]
+margin_top = 104.0
+margin_right = 149.0
+margin_bottom = 204.0
+focus_neighbour_top = NodePath("../4DirectionsHBox")
+focus_neighbour_bottom = NodePath("../PadHBox")
+
+[node name="TextureButton" type="TextureButton" parent="SteeringSettings/MenuButtonContainer/MenuButton/PopupPanel/FocusableVBoxContainer/8DirectionsHBox"]
+margin_right = 149.0
+margin_bottom = 100.0
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 7 )
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+steering_string = "8 Directions"
+
+[node name="PadHBox" parent="SteeringSettings/MenuButtonContainer/MenuButton/PopupPanel/FocusableVBoxContainer" instance=ExtResource( 18 )]
+margin_top = 208.0
+margin_right = 149.0
+margin_bottom = 308.0
+focus_neighbour_top = NodePath("../8DirectionsHBox")
+focus_neighbour_bottom = NodePath("../VirtualPadHBox")
+
+[node name="TextureButton" type="TextureButton" parent="SteeringSettings/MenuButtonContainer/MenuButton/PopupPanel/FocusableVBoxContainer/PadHBox"]
+margin_right = 149.0
+margin_bottom = 100.0
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 14 )
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+steering_string = "Pad"
+
+[node name="VirtualPadHBox" parent="SteeringSettings/MenuButtonContainer/MenuButton/PopupPanel/FocusableVBoxContainer" instance=ExtResource( 18 )]
+margin_top = 312.0
+margin_right = 149.0
+margin_bottom = 412.0
+focus_neighbour_top = NodePath("../PadHBox")
+focus_neighbour_bottom = NodePath("../RotationsHBox")
+
+[node name="TextureButton" type="TextureButton" parent="SteeringSettings/MenuButtonContainer/MenuButton/PopupPanel/FocusableVBoxContainer/VirtualPadHBox"]
+margin_right = 149.0
+margin_bottom = 100.0
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 17 )
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+steering_string = "Virtual Pad"
+
+[node name="RotationsHBox" parent="SteeringSettings/MenuButtonContainer/MenuButton/PopupPanel/FocusableVBoxContainer" instance=ExtResource( 18 )]
+margin_top = 416.0
+margin_right = 149.0
+margin_bottom = 516.0
+focus_neighbour_top = NodePath("../VirtualPadHBox")
+focus_neighbour_bottom = NodePath("../4DirectionsHBox")
+
+[node name="TextureButton" type="TextureButton" parent="SteeringSettings/MenuButtonContainer/MenuButton/PopupPanel/FocusableVBoxContainer/RotationsHBox"]
+margin_right = 149.0
+margin_bottom = 100.0
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 15 )
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+steering_string = "Rotations"
 
 [node name="Controls4Directions" type="VBoxContainer" parent="SteeringSettings"]
 visible = false
