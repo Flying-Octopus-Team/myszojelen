@@ -4,6 +4,8 @@ export var action_name : String
 
 var pressed_button : bool = false
 
+var delayed_input : bool = false
+
 func _ready() -> void:
 	var action_list = InputMap.get_action_list(action_name)
 	if not action_list.empty():
@@ -18,6 +20,8 @@ func _name_button(event: InputEvent) -> void:
 
 
 func _pressed() -> void:
+	if delayed_input:
+		return
 	_disable_all_buttons()
 	_enable()
 
@@ -80,7 +84,11 @@ func _erase_keybind_from_other_actions(scancode: String) -> void:
 
 func _enable() -> void:
 	text = ">"+text+"<"
+	delayed_input = true
+	yield(get_tree().create_timer(0.15), "timeout")
+
 	pressed_button = true
+	delayed_input = false
 
 		
 func disable() -> void:

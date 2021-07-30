@@ -12,3 +12,5 @@ func handle_action(action: int) -> void:
 	if action == GUISteering.gui_actions.press:
 		$"../../../../".on_popup_button_pressed(steering_string)
 
+func _pressed():
+	$"../../../../".on_popup_button_pressed(steering_string)

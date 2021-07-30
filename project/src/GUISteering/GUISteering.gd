@@ -23,4 +23,6 @@ var steering_dict : Dictionary = {
 
 func get_action(event) -> int:
 	steering_dict_key = SteeringSave.steering_type
+	if steering_dict_key == "none":
+		return gui_actions.none
 	return steering_dict[steering_dict_key].get_action(event, gui_actions)
