@@ -36,6 +36,8 @@ func _input(event):
 			SteeringSave.save_input()
 
 		pressed_button = false
+		_block_next_input_for_parent()
+
 	elif event is InputEventJoypadButton and pressed_button:
 		get_tree().set_input_as_handled()
 		set_process_input(false)
@@ -45,7 +47,13 @@ func _input(event):
 
 			SteeringSave.save_input()
 		pressed_button = false
+		_block_next_input_for_parent()
 
+
+func _block_next_input_for_parent() -> void:
+	$"../".should_handle_input = false
+	yield(get_tree().create_timer(0.15), "timeout")
+	$"../".should_handle_input = true
 
 func _add_new_keybind_to_inputmap(event: InputEventKey) -> void:
 	var scancode = OS.get_scancode_string(event.scancode)
@@ -103,12 +111,6 @@ func _disable_all_buttons() -> void:
 			if button is Button:
 				button.disable()
 
-
-func handle_on_focus_entered() -> void:
-	set_scale(Vector2(1.3, 1.3))
-
-func handle_on_focus_exited() -> void:
-	set_scale(Vector2.ONE)
 
 func handle_action(action: int) -> void:
 	if action == GUISteering.gui_actions.left or action == GUISteering.gui_actions.right:

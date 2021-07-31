@@ -1,15 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/audio/sfx/Interface/hover.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/audio/sfx/Interface/click.wav" type="AudioStream" id=2]
 [ext_resource path="res://src/GUISteering/SteerableContainer.gd" type="Script" id=3]
+[ext_resource path="res://assets/FocusedPanel.tres" type="Theme" id=4]
 
-[node name="HBoxContainer" type="HBoxContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="ReferenceRect" type="PanelContainer"]
+margin_right = 14.0
+margin_bottom = 14.0
 focus_mode = 1
-size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource( 4 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -20,3 +21,5 @@ stream = ExtResource( 1 )
 
 [node name="ActionSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]

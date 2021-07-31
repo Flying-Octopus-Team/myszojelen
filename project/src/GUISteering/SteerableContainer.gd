@@ -1,17 +1,39 @@
-extends HBoxContainer
+extends PanelContainer
 
 class_name SteerableContainer
+
+var focus_entered_theme : Theme = load("res://assets/FocusedPanel.tres")
+var focus_exited_theme : Theme = load("res://assets/Panel.tres")
+
+var focus_entered_stylebox_color_begin : Color = focus_entered_theme.get_stylebox("panel", "PanelContainer").get_border_color()
+var focus_entered_stylebox_color_end : Color = Color.white
+var invert_stylebox_colors : bool = true
 
 var should_handle_input : bool = true
 
 var gui_steering = GUISteering.new()
 
 func _ready():
+	set_theme(focus_exited_theme)
+
 	connect("focus_entered", self, "_on_focus_entered")
 	connect("focus_exited", self, "_on_focus_exited")
 
 	Settings.connect("audio_effects_volume_changed", self, "set_audio_volume")
 	set_audio_volume(Settings.audio_effects_volume)
+
+	$Tween.interpolate_property(focus_entered_theme.get_stylebox("panel", "PanelContainer"), "border_color", null, Color.white, 0.5, Tween.TRANS_LINEAR)
+	$Tween.connect("tween_all_completed", self, "_on_tween_completed")
+
+
+func _on_tween_completed() -> void:
+	if invert_stylebox_colors:
+		$Tween.interpolate_property(focus_entered_theme.get_stylebox("panel", "PanelContainer"), "border_color", focus_entered_stylebox_color_end, focus_entered_stylebox_color_begin, 0.5, Tween.TRANS_LINEAR)
+	else:
+		$Tween.interpolate_property(focus_entered_theme.get_stylebox("panel", "PanelContainer"), "border_color", focus_entered_stylebox_color_begin, focus_entered_stylebox_color_end, 0.5, Tween.TRANS_LINEAR)
+	$Tween.start()
+	invert_stylebox_colors = not invert_stylebox_colors
+
 
 func _gui_input(event):
 	accept_event()
@@ -49,7 +71,8 @@ func _match_input_event(event):
 			get_action_child().handle_action(gui_steering.gui_actions.press)
 
 func _on_focus_entered(): 
-	get_action_child().handle_on_focus_entered()
+	set_theme(focus_entered_theme)
+	$Tween.start()
 	$FocusSound.play()
 
 	_create_delay()
@@ -60,7 +83,8 @@ func _create_delay() -> void:
 	should_handle_input = true
 
 func _on_focus_exited():
-	get_action_child().handle_on_focus_exited()
+	set_theme(focus_exited_theme)
+	$Tween.stop($Tween)
 
 
 func set_audio_volume(value: float) -> void:

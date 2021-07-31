@@ -77,7 +77,7 @@ func _show_screen(screen_to_show) -> void:
 
 func _disable_all_buttons() -> void:
 	for hboxcontainer in main.get_children():
-		var button = hboxcontainer.get_child(2)
+		var button = hboxcontainer.get_child(3)
 		button.set_disabled(true)
 
 	find_node("PollContinue").set_disabled(true)
