@@ -3,7 +3,7 @@ extends FocusableVBoxContainer
 onready var master_volume_slider : HSlider = $MasterVolume/TextureRect/MasterVolumeSlider
 onready var audio_effects_slider : HSlider = $SoundEffects/TextureRect/SoundEffectsSlider
 
-onready var steering_btn : TextureButton = $SteeringBtnContainer/SteeringBtn
+onready var steering_btn : TextureButton = $HBoxContainer/SteeringBtnContainer/SteeringBtn
 
 onready var language_en_button : TextureButton = $Language/Container/English
 onready var language_pl_button : TextureButton = $Language/Container/Polish

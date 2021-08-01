@@ -87,7 +87,7 @@ __meta__ = {
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
-margin_bottom = 508.0
+margin_bottom = 478.0
 focus_neighbour_bottom = NodePath("MasterVolume")
 focus_mode = 1
 script = ExtResource( 1 )
@@ -111,16 +111,16 @@ align = 1
 [node name="MasterVolume" parent="MainSettings" instance=ExtResource( 18 )]
 margin_top = 89.0
 margin_right = 640.0
-margin_bottom = 169.0
+margin_bottom = 177.0
 rect_min_size = Vector2( 0, 80 )
-focus_neighbour_top = NodePath("../BackBtnContainer")
+focus_neighbour_top = NodePath("../HBoxContainer/BackBtnContainer")
 focus_neighbour_bottom = NodePath("../SoundEffects")
 
 [node name="Label" type="Label" parent="MainSettings/MasterVolume"]
 margin_left = 5.0
-margin_top = 23.0
+margin_top = 27.0
 margin_right = 175.0
-margin_bottom = 56.0
+margin_bottom = 60.0
 size_flags_horizontal = 0
 text = "MUSIC_KEY"
 __meta__ = {
@@ -131,7 +131,7 @@ __meta__ = {
 margin_left = 235.0
 margin_top = 5.0
 margin_right = 635.0
-margin_bottom = 75.0
+margin_bottom = 83.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 8
 texture = ExtResource( 23 )
@@ -165,18 +165,18 @@ __meta__ = {
 }
 
 [node name="SoundEffects" parent="MainSettings" instance=ExtResource( 18 )]
-margin_top = 173.0
+margin_top = 181.0
 margin_right = 640.0
-margin_bottom = 253.0
+margin_bottom = 269.0
 rect_min_size = Vector2( 0, 80 )
 focus_neighbour_top = NodePath("../MasterVolume")
 focus_neighbour_bottom = NodePath("../Language")
 
 [node name="Label" type="Label" parent="MainSettings/SoundEffects"]
 margin_left = 5.0
-margin_top = 23.0
+margin_top = 27.0
 margin_right = 317.0
-margin_bottom = 56.0
+margin_bottom = 60.0
 size_flags_horizontal = 0
 text = "AUDIO_EFFECTS_KEY"
 __meta__ = {
@@ -187,7 +187,7 @@ __meta__ = {
 margin_left = 285.0
 margin_top = 5.0
 margin_right = 635.0
-margin_bottom = 75.0
+margin_bottom = 83.0
 rect_min_size = Vector2( 350, 0 )
 size_flags_horizontal = 8
 texture = ExtResource( 23 )
@@ -219,12 +219,12 @@ __meta__ = {
 }
 
 [node name="Language" parent="MainSettings" instance=ExtResource( 18 )]
-margin_top = 257.0
+margin_top = 273.0
 margin_right = 640.0
-margin_bottom = 395.0
+margin_bottom = 411.0
 rect_min_size = Vector2( 0, 128 )
 focus_neighbour_top = NodePath("../SoundEffects")
-focus_neighbour_bottom = NodePath("../SteeringBtnContainer")
+focus_neighbour_bottom = NodePath("../HBoxContainer/BackBtnContainer")
 
 [node name="Label" type="Label" parent="MainSettings/Language"]
 margin_left = 5.0
@@ -269,15 +269,54 @@ toggle_mode = true
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 4 )
 
-[node name="SteeringBtnContainer" parent="MainSettings" instance=ExtResource( 18 )]
-margin_top = 399.0
-margin_right = 366.0
-margin_bottom = 442.0
-focus_neighbour_top = NodePath("../Language")
-focus_neighbour_bottom = NodePath("../BackBtnContainer")
+[node name="HBoxContainer" type="HBoxContainer" parent="MainSettings"]
+margin_top = 415.0
+margin_right = 640.0
+margin_bottom = 458.0
+
+[node name="BackBtnContainer" parent="MainSettings/HBoxContainer" instance=ExtResource( 18 )]
+margin_right = 170.0
+margin_bottom = 43.0
+focus_neighbour_left = NodePath("../SteeringBtnContainer")
+focus_neighbour_top = NodePath("../SteeringBtnContainer")
+focus_neighbour_right = NodePath("../SteeringBtnContainer")
+focus_neighbour_bottom = NodePath("../../MasterVolume")
 size_flags_horizontal = 0
 
-[node name="SteeringBtn" parent="MainSettings/SteeringBtnContainer" instance=ExtResource( 9 )]
+[node name="BackBtn" parent="MainSettings/HBoxContainer/BackBtnContainer" instance=ExtResource( 9 )]
+margin_left = 5.0
+margin_top = 6.0
+margin_right = 165.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 160, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 10
+texture_normal = null
+texture_pressed = null
+texture_hover = null
+upscale_on_hover = true
+downscale_on_press = true
+should_scale = false
+
+[node name="Label" type="Label" parent="MainSettings/HBoxContainer/BackBtnContainer/BackBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "BACK_KEY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SteeringBtnContainer" parent="MainSettings/HBoxContainer" instance=ExtResource( 18 )]
+margin_left = 274.0
+margin_right = 640.0
+margin_bottom = 43.0
+focus_neighbour_left = NodePath("../BackBtnContainer")
+focus_neighbour_top = NodePath("../../Language")
+focus_neighbour_right = NodePath("../BackBtnContainer")
+focus_neighbour_bottom = NodePath("../../MasterVolume")
+size_flags_horizontal = 10
+
+[node name="SteeringBtn" parent="MainSettings/HBoxContainer/SteeringBtnContainer" instance=ExtResource( 9 )]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 361.0
@@ -290,41 +329,10 @@ upscale_on_hover = true
 downscale_on_press = true
 should_scale = false
 
-[node name="Label" type="Label" parent="MainSettings/SteeringBtnContainer/SteeringBtn"]
+[node name="Label" type="Label" parent="MainSettings/HBoxContainer/SteeringBtnContainer/SteeringBtn"]
 margin_right = 40.0
 margin_bottom = 33.0
 text = "CHANGE_STEERING_KEY"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BackBtnContainer" parent="MainSettings" instance=ExtResource( 18 )]
-margin_top = 446.0
-margin_right = 170.0
-margin_bottom = 488.0
-focus_neighbour_top = NodePath("../SteeringBtnContainer")
-focus_neighbour_bottom = NodePath("../MasterVolume")
-size_flags_horizontal = 0
-
-[node name="BackBtn" parent="MainSettings/BackBtnContainer" instance=ExtResource( 9 )]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 165.0
-margin_bottom = 37.0
-rect_min_size = Vector2( 160, 32 )
-size_flags_horizontal = 0
-size_flags_vertical = 10
-texture_normal = null
-texture_pressed = null
-texture_hover = null
-upscale_on_hover = true
-downscale_on_press = true
-should_scale = false
-
-[node name="Label" type="Label" parent="MainSettings/BackBtnContainer/BackBtn"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "BACK_KEY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -334,7 +342,7 @@ visible = false
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
-margin_bottom = 508.0
+margin_bottom = 478.0
 focus_neighbour_bottom = NodePath("MenuButtonContainer")
 focus_mode = 1
 script = ExtResource( 3 )
@@ -1161,10 +1169,6 @@ __meta__ = {
 [editable path="MainSettings/SoundEffects"]
 
 [editable path="MainSettings/Language"]
-
-[editable path="MainSettings/SteeringBtnContainer"]
-
-[editable path="MainSettings/BackBtnContainer"]
 
 [editable path="SteeringSettings/MenuButtonContainer"]
 
