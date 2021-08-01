@@ -1,6 +1,6 @@
-extends VBoxContainer
+extends Control
 
-class_name FocusableVBoxContainer
+class_name FocusableContainer
 
 var gui_steering = GUISteering.new()
 

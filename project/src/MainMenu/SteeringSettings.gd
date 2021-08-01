@@ -1,4 +1,4 @@
-extends FocusableVBoxContainer
+extends FocusableContainer
 
 onready var menu : Button = $MenuButtonContainer/MenuButton
 

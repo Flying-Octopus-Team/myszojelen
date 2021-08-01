@@ -3,8 +3,8 @@ extends Control
 signal next_screen_requested
 
 onready var fade_layer = $FadeLayer
-onready var arrow_btn = $NextArrow
-onready var play_btn = $PlayBtn
+onready var arrow_btn = $NextArrowRect/NextArrow
+onready var play_btn = $PlayBtnRect/PlayBtn
 
 onready var developers_screen = $DevelopersScreen
 
@@ -26,8 +26,7 @@ var game_scene = preload("res://src/Game/Game.tscn")
 
 
 func _ready() -> void:
-	for i in range(1, story_screens.size()):
-		var screen = story_screens[i]
+	for screen in story_screens:
 		screen.hide()
 
 	change_screen_sound.set_volume_db(linear2db(Settings.audio_effects_volume))
@@ -40,6 +39,8 @@ func _ready() -> void:
 	MusicPlayer.call_deferred("play", 0.0, "Oriental")
 
 	story_screens[2].texture = load(tr("INTRO_STORY_TEXTURE_KEY"))
+
+	developers_screen.get_node("Origin/Panel/XBtnContainer/XBtn").connect("pressed", story_screens[0].get_node("MarginContainer"), "grab_focus")
 
 
 func start() -> void:
@@ -56,7 +57,10 @@ func start() -> void:
 	yield(fade_layer, "faded_out")
 	
 	_show_screen(1)
-	
+
+	arrow_btn.focus_neighbour_left = ""
+	arrow_btn.focus_neighbour_right = ""
+
 	yield(fade_layer, "faded_in")
 	yield(self, "next_screen_requested")
 	
@@ -88,6 +92,7 @@ func _fade_out(color_id:int) -> void:
 func _show_screen(screen_id:int, custom_fade_time:float=fade_time) -> void:
 	fade_layer.fade_in(fade_colors[screen_id], custom_fade_time)
 	story_screens[screen_id].show()
+	story_screens[screen_id].get_child(0).grab_focus()
 
 
 func _unhandled_input(event) -> void:

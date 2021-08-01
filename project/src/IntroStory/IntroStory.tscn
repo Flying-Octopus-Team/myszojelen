@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/intro_story/intro_story2.png" type="Texture" id=1]
 [ext_resource path="res://assets/intro_story/intro_story1.png" type="Texture" id=2]
+[ext_resource path="res://src/GUISteering/FocusableContainer.gd" type="Script" id=3]
 [ext_resource path="res://src/IntroStory/IntroStory.gd" type="Script" id=4]
 [ext_resource path="res://src/FadeScreen/FadeLayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/intro_story/buttons/arrow.png" type="Texture" id=6]
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Buttons/DevelopersButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/GUISteering/SteerableContainer.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/fonts/tres/shojumaru_20.tres" type="DynamicFont" id=10]
 [ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=11]
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=12]
@@ -36,10 +38,13 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="Story1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+focus_neighbour_bottom = NodePath("../../NextArrowRect")
+focus_mode = 1
 custom_constants/margin_right = 30
 custom_constants/margin_top = 0
 custom_constants/margin_left = 600
 custom_constants/margin_bottom = 100
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -57,11 +62,19 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="DevelopersButton" parent="Story1" instance=ExtResource( 8 )]
-margin_left = 36.5847
+[node name="DevelopersRect" parent="Story1" instance=ExtResource( 9 )]
+margin_left = 36.585
 margin_top = 528.877
 margin_right = 360.585
 margin_bottom = 700.877
+focus_neighbour_left = NodePath("../../NextArrowRect")
+focus_neighbour_right = NodePath("../../NextArrowRect")
+
+[node name="DevelopersButton" parent="Story1/DevelopersRect" instance=ExtResource( 8 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 319.0
+margin_bottom = 167.0
 
 [node name="Story2" type="TextureRect" parent="."]
 visible = false
@@ -77,10 +90,13 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="Story2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+focus_neighbour_bottom = NodePath("../../NextArrowRect")
+focus_mode = 1
 custom_constants/margin_right = 30
 custom_constants/margin_top = 0
 custom_constants/margin_left = 600
 custom_constants/margin_bottom = 90
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -112,9 +128,12 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="Story3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+focus_neighbour_bottom = NodePath("../../PlayBtnRect")
+focus_mode = 1
 custom_constants/margin_right = 30
 custom_constants/margin_top = 30
 custom_constants/margin_left = 782
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -122,8 +141,8 @@ __meta__ = {
 [node name="Label" type="Label" parent="Story3/MarginContainer"]
 margin_left = 782.0
 margin_top = 30.0
-margin_right = 1250.0
-margin_bottom = 720.0
+margin_right = 1242.0
+margin_bottom = 684.0
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -132,20 +151,34 @@ text = "INTRO3_KEY"
 align = 1
 autowrap = true
 
-[node name="NextArrow" parent="." instance=ExtResource( 7 )]
-margin_left = 830.072
-margin_top = 543.544
-margin_right = 1289.07
-margin_bottom = 724.544
+[node name="NextArrowRect" parent="." instance=ExtResource( 9 )]
+margin_left = 830.0
+margin_top = 544.0
+margin_right = 1270.0
+margin_bottom = 707.0
+focus_neighbour_left = NodePath("../Story1/DevelopersRect")
+focus_neighbour_right = NodePath("../Story1/DevelopersRect")
+
+[node name="NextArrow" parent="NextArrowRect" instance=ExtResource( 7 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 435.0
+margin_bottom = 158.0
 texture_normal = ExtResource( 6 )
 texture_pressed = null
 texture_hover = null
 
-[node name="PlayBtn" parent="." instance=ExtResource( 7 )]
-margin_left = 794.746
-margin_top = 481.143
-margin_right = 1276.75
-margin_bottom = 716.143
+[node name="PlayBtnRect" parent="." instance=ExtResource( 9 )]
+margin_left = 795.0
+margin_top = 481.0
+margin_right = 1245.0
+margin_bottom = 699.0
+
+[node name="PlayBtn" parent="PlayBtnRect" instance=ExtResource( 7 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 445.0
+margin_bottom = 213.0
 
 [node name="DevelopersScreen" parent="." instance=ExtResource( 12 )]
 visible = false
@@ -156,6 +189,6 @@ visible = false
 stream = ExtResource( 14 )
 
 [node name="ClickSound" parent="." instance=ExtResource( 17 )]
-[connection signal="pressed" from="Story1/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]
-[connection signal="pressed" from="NextArrow" to="." method="_on_NextArrow_pressed"]
-[connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]
+[connection signal="pressed" from="Story1/DevelopersRect/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]
+[connection signal="pressed" from="NextArrowRect/NextArrow" to="." method="_on_NextArrow_pressed"]
+[connection signal="pressed" from="PlayBtnRect/PlayBtn" to="." method="_on_PlayBtn_pressed"]

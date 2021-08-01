@@ -5,7 +5,7 @@ class_name SteerableContainer
 var focus_entered_theme : Theme = load("res://assets/FocusedPanel.tres")
 var focus_exited_theme : Theme = load("res://assets/Panel.tres")
 
-var focus_entered_stylebox_color_begin : Color = focus_entered_theme.get_stylebox("panel", "PanelContainer").get_border_color()
+var focus_entered_stylebox_color_begin : Color = Color("#936e43")
 var focus_entered_stylebox_color_end : Color = Color.white
 var invert_stylebox_colors : bool = true
 
@@ -52,10 +52,12 @@ func _match_input_event(event):
 
 	match event:
 		gui_steering.gui_actions.down:
-			get_node(get_focus_neighbour(MARGIN_BOTTOM)).grab_focus()
+			if get_focus_neighbour(MARGIN_BOTTOM) != "":
+				get_node(get_focus_neighbour(MARGIN_BOTTOM)).grab_focus()
 
 		gui_steering.gui_actions.up:
-			get_node(get_focus_neighbour(MARGIN_TOP)).grab_focus()
+			if get_focus_neighbour(MARGIN_TOP) != "":
+				get_node(get_focus_neighbour(MARGIN_TOP)).grab_focus()
 
 		gui_steering.gui_actions.left:
 			if get_focus_neighbour(MARGIN_LEFT) != "":

@@ -1,4 +1,4 @@
-extends FocusableVBoxContainer
+extends FocusableContainer
 
 onready var master_volume_slider : HSlider = $MasterVolume/TextureRect/MasterVolumeSlider
 onready var audio_effects_slider : HSlider = $SoundEffects/TextureRect/SoundEffectsSlider

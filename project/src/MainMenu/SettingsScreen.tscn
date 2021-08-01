@@ -23,19 +23,19 @@
 [ext_resource path="res://src/GUISteering/SteerableMenuButton.gd" type="Script" id=22]
 [ext_resource path="res://assets/slider/slider_background.png" type="Texture" id=23]
 [ext_resource path="res://assets/screens/themes/PopupTheme.tres" type="Theme" id=24]
-[ext_resource path="res://src/GUISteering/FocusableVBoxContainer.gd" type="Script" id=25]
+[ext_resource path="res://src/GUISteering/FocusableContainer.gd" type="Script" id=25]
 [ext_resource path="res://src/MainMenu/SteeringButton.gd" type="Script" id=26]
 [ext_resource path="res://src/Buttons/TextButton.tscn" type="PackedScene" id=27]
 
-[sub_resource type="Theme" id=10]
+[sub_resource type="Theme" id=1]
 
-[sub_resource type="StyleBoxLine" id=11]
+[sub_resource type="StyleBoxLine" id=2]
 color = Color( 0.121569, 0.0666667, 0.0352941, 1 )
 grow_begin = -6.0
 grow_end = -6.0
 thickness = 8
 
-[sub_resource type="StyleBoxLine" id=12]
+[sub_resource type="StyleBoxLine" id=3]
 color = Color( 0.576471, 0.431373, 0.262745, 1 )
 grow_begin = -6.0
 grow_end = 0.0
@@ -152,12 +152,12 @@ rect_min_size = Vector2( 300, 0 )
 rect_scale = Vector2( 0.9, 1 )
 size_flags_horizontal = 10
 size_flags_vertical = 3
-theme = SubResource( 10 )
+theme = SubResource( 1 )
 custom_icons/grabber_highlight = ExtResource( 10 )
 custom_icons/grabber = ExtResource( 10 )
-custom_styles/slider = SubResource( 11 )
-custom_styles/grabber_area_highlight = SubResource( 12 )
-custom_styles/grabber_area = SubResource( 12 )
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area_highlight = SubResource( 3 )
+custom_styles/grabber_area = SubResource( 3 )
 max_value = 1.0
 step = 0.0
 value = 1.0
@@ -209,9 +209,9 @@ size_flags_horizontal = 10
 size_flags_vertical = 4
 custom_icons/grabber_highlight = ExtResource( 10 )
 custom_icons/grabber = ExtResource( 10 )
-custom_styles/slider = SubResource( 11 )
-custom_styles/grabber_area_highlight = SubResource( 12 )
-custom_styles/grabber_area = SubResource( 12 )
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area_highlight = SubResource( 3 )
+custom_styles/grabber_area = SubResource( 3 )
 max_value = 1.0
 step = 0.0
 value = 1.0
