@@ -1,7 +1,7 @@
 extends FocusableVBoxContainer
 
-onready var master_volume_slider : HSlider = $MasterVolume/MasterVolumeSlider
-onready var audio_effects_slider : HSlider = $SoundEffects/SoundEffectsSlider
+onready var master_volume_slider : HSlider = $MasterVolume/TextureRect/MasterVolumeSlider
+onready var audio_effects_slider : HSlider = $SoundEffects/TextureRect/SoundEffectsSlider
 
 onready var steering_btn : TextureButton = $SteeringBtnContainer/SteeringBtn
 

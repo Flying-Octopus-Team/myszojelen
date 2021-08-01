@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://src/MainMenu/MainSettings.gd" type="Script" id=1]
 [ext_resource path="res://src/MainMenu/inputbutton.gd" type="Script" id=2]
@@ -22,24 +22,24 @@
 [ext_resource path="res://src/GUISteering/FocusableLanguageContainer.gd" type="Script" id=20]
 [ext_resource path="res://src/GUISteering/FocusableSlider.gd" type="Script" id=21]
 [ext_resource path="res://src/GUISteering/SteerableMenuButton.gd" type="Script" id=22]
+[ext_resource path="res://assets/slider/slider_background.png" type="Texture" id=23]
 [ext_resource path="res://assets/screens/themes/PopupTheme.tres" type="Theme" id=24]
 [ext_resource path="res://src/GUISteering/FocusableVBoxContainer.gd" type="Script" id=25]
 [ext_resource path="res://src/MainMenu/SteeringButton.gd" type="Script" id=26]
 
-[sub_resource type="StyleBoxLine" id=1]
+[sub_resource type="Theme" id=10]
+
+[sub_resource type="StyleBoxLine" id=11]
 color = Color( 0.121569, 0.0666667, 0.0352941, 1 )
 grow_begin = -6.0
 grow_end = -6.0
-thickness = 4
+thickness = 8
 
-[sub_resource type="StyleBoxLine" id=2]
+[sub_resource type="StyleBoxLine" id=12]
 color = Color( 0.576471, 0.431373, 0.262745, 1 )
 grow_begin = -6.0
 grow_end = 0.0
-thickness = 4
-
-[sub_resource type="StyleBoxFlat" id=3]
-draw_center = false
+thickness = 8
 
 [sub_resource type="StyleBoxFlat" id=4]
 draw_center = false
@@ -53,18 +53,21 @@ draw_center = false
 [sub_resource type="StyleBoxFlat" id=7]
 draw_center = false
 
-[sub_resource type="Theme" id=8]
+[sub_resource type="StyleBoxFlat" id=8]
+draw_center = false
+
+[sub_resource type="Theme" id=9]
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
 Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 Button/constants/hseparation = 2
 Button/fonts/font = null
-Button/styles/disabled = SubResource( 3 )
-Button/styles/focus = SubResource( 4 )
-Button/styles/hover = SubResource( 5 )
-Button/styles/normal = SubResource( 6 )
-Button/styles/pressed = SubResource( 7 )
+Button/styles/disabled = SubResource( 4 )
+Button/styles/focus = SubResource( 5 )
+Button/styles/hover = SubResource( 6 )
+Button/styles/normal = SubResource( 7 )
+Button/styles/pressed = SubResource( 8 )
 
 [node name="SettingsScreen" type="MarginContainer"]
 margin_left = 284.0
@@ -81,11 +84,10 @@ __meta__ = {
 }
 
 [node name="MainSettings" type="VBoxContainer" parent="."]
-visible = false
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
-margin_bottom = 478.0
+margin_bottom = 508.0
 focus_neighbour_bottom = NodePath("MasterVolume")
 focus_mode = 1
 script = ExtResource( 1 )
@@ -109,85 +111,117 @@ align = 1
 [node name="MasterVolume" parent="MainSettings" instance=ExtResource( 18 )]
 margin_top = 89.0
 margin_right = 640.0
-margin_bottom = 142.0
+margin_bottom = 169.0
+rect_min_size = Vector2( 0, 80 )
 focus_neighbour_top = NodePath("../BackBtnContainer")
 focus_neighbour_bottom = NodePath("../SoundEffects")
 
 [node name="Label" type="Label" parent="MainSettings/MasterVolume"]
 margin_left = 5.0
-margin_top = 10.0
+margin_top = 23.0
 margin_right = 175.0
-margin_bottom = 43.0
+margin_bottom = 56.0
 size_flags_horizontal = 0
 text = "MUSIC_KEY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MasterVolumeSlider" type="HSlider" parent="MainSettings/MasterVolume"]
-margin_left = 335.0
+[node name="TextureRect" type="TextureRect" parent="MainSettings/MasterVolume"]
+margin_left = 235.0
 margin_top = 5.0
 margin_right = 635.0
-margin_bottom = 48.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 8
+texture = ExtResource( 23 )
+expand = true
+script = ExtResource( 21 )
+
+[node name="MasterVolumeSlider" type="HSlider" parent="MainSettings/MasterVolume/TextureRect"]
+anchor_left = 0.154
+anchor_top = 0.257
+anchor_right = 0.829
+anchor_bottom = 0.871
+margin_left = 0.0832176
+margin_top = 0.0100002
+margin_right = 30.0832
+margin_bottom = 0.029995
 rect_min_size = Vector2( 300, 0 )
+rect_scale = Vector2( 0.9, 1 )
 size_flags_horizontal = 10
 size_flags_vertical = 3
+theme = SubResource( 10 )
 custom_icons/grabber_highlight = ExtResource( 10 )
 custom_icons/grabber = ExtResource( 10 )
-custom_styles/slider = SubResource( 1 )
-custom_styles/grabber_area_highlight = SubResource( 2 )
-custom_styles/grabber_area = SubResource( 2 )
+custom_styles/slider = SubResource( 11 )
+custom_styles/grabber_area_highlight = SubResource( 12 )
+custom_styles/grabber_area = SubResource( 12 )
 max_value = 1.0
 step = 0.0
 value = 1.0
-script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SoundEffects" parent="MainSettings" instance=ExtResource( 18 )]
-margin_top = 146.0
+margin_top = 173.0
 margin_right = 640.0
-margin_bottom = 200.0
+margin_bottom = 253.0
+rect_min_size = Vector2( 0, 80 )
 focus_neighbour_top = NodePath("../MasterVolume")
 focus_neighbour_bottom = NodePath("../Language")
 
 [node name="Label" type="Label" parent="MainSettings/SoundEffects"]
 margin_left = 5.0
-margin_top = 10.0
+margin_top = 23.0
 margin_right = 317.0
-margin_bottom = 43.0
+margin_bottom = 56.0
 size_flags_horizontal = 0
 text = "AUDIO_EFFECTS_KEY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SoundEffectsSlider" type="HSlider" parent="MainSettings/SoundEffects"]
-margin_left = 335.0
+[node name="TextureRect" type="TextureRect" parent="MainSettings/SoundEffects"]
+margin_left = 285.0
 margin_top = 5.0
 margin_right = 635.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 300, 0 )
+margin_bottom = 75.0
+rect_min_size = Vector2( 350, 0 )
+size_flags_horizontal = 8
+texture = ExtResource( 23 )
+expand = true
+script = ExtResource( 21 )
+
+[node name="SoundEffectsSlider" type="HSlider" parent="MainSettings/SoundEffects/TextureRect"]
+anchor_left = 0.126
+anchor_top = 0.029
+anchor_right = 0.84
+anchor_bottom = 0.8
+margin_left = -0.100006
+margin_top = 9.96999
+margin_bottom = 25.985
+rect_min_size = Vector2( 250, 0 )
+rect_scale = Vector2( 1, 0.8 )
 size_flags_horizontal = 10
 size_flags_vertical = 4
 custom_icons/grabber_highlight = ExtResource( 10 )
 custom_icons/grabber = ExtResource( 10 )
-custom_styles/slider = SubResource( 1 )
-custom_styles/grabber_area_highlight = SubResource( 2 )
-custom_styles/grabber_area = SubResource( 2 )
+custom_styles/slider = SubResource( 11 )
+custom_styles/grabber_area_highlight = SubResource( 12 )
+custom_styles/grabber_area = SubResource( 12 )
 max_value = 1.0
 step = 0.0
 value = 1.0
-script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Language" parent="MainSettings" instance=ExtResource( 18 )]
-margin_top = 204.0
+margin_top = 257.0
 margin_right = 640.0
-margin_bottom = 342.0
+margin_bottom = 395.0
 rect_min_size = Vector2( 0, 128 )
 focus_neighbour_top = NodePath("../SoundEffects")
 focus_neighbour_bottom = NodePath("../SteeringBtnContainer")
@@ -236,9 +270,9 @@ texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 4 )
 
 [node name="SteeringBtnContainer" parent="MainSettings" instance=ExtResource( 18 )]
-margin_top = 346.0
+margin_top = 399.0
 margin_right = 366.0
-margin_bottom = 400.0
+margin_bottom = 442.0
 focus_neighbour_top = NodePath("../Language")
 focus_neighbour_bottom = NodePath("../BackBtnContainer")
 size_flags_horizontal = 0
@@ -247,7 +281,7 @@ size_flags_horizontal = 0
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 361.0
-margin_bottom = 49.0
+margin_bottom = 38.0
 rect_min_size = Vector2( 356, 33 )
 texture_normal = null
 texture_pressed = null
@@ -265,18 +299,18 @@ __meta__ = {
 }
 
 [node name="BackBtnContainer" parent="MainSettings" instance=ExtResource( 18 )]
-margin_top = 404.0
+margin_top = 446.0
 margin_right = 170.0
-margin_bottom = 458.0
+margin_bottom = 488.0
 focus_neighbour_top = NodePath("../SteeringBtnContainer")
 focus_neighbour_bottom = NodePath("../MasterVolume")
 size_flags_horizontal = 0
 
 [node name="BackBtn" parent="MainSettings/BackBtnContainer" instance=ExtResource( 9 )]
 margin_left = 5.0
-margin_top = 17.0
+margin_top = 5.0
 margin_right = 165.0
-margin_bottom = 49.0
+margin_bottom = 37.0
 rect_min_size = Vector2( 160, 32 )
 size_flags_horizontal = 0
 size_flags_vertical = 10
@@ -300,7 +334,7 @@ visible = false
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
-margin_bottom = 478.0
+margin_bottom = 508.0
 focus_neighbour_bottom = NodePath("MenuButtonContainer")
 focus_mode = 1
 script = ExtResource( 3 )
@@ -336,7 +370,7 @@ margin_right = 635.0
 margin_bottom = 38.0
 focus_mode = 1
 size_flags_horizontal = 8
-theme = SubResource( 8 )
+theme = SubResource( 9 )
 enabled_focus_mode = 1
 text = "None"
 script = ExtResource( 22 )
