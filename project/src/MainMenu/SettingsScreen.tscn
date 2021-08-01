@@ -8,7 +8,6 @@
 [ext_resource path="res://assets/language-icons/pl.png" type="Texture" id=6]
 [ext_resource path="res://assets/Steering/8directions_icon.png" type="Texture" id=7]
 [ext_resource path="res://assets/language-icons/pl_selected.png" type="Texture" id=8]
-[ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/slider/grabber_small.png" type="Texture" id=10]
 [ext_resource path="res://assets/fonts/tres/shojumaru_48.tres" type="DynamicFont" id=11]
 [ext_resource path="res://src/MainMenu/InputButton.gd" type="Script" id=12]
@@ -26,6 +25,7 @@
 [ext_resource path="res://assets/screens/themes/PopupTheme.tres" type="Theme" id=24]
 [ext_resource path="res://src/GUISteering/FocusableVBoxContainer.gd" type="Script" id=25]
 [ext_resource path="res://src/MainMenu/SteeringButton.gd" type="Script" id=26]
+[ext_resource path="res://src/Buttons/TextButton.tscn" type="PackedScene" id=27]
 
 [sub_resource type="Theme" id=10]
 
@@ -84,6 +84,7 @@ __meta__ = {
 }
 
 [node name="MainSettings" type="VBoxContainer" parent="."]
+visible = false
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
@@ -275,7 +276,7 @@ margin_right = 640.0
 margin_bottom = 458.0
 
 [node name="BackBtnContainer" parent="MainSettings/HBoxContainer" instance=ExtResource( 18 )]
-margin_right = 170.0
+margin_right = 166.0
 margin_bottom = 43.0
 focus_neighbour_left = NodePath("../SteeringBtnContainer")
 focus_neighbour_top = NodePath("../SteeringBtnContainer")
@@ -283,28 +284,12 @@ focus_neighbour_right = NodePath("../SteeringBtnContainer")
 focus_neighbour_bottom = NodePath("../../MasterVolume")
 size_flags_horizontal = 0
 
-[node name="BackBtn" parent="MainSettings/HBoxContainer/BackBtnContainer" instance=ExtResource( 9 )]
+[node name="BackBtn" parent="MainSettings/HBoxContainer/BackBtnContainer" instance=ExtResource( 27 )]
 margin_left = 5.0
-margin_top = 6.0
-margin_right = 165.0
+margin_top = 5.0
+margin_right = 161.0
 margin_bottom = 38.0
-rect_min_size = Vector2( 160, 32 )
-size_flags_horizontal = 0
-size_flags_vertical = 10
-texture_normal = null
-texture_pressed = null
-texture_hover = null
-upscale_on_hover = true
-downscale_on_press = true
-should_scale = false
-
-[node name="Label" type="Label" parent="MainSettings/HBoxContainer/BackBtnContainer/BackBtn"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 text = "BACK_KEY"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SteeringBtnContainer" parent="MainSettings/HBoxContainer" instance=ExtResource( 18 )]
 margin_left = 274.0
@@ -316,29 +301,14 @@ focus_neighbour_right = NodePath("../BackBtnContainer")
 focus_neighbour_bottom = NodePath("../../MasterVolume")
 size_flags_horizontal = 10
 
-[node name="SteeringBtn" parent="MainSettings/HBoxContainer/SteeringBtnContainer" instance=ExtResource( 9 )]
+[node name="SteeringBtn" parent="MainSettings/HBoxContainer/SteeringBtnContainer" instance=ExtResource( 27 )]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 361.0
 margin_bottom = 38.0
-rect_min_size = Vector2( 356, 33 )
-texture_normal = null
-texture_pressed = null
-texture_hover = null
-upscale_on_hover = true
-downscale_on_press = true
-should_scale = false
-
-[node name="Label" type="Label" parent="MainSettings/HBoxContainer/SteeringBtnContainer/SteeringBtn"]
-margin_right = 40.0
-margin_bottom = 33.0
 text = "CHANGE_STEERING_KEY"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SteeringSettings" type="VBoxContainer" parent="."]
-visible = false
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
@@ -1104,37 +1074,21 @@ margin_bottom = 458.0
 size_flags_vertical = 10
 
 [node name="BackBtnContainer" parent="SteeringSettings/HBoxContainer2" instance=ExtResource( 18 )]
-margin_right = 170.0
+margin_right = 154.0
 margin_bottom = 43.0
 focus_neighbour_left = NodePath("../ResetBtnContainer")
 focus_neighbour_right = NodePath("../ResetBtnContainer")
 focus_neighbour_bottom = NodePath("../../MenuButtonContainer")
 
-[node name="BackBtn" parent="SteeringSettings/HBoxContainer2/BackBtnContainer" instance=ExtResource( 9 )]
+[node name="BackBtn" parent="SteeringSettings/HBoxContainer2/BackBtnContainer" instance=ExtResource( 27 )]
 margin_left = 5.0
-margin_top = 6.0
-margin_right = 165.0
+margin_top = 5.0
+margin_right = 149.0
 margin_bottom = 38.0
-rect_min_size = Vector2( 160, 32 )
-focus_mode = 0
-size_flags_horizontal = 0
-size_flags_vertical = 10
-texture_normal = null
-texture_pressed = null
-texture_hover = null
-upscale_on_hover = true
-downscale_on_press = true
-
-[node name="Label" type="Label" parent="SteeringSettings/HBoxContainer2/BackBtnContainer/BackBtn"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 text = " <-   Wróć"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ResetBtnContainer" parent="SteeringSettings/HBoxContainer2" instance=ExtResource( 18 )]
-margin_left = 368.0
+margin_left = 366.0
 margin_right = 640.0
 margin_bottom = 43.0
 focus_neighbour_left = NodePath("../BackBtnContainer")
@@ -1142,27 +1096,12 @@ focus_neighbour_right = NodePath("../BackBtnContainer")
 focus_neighbour_bottom = NodePath("../../MenuButtonContainer")
 size_flags_horizontal = 10
 
-[node name="ResetBtn" parent="SteeringSettings/HBoxContainer2/ResetBtnContainer" instance=ExtResource( 9 )]
+[node name="ResetBtn" parent="SteeringSettings/HBoxContainer2/ResetBtnContainer" instance=ExtResource( 27 )]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 267.0
+margin_right = 269.0
 margin_bottom = 38.0
-rect_min_size = Vector2( 262, 33 )
-focus_mode = 0
-size_flags_horizontal = 10
-texture_normal = null
-texture_pressed = null
-texture_hover = null
-upscale_on_hover = true
-downscale_on_press = true
-
-[node name="Label" type="Label" parent="SteeringSettings/HBoxContainer2/ResetBtnContainer/ResetBtn"]
-margin_right = 40.0
-margin_bottom = 33.0
-text = "Restore default"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Restore Default"
 
 [editable path="MainSettings/MasterVolume"]
 
