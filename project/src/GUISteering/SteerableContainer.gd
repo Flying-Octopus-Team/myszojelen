@@ -19,6 +19,8 @@ func _ready():
 	connect("focus_entered", self, "_on_focus_entered")
 	connect("focus_exited", self, "_on_focus_exited")
 
+	get_action_child().connect("mouse_entered", self, "grab_focus")
+
 	Settings.connect("audio_effects_volume_changed", self, "set_audio_volume")
 	set_audio_volume(Settings.audio_effects_volume)
 
