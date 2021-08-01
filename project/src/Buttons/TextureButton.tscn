@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/intro_story/buttons/playBtn.png" type="Texture" id=1]
 [ext_resource path="res://assets/intro_story/buttons/playBtn_hover.png" type="Texture" id=2]
 [ext_resource path="res://assets/intro_story/buttons/playBtn_press.png" type="Texture" id=3]
 [ext_resource path="res://src/Buttons/TextureButton.gd" type="Script" id=4]
-[ext_resource path="res://src/UISounds/ClickSound.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/audio/sfx/Interface/hover.wav" type="AudioStream" id=6]
 
 [node name="TextureButton" type="TextureButton"]
 margin_right = 482.0
@@ -20,8 +18,3 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="HoverSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-
-[node name="ClickSound" parent="." instance=ExtResource( 5 )]
