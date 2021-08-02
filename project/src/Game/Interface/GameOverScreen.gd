@@ -1,4 +1,4 @@
-extends Control
+extends FocusableContainer
 
 class Quote:
 	var quote : String

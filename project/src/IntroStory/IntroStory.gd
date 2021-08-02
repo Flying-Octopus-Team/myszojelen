@@ -40,7 +40,7 @@ func _ready() -> void:
 
 	story_screens[2].texture = load(tr("INTRO_STORY_TEXTURE_KEY"))
 
-	developers_screen.get_node("Origin/Panel/XBtnContainer/XBtn").connect("pressed", story_screens[0].get_node("MarginContainer"), "grab_focus")
+	developers_screen.get_node("Origin/Panel/XBtnContainer/XBtn").connect("pressed", story_screens[0].get_node("MarginContainer"), "grab_focus")	
 
 
 func start() -> void:

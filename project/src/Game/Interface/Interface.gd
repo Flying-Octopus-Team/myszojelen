@@ -20,9 +20,8 @@ enum Screen { NONE, LEVEL_WON, GAME_OVER, END_OF_GAME }
 var current_screen : int = Screen.NONE
 
 func _ready() -> void:
-	$Control/EndOfGameScreen/PollLink.connect("pressed", self, "_on_PollLink_pressed")
 	$Control/LevelWonScreen/ReplayBtn.connect("pressed", self, "_on_ReplayBtn_pressed")
-	HUD.get_node("VBoxContainer/SettingsBtn").connect("pressed", settings_screen.get_node("TextureRect/SettingsScreen"), "show_screen")
+	HUD.get_node("PauseBtn").connect("pressed", settings_screen.get_node("TextureRect/PauseScreen"), "show")#show_screen
 	reset()
 
 
@@ -90,7 +89,3 @@ func _on_ResetGameBtn_pressed():
 
 func _on_DevelopersButton_pressed():
 	developers_screen.show()
-	
-	
-func _on_PollLink_pressed() -> void:
-	OS.shell_open("https://forms.gle/auhz4PorwtGVGCLs8")

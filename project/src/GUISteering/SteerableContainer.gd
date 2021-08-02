@@ -40,7 +40,7 @@ func _on_tween_completed() -> void:
 func _gui_input(event):
 	accept_event()
 
-	if not should_handle_input:
+	if not should_handle_input or not is_visible():
 		return
 		
 	if event is InputEventMouseMotion and not has_focus():
@@ -74,16 +74,17 @@ func _match_input_event(event):
 		gui_steering.gui_actions.press:
 			get_action_child().handle_action(gui_steering.gui_actions.press)
 
+
 func _on_focus_entered(): 
 	set_theme(focus_entered_theme)
 	$Tween.start()
 	$FocusSound.play()
 
-	_create_delay()
+	create_delay()
 
-func _create_delay() -> void:
+func create_delay(delay: float = 0.15) -> void:
 	should_handle_input = false
-	yield(get_tree().create_timer(0.15), "timeout")
+	yield(get_tree().create_timer(delay), "timeout")
 	should_handle_input = true
 
 func _on_focus_exited():

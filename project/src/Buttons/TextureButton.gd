@@ -59,3 +59,4 @@ func handle_action(action: int) -> void:
 		return
 	
 	emit_signal("pressed")
+	get_parent().create_delay(1.1)

@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Game/World/Characters/enemies/Enemy.gd"
 }, {
-"base": "Container",
+"base": "Control",
 "class": "FocusableContainer",
 "language": "GDScript",
 "path": "res://src/GUISteering/FocusableContainer.gd"

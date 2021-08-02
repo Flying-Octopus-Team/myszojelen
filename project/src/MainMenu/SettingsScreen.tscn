@@ -84,7 +84,6 @@ __meta__ = {
 }
 
 [node name="MainSettings" type="VBoxContainer" parent="."]
-visible = false
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
