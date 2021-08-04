@@ -42,6 +42,7 @@ windows:
     - godot -v --export "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
   artifacts:
     name: $EXPORT_NAME-$CI_JOB_NAME
+    untracked: true
     paths:
       - build/windows
   rules:
