@@ -120,6 +120,8 @@ itchio:web:
 
 success_notification:
   stage: notification
+  dependencies: 
+    - windows
   script:
     - apt-get update -qq
     - apt-get -qq -y install curl
