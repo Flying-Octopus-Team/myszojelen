@@ -14,7 +14,7 @@ stages:
 variables:
   PROJECT_DIRECTORY: project
   EXPORT_NAME: wojowniczy_myszojelen
-  LINK_ARTIFACT: true
+  LINK_ARTIFACT: 'true'
 
 linux:
   stage: export
