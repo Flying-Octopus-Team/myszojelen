@@ -123,6 +123,9 @@ success_notification:
   stage: notification
   dependencies: 
     - windows
+  artifacts:
+    paths:
+      - build/*
   script:
     - apt-get update -qq
     - apt-get -qq -y install curl
