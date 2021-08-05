@@ -23,10 +23,10 @@ func _ready():
 	set_audio_volume(Settings.audio_effects_volume)
 
 	$Tween.interpolate_property(focus_entered_theme.get_stylebox("panel", "PanelContainer"), "border_color", null, Color.white, 0.5, Tween.TRANS_LINEAR)
-	$Tween.connect("tween_all_completed", self, "_on_tween_completed")
+	$Tween.connect("tween_all_completed", self, "_on_frame_animation_completed")
 
 
-func _on_tween_completed() -> void:
+func _on_frame_animation_completed() -> void:
 	if invert_stylebox_colors:
 		$Tween.interpolate_property(focus_entered_theme.get_stylebox("panel", "PanelContainer"), "border_color", focus_entered_stylebox_color_end, focus_entered_stylebox_color_begin, 0.5, Tween.TRANS_LINEAR)
 	else:
@@ -56,19 +56,23 @@ func _match_input_event(event):
 			get_node(get_focus_neighbour(MARGIN_TOP)).grab_focus()
 
 		gui_steering.gui_actions.left:
-			if get_focus_neighbour(MARGIN_LEFT) != "":
+			if not _is_neighbour_empty(MARGIN_LEFT):
 				get_node(get_focus_neighbour(MARGIN_LEFT)).grab_focus()
 			else:
-				get_action_child().handle_action(gui_steering.gui_actions.left)
+				get_last_child().handle_action(gui_steering.gui_actions.left)
 
 		gui_steering.gui_actions.right:
-			if get_focus_neighbour(MARGIN_RIGHT) != "":
+			if not _is_neighbour_empty(MARGIN_RIGHT):
 				get_node(get_focus_neighbour(MARGIN_RIGHT)).grab_focus()
 			else:
-				get_action_child().handle_action(gui_steering.gui_actions.right)
+				get_last_child().handle_action(gui_steering.gui_actions.right)
 
 		gui_steering.gui_actions.press:
-			get_action_child().handle_action(gui_steering.gui_actions.press)
+			get_last_child().handle_action(gui_steering.gui_actions.press)
+
+
+func _is_neighbour_empty(neighbour: int) -> bool:
+	return get_focus_neighbour(neighbour) == ""
 
 func _on_focus_entered(): 
 	set_theme(focus_entered_theme)
@@ -92,5 +96,5 @@ func set_audio_volume(value: float) -> void:
 	$ActionSound.set_volume_db(linear2db(value))
 
 
-func get_action_child():
+func get_last_child() -> Node:
 	return get_child(get_child_count()-1)
