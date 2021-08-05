@@ -62,7 +62,7 @@ func _match_input_event(event):
 				get_action_child().handle_action(gui_steering.gui_actions.left)
 
 		gui_steering.gui_actions.right:
-			if get_focus_neighbour(MARGIN_RIGHT):
+			if get_focus_neighbour(MARGIN_RIGHT) != "":
 				get_node(get_focus_neighbour(MARGIN_RIGHT)).grab_focus()
 			else:
 				get_action_child().handle_action(gui_steering.gui_actions.right)
