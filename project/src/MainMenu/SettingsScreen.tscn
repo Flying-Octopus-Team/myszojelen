@@ -1,7 +1,6 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://src/MainMenu/MainSettings.gd" type="Script" id=1]
-[ext_resource path="res://src/MainMenu/inputbutton.gd" type="Script" id=2]
 [ext_resource path="res://src/MainMenu/SteeringSettings.gd" type="Script" id=3]
 [ext_resource path="res://assets/language-icons/en_selected.png" type="Texture" id=4]
 [ext_resource path="res://assets/language-icons/en.png" type="Texture" id=5]
@@ -11,7 +10,6 @@
 [ext_resource path="res://assets/slider/grabber_small.png" type="Texture" id=10]
 [ext_resource path="res://assets/fonts/tres/shojumaru_48.tres" type="DynamicFont" id=11]
 [ext_resource path="res://src/MainMenu/InputButton.gd" type="Script" id=12]
-[ext_resource path="res://src/MainMenu/Inputbutton.gd" type="Script" id=13]
 [ext_resource path="res://assets/Steering/gamepad_icon.png" type="Texture" id=14]
 [ext_resource path="res://assets/Steering/rotation_icon.png" type="Texture" id=15]
 [ext_resource path="res://assets/Steering/4directions_icon.png" type="Texture" id=16]
@@ -672,8 +670,7 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 13 )
-action_name = "8directions_up"
+script = ExtResource( 12 )
 
 [node name="UpLeftHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 53.0
@@ -700,8 +697,7 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 13 )
-action_name = "8directions_up_left"
+script = ExtResource( 12 )
 
 [node name="UpRightHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 106.0
@@ -728,8 +724,7 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 13 )
-action_name = "8directions_up_roght"
+script = ExtResource( 12 )
 
 [node name="DownHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 159.0
@@ -756,8 +751,7 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 13 )
-action_name = "8directions_down"
+script = ExtResource( 12 )
 
 [node name="DownLeftHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 212.0
@@ -784,8 +778,7 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 13 )
-action_name = "8directions_down_left"
+script = ExtResource( 12 )
 
 [node name="DownRightHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 265.0
@@ -812,8 +805,7 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 13 )
-action_name = "8directions_down_right"
+script = ExtResource( 12 )
 
 [node name="LeftHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 318.0
@@ -840,8 +832,7 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 13 )
-action_name = "8directions_left"
+script = ExtResource( 12 )
 
 [node name="RightHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 371.0
@@ -868,8 +859,7 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 13 )
-action_name = "8directions_right"
+script = ExtResource( 12 )
 
 [node name="ShotHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 424.0
@@ -896,8 +886,7 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 13 )
-action_name = "shot_keyboard"
+script = ExtResource( 12 )
 
 [node name="ControlsPad" type="VBoxContainer" parent="SteeringSettings"]
 visible = false
@@ -932,8 +921,7 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 2 )
-action_name = "shot_pad"
+script = ExtResource( 12 )
 
 [node name="ControlsVirtualPad" type="VBoxContainer" parent="SteeringSettings"]
 visible = false
@@ -977,8 +965,7 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 2 )
-action_name = "rotation_up"
+script = ExtResource( 12 )
 
 [node name="RightHBox" parent="SteeringSettings/ControlsRotations" instance=ExtResource( 18 )]
 margin_top = 53.0
@@ -1005,11 +992,10 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 2 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-action_name = "rotation_right"
 
 [node name="LeftHBox" parent="SteeringSettings/ControlsRotations" instance=ExtResource( 18 )]
 margin_top = 106.0
@@ -1036,8 +1022,7 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 2 )
-action_name = "rotation_left"
+script = ExtResource( 12 )
 
 [node name="ShotHBox" parent="SteeringSettings/ControlsRotations" instance=ExtResource( 18 )]
 margin_top = 159.0
@@ -1064,8 +1049,7 @@ size_flags_horizontal = 9
 enabled_focus_mode = 0
 flat = true
 align = 2
-script = ExtResource( 2 )
-action_name = "shot_keyboard"
+script = ExtResource( 12 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="SteeringSettings"]
 margin_top = 415.0
