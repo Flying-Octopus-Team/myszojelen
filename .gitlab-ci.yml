@@ -14,6 +14,7 @@ stages:
 variables:
   PROJECT_DIRECTORY: project
   EXPORT_NAME: wojowniczy_myszojelen
+  LINK_ARTIFACT: 'true'
 
 linux:
   stage: export
@@ -41,6 +42,7 @@ windows:
     - godot -v --export "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
   artifacts:
     name: $EXPORT_NAME-$CI_JOB_NAME
+    untracked: true
     paths:
       - build/windows
   rules:
@@ -119,6 +121,11 @@ itchio:web:
 
 success_notification:
   stage: notification
+  dependencies: 
+    - windows
+  artifacts:
+    paths:
+      - build/*
   script:
     - apt-get update -qq
     - apt-get -qq -y install curl
