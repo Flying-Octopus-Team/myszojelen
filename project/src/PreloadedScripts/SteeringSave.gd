@@ -31,7 +31,7 @@ func _create_default_file_if_needed() -> void:
 
 	var err = config_file.load(DEFAULT_CONFIG_FILE)
 
-	if err != OK:
+	if err != OK || config_file.get_value("version", "value", 1.0) != CONFIG_VERSION:
 		save_input(DEFAULT_CONFIG_FILE)
 
 
