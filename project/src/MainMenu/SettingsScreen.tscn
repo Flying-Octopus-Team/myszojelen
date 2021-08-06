@@ -260,9 +260,9 @@ __meta__ = {
 }
 
 [node name="English" type="TextureButton" parent="MainSettings/Language/Container"]
-margin_right = 306.0
+margin_right = 128.0
 margin_bottom = 128.0
-size_flags_horizontal = 9
+size_flags_horizontal = 0
 toggle_mode = true
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 4 )
