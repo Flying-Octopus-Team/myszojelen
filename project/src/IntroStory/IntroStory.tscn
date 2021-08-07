@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/intro_story/intro_story2.png" type="Texture" id=1]
 [ext_resource path="res://assets/intro_story/intro_story1.png" type="Texture" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/audio/sfx/Interface/change_screen.wav" type="AudioStream" id=13]
 [ext_resource path="res://src/UISounds/ClickSound.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/fo_hand_draw.png" type="Texture" id=15]
+[ext_resource path="res://assets/fonts/tres/shojumaru_48.tres" type="DynamicFont" id=16]
 
 [node name="IntroStory" type="Control"]
 anchor_right = 1.0
@@ -75,6 +77,8 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = 319.0
 margin_bottom = 167.0
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 15 )
 
 [node name="Story2" type="TextureRect" parent="."]
 visible = false
@@ -164,21 +168,44 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = 435.0
 margin_bottom = 158.0
-texture_normal = ExtResource( 6 )
+texture_normal = null
 texture_pressed = null
 texture_hover = null
 
+[node name="TextureRect" type="TextureRect" parent="NextArrowRect/NextArrow"]
+margin_right = 430.0
+margin_bottom = 154.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PlayBtnRect" parent="." instance=ExtResource( 9 )]
-margin_left = 795.0
-margin_top = 481.0
+margin_left = 867.0
+margin_top = 518.0
 margin_right = 1245.0
 margin_bottom = 699.0
 
 [node name="PlayBtn" parent="PlayBtnRect" instance=ExtResource( 7 )]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 445.0
-margin_bottom = 213.0
+margin_right = 373.0
+margin_bottom = 176.0
+
+[node name="Label" type="Label" parent="PlayBtnRect/PlayBtn"]
+margin_left = 96.6824
+margin_top = 45.2274
+margin_right = 248.682
+margin_bottom = 121.227
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
+text = "Graj"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DevelopersScreen" parent="." instance=ExtResource( 12 )]
 visible = false

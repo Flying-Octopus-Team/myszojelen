@@ -1,8 +1,8 @@
 extends TextureButton
 
-export var upscale_on_hover := false
-export var downscale_on_press := false
+const CHILD_MOVE_VECTOR : Vector2 = Vector2(10, 10)
 
+onready var default_texture : Texture = get_normal_texture()
 
 func _ready() -> void:
 	rect_pivot_offset = rect_size * 0.5
@@ -11,52 +11,36 @@ func _ready() -> void:
 	connect("button_up", self, "_on_button_up")
 
 
-func _on_mouse_entered() -> void:
-	if upscale_on_hover:
-		_upscale()
-
-
-func _on_mouse_exited() -> void:
-	if upscale_on_hover:
-		_reset_scale()
-
-
 func _on_button_down() -> void:
-	if downscale_on_press:
-		_downscale()
+	get_child(0).rect_position += CHILD_MOVE_VECTOR
 
 
 func _on_button_up() -> void:
-	if upscale_on_hover:
-		_upscale()
-	else:
-		_reset_scale()
-
-
-func _upscale() -> void:
-	if not disabled:
-		rect_scale = Vector2(1.05, 1.05)
-
-
-func _downscale() -> void:
-	if not disabled:
-		rect_scale = Vector2(0.95, 0.95)
-
-
-func _reset_scale() -> void:
-	rect_scale = Vector2.ONE
-
-
-func set_disabled(dis:bool) -> void:
-	disabled = dis
-	
-	if dis:
-		_reset_scale()
+	get_child(0).rect_position -= CHILD_MOVE_VECTOR
 
 
 func handle_action(action: int) -> void:
 	if action == GUISteering.gui_actions.left or action == GUISteering.gui_actions.right:
 		return
 	
-	emit_signal("pressed")
+	_set_button_pressed()
 	get_parent().create_delay(1.1)
+
+
+func _set_button_pressed() -> void:
+	emit_signal("pressed")
+
+	_on_button_down()
+	set_normal_texture(get_pressed_texture())
+
+	yield(get_tree().create_timer(0.5), "timeout")
+
+	_on_button_up()
+	set_normal_texture(default_texture)
+
+
+func on_focus_entered() -> void:
+	set_normal_texture(get_hover_texture())
+
+func on_focus_exited() -> void:
+	set_normal_texture(default_texture)

@@ -3,8 +3,8 @@ extends Control
 signal next_screen_requested
 
 onready var fade_layer = $FadeLayer
-onready var arrow_btn = $NextArrowRect/NextArrow
-onready var play_btn = $PlayBtnRect/PlayBtn
+onready var arrow_btn_rect = $NextArrowRect
+onready var play_btn_rect = $PlayBtnRect
 
 onready var developers_screen = $DevelopersScreen
 
@@ -32,9 +32,6 @@ func _ready() -> void:
 	change_screen_sound.set_volume_db(linear2db(Settings.audio_effects_volume))
 	$ClickSound.set_volume_db(Settings.audio_effects_volume)
 	
-	arrow_btn.show()
-	play_btn.hide()
-	
 	call_deferred("start")
 	MusicPlayer.call_deferred("play", 0.0, "Oriental")
 
@@ -58,8 +55,8 @@ func start() -> void:
 	
 	_show_screen(1)
 
-	arrow_btn.focus_neighbour_left = ""
-	arrow_btn.focus_neighbour_right = ""
+	arrow_btn_rect.focus_neighbour_left = ""
+	arrow_btn_rect.focus_neighbour_right = ""
 
 	yield(fade_layer, "faded_in")
 	yield(self, "next_screen_requested")
@@ -70,8 +67,8 @@ func start() -> void:
 	
 	_show_screen(2)
 	
-	arrow_btn.hide()
-	play_btn.show()
+	arrow_btn_rect.hide()
+	play_btn_rect.show()
 	
 	yield(fade_layer, "faded_in")
 	yield(self, "next_screen_requested")

@@ -39,9 +39,6 @@ func _ready() -> void:
 	
 	MusicPlayer.call_deferred("play", 0.0, "MenuTheme")
 	
-	if GameSave.get_level() == 0:
-		find_node("ContinueBtn").disabled = true
-	
 
 func _new_game() -> void:
 	_disable_all_buttons()
@@ -57,6 +54,10 @@ func _new_game() -> void:
 
 
 func _continue_game() -> void:
+	if GameSave.get_level() == 0:
+		_new_game()
+		return
+
 	_disable_all_buttons()
 	
 	fade_layer.fade_out(fade_color, fade_time)

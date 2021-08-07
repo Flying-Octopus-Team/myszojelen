@@ -461,9 +461,18 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = 95.0
 margin_bottom = 95.0
-texture_normal = ExtResource( 8 )
+texture_normal = null
 texture_pressed = null
 texture_hover = null
+
+[node name="TextureRect" type="TextureRect" parent="Origin/Panel/XBtnContainer/XBtn"]
+margin_right = 91.0
+margin_bottom = 94.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MusicCredits" type="Control" parent="Origin/Panel"]
 margin_left = -23.5598
