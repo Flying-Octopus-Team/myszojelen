@@ -1,7 +1,7 @@
 extends "res://src/MainMenu/SettingsScreen.gd"
 
 func _ready():
-	$MainSettings/HBoxContainer/BackBtnContainer/BackBtn.connect("pressed", self, "_hide_screen")
+	$MainSettings/HBoxContainer/BackBtnContainer/BackBtn.connect("pressed", self, "hide")
 
 func hide():
 	.hide()

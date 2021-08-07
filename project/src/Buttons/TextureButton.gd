@@ -10,6 +10,10 @@ func _ready() -> void:
 	connect("button_down", self, "_on_button_down")
 	connect("button_up", self, "_on_button_up")
 
+	get_parent().connect("focus_entered", self, "on_focus_entered")
+	get_parent().connect("focus_exited", self, "on_focus_exited")
+
+	get_child(0).connect("mouse_entered", get_parent(), "grab_focus")
 
 func _on_button_down() -> void:
 	get_child(0).rect_position += CHILD_MOVE_VECTOR
