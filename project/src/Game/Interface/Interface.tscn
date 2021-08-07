@@ -31,11 +31,11 @@
 [ext_resource path="res://assets/SettingsMenu/restart_icon.png" type="Texture" id=37]
 [ext_resource path="res://assets/SettingsMenu/exit_icon.png" type="Texture" id=38]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 36
 font_data = ExtResource( 9 )
 
@@ -145,11 +145,11 @@ margin_right = 489.0
 margin_bottom = 129.0
 
 [node name="Label" type="Label" parent="Control/GameOverScreen/ReplayBtnRect/ReplayBtn"]
-margin_left = 55.6081
-margin_top = 28.6
-margin_right = 411.608
-margin_bottom = 77.6
-custom_fonts/font = SubResource( 2 )
+margin_left = 56.6675
+margin_top = 32.5767
+margin_right = 412.668
+margin_bottom = 81.5767
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
 text = "Spróbuj ponownie"
 __meta__ = {
@@ -187,7 +187,7 @@ margin_left = 64.0061
 margin_top = 33.7906
 margin_right = 468.006
 margin_bottom = 98.7906
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
 text = "Następny poziom"
 
@@ -307,7 +307,6 @@ visible = false
 
 [node name="SteeringScreen" type="Control" parent="."]
 pause_mode = 2
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -335,8 +334,10 @@ __meta__ = {
 margin_left = -4.0
 margin_top = 131.0
 margin_right = 1287.0
-margin_bottom = 664.0
+margin_bottom = 638.0
 rect_scale = Vector2( 0.998138, 1.16152 )
+focus_neighbour_bottom = NodePath("GridContainer/ReferenceRect")
+focus_mode = 1
 script = ExtResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -344,100 +345,133 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="SteeringScreen/SteeringContainer"]
 margin_right = 1291.0
-margin_bottom = 354.0
+margin_bottom = 507.0
 size_flags_horizontal = 3
-size_flags_vertical = 0
 columns = 3
 
-[node name="VBoxContainer1" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 113.0
-margin_right = 313.0
-margin_bottom = 175.0
+[node name="ReferenceRect" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
+margin_left = 108.0
+margin_top = 65.0
+margin_right = 318.0
+margin_bottom = 185.0
+focus_neighbour_left = NodePath("../ReferenceRect3")
+focus_neighbour_top = NodePath("../ReferenceRect4")
+focus_neighbour_right = NodePath("../ReferenceRect2")
+focus_neighbour_bottom = NodePath("../ReferenceRect4")
 size_flags_horizontal = 6
-
-[node name="4Directions" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer1"]
-margin_right = 200.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
-size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="4Directions" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/ReferenceRect"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 205.0
+margin_bottom = 115.0
+rect_min_size = Vector2( 200, 110 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture_normal = ExtResource( 28 )
 expand = true
-stretch_mode = 4
 script = ExtResource( 21 )
 upscale_on_hover = true
 upscale_on_press = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 431.0
-margin_right = 858.0
-margin_bottom = 175.0
+[node name="ReferenceRect2" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
+margin_left = 539.0
+margin_top = 60.0
+margin_right = 749.0
+margin_bottom = 190.0
+focus_neighbour_left = NodePath("../ReferenceRect")
+focus_neighbour_top = NodePath("../ReferenceRect5")
+focus_neighbour_right = NodePath("../ReferenceRect3")
+focus_neighbour_bottom = NodePath("../ReferenceRect5")
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
-[node name="8Directions" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer2"]
-margin_left = 113.0
-margin_right = 313.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
-size_flags_horizontal = 4
+[node name="8Directions" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/ReferenceRect2"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 205.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 200, 120 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture_normal = ExtResource( 23 )
 expand = true
-stretch_mode = 4
 script = ExtResource( 21 )
 upscale_on_hover = true
 upscale_on_press = true
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 975.0
-margin_right = 1175.0
-margin_bottom = 175.0
+[node name="ReferenceRect3" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
+margin_left = 970.0
+margin_top = 60.0
+margin_right = 1180.0
+margin_bottom = 190.0
+focus_neighbour_left = NodePath("../ReferenceRect2")
+focus_neighbour_right = NodePath("../ReferenceRect")
 size_flags_horizontal = 6
+size_flags_vertical = 6
 
-[node name="VirtualPad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer3"]
-margin_right = 200.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
+[node name="VirtualPad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/ReferenceRect3"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 205.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 200, 120 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 20 )
 expand = true
-stretch_mode = 4
 script = ExtResource( 21 )
 upscale_on_hover = true
 upscale_on_press = true
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 113.0
-margin_top = 179.0
-margin_right = 313.0
-margin_bottom = 354.0
+[node name="ReferenceRect4" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
+margin_left = 108.0
+margin_top = 255.0
+margin_right = 318.0
+margin_bottom = 385.0
+focus_neighbour_left = NodePath("../ReferenceRect5")
+focus_neighbour_top = NodePath("../ReferenceRect")
+focus_neighbour_right = NodePath("../ReferenceRect5")
+focus_neighbour_bottom = NodePath("../ReferenceRect")
 size_flags_horizontal = 6
+size_flags_vertical = 2
 
-[node name="Pad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer4"]
-margin_right = 200.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
-size_flags_horizontal = 4
+[node name="Pad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/ReferenceRect4"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 205.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 200, 120 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture_normal = ExtResource( 32 )
 expand = true
-stretch_mode = 4
 script = ExtResource( 21 )
 upscale_on_hover = true
 upscale_on_press = true
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 544.0
-margin_top = 179.0
-margin_right = 744.0
-margin_bottom = 354.0
+[node name="ReferenceRect5" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
+margin_left = 539.0
+margin_top = 255.0
+margin_right = 749.0
+margin_bottom = 385.0
+focus_neighbour_left = NodePath("../ReferenceRect4")
+focus_neighbour_top = NodePath("../ReferenceRect2")
+focus_neighbour_right = NodePath("../ReferenceRect4")
+focus_neighbour_bottom = NodePath("../ReferenceRect2")
 size_flags_horizontal = 6
+size_flags_vertical = 2
 
-[node name="Rotations" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer5"]
-margin_right = 200.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
-size_flags_horizontal = 4
+[node name="Rotations" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/ReferenceRect5"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 205.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 200, 120 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture_normal = ExtResource( 31 )
 expand = true
-stretch_mode = 4
 script = ExtResource( 21 )
 upscale_on_hover = true
 upscale_on_press = true
