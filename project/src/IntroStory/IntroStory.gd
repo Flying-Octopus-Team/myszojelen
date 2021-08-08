@@ -46,6 +46,7 @@ func start() -> void:
 	yield(fade_layer, "faded_in")
 	
 	change_screen_sound.play()
+	arrow_btn_rect.show()
 	
 	yield(self, "next_screen_requested")
 	

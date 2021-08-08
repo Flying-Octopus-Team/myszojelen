@@ -24,6 +24,6 @@ func _gui_input(event):
 	if not should_handle_input:
 		return
 
-	if gui_steering.get_action(event) != gui_steering.gui_actions.none:
+	if gui_steering.get_action(event) != gui_steering.gui_actions.none and get_node(get_focus_neighbour(MARGIN_BOTTOM)).visible:
 		get_node(get_focus_neighbour(MARGIN_BOTTOM)).grab_focus()
 	accept_event()

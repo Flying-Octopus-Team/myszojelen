@@ -52,21 +52,21 @@ func _match_input_event(event):
 
 	match event:
 		gui_steering.gui_actions.down:
-			if get_focus_neighbour(MARGIN_BOTTOM) != "":
+			if get_focus_neighbour(MARGIN_BOTTOM) != "" and get_node(get_focus_neighbour(MARGIN_BOTTOM)).visible:
 				get_node(get_focus_neighbour(MARGIN_BOTTOM)).grab_focus()
 
 		gui_steering.gui_actions.up:
-			if get_focus_neighbour(MARGIN_TOP) != "":
+			if get_focus_neighbour(MARGIN_TOP) != "" and get_node(get_focus_neighbour(MARGIN_TOP)).visible:
 				get_node(get_focus_neighbour(MARGIN_TOP)).grab_focus()
 
 		gui_steering.gui_actions.left:
-			if get_focus_neighbour(MARGIN_LEFT) != "":
+			if get_focus_neighbour(MARGIN_LEFT) != "" and get_node(get_focus_neighbour(MARGIN_LEFT)).visible:
 				get_node(get_focus_neighbour(MARGIN_LEFT)).grab_focus()
 			else:
 				get_action_child().handle_action(gui_steering.gui_actions.left)
 
 		gui_steering.gui_actions.right:
-			if get_focus_neighbour(MARGIN_RIGHT):
+			if get_focus_neighbour(MARGIN_RIGHT) and get_node(get_focus_neighbour(MARGIN_RIGHT)).visible:
 				get_node(get_focus_neighbour(MARGIN_RIGHT)).grab_focus()
 			else:
 				get_action_child().handle_action(gui_steering.gui_actions.right)
