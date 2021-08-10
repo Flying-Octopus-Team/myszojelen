@@ -18,7 +18,6 @@
 [ext_resource path="res://src/MainMenu/SettingsScreen.tscn" type="PackedScene" id=24]
 [ext_resource path="res://src/Game/Interface/SteeringContainer.gd" type="Script" id=25]
 [ext_resource path="res://src/GUISteering/SteerableContainer.tscn" type="PackedScene" id=26]
-[ext_resource path="res://assets/fonts/tres/shojumaru_48.tres" type="DynamicFont" id=27]
 [ext_resource path="res://assets/Steering/wsad1.png" type="Texture" id=28]
 [ext_resource path="res://src/Game/Interface/SettingsScreen.gd" type="Script" id=29]
 [ext_resource path="res://src/Game/Interface/PauseScreen.gd" type="Script" id=30]
@@ -41,6 +40,10 @@ font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 100
 font_data = ExtResource( 9 )
 
 [node name="Interface" type="CanvasLayer"]
@@ -516,31 +519,31 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Settings/TextureRect/PauseScreen"]
-margin_right = 1086.0
-margin_bottom = 65.0
+margin_right = 1150.0
+margin_bottom = 133.0
 size_flags_vertical = 0
-custom_fonts/font = ExtResource( 27 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.690196, 0.466667, 0.196078, 1 )
 text = "PAUSE_MENU_KEY"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen"]
 margin_top = 181.0
-margin_right = 1086.0
+margin_right = 1150.0
 margin_bottom = 381.0
 rect_min_size = Vector2( 0, 200 )
 size_flags_vertical = 4
 alignment = 1
 
 [node name="UnpauseHBox" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen/HBoxContainer"]
-margin_right = 268.0
+margin_right = 284.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="UnpauseBtnRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/UnpauseHBox" instance=ExtResource( 26 )]
-margin_left = 34.0
-margin_right = 234.0
+margin_left = 42.0
+margin_right = 242.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
 focus_neighbour_left = NodePath("../../ReturnHBox/ReturnBtnRect")
@@ -567,15 +570,15 @@ __meta__ = {
 }
 
 [node name="RetryHBox" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen/HBoxContainer"]
-margin_left = 272.0
-margin_right = 541.0
+margin_left = 288.0
+margin_right = 573.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="RetryBtnRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/RetryHBox" instance=ExtResource( 26 )]
-margin_left = 34.0
-margin_right = 234.0
+margin_left = 42.0
+margin_right = 242.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
 focus_neighbour_left = NodePath("../../UnpauseHBox/UnpauseBtnRect")
@@ -602,15 +605,15 @@ __meta__ = {
 }
 
 [node name="SettingsHBox" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen/HBoxContainer"]
-margin_left = 545.0
-margin_right = 813.0
+margin_left = 577.0
+margin_right = 861.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="SettingsBtnRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/SettingsHBox" instance=ExtResource( 26 )]
-margin_left = 34.0
-margin_right = 234.0
+margin_left = 42.0
+margin_right = 242.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
 focus_neighbour_left = NodePath("../../RetryHBox/RetryBtnRect")
@@ -637,15 +640,15 @@ __meta__ = {
 }
 
 [node name="ReturnHBox" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen/HBoxContainer"]
-margin_left = 817.0
-margin_right = 1086.0
+margin_left = 865.0
+margin_right = 1150.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="ReturnBtnRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/ReturnHBox" instance=ExtResource( 26 )]
-margin_left = 34.0
-margin_right = 234.0
+margin_left = 42.0
+margin_right = 242.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
 focus_neighbour_left = NodePath("../../SettingsHBox/SettingsBtnRect")
