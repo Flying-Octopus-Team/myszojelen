@@ -11,12 +11,10 @@ onready var fade_layer := $FadeLayer
 
 onready var main = find_node("MainButtons")
 onready var settings = find_node("SettingsScreen")
-onready var pollscreen = find_node("PollScreen")
 
 onready var screens_dict := {
 	"main": main,
 	"settings": settings,
-	"pollscreen": pollscreen,
 }
 
 
@@ -29,18 +27,12 @@ func _ready() -> void:
 	
 	find_node("SettingsBtn").connect("pressed", self, "_show_screen", [settings])
 	find_node("BackBtn").connect("pressed", self, "_show_screen", [main])
-	find_node("PollBack").connect("pressed", self, "_show_screen", [main])
-	find_node("PollContinue").connect("pressed", self, "_new_game")
-	find_node("PollLink").connect("pressed", self, "_PollLink_pressed")
 	
 	_show_screen(main)
 	
 	train_animation.play("TrainIn")
 	
 	MusicPlayer.call_deferred("play", 0.0, "MenuTheme")
-	
-	if GameSave.get_level() == 0:
-		find_node("ContinueBtn").disabled = true
 	
 
 func _new_game() -> void:
@@ -57,6 +49,10 @@ func _new_game() -> void:
 
 
 func _continue_game() -> void:
+	if GameSave.get_level() == 0:
+		_new_game()
+		return
+
 	_disable_all_buttons()
 	
 	fade_layer.fade_out(fade_color, fade_time)
@@ -79,10 +75,6 @@ func _disable_all_buttons() -> void:
 	for hboxcontainer in main.get_children():
 		var button = hboxcontainer.get_child(3)
 		button.set_disabled(true)
-
-	find_node("PollContinue").set_disabled(true)
-	find_node("PollBack").set_disabled(true)
-	find_node("PollLink").set_disabled(true)
 
 
 func _exit_game() -> void:

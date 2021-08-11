@@ -45,6 +45,7 @@ func _prepare_current_level() -> void:
 	
 	if SteeringSave.steering_type == "none":
 		$"../Interface/SteeringScreen".show()
+		$"../Interface/SteeringScreen/SteeringContainer".grab_focus()
 		yield(get_node("../Interface/SteeringScreen/SteeringContainer"), "steering_set")
 		$"../Interface/SteeringScreen".hide()
 	else:

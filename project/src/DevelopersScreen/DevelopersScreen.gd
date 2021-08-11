@@ -1,4 +1,4 @@
-extends Control
+extends FocusableContainer
 
 onready var animatio_player = $AnimationPlayer
 

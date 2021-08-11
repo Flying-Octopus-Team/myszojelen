@@ -1,20 +1,17 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/MainMenu/menu.png" type="Texture" id=1]
 [ext_resource path="res://assets/MainMenu/board.png" type="Texture" id=2]
-[ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/fonts/tres/MainMenu.tres" type="DynamicFont" id=4]
 [ext_resource path="res://src/GUISteering/SteerableContainer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/GUISteering/FocusableVBoxContainer.gd" type="Script" id=6]
+[ext_resource path="res://src/GUISteering/FocusableContainer.gd" type="Script" id=6]
+[ext_resource path="res://src/Buttons/TextButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/MainMenu/MainMenu.gd" type="Script" id=8]
 [ext_resource path="res://src/IntroStory/IntroStory.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Game/Game.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/MainMenu/SettingsScreen.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/FadeScreen/FadeLayer.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/MainMenu/train.png" type="Texture" id=15]
-[ext_resource path="res://assets/screens/buttons/poll/PollClick.png" type="Texture" id=18]
-[ext_resource path="res://assets/screens/buttons/poll/Poll.png" type="Texture" id=19]
-[ext_resource path="res://assets/screens/buttons/poll/PollHover.png" type="Texture" id=20]
 
 [sub_resource type="Animation" id=1]
 resource_name = "TrainIn"
@@ -128,236 +125,85 @@ __meta__ = {
 }
 
 [node name="NewGameContainer" parent="Background/Board/MainButtons" instance=ExtResource( 5 )]
-margin_right = 760.0
-margin_bottom = 110.0
+margin_right = 793.0
+margin_bottom = 117.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_neighbour_top = NodePath("../ExitContainer")
 focus_neighbour_bottom = NodePath("../ContinueContainer")
 
-[node name="NewGameBtn" parent="Background/Board/MainButtons/NewGameContainer" instance=ExtResource( 3 )]
+[node name="NewGameBtn" parent="Background/Board/MainButtons/NewGameContainer" instance=ExtResource( 7 )]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 755.0
-margin_bottom = 105.0
-focus_mode = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-enabled_focus_mode = 0
-texture_normal = null
-texture_pressed = null
-texture_hover = null
-upscale_on_hover = true
-downscale_on_press = true
-should_scale = false
-
-[node name="Label" type="Label" parent="Background/Board/MainButtons/NewGameContainer/NewGameBtn"]
-margin_right = 750.0
-margin_bottom = 107.0
-size_flags_vertical = 1
+margin_right = 788.0
+margin_bottom = 112.0
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Nowa Gra"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "NEW_GAME_KEY"
 
 [node name="ContinueContainer" parent="Background/Board/MainButtons" instance=ExtResource( 5 )]
-margin_top = 114.0
-margin_right = 760.0
-margin_bottom = 224.0
+margin_top = 121.0
+margin_right = 793.0
+margin_bottom = 238.0
 focus_neighbour_top = NodePath("../NewGameContainer")
 focus_neighbour_bottom = NodePath("../SettingsContainer")
 
-[node name="ContinueBtn" parent="Background/Board/MainButtons/ContinueContainer" instance=ExtResource( 3 )]
+[node name="ContinueBtn" parent="Background/Board/MainButtons/ContinueContainer" instance=ExtResource( 7 )]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 755.0
-margin_bottom = 105.0
-focus_mode = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-enabled_focus_mode = 0
-texture_normal = null
-texture_pressed = null
-texture_hover = null
-upscale_on_hover = true
-downscale_on_press = true
-should_scale = false
-
-[node name="Label" type="Label" parent="Background/Board/MainButtons/ContinueContainer/ContinueBtn"]
-margin_right = 760.0
-margin_bottom = 109.0
+margin_right = 788.0
+margin_bottom = 112.0
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Kontynuuj"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "CONTINUE_KEY"
 
 [node name="SettingsContainer" parent="Background/Board/MainButtons" instance=ExtResource( 5 )]
-margin_top = 228.0
-margin_right = 760.0
-margin_bottom = 338.0
+margin_top = 242.0
+margin_right = 793.0
+margin_bottom = 359.0
 focus_neighbour_top = NodePath("../ContinueContainer")
 focus_neighbour_bottom = NodePath("../ExitContainer")
 
-[node name="SettingsBtn" parent="Background/Board/MainButtons/SettingsContainer" instance=ExtResource( 3 )]
+[node name="SettingsBtn" parent="Background/Board/MainButtons/SettingsContainer" instance=ExtResource( 7 )]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 755.0
-margin_bottom = 105.0
-focus_mode = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-enabled_focus_mode = 0
-texture_normal = null
-texture_pressed = null
-texture_hover = null
-upscale_on_hover = true
-downscale_on_press = true
-should_scale = false
-
-[node name="Label" type="Label" parent="Background/Board/MainButtons/SettingsContainer/SettingsBtn"]
-margin_right = 760.0
-margin_bottom = 109.0
+margin_right = 788.0
+margin_bottom = 112.0
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Ustawienia"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "SETTINGS_TITLE"
 
 [node name="ExitContainer" parent="Background/Board/MainButtons" instance=ExtResource( 5 )]
-margin_top = 342.0
-margin_right = 760.0
-margin_bottom = 453.0
+margin_top = 363.0
+margin_right = 793.0
+margin_bottom = 480.0
 focus_neighbour_top = NodePath("../SettingsContainer")
 focus_neighbour_bottom = NodePath("../NewGameContainer")
 
-[node name="ExitBtn" parent="Background/Board/MainButtons/ExitContainer" instance=ExtResource( 3 )]
+[node name="ExitBtn" parent="Background/Board/MainButtons/ExitContainer" instance=ExtResource( 7 )]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 755.0
-margin_bottom = 106.0
-focus_mode = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-enabled_focus_mode = 0
-texture_normal = null
-texture_pressed = null
-texture_hover = null
-upscale_on_hover = true
-downscale_on_press = true
-should_scale = false
-
-[node name="Label" type="Label" parent="Background/Board/MainButtons/ExitContainer/ExitBtn"]
-margin_right = 760.0
-margin_bottom = 109.0
+margin_right = 788.0
+margin_bottom = 112.0
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Wyjsćie"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "EXIT_KEY"
 
 [node name="SettingsScreen" parent="Background/Board" instance=ExtResource( 11 )]
 visible = false
 focus_mode = 1
-
-[node name="PollScreen" type="MarginContainer" parent="Background/Board"]
-visible = false
-margin_left = 284.0
-margin_top = 158.0
-margin_right = 1044.0
-margin_bottom = 611.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/Board/PollScreen"]
-margin_right = 760.0
-margin_bottom = 453.0
-
-[node name="PollBack" parent="Background/Board/PollScreen/VBoxContainer" instance=ExtResource( 3 )]
-margin_right = 160.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 160, 32 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = null
-texture_pressed = null
-texture_hover = null
-upscale_on_hover = true
-downscale_on_press = true
-
-[node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/PollBack"]
-margin_right = 40.0
-margin_bottom = 33.0
-text = "BACK_KEY"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="Background/Board/PollScreen/VBoxContainer"]
-margin_top = 36.0
-margin_right = 760.0
-margin_bottom = 379.0
-size_flags_vertical = 3
-
-[node name="Description" type="RichTextLabel" parent="Background/Board/PollScreen/VBoxContainer/MarginContainer"]
-margin_right = 760.0
-margin_bottom = 343.0
-text = "Nasz dzielny Myszojeleń się rozwija, a my wraz z nim. Dlatego chcemy Was spytać o zdanie i przygotowaliśmy ankietę. Pomoże nam przybliżyć kierunek rozwoju gry i najlepszy sposób sterowania.
-Chcemy zebrać jak największy feedback, dlatego jeśli możesz – poleć tę grę znajomym i wspólnie pomóżcie Wojowniczemu Myszojeleniowi przegonić wietnamskich drwali i uratować lasy tropikalne."
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/Board/PollScreen/VBoxContainer"]
-margin_top = 383.0
-margin_right = 760.0
-margin_bottom = 453.0
-size_flags_vertical = 8
-
-[node name="PollLink" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
-margin_right = 285.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 285, 70 )
-size_flags_horizontal = 0
-size_flags_vertical = 2
-texture_normal = ExtResource( 19 )
-texture_pressed = ExtResource( 18 )
-texture_hover = ExtResource( 20 )
-upscale_on_hover = true
-downscale_on_press = true
-
-[node name="PollContinue" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
-margin_left = 559.0
-margin_top = 38.0
-margin_right = 760.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 201, 32 )
-size_flags_horizontal = 10
-size_flags_vertical = 8
-texture_normal = null
-texture_pressed = null
-texture_hover = null
-upscale_on_hover = true
-downscale_on_press = true
-
-[node name="Label" type="Label" parent="Background/Board/PollScreen/VBoxContainer/HBoxContainer/PollContinue"]
-margin_right = 40.0
-margin_bottom = 33.0
-text = "CONTINUE_KEY"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="FadeLayer" parent="." instance=ExtResource( 13 )]
 

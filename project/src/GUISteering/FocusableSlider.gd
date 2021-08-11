@@ -1,8 +1,9 @@
-extends HSlider
+extends TextureRect
 
+onready var slider : HSlider = get_child(0)
 
 func handle_action(action: int) -> void:
 	if action == GUISteering.gui_actions.left:
-		set_value(max(get_min(), get_value()-0.01))
+		slider.set_value(max(slider.get_min(), slider.get_value()-0.01))
 	elif action == GUISteering.gui_actions.right:
-		set_value(min(get_max(), get_value()+0.01))
+		slider.set_value(min(slider.get_max(), slider.get_value()+0.01))

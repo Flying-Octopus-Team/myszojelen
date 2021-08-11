@@ -24,10 +24,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Game/World/Characters/enemies/Enemy.gd"
 }, {
-"base": "VBoxContainer",
-"class": "FocusableVBoxContainer",
+"base": "Control",
+"class": "FocusableContainer",
 "language": "GDScript",
-"path": "res://src/GUISteering/FocusableVBoxContainer.gd"
+"path": "res://src/GUISteering/FocusableContainer.gd"
 }, {
 "base": "GUIBaseSteeringScript",
 "class": "GUI4Directions",
@@ -83,7 +83,7 @@ _global_script_class_icons={
 "BaseLevel": "",
 "Character": "",
 "Enemy": "",
-"FocusableVBoxContainer": "",
+"FocusableContainer": "",
 "GUI4Directions": "",
 "GUI8Directions": "",
 "GUIBaseSteeringScript": "",
@@ -302,7 +302,7 @@ pointing/emulate_touch_from_mouse=true
 
 [locale]
 
-translations=PoolStringArray( "res://assets/Translations.csv", "res://assets/Translations.en.translation", "res://assets/Translations.pl.translation" )
+translations=PoolStringArray( "res://assets/Translations.en.translation", "res://assets/Translations.pl.translation" )
 
 [rendering]
 

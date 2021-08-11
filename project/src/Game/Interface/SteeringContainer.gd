@@ -1,4 +1,4 @@
-extends MarginContainer
+extends FocusableContainer
 
 signal steering_set
 
