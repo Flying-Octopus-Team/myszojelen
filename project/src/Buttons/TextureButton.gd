@@ -2,12 +2,16 @@ extends TextureButton
 
 export var upscale_on_hover := false
 export var downscale_on_press := false
+export var should_scale : bool = true
 
 
 func _ready() -> void:
 	rect_pivot_offset = rect_size * 0.5
-	connect("mouse_entered", self, "_on_mouse_entered")
-	connect("mouse_exited", self, "_on_mouse_exited")
+
+	if should_scale:
+		connect("mouse_entered", self, "_on_mouse_entered")
+		connect("mouse_exited", self, "_on_mouse_exited")
+
 	connect("button_down", self, "_on_button_down")
 	connect("button_up", self, "_on_button_up")
 
@@ -62,6 +66,18 @@ func set_disabled(dis:bool) -> void:
 	
 	if dis:
 		_reset_scale()
+
+func handle_on_focus_entered() -> void:
+	set_scale(Vector2(1.3, 1.3))
+
+func handle_on_focus_exited() -> void:
+	_reset_scale()
+
+func handle_action(action: int) -> void:
+	if action == GUISteering.gui_actions.left or action == GUISteering.gui_actions.right:
+		return
+	
+	emit_signal("pressed")
 
 func set_audio_volume(value: float) -> void:
 	$HoverSound.set_volume_db(linear2db(value))

@@ -4,6 +4,8 @@ export var action_name : String
 
 var pressed_button : bool = false
 
+var delayed_input : bool = false
+
 func _ready() -> void:
 	var action_list = InputMap.get_action_list(action_name)
 	if not action_list.empty():
@@ -18,6 +20,8 @@ func _name_button(event: InputEvent) -> void:
 
 
 func _pressed() -> void:
+	if delayed_input:
+		return
 	_disable_all_buttons()
 	_enable()
 
@@ -25,7 +29,6 @@ func _pressed() -> void:
 func _input(event):
 	if event is InputEventKey and pressed_button:
 		get_tree().set_input_as_handled()
-		set_process_input(false)
 
 		if not event.is_action("ui_cancel"):
 			_add_new_keybind_to_inputmap(event)
@@ -33,6 +36,8 @@ func _input(event):
 			SteeringSave.save_input()
 
 		pressed_button = false
+		_block_next_input_for_parent()
+
 	elif event is InputEventJoypadButton and pressed_button:
 		get_tree().set_input_as_handled()
 		set_process_input(false)
@@ -42,7 +47,13 @@ func _input(event):
 
 			SteeringSave.save_input()
 		pressed_button = false
+		_block_next_input_for_parent()
 
+
+func _block_next_input_for_parent() -> void:
+	$"../".should_handle_input = false
+	yield(get_tree().create_timer(0.15), "timeout")
+	$"../".should_handle_input = true
 
 func _add_new_keybind_to_inputmap(event: InputEventKey) -> void:
 	var scancode = OS.get_scancode_string(event.scancode)
@@ -81,13 +92,15 @@ func _erase_keybind_from_other_actions(scancode: String) -> void:
 
 func _enable() -> void:
 	text = ">"+text+"<"
-	set_process_input(true)
+	delayed_input = true
+	yield(get_tree().create_timer(0.15), "timeout")
+
 	pressed_button = true
+	delayed_input = false
 
 		
 func disable() -> void:
 	if pressed_button == true:
-		set_process_input(false)
 		pressed_button = false
 		text = text.substr(1, text.length()-2)
 
@@ -97,3 +110,10 @@ func _disable_all_buttons() -> void:
 		for button in action_hbox.get_children():
 			if button is Button:
 				button.disable()
+
+
+func handle_action(action: int) -> void:
+	if action == GUISteering.gui_actions.left or action == GUISteering.gui_actions.right:
+		return
+
+	_pressed()
