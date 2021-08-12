@@ -154,7 +154,8 @@ margin_right = 412.668
 margin_bottom = 81.5767
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
-text = "Spróbuj ponownie"
+text = "TRY_AGAIN_KEY"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -186,13 +187,14 @@ margin_right = 302.0
 margin_bottom = 0.0
 
 [node name="Label" type="Label" parent="Control/LevelWonScreen/NextLevelBtn"]
-margin_left = 64.0061
-margin_top = 33.7906
-margin_right = 468.006
-margin_bottom = 98.7906
+margin_left = 64.0
+margin_top = 34.0
+margin_right = 468.0
+margin_bottom = 83.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
-text = "Następny poziom"
+text = "NEXT_LEVEL_KEY"
+align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/LevelWonScreen"]
 anchor_right = 1.0
@@ -300,7 +302,8 @@ margin_right = 406.0
 margin_bottom = 80.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
-text = "ZAGRAJ PONOWNIE"
+text = "PLAY_AGAIN_KEY"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -310,6 +313,7 @@ visible = false
 
 [node name="SteeringScreen" type="Control" parent="."]
 pause_mode = 2
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -327,7 +331,7 @@ margin_left = 380.496
 margin_top = 56.6965
 margin_right = 832.496
 margin_bottom = 89.6965
-text = "STEERING_KEY"
+text = "STEERING_TYPE_KEY"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -375,8 +379,6 @@ size_flags_vertical = 0
 texture_normal = ExtResource( 28 )
 expand = true
 script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
 
 [node name="ReferenceRect2" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
 margin_left = 539.0
@@ -401,8 +403,6 @@ size_flags_vertical = 0
 texture_normal = ExtResource( 23 )
 expand = true
 script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
 
 [node name="ReferenceRect3" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
 margin_left = 970.0
@@ -424,8 +424,6 @@ size_flags_horizontal = 4
 texture_normal = ExtResource( 20 )
 expand = true
 script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
 
 [node name="ReferenceRect4" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
 margin_left = 108.0
@@ -450,8 +448,6 @@ size_flags_vertical = 0
 texture_normal = ExtResource( 32 )
 expand = true
 script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
 
 [node name="ReferenceRect5" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
 margin_left = 539.0
@@ -476,8 +472,6 @@ size_flags_vertical = 0
 texture_normal = ExtResource( 31 )
 expand = true
 script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
 
 [node name="Settings" type="Control" parent="."]
 pause_mode = 2
@@ -550,10 +544,10 @@ focus_neighbour_left = NodePath("../../ReturnHBox/ReturnBtnRect")
 focus_neighbour_right = NodePath("../../RetryHBox/RetryBtnRect")
 
 [node name="UnpauseBtn" parent="Settings/TextureRect/PauseScreen/HBoxContainer/UnpauseHBox/UnpauseBtnRect" instance=ExtResource( 16 )]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 195.0
-margin_bottom = 195.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 196.0
+margin_bottom = 196.0
 texture_normal = ExtResource( 35 )
 texture_pressed = ExtResource( 33 )
 texture_hover = ExtResource( 34 )
@@ -585,10 +579,10 @@ focus_neighbour_left = NodePath("../../UnpauseHBox/UnpauseBtnRect")
 focus_neighbour_right = NodePath("../../SettingsHBox/SettingsBtnRect")
 
 [node name="RetryBtn" parent="Settings/TextureRect/PauseScreen/HBoxContainer/RetryHBox/RetryBtnRect" instance=ExtResource( 16 )]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 195.0
-margin_bottom = 195.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 196.0
+margin_bottom = 196.0
 texture_normal = ExtResource( 35 )
 texture_pressed = ExtResource( 33 )
 texture_hover = ExtResource( 34 )
@@ -620,10 +614,10 @@ focus_neighbour_left = NodePath("../../RetryHBox/RetryBtnRect")
 focus_neighbour_right = NodePath("../../ReturnHBox/ReturnBtnRect")
 
 [node name="SettingsBtn" parent="Settings/TextureRect/PauseScreen/HBoxContainer/SettingsHBox/SettingsBtnRect" instance=ExtResource( 16 )]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 195.0
-margin_bottom = 195.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 196.0
+margin_bottom = 196.0
 texture_normal = ExtResource( 35 )
 texture_pressed = ExtResource( 33 )
 texture_hover = ExtResource( 34 )
@@ -655,10 +649,10 @@ focus_neighbour_left = NodePath("../../SettingsHBox/SettingsBtnRect")
 focus_neighbour_right = NodePath("../../UnpauseHBox/UnpauseBtnRect")
 
 [node name="ReturnBtn" parent="Settings/TextureRect/PauseScreen/HBoxContainer/ReturnHBox/ReturnBtnRect" instance=ExtResource( 16 )]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 195.0
-margin_bottom = 195.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 196.0
+margin_bottom = 196.0
 texture_normal = ExtResource( 35 )
 texture_pressed = ExtResource( 33 )
 texture_hover = ExtResource( 34 )
@@ -683,7 +677,6 @@ margin_bottom = 628.0
 script = ExtResource( 29 )
 
 [node name="MainSettings" parent="Settings/TextureRect/SettingsScreen" index="0"]
-visible = true
 margin_right = 984.0
 margin_bottom = 532.0
 
@@ -751,6 +744,9 @@ margin_right = 924.0
 [node name="SteeringSettings" parent="Settings/TextureRect/SettingsScreen" index="1"]
 margin_right = 984.0
 margin_bottom = 532.0
+
+[node name="VBoxContainer" parent="Settings/TextureRect/SettingsScreen/SteeringSettings/Controls8Directions" index="0"]
+margin_bottom = 122.0
 [connection signal="pressed" from="Control/GameOverScreen/ReplayBtnRect/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]
 [connection signal="pressed" from="Control/LevelWonScreen/NextLevelBtn" to="." method="_on_NextLevelBtn_pressed"]
 [connection signal="pressed" from="Control/EndOfGameScreen/DevelopersBtnRect/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]

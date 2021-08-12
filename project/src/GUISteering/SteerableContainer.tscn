@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/audio/sfx/Interface/hover.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/audio/sfx/Interface/click.wav" type="AudioStream" id=2]
 [ext_resource path="res://src/GUISteering/SteerableContainer.gd" type="Script" id=3]
-[ext_resource path="res://assets/FocusedPanel.tres" type="Theme" id=4]
+[ext_resource path="res://assets/Panel.tres" type="Theme" id=4]
 
 [node name="ReferenceRect" type="PanelContainer"]
 margin_right = 14.0
