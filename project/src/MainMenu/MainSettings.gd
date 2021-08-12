@@ -43,6 +43,9 @@ func _set_language(language: int) -> void:
 
 
 func _match_language() -> void:
+	$"../SteeringSettings/MenuButtonContainer/MenuButton".text = tr(SteeringSave.steering_type+"_KEY")
+	$"../SteeringSettings/ControlsPad/ShotHBox/Shot".name_button(InputMap.get_action_list("shot_pad")[0])
+	
 	match Settings.language:
 		Settings.Language_enum.english:
 			language_en_button.pressed = true

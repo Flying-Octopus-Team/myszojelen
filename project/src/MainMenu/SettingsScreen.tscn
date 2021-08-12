@@ -307,6 +307,7 @@ margin_bottom = 37.0
 text = "STEERING_KEY"
 
 [node name="SteeringSettings" type="VBoxContainer" parent="."]
+visible = false
 margin_left = 60.0
 margin_top = 20.0
 margin_right = 700.0
@@ -640,7 +641,7 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SteeringSettings/Controls8Directions"]
 margin_right = 640.0
-margin_bottom = 104.0
+margin_bottom = 122.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -671,6 +672,7 @@ enabled_focus_mode = 0
 flat = true
 align = 2
 script = ExtResource( 12 )
+action_name = "8directions_up"
 
 [node name="UpLeftHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 51.0
@@ -698,6 +700,7 @@ enabled_focus_mode = 0
 flat = true
 align = 2
 script = ExtResource( 12 )
+action_name = "8directions_up_left"
 
 [node name="UpRightHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 102.0
@@ -725,6 +728,7 @@ enabled_focus_mode = 0
 flat = true
 align = 2
 script = ExtResource( 12 )
+action_name = "8directions_up_right"
 
 [node name="DownHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 153.0
@@ -739,7 +743,7 @@ margin_top = 7.0
 margin_right = 94.0
 margin_bottom = 40.0
 size_flags_horizontal = 0
-text = "DOWN"
+text = "DOWN_KEY"
 
 [node name="Down" type="Button" parent="SteeringSettings/Controls8Directions/VBoxContainer/DownHBox"]
 margin_left = 4.0
@@ -752,6 +756,7 @@ enabled_focus_mode = 0
 flat = true
 align = 2
 script = ExtResource( 12 )
+action_name = "8directions_down"
 
 [node name="DownLeftHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 204.0
@@ -779,6 +784,7 @@ enabled_focus_mode = 0
 flat = true
 align = 2
 script = ExtResource( 12 )
+action_name = "8directions_down_left"
 
 [node name="DownRightHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 255.0
@@ -806,6 +812,7 @@ enabled_focus_mode = 0
 flat = true
 align = 2
 script = ExtResource( 12 )
+action_name = "8directions_down_right"
 
 [node name="LeftHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 306.0
@@ -833,6 +840,7 @@ enabled_focus_mode = 0
 flat = true
 align = 2
 script = ExtResource( 12 )
+action_name = "8directions_left"
 
 [node name="RightHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 357.0
@@ -860,6 +868,7 @@ enabled_focus_mode = 0
 flat = true
 align = 2
 script = ExtResource( 12 )
+action_name = "8directions_right"
 
 [node name="ShotHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_top = 408.0
@@ -887,6 +896,7 @@ enabled_focus_mode = 0
 flat = true
 align = 2
 script = ExtResource( 12 )
+action_name = "shot_keyboard"
 
 [node name="ControlsPad" type="VBoxContainer" parent="SteeringSettings"]
 visible = false
@@ -922,6 +932,7 @@ enabled_focus_mode = 0
 flat = true
 align = 2
 script = ExtResource( 12 )
+action_name = "shot_pad"
 
 [node name="ControlsVirtualPad" type="VBoxContainer" parent="SteeringSettings"]
 visible = false
@@ -966,6 +977,7 @@ enabled_focus_mode = 0
 flat = true
 align = 2
 script = ExtResource( 12 )
+action_name = "rotation_up"
 
 [node name="RightHBox" parent="SteeringSettings/ControlsRotations" instance=ExtResource( 18 )]
 margin_top = 51.0
@@ -996,6 +1008,7 @@ script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+action_name = "rotation_right"
 
 [node name="LeftHBox" parent="SteeringSettings/ControlsRotations" instance=ExtResource( 18 )]
 margin_top = 102.0
@@ -1023,6 +1036,7 @@ enabled_focus_mode = 0
 flat = true
 align = 2
 script = ExtResource( 12 )
+action_name = "rotation_left"
 
 [node name="ShotHBox" parent="SteeringSettings/ControlsRotations" instance=ExtResource( 18 )]
 margin_top = 153.0
@@ -1050,6 +1064,7 @@ enabled_focus_mode = 0
 flat = true
 align = 2
 script = ExtResource( 12 )
+action_name = "shot_keyboard"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="SteeringSettings"]
 margin_top = 415.0

@@ -9,12 +9,12 @@ var delayed_input : bool = false
 func _ready() -> void:
 	var action_list = InputMap.get_action_list(action_name)
 	if not action_list.empty():
-		_name_button(action_list[0])
+		name_button(action_list[0])
 		
 
-func _name_button(event: InputEvent) -> void:
+func name_button(event: InputEvent) -> void:
 	if event is InputEventJoypadButton:
-		text = "Button " + str(event.button_index)
+		text = tr("BUTTON_KEY") + " " + str(event.button_index)
 	else:
 		text = event.as_text()
 
@@ -69,15 +69,13 @@ func _add_new_keybind_to_inputmap(event: InputEventKey) -> void:
 
 
 func _add_new_pad_keybind_to_inputmap(event: InputEventJoypadButton) -> void:
-	text = "Button " + str(event.button_index)
+	text = tr("BUTTON_KEY") + " " + str(event.button_index)
 
 	var action_list = InputMap.get_action_list(action_name)
 
 	if not action_list.empty():
 		InputMap.action_erase_event(action_name, action_list[0])
 	InputMap.action_add_event(action_name, event)
-
-	_erase_keybind_from_other_actions("Button " + str(event.button_index))
 
 
 func _erase_keybind_from_other_actions(scancode: String) -> void:

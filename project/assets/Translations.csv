@@ -49,11 +49,12 @@ DOWN_LEFT_KEY,Down left,Lewy dolny róg
 DOWN_RIGHT_KEY,Down right,Lewy prawy róg
 BUTTON_KEY,Button,Przycisk
 FORWARD_KEY,Forward,Naprzód
-4DIRECTIONS_KEY,4 directions,4 kierunki
-8DIRECTIONS_KEY,8 directions,8 kierunków
-VIRTUAL_PAD_KEY,virtual pad,wirtualny pad
-ROTATIONS_KEY,rotations,obroty
-NONE_CONTROLS_KEY,none,żaden
+4Directions_KEY,4 directions,4 kierunki
+8Directions_KEY,8 directions,8 kierunków
+Pad_KEY,pad,pad
+VirtualPad_KEY,virtual pad,wirtualny pad
+Rotations_KEY,rotations,obroty
+none_KEY,none,żaden
 PLAY_KEY,Play,Graj
 NEXT_LEVEL_KEY,Next level,Następny poziom
 TRY_AGAIN_KEY,Try again,Spróbuj ponownie
