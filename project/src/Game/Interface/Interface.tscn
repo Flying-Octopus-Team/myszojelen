@@ -744,9 +744,6 @@ margin_right = 924.0
 [node name="SteeringSettings" parent="Settings/TextureRect/SettingsScreen" index="1"]
 margin_right = 984.0
 margin_bottom = 532.0
-
-[node name="VBoxContainer" parent="Settings/TextureRect/SettingsScreen/SteeringSettings/Controls8Directions" index="0"]
-margin_bottom = 122.0
 [connection signal="pressed" from="Control/GameOverScreen/ReplayBtnRect/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]
 [connection signal="pressed" from="Control/LevelWonScreen/NextLevelBtn" to="." method="_on_NextLevelBtn_pressed"]
 [connection signal="pressed" from="Control/EndOfGameScreen/DevelopersBtnRect/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]

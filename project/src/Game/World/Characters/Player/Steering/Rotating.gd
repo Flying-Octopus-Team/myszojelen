@@ -7,6 +7,10 @@ func _if_player_pressed_action(action: String) -> bool:
 	return Input.is_action_pressed(action) and not InputMap.get_action_list(action).empty()
 
 func steer(delta:float) -> void:
+	if _if_player_pressed_action("rotation_pause"):
+		_pause_game()
+		return
+
 	if _if_player_pressed_action("rotation_left"):
 		player._rotate(ROTATE_LEFT)
 

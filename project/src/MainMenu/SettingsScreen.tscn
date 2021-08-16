@@ -482,9 +482,9 @@ steering_string = "Rotations"
 
 [node name="Controls4Directions" type="VBoxContainer" parent="SteeringSettings"]
 visible = false
-margin_top = 82.0
+margin_top = 84.0
 margin_right = 640.0
-margin_bottom = 333.0
+margin_bottom = 398.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -492,23 +492,23 @@ __meta__ = {
 
 [node name="UpHBox" parent="SteeringSettings/Controls4Directions" instance=ExtResource( 18 )]
 margin_right = 640.0
-margin_bottom = 47.0
+margin_bottom = 49.0
 focus_neighbour_top = NodePath("../../MenuButtonContainer")
 focus_neighbour_bottom = NodePath("../LeftHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls4Directions/UpHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 119.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 120.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "UP_KEY"
 
 [node name="Up" type="Button" parent="SteeringSettings/Controls4Directions/UpHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 636.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -518,25 +518,25 @@ script = ExtResource( 12 )
 action_name = "4directions_up"
 
 [node name="LeftHBox" parent="SteeringSettings/Controls4Directions" instance=ExtResource( 18 )]
-margin_top = 51.0
+margin_top = 53.0
 margin_right = 640.0
-margin_bottom = 98.0
+margin_bottom = 102.0
 focus_neighbour_top = NodePath("../UpHBox")
 focus_neighbour_bottom = NodePath("../RightHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls4Directions/LeftHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 147.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 148.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "LEFT_KEY"
 
 [node name="Left" type="Button" parent="SteeringSettings/Controls4Directions/LeftHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 636.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -546,25 +546,25 @@ script = ExtResource( 12 )
 action_name = "4directions_left"
 
 [node name="RightHBox" parent="SteeringSettings/Controls4Directions" instance=ExtResource( 18 )]
-margin_top = 102.0
+margin_top = 106.0
 margin_right = 640.0
-margin_bottom = 149.0
+margin_bottom = 155.0
 focus_neighbour_top = NodePath("../LeftHBox")
 focus_neighbour_bottom = NodePath("../DownHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls4Directions/RightHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 165.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 166.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "RIGHT_KEY"
 
 [node name="Right" type="Button" parent="SteeringSettings/Controls4Directions/RightHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 636.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -574,25 +574,25 @@ script = ExtResource( 12 )
 action_name = "4directions_right"
 
 [node name="DownHBox" parent="SteeringSettings/Controls4Directions" instance=ExtResource( 18 )]
-margin_top = 153.0
+margin_top = 159.0
 margin_right = 640.0
-margin_bottom = 200.0
+margin_bottom = 208.0
 focus_neighbour_top = NodePath("../RightHBox")
 focus_neighbour_bottom = NodePath("../ShotHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls4Directions/DownHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 168.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 169.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "DOWN_KEY"
 
 [node name="Down" type="Button" parent="SteeringSettings/Controls4Directions/DownHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 636.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -602,25 +602,25 @@ script = ExtResource( 12 )
 action_name = "4directions_down"
 
 [node name="ShotHBox" parent="SteeringSettings/Controls4Directions" instance=ExtResource( 18 )]
-margin_top = 204.0
+margin_top = 212.0
 margin_right = 640.0
-margin_bottom = 251.0
+margin_bottom = 261.0
 focus_neighbour_top = NodePath("../DownHBox")
-focus_neighbour_bottom = NodePath("../../HBoxContainer2/BackBtnContainer")
+focus_neighbour_bottom = NodePath("../PauseHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls4Directions/ShotHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 157.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 158.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "SHOT_KEY"
 
 [node name="Shot" type="Button" parent="SteeringSettings/Controls4Directions/ShotHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 636.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -629,11 +629,39 @@ align = 2
 script = ExtResource( 12 )
 action_name = "shot_keyboard"
 
+[node name="PauseHBox" parent="SteeringSettings/Controls4Directions" instance=ExtResource( 18 )]
+margin_top = 265.0
+margin_right = 640.0
+margin_bottom = 314.0
+focus_neighbour_top = NodePath("../ShotHBox")
+focus_neighbour_bottom = NodePath("../../HBoxContainer2/BackBtnContainer")
+
+[node name="Label" type="Label" parent="SteeringSettings/Controls4Directions/PauseHBox"]
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 180.0
+margin_bottom = 41.0
+size_flags_horizontal = 0
+text = "PAUSE_MENU_KEY"
+
+[node name="Pause" type="Button" parent="SteeringSettings/Controls4Directions/PauseHBox"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 44.0
+focus_mode = 0
+size_flags_horizontal = 9
+enabled_focus_mode = 0
+flat = true
+align = 2
+script = ExtResource( 12 )
+action_name = "4directions_pause"
+
 [node name="Controls8Directions" type="ScrollContainer" parent="SteeringSettings"]
 visible = false
-margin_top = 82.0
+margin_top = 84.0
 margin_right = 640.0
-margin_bottom = 396.0
+margin_bottom = 397.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.5
 follow_focus = true
@@ -641,7 +669,7 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SteeringSettings/Controls8Directions"]
 margin_right = 640.0
-margin_bottom = 122.0
+margin_bottom = 136.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -649,23 +677,23 @@ __meta__ = {
 
 [node name="UpHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
 margin_right = 628.0
-margin_bottom = 47.0
+margin_bottom = 49.0
 focus_neighbour_top = NodePath("../../../MenuButtonContainer")
 focus_neighbour_bottom = NodePath("../UpLeftHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls8Directions/VBoxContainer/UpHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 119.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 120.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "UP_KEY"
 
 [node name="Up" type="Button" parent="SteeringSettings/Controls8Directions/VBoxContainer/UpHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 624.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 623.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -675,25 +703,25 @@ script = ExtResource( 12 )
 action_name = "8directions_up"
 
 [node name="UpLeftHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
-margin_top = 51.0
+margin_top = 53.0
 margin_right = 628.0
-margin_bottom = 98.0
+margin_bottom = 102.0
 focus_neighbour_top = NodePath("../UpHBox")
 focus_neighbour_bottom = NodePath("../UpRightHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls8Directions/VBoxContainer/UpLeftHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 203.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 204.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "UP_LEFT_KEY"
 
 [node name="UpLeft" type="Button" parent="SteeringSettings/Controls8Directions/VBoxContainer/UpLeftHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 624.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 623.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -703,25 +731,25 @@ script = ExtResource( 12 )
 action_name = "8directions_up_left"
 
 [node name="UpRightHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
-margin_top = 102.0
+margin_top = 106.0
 margin_right = 628.0
-margin_bottom = 149.0
+margin_bottom = 155.0
 focus_neighbour_top = NodePath("../UpLeftHBox")
 focus_neighbour_bottom = NodePath("../DownHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls8Directions/VBoxContainer/UpRightHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 221.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 222.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "UP_RIGHT_KEY"
 
 [node name="UpRight" type="Button" parent="SteeringSettings/Controls8Directions/VBoxContainer/UpRightHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 624.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 623.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -731,25 +759,25 @@ script = ExtResource( 12 )
 action_name = "8directions_up_right"
 
 [node name="DownHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
-margin_top = 153.0
+margin_top = 159.0
 margin_right = 628.0
-margin_bottom = 200.0
+margin_bottom = 208.0
 focus_neighbour_top = NodePath("../UpRightHBox")
 focus_neighbour_bottom = NodePath("../DownLeftHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls8Directions/VBoxContainer/DownHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 94.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 169.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "DOWN_KEY"
 
 [node name="Down" type="Button" parent="SteeringSettings/Controls8Directions/VBoxContainer/DownHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 624.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 623.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -759,25 +787,25 @@ script = ExtResource( 12 )
 action_name = "8directions_down"
 
 [node name="DownLeftHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
-margin_top = 204.0
+margin_top = 212.0
 margin_right = 628.0
-margin_bottom = 251.0
+margin_bottom = 261.0
 focus_neighbour_top = NodePath("../DownHBox")
 focus_neighbour_bottom = NodePath("../DownRightHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls8Directions/VBoxContainer/DownLeftHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 252.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 253.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "DOWN_LEFT_KEY"
 
 [node name="DownLeft" type="Button" parent="SteeringSettings/Controls8Directions/VBoxContainer/DownLeftHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 624.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 623.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -787,25 +815,25 @@ script = ExtResource( 12 )
 action_name = "8directions_down_left"
 
 [node name="DownRightHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
-margin_top = 255.0
+margin_top = 265.0
 margin_right = 628.0
-margin_bottom = 302.0
+margin_bottom = 314.0
 focus_neighbour_top = NodePath("../DownLeftHBox")
 focus_neighbour_bottom = NodePath("../LeftHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls8Directions/VBoxContainer/DownRightHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 270.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 271.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "DOWN_RIGHT_KEY"
 
 [node name="DownRight" type="Button" parent="SteeringSettings/Controls8Directions/VBoxContainer/DownRightHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 624.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 623.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -815,25 +843,25 @@ script = ExtResource( 12 )
 action_name = "8directions_down_right"
 
 [node name="LeftHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
-margin_top = 306.0
+margin_top = 318.0
 margin_right = 628.0
-margin_bottom = 353.0
+margin_bottom = 367.0
 focus_neighbour_top = NodePath("../DownRightHBox")
 focus_neighbour_bottom = NodePath("../RightHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls8Directions/VBoxContainer/LeftHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 147.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 148.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "LEFT_KEY"
 
 [node name="Left" type="Button" parent="SteeringSettings/Controls8Directions/VBoxContainer/LeftHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 624.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 623.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -843,25 +871,25 @@ script = ExtResource( 12 )
 action_name = "8directions_left"
 
 [node name="RightHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
-margin_top = 357.0
+margin_top = 371.0
 margin_right = 628.0
-margin_bottom = 404.0
+margin_bottom = 420.0
 focus_neighbour_top = NodePath("../LeftHBox")
 focus_neighbour_bottom = NodePath("../ShotHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls8Directions/VBoxContainer/RightHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 165.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 166.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "RIGHT_KEY"
 
 [node name="Right" type="Button" parent="SteeringSettings/Controls8Directions/VBoxContainer/RightHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 624.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 623.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -871,25 +899,25 @@ script = ExtResource( 12 )
 action_name = "8directions_right"
 
 [node name="ShotHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
-margin_top = 408.0
+margin_top = 424.0
 margin_right = 628.0
-margin_bottom = 455.0
+margin_bottom = 473.0
 focus_neighbour_top = NodePath("../RightHBox")
-focus_neighbour_bottom = NodePath("../../../HBoxContainer2/BackBtnContainer")
+focus_neighbour_bottom = NodePath("../PauseHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/Controls8Directions/VBoxContainer/ShotHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 157.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 158.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "SHOT_KEY"
 
 [node name="Shot" type="Button" parent="SteeringSettings/Controls8Directions/VBoxContainer/ShotHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 624.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 623.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -898,11 +926,39 @@ align = 2
 script = ExtResource( 12 )
 action_name = "shot_keyboard"
 
+[node name="PauseHBox" parent="SteeringSettings/Controls8Directions/VBoxContainer" instance=ExtResource( 18 )]
+margin_top = 477.0
+margin_right = 628.0
+margin_bottom = 526.0
+focus_neighbour_top = NodePath("../ShotHBox")
+focus_neighbour_bottom = NodePath("../../../HBoxContainer2/BackBtnContainer")
+
+[node name="Label" type="Label" parent="SteeringSettings/Controls8Directions/VBoxContainer/PauseHBox"]
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 180.0
+margin_bottom = 41.0
+size_flags_horizontal = 0
+text = "PAUSE_MENU_KEY"
+
+[node name="Pause" type="Button" parent="SteeringSettings/Controls8Directions/VBoxContainer/PauseHBox"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 623.0
+margin_bottom = 44.0
+focus_mode = 0
+size_flags_horizontal = 9
+enabled_focus_mode = 0
+flat = true
+align = 2
+script = ExtResource( 12 )
+action_name = "8directions_pause"
+
 [node name="ControlsPad" type="VBoxContainer" parent="SteeringSettings"]
 visible = false
 margin_top = 84.0
 margin_right = 640.0
-margin_bottom = 133.0
+margin_bottom = 186.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -911,7 +967,7 @@ __meta__ = {
 margin_right = 640.0
 margin_bottom = 49.0
 focus_neighbour_top = NodePath("../../MenuButtonContainer")
-focus_neighbour_bottom = NodePath("../../HBoxContainer2/BackBtnContainer")
+focus_neighbour_bottom = NodePath("../PauseHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/ControlsPad/ShotHBox"]
 margin_left = 5.0
@@ -934,6 +990,34 @@ align = 2
 script = ExtResource( 12 )
 action_name = "shot_pad"
 
+[node name="PauseHBox" parent="SteeringSettings/ControlsPad" instance=ExtResource( 18 )]
+margin_top = 53.0
+margin_right = 640.0
+margin_bottom = 102.0
+focus_neighbour_top = NodePath("../ShotHBox")
+focus_neighbour_bottom = NodePath("../../HBoxContainer2/BackBtnContainer")
+
+[node name="Label" type="Label" parent="SteeringSettings/ControlsPad/PauseHBox"]
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 180.0
+margin_bottom = 41.0
+size_flags_horizontal = 0
+text = "PAUSE_MENU_KEY"
+
+[node name="Pause" type="Button" parent="SteeringSettings/ControlsPad/PauseHBox"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 44.0
+focus_mode = 0
+size_flags_horizontal = 9
+enabled_focus_mode = 0
+flat = true
+align = 2
+script = ExtResource( 12 )
+action_name = "pad_pause"
+
 [node name="ControlsVirtualPad" type="VBoxContainer" parent="SteeringSettings"]
 visible = false
 margin_top = 137.0
@@ -945,32 +1029,32 @@ __meta__ = {
 
 [node name="ControlsRotations" type="VBoxContainer" parent="SteeringSettings"]
 visible = false
-margin_top = 82.0
+margin_top = 84.0
 margin_right = 640.0
-margin_bottom = 282.0
+margin_bottom = 345.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="UpHBox" parent="SteeringSettings/ControlsRotations" instance=ExtResource( 18 )]
 margin_right = 640.0
-margin_bottom = 47.0
+margin_bottom = 49.0
 focus_neighbour_top = NodePath("../../MenuButtonContainer")
 focus_neighbour_bottom = NodePath("../RightHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/ControlsRotations/UpHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 228.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 229.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "FORWARD_KEY"
 
 [node name="Up" type="Button" parent="SteeringSettings/ControlsRotations/UpHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 636.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -980,25 +1064,25 @@ script = ExtResource( 12 )
 action_name = "rotation_up"
 
 [node name="RightHBox" parent="SteeringSettings/ControlsRotations" instance=ExtResource( 18 )]
-margin_top = 51.0
+margin_top = 53.0
 margin_right = 640.0
-margin_bottom = 98.0
+margin_bottom = 102.0
 focus_neighbour_top = NodePath("../UpHBox")
 focus_neighbour_bottom = NodePath("../LeftHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/ControlsRotations/RightHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 165.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 166.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "RIGHT_KEY"
 
 [node name="Right" type="Button" parent="SteeringSettings/ControlsRotations/RightHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 636.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -1011,25 +1095,25 @@ __meta__ = {
 action_name = "rotation_right"
 
 [node name="LeftHBox" parent="SteeringSettings/ControlsRotations" instance=ExtResource( 18 )]
-margin_top = 102.0
+margin_top = 106.0
 margin_right = 640.0
-margin_bottom = 149.0
+margin_bottom = 155.0
 focus_neighbour_top = NodePath("../RightHBox")
 focus_neighbour_bottom = NodePath("../ShotHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/ControlsRotations/LeftHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 147.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 148.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "LEFT_KEY"
 
 [node name="Left" type="Button" parent="SteeringSettings/ControlsRotations/LeftHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 636.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -1039,25 +1123,25 @@ script = ExtResource( 12 )
 action_name = "rotation_left"
 
 [node name="ShotHBox" parent="SteeringSettings/ControlsRotations" instance=ExtResource( 18 )]
-margin_top = 153.0
+margin_top = 159.0
 margin_right = 640.0
-margin_bottom = 200.0
+margin_bottom = 208.0
 focus_neighbour_top = NodePath("../LeftHBox")
-focus_neighbour_bottom = NodePath("../../HBoxContainer2/BackBtnContainer")
+focus_neighbour_bottom = NodePath("../PauseHBox")
 
 [node name="Label" type="Label" parent="SteeringSettings/ControlsRotations/ShotHBox"]
-margin_left = 4.0
-margin_top = 7.0
-margin_right = 157.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 158.0
+margin_bottom = 41.0
 size_flags_horizontal = 0
 text = "SHOT_KEY"
 
 [node name="Shot" type="Button" parent="SteeringSettings/ControlsRotations/ShotHBox"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 636.0
-margin_bottom = 43.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 44.0
 focus_mode = 0
 size_flags_horizontal = 9
 enabled_focus_mode = 0
@@ -1065,6 +1149,34 @@ flat = true
 align = 2
 script = ExtResource( 12 )
 action_name = "shot_keyboard"
+
+[node name="PauseHBox" parent="SteeringSettings/ControlsRotations" instance=ExtResource( 18 )]
+margin_top = 212.0
+margin_right = 640.0
+margin_bottom = 261.0
+focus_neighbour_top = NodePath("../ShotHBox")
+focus_neighbour_bottom = NodePath("../../HBoxContainer2/BackBtnContainer")
+
+[node name="Label" type="Label" parent="SteeringSettings/ControlsRotations/PauseHBox"]
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 180.0
+margin_bottom = 41.0
+size_flags_horizontal = 0
+text = "PAUSE_MENU_KEY"
+
+[node name="Pause" type="Button" parent="SteeringSettings/ControlsRotations/PauseHBox"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 44.0
+focus_mode = 0
+size_flags_horizontal = 9
+enabled_focus_mode = 0
+flat = true
+align = 2
+script = ExtResource( 12 )
+action_name = "rotation_pause"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="SteeringSettings"]
 margin_top = 415.0
