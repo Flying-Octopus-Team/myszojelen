@@ -3,14 +3,17 @@ SETTINGS_TITLE,Settings,Ustawienia
 MUSIC_KEY,Music,Muzyka
 AUDIO_EFFECTS_KEY,Audio effects,Efekty dźwiękowe
 LANGUAGE_KEY,Language,Język
-BACK_KEY,<- Return,<- Wróć
-CONTINUE_KEY,Continue ->,Kontynuuj ->
+BACK_KEY,Return,Wróć
+CONTINUE_KEY,Continue,Kontynuuj
 CREDITS_KEY,Credits,Poznaj twórców
-TREES_KEY,Trees left:,Pozostało drzew:
+EXIT_KEY,Exit,Wyjście
 REPLAY_KEY,Replay level,Powtórz poziom
-LEVEL_WON_KEY,Placeholder,"Przepędziłeś drwali!
+LEVEL_WON_KEY,"You banished lumberjacks! 
+Now run and save next forest...","Przepędziłeś drwali!
 Teraz biegnij ratować kolejny las..."
-GAME_FINISHED_KEY,Placeholder,"Udało się! 
+GAME_FINISHED_KEY,"You did it!
+Lumberjacks are no longer a threat to your species.
+You've successfully rebuilt the population of mouse-deers and your family forest!","Udało się! 
 Drwale nie zagrażają już twojemu gatunkowi. 
 Odbudowałeś populację Myszojeleni i rodzinny las!"
 STEERING_KEY,Choose steering type:,Wybierz sposób sterowania:
@@ -30,3 +33,34 @@ Jednak faktem pozostaje, że 6 kwietnia 2020 roku wietnamscy drwale zmierzyli si
 "
 INTRO3_KEY,Journalists quickly called him Teenage Mutant Vietnam Mouse-deer.,Gazety szybko nazwały go Wojowniczym Myszojeleniem.
 INTRO_STORY_TEXTURE_KEY,res://assets/intro_story/intro_story3_en.png,res://assets/intro_story/intro_story3_pl.png
+NEW_GAME_KEY,New game,Nowa gra
+STEERING_KEY,Controls,Sterowanie
+RESTORE_DEFAULT_KEY,Restore default,Przywróć domyślne
+STEERING_TYPE_KEY,Choose type of controls:,Wybierz typ sterowania:
+PAUSE_MENU_KEY,Pause,Pauza
+UP_KEY,Up,Góra
+LEFT_KEY,Left,Lewo
+RIGHT_KEY,Right,Prawo
+DOWN_KEY,Down,Dół
+SHOT_KEY,Shot,Strzał
+UP_LEFT_KEY,Up left,Lewy górny róg
+UP_RIGHT_KEY,Up right,Prawy górny róg
+DOWN_LEFT_KEY,Down left,Lewy dolny róg
+DOWN_RIGHT_KEY,Down right,Lewy prawy róg
+BUTTON_KEY,Button,Przycisk
+FORWARD_KEY,Forward,Naprzód
+4Directions_KEY,4 directions,4 kierunki
+8Directions_KEY,8 directions,8 kierunków
+Pad_KEY,pad,pad
+VirtualPad_KEY,virtual pad,wirtualny pad
+Rotations_KEY,rotations,obroty
+none_KEY,none,żaden
+PLAY_KEY,Play,Graj
+NEXT_LEVEL_KEY,Next level,Następny poziom
+TRY_AGAIN_KEY,Try again,Spróbuj ponownie
+PLAY_AGAIN_KEY,Play again,Zagraj ponownie
+PROGRAMMER_KEY,Programmer,Programista
+GRAPHIC_KEY,Graphic designer,Grafik
+MUSIC_CREDITS_KEY,music credits,autorzy muzyki
+LICENSE_KEY,under license,udostępnione na licencji
+COORDINATOR_KEY,Coordinator,Koordynator

@@ -204,7 +204,7 @@ margin_right = 248.682
 margin_bottom = 121.227
 custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
-text = "Graj"
+text = "PLAY_KEY"
 __meta__ = {
 "_edit_use_anchors_": false
 }

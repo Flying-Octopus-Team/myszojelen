@@ -145,7 +145,7 @@ margin_right = 373.652
 margin_bottom = 338.539
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Programista"
+text = "PROGRAMMER_KEY"
 
 [node name="Wojtek" type="TextureRect" parent="Origin/Panel"]
 margin_left = 732.254
@@ -183,18 +183,13 @@ __meta__ = {
 }
 
 [node name="Function" type="Label" parent="Origin/Panel/Wojtek"]
-margin_left = -0.899109
-margin_top = 289.666
-margin_right = 287.101
-margin_bottom = 336.666
+margin_left = -1.0
+margin_top = 290.0
+margin_right = 287.0
+margin_bottom = 312.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Koordynator
-Scenarzysta
-Sam nie wie
-Murarz
-Tynkarz
-Akrobata"
+text = "COORDINATOR_KEY"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -242,7 +237,7 @@ margin_right = 307.93
 margin_bottom = 350.964
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Programista"
+text = "PROGRAMMER_KEY"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -284,13 +279,13 @@ __meta__ = {
 }
 
 [node name="Function" type="Label" parent="Origin/Panel/Oktawiusz"]
-margin_left = 19.9302
+margin_left = 18.729
 margin_top = 303.964
-margin_right = 307.93
+margin_right = 306.729
 margin_bottom = 350.964
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Programista"
+text = "PROGRAMMER_KEY"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -333,13 +328,14 @@ __meta__ = {
 }
 
 [node name="Function" type="Label" parent="Origin/Panel/Kacper"]
-margin_left = 103.289
-margin_top = 335.547
-margin_right = 391.289
-margin_bottom = 368.547
+margin_left = 28.0
+margin_top = 336.0
+margin_right = 262.0
+margin_bottom = 369.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Grafik"
+text = "GRAPHIC_KEY"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -382,13 +378,14 @@ __meta__ = {
 }
 
 [node name="Function" type="Label" parent="Origin/Panel/Michal"]
-margin_left = 106.161
-margin_top = 338.816
-margin_right = 394.161
-margin_bottom = 371.816
+margin_left = 18.0
+margin_top = 339.0
+margin_right = 309.0
+margin_bottom = 372.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Grafik"
+text = "GRAPHIC_KEY"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -484,12 +481,12 @@ __meta__ = {
 }
 
 [node name="Header" type="Label" parent="Origin/Panel/MusicCredits"]
-margin_left = 957.122
-margin_top = 479.693
-margin_right = 1144.12
-margin_bottom = 512.693
+margin_left = 957.0
+margin_top = 480.0
+margin_right = 1144.0
+margin_bottom = 503.0
 custom_fonts/font = ExtResource( 11 )
-text = "Autorzy muzyki:"
+text = "MUSIC_CREDITS_KEY"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -538,7 +535,7 @@ margin_top = 649.454
 margin_right = 1060.94
 margin_bottom = 682.454
 custom_fonts/font = ExtResource( 11 )
-text = "Udostępnione na licencji"
+text = "LICENSE_KEY"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
