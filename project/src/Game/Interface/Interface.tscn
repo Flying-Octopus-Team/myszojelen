@@ -1,11 +1,16 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/screens/gameover_screen.png" type="Texture" id=4]
 [ext_resource path="res://src/Buttons/DevelopersButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/icons/ui/pause.png" type="Texture" id=6]
+[ext_resource path="res://assets/icons/ui/frame.png" type="Texture" id=7]
+[ext_resource path="res://assets/icons/ui/tree.png" type="Texture" id=8]
 [ext_resource path="res://assets/fonts/data/Shojumaru-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/icons/ui/enemy.png" type="Texture" id=10]
+[ext_resource path="res://assets/icons/ui/timer.png" type="Texture" id=11]
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/Game/Interface/GameOverScreen.gd" type="Script" id=17]
@@ -29,6 +34,10 @@
 [ext_resource path="res://assets/SettingsMenu/unpause_icon.png" type="Texture" id=36]
 [ext_resource path="res://assets/SettingsMenu/restart_icon.png" type="Texture" id=37]
 [ext_resource path="res://assets/SettingsMenu/exit_icon.png" type="Texture" id=38]
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -56,35 +65,133 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HUD" type="MarginContainer" parent="Control"]
-visible = false
+[node name="HUD" type="Control" parent="Control"]
 margin_right = 1280.0
 margin_bottom = 725.0
-custom_constants/margin_right = 40
-custom_constants/margin_top = 40
-custom_constants/margin_left = 40
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TreesLeft" type="Label" parent="Control/HUD"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HUD"]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 207.0
-margin_bottom = 73.0
+margin_right = 418.0
+margin_bottom = 389.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-custom_fonts/font = ExtResource( 3 )
-text = "TREES_KEY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TreesRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
+margin_right = 378.0
+margin_bottom = 113.0
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HUD/VBoxContainer/TreesRect"]
+margin_left = 38.0
+margin_top = 20.0
+margin_right = 325.0
+margin_bottom = 87.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control/HUD/VBoxContainer/TreesRect/HBoxContainer"]
+margin_left = 40.0
+margin_right = 100.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 60, 0 )
+size_flags_horizontal = 6
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Label" type="Label" parent="Control/HUD/VBoxContainer/TreesRect/HBoxContainer"]
+margin_left = 145.0
+margin_right = 287.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+text = "12"
+
+[node name="EnemiesRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
+margin_top = 117.0
+margin_right = 378.0
+margin_bottom = 231.0
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HUD/VBoxContainer/EnemiesRect"]
+margin_left = 38.0
+margin_top = 20.0
+margin_right = 325.0
+margin_bottom = 87.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control/HUD/VBoxContainer/EnemiesRect/HBoxContainer"]
+margin_left = 40.0
+margin_right = 100.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 60, 0 )
+size_flags_horizontal = 6
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Label" type="Label" parent="Control/HUD/VBoxContainer/EnemiesRect/HBoxContainer"]
+margin_left = 145.0
+margin_right = 287.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+text = "12"
+
+[node name="TimerRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
+margin_top = 235.0
+margin_right = 378.0
+margin_bottom = 349.0
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HUD/VBoxContainer/TimerRect"]
+margin_left = 38.0
+margin_top = 20.0
+margin_right = 325.0
+margin_bottom = 87.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control/HUD/VBoxContainer/TimerRect/HBoxContainer"]
+margin_left = 40.0
+margin_right = 100.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 60, 0 )
+size_flags_horizontal = 6
+texture = ExtResource( 11 )
+expand = true
+
+[node name="Label" type="Label" parent="Control/HUD/VBoxContainer/TimerRect/HBoxContainer"]
+margin_left = 145.0
+margin_right = 287.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+text = "12"
 
 [node name="PauseBtn" type="TextureButton" parent="Control/HUD"]
-margin_left = 1015.0
+margin_left = 1137.0
 margin_top = 40.0
 margin_right = 1240.0
-margin_bottom = 261.0
+margin_bottom = 131.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
-texture_normal = ExtResource( 18 )
+texture_normal = ExtResource( 6 )
 
 [node name="GameOverScreen" type="Control" parent="Control"]
 visible = false
