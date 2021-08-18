@@ -25,6 +25,7 @@ func _ready() -> void:
 	
 	map.connect("tree_cut", self, "_on_tree_cut")
 	map.connect("enemy_killed", self, "_on_ememy_killed")
+	map.connect("enemy_killed", find_parent("Game"), "on_enemy_died")
 
 	var walkable_cells_list = map.astar_node.add_walkable_cells(map.obstacles)
 	map.astar_node.connect_walkable_cells(walkable_cells_list)

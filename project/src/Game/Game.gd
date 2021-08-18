@@ -12,6 +12,7 @@ onready var interface : CanvasLayer = $Interface
 onready var fade_layer = $FadeLayer
 
 var trees_left : int
+var enemies_left : int
 
 var _is_game_running : bool = false
 
@@ -52,6 +53,10 @@ func _prepare_trees_left() -> void:
 	trees_left = world.count_trees()
 	interface.set_trees_left(trees_left)
 
+func prepare_enemies_left() -> void:
+	enemies_left = world.count_enemies()
+	interface.set_enemies_left(enemies_left)
+
 
 func _on_tree_cut() -> void:
 	if not _is_game_running:
@@ -65,6 +70,10 @@ func _on_tree_cut() -> void:
 		MusicPlayer.fade_out()
 		_fade("_game_over")
 
+
+func on_enemy_died() -> void:
+	enemies_left -= 1
+	interface.set_enemies_left(enemies_left)
 
 func _game_over() -> void:
 	is_level_won = false
@@ -117,6 +126,7 @@ func _next_level() -> void:
 	world.next_level()
 	
 	_prepare_trees_left()
+	prepare_enemies_left()
 	_is_game_running = true
 
 

@@ -4,7 +4,8 @@ signal next_level_requested
 signal replay_requested
 signal reset_game_requested
 
-onready var trees_left_label : Label = find_node("TreesLeft")
+onready var trees_left_label : Label = $Control/HUD/VBoxContainer/TreesRect/HBoxContainer/Label
+onready var enemies_left_label : Label = $Control/HUD/VBoxContainer/EnemiesRect/HBoxContainer/Label
 onready var game_over_screen : Control = $Control/GameOverScreen
 onready var level_won_screen : Control = $Control/LevelWonScreen
 onready var end_of_game_screen : Control = $Control/EndOfGameScreen
@@ -14,19 +15,20 @@ onready var settings_screen : Control = $Settings
 
 onready var developers_screen = $DevelopersScreen
 
-const TEES_LEFT_PREFIX := "TREES_KEY"
-
 enum Screen { NONE, LEVEL_WON, GAME_OVER, END_OF_GAME }
 var current_screen : int = Screen.NONE
 
 func _ready() -> void:
 	$Control/LevelWonScreen/ReplayBtn.connect("pressed", self, "_on_ReplayBtn_pressed")
-	HUD.get_node("PauseBtn").connect("pressed", settings_screen.get_node("TextureRect/PauseScreen"), "show")#show_screen
+	HUD.get_node("PauseBtn").connect("pressed", settings_screen.get_node("TextureRect/PauseScreen"), "show")
 	reset()
 
 
 func set_trees_left(tres_left:int) -> void:
-	trees_left_label.text = tr(TEES_LEFT_PREFIX) + " " + str(tres_left)
+	trees_left_label.text = str(tres_left)
+
+func set_enemies_left(enemies_left:int) -> void:
+	enemies_left_label.text = str(enemies_left)
 
 
 func reset() -> void:
