@@ -22,3 +22,7 @@ func _get_direction() -> int:
 # Moves player in set direction
 func steer(delta:float) -> void:
 	return
+
+
+func _pause_game() -> void:
+	find_parent("Game").get_node("Interface/Control/HUD/PauseBtn").emit_signal("pressed")

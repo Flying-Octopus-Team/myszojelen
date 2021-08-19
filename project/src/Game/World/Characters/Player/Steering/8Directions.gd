@@ -27,6 +27,9 @@ func _if_player_pressed_action(action: String) -> bool:
 
 
 func steer(delta: float) -> void:
+	if _if_player_pressed_action("8directions_pause"):
+		_pause_game()
+		return
 	
 	var requested_direction = _get_direction()
 	
