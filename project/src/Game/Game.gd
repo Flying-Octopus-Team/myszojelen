@@ -73,8 +73,8 @@ func _on_tree_cut() -> void:
 	if not _is_game_running:
 		return
 	
-		trees_left -= 1
-		interface.set_trees_left(trees_left)
+	trees_left -= 1
+	interface.set_trees_left(trees_left)
 	
 	if trees_left <= 0:
 		_is_game_running = false
