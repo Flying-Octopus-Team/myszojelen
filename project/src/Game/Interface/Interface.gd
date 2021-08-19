@@ -38,7 +38,7 @@ func set_timer(timer_time: float) -> void:
 	var minutes = min(int(floor(timer_time/60.0)), 60)
 	var seconds = fmod(timer_time, 60.0)
 
-	timer_label.text = str(minutes).pad_zeros(2)+":"+str(seconds)
+	timer_label.text = str(minutes).pad_zeros(2) + ":" + str(seconds)
 
 
 func reset() -> void:
