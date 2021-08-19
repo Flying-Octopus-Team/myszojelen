@@ -57,5 +57,4 @@ func count_trees() -> int:
 
 
 func count_enemies() -> int:
-	print(level.enemies_left)
 	return level.enemies_left

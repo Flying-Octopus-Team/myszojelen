@@ -11,8 +11,9 @@ onready var world : Node = $World
 onready var interface : CanvasLayer = $Interface
 onready var fade_layer = $FadeLayer
 
-var trees_left : int
-var enemies_left : int
+var trees_left : int setget set_trees_left
+var enemies_left : int setget set_enemies_left
+var timer_time : float setget set_timer_time
 
 var _is_game_running : bool = false
 
@@ -33,6 +34,11 @@ func _ready() -> void:
 	_start()
 
 
+func _process(delta):
+	if _is_game_running:
+		set_timer_time(timer_time+delta)
+
+
 func _start() -> void:
 	
 	_start_game()
@@ -49,21 +55,25 @@ func _start_game() -> void:
 	_next_level()
 
 
-func _prepare_trees_left() -> void:
-	trees_left = world.count_trees()
+func set_trees_left(value: int) -> void:
+	trees_left = value
 	interface.set_trees_left(trees_left)
 
-func prepare_enemies_left() -> void:
-	enemies_left = world.count_enemies()
+func set_enemies_left(value: int) -> void:
+	enemies_left = value
 	interface.set_enemies_left(enemies_left)
+
+
+func set_timer_time(value: float) -> void:
+	timer_time = value
+	interface.set_timer(timer_time)
 
 
 func _on_tree_cut() -> void:
 	if not _is_game_running:
 		return
 	
-	trees_left -= 1
-	interface.set_trees_left(trees_left)
+	set_trees_left(trees_left-1)
 	
 	if trees_left <= 0:
 		_is_game_running = false
@@ -72,8 +82,7 @@ func _on_tree_cut() -> void:
 
 
 func on_enemy_died() -> void:
-	enemies_left -= 1
-	interface.set_enemies_left(enemies_left)
+	set_enemies_left(enemies_left-1)
 
 func _game_over() -> void:
 	is_level_won = false
@@ -125,8 +134,9 @@ func _next_level() -> void:
 	interface.reset()
 	world.next_level()
 	
-	_prepare_trees_left()
-	prepare_enemies_left()
+	set_trees_left(world.count_trees())
+	set_enemies_left(world.count_enemies())
+	set_timer_time(0.0)
 	_is_game_running = true
 
 
@@ -141,7 +151,9 @@ func _reset_level() -> void:
 	
 	interface.reset()
 	world.reset_level()
-	_prepare_trees_left()
+	set_trees_left(world.count_trees())
+	set_enemies_left(world.count_enemies())
+	set_timer_time(0.0)
 	_is_game_running = true
 
 

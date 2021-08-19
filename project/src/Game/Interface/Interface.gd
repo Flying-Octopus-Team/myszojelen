@@ -6,6 +6,7 @@ signal reset_game_requested
 
 onready var trees_left_label : Label = $Control/HUD/VBoxContainer/TreesRect/HBoxContainer/Label
 onready var enemies_left_label : Label = $Control/HUD/VBoxContainer/EnemiesRect/HBoxContainer/Label
+onready var timer_label : Label = $Control/HUD/VBoxContainer/TimerRect/HBoxContainer/Label
 onready var game_over_screen : Control = $Control/GameOverScreen
 onready var level_won_screen : Control = $Control/LevelWonScreen
 onready var end_of_game_screen : Control = $Control/EndOfGameScreen
@@ -29,6 +30,15 @@ func set_trees_left(tres_left:int) -> void:
 
 func set_enemies_left(enemies_left:int) -> void:
 	enemies_left_label.text = str(enemies_left)
+
+
+func set_timer(timer_time: float) -> void:
+	timer_time = stepify(timer_time, 0.01)
+
+	var minutes = min(int(floor(timer_time/60.0)), 60)
+	var seconds = fmod(timer_time, 60.0)
+
+	timer_label.text = str(minutes).pad_zeros(2)+":"+str(seconds)
 
 
 func reset() -> void:
