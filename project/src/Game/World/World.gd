@@ -54,3 +54,7 @@ func _prepare_current_level() -> void:
 
 func count_trees() -> int:
 	return level.count_trees()
+
+
+func count_enemies() -> int:
+	return level.enemies_left

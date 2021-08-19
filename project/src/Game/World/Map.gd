@@ -12,7 +12,6 @@ export(Vector2) var map_size = Vector2(11, 11)
 onready var astar_node = PathFinding.new(self, map_size)
 
 onready var obstacles = get_used_cells()
-#onready var _half_cell_size = Vector2()
 
 var world_objects : Node
 
@@ -91,7 +90,6 @@ func _try_to_move(pawn, cell_start, cell_target):
 	
 	if cell_target_type == EMPTY_TILE:
 		return map_to_world(cell_target)
-#		return _update_pawn_position(pawn, cell_start, cell_target)
 	
 	return null
 

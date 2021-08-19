@@ -4,29 +4,41 @@ signal next_level_requested
 signal replay_requested
 signal reset_game_requested
 
-onready var trees_left_label : Label = find_node("TreesLeft")
+onready var trees_left_label : Label = $Control/HUD/VBoxContainer/TreesRect/HBoxContainer/Label
+onready var enemies_left_label : Label = $Control/HUD/VBoxContainer/EnemiesRect/HBoxContainer/Label
+onready var timer_label : Label = $Control/HUD/VBoxContainer/TimerRect/HBoxContainer/Label
 onready var game_over_screen : Control = $Control/GameOverScreen
 onready var level_won_screen : Control = $Control/LevelWonScreen
 onready var end_of_game_screen : Control = $Control/EndOfGameScreen
-onready var HUD : MarginContainer = $Control/HUD
+onready var HUD : Control = $Control/HUD
 
 onready var settings_screen : Control = $Settings
 
 onready var developers_screen = $DevelopersScreen
-
-const TEES_LEFT_PREFIX := "TREES_KEY"
 
 enum Screen { NONE, LEVEL_WON, GAME_OVER, END_OF_GAME }
 var current_screen : int = Screen.NONE
 
 func _ready() -> void:
 	$Control/LevelWonScreen/ReplayBtn.connect("pressed", self, "_on_ReplayBtn_pressed")
-	HUD.get_node("PauseBtn").connect("pressed", settings_screen.get_node("TextureRect/PauseScreen"), "show")#show_screen
+	HUD.get_node("PauseBtn").connect("pressed", settings_screen.get_node("TextureRect/PauseScreen"), "show")
 	reset()
 
 
 func set_trees_left(tres_left:int) -> void:
-	trees_left_label.text = tr(TEES_LEFT_PREFIX) + " " + str(tres_left)
+	trees_left_label.text = str(tres_left)
+
+func set_enemies_left(enemies_left:int) -> void:
+	enemies_left_label.text = str(enemies_left)
+
+
+func set_timer(timer_time: float) -> void:
+	timer_time = stepify(timer_time, 0.01)
+
+	var minutes = min(int(floor(timer_time/60.0)), 60)
+	var seconds = fmod(timer_time, 60.0)
+
+	timer_label.text = str(minutes).pad_zeros(2) + ":" + str(seconds)
 
 
 func reset() -> void:

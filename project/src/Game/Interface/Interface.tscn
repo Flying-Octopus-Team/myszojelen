@@ -1,11 +1,16 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/screens/gameover_screen.png" type="Texture" id=4]
 [ext_resource path="res://src/Buttons/DevelopersButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/icons/ui/pause.png" type="Texture" id=6]
+[ext_resource path="res://assets/icons/ui/frame.png" type="Texture" id=7]
+[ext_resource path="res://assets/icons/ui/tree.png" type="Texture" id=8]
 [ext_resource path="res://assets/fonts/data/Shojumaru-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/icons/ui/enemy.png" type="Texture" id=10]
+[ext_resource path="res://assets/icons/ui/timer.png" type="Texture" id=11]
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/Game/Interface/GameOverScreen.gd" type="Script" id=17]
@@ -31,18 +36,26 @@
 [ext_resource path="res://assets/SettingsMenu/exit_icon.png" type="Texture" id=38]
 
 [sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=6]
 size = 30
 font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 36
-font_data = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=3]
 size = 30
 font_data = ExtResource( 9 )
 
+[sub_resource type="DynamicFont" id=3]
+size = 36
+font_data = ExtResource( 9 )
+
 [sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=5]
 size = 100
 font_data = ExtResource( 9 )
 
@@ -56,35 +69,140 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HUD" type="MarginContainer" parent="Control"]
-visible = false
+[node name="HUD" type="Control" parent="Control"]
 margin_right = 1280.0
 margin_bottom = 725.0
-custom_constants/margin_right = 40
-custom_constants/margin_top = 40
-custom_constants/margin_left = 40
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TreesLeft" type="Label" parent="Control/HUD"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HUD"]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 207.0
-margin_bottom = 73.0
+margin_right = 357.0
+margin_bottom = 334.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-custom_fonts/font = ExtResource( 3 )
-text = "TREES_KEY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TreesRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
+margin_right = 317.0
+margin_bottom = 95.0
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HUD/VBoxContainer/TreesRect"]
+margin_left = 37.6359
+margin_top = 12.1339
+margin_right = 272.636
+margin_bottom = 79.1339
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control/HUD/VBoxContainer/TreesRect/HBoxContainer"]
+margin_left = 37.0
+margin_top = 6.0
+margin_right = 77.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 40, 55 )
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Label" type="Label" parent="Control/HUD/VBoxContainer/TreesRect/HBoxContainer"]
+margin_left = 119.0
+margin_right = 235.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "12"
+
+[node name="EnemiesRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
+margin_top = 99.0
+margin_right = 317.0
+margin_bottom = 194.0
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HUD/VBoxContainer/EnemiesRect"]
+margin_left = 37.6359
+margin_top = 15.4
+margin_right = 272.636
+margin_bottom = 82.4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control/HUD/VBoxContainer/EnemiesRect/HBoxContainer"]
+margin_left = 37.0
+margin_top = 6.0
+margin_right = 77.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 40, 55 )
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Label" type="Label" parent="Control/HUD/VBoxContainer/EnemiesRect/HBoxContainer"]
+margin_left = 119.0
+margin_right = 235.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "12"
+
+[node name="TimerRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
+margin_top = 198.0
+margin_right = 317.0
+margin_bottom = 294.0
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HUD/VBoxContainer/TimerRect"]
+margin_left = 38.0
+margin_top = 15.0
+margin_right = 273.0
+margin_bottom = 82.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control/HUD/VBoxContainer/TimerRect/HBoxContainer"]
+margin_left = 13.0
+margin_right = 53.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 40, 55 )
+size_flags_horizontal = 6
+size_flags_vertical = 0
+texture = ExtResource( 11 )
+expand = true
+
+[node name="Label" type="Label" parent="Control/HUD/VBoxContainer/TimerRect/HBoxContainer"]
+margin_left = 71.0
+margin_top = 13.0
+margin_right = 235.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 164, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "12:21.37"
 
 [node name="PauseBtn" type="TextureButton" parent="Control/HUD"]
-margin_left = 1015.0
+margin_left = 1137.0
 margin_top = 40.0
 margin_right = 1240.0
-margin_bottom = 261.0
+margin_bottom = 131.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
-texture_normal = ExtResource( 18 )
+texture_normal = ExtResource( 6 )
 
 [node name="GameOverScreen" type="Control" parent="Control"]
 visible = false
@@ -152,7 +270,7 @@ margin_left = 56.6675
 margin_top = 32.5767
 margin_right = 412.668
 margin_bottom = 81.5767
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
 text = "TRY_AGAIN_KEY"
 align = 1
@@ -191,7 +309,7 @@ margin_left = 64.0
 margin_top = 34.0
 margin_right = 468.0
 margin_bottom = 83.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
 text = "NEXT_LEVEL_KEY"
 align = 1
@@ -300,7 +418,7 @@ margin_left = 47.0
 margin_top = 39.0
 margin_right = 406.0
 margin_bottom = 80.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
 text = "PLAY_AGAIN_KEY"
 align = 1
@@ -516,7 +634,7 @@ __meta__ = {
 margin_right = 1150.0
 margin_bottom = 133.0
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.690196, 0.466667, 0.196078, 1 )
 text = "PAUSE_MENU_KEY"
 align = 1
