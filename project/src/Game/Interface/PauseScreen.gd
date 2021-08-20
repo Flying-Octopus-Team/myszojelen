@@ -36,8 +36,7 @@ func _return_to_menu() -> void:
 
 
 func _process(delta):
-	if gui_steering.is_pause_pressed() and should_handle_input:
-		$"../SettingsScreen".hide()
+	if gui_steering.is_pause_pressed() and should_handle_input and visible:
 		hide_screen()
 		
 		should_handle_input = false

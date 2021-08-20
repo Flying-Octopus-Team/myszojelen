@@ -639,10 +639,10 @@ focus_neighbour_bottom = NodePath("../../HBoxContainer2/BackBtnContainer")
 [node name="Label" type="Label" parent="SteeringSettings/Controls4Directions/PauseHBox"]
 margin_left = 5.0
 margin_top = 8.0
-margin_right = 180.0
+margin_right = 355.0
 margin_bottom = 41.0
 size_flags_horizontal = 0
-text = "PAUSE_MENU_KEY"
+text = "PAUSE_CONTROLS_KEY"
 
 [node name="Pause" type="Button" parent="SteeringSettings/Controls4Directions/PauseHBox"]
 margin_left = 5.0
@@ -936,10 +936,10 @@ focus_neighbour_bottom = NodePath("../../../HBoxContainer2/BackBtnContainer")
 [node name="Label" type="Label" parent="SteeringSettings/Controls8Directions/VBoxContainer/PauseHBox"]
 margin_left = 5.0
 margin_top = 8.0
-margin_right = 180.0
+margin_right = 355.0
 margin_bottom = 41.0
 size_flags_horizontal = 0
-text = "PAUSE_MENU_KEY"
+text = "PAUSE_CONTROLS_KEY"
 
 [node name="Pause" type="Button" parent="SteeringSettings/Controls8Directions/VBoxContainer/PauseHBox"]
 margin_left = 5.0
@@ -1000,10 +1000,10 @@ focus_neighbour_bottom = NodePath("../../HBoxContainer2/BackBtnContainer")
 [node name="Label" type="Label" parent="SteeringSettings/ControlsPad/PauseHBox"]
 margin_left = 5.0
 margin_top = 8.0
-margin_right = 180.0
+margin_right = 355.0
 margin_bottom = 41.0
 size_flags_horizontal = 0
-text = "PAUSE_MENU_KEY"
+text = "PAUSE_CONTROLS_KEY"
 
 [node name="Pause" type="Button" parent="SteeringSettings/ControlsPad/PauseHBox"]
 margin_left = 5.0
@@ -1160,10 +1160,10 @@ focus_neighbour_bottom = NodePath("../../HBoxContainer2/BackBtnContainer")
 [node name="Label" type="Label" parent="SteeringSettings/ControlsRotations/PauseHBox"]
 margin_left = 5.0
 margin_top = 8.0
-margin_right = 180.0
+margin_right = 355.0
 margin_bottom = 41.0
 size_flags_horizontal = 0
-text = "PAUSE_MENU_KEY"
+text = "PAUSE_CONTROLS_KEY"
 
 [node name="Pause" type="Button" parent="SteeringSettings/ControlsRotations/PauseHBox"]
 margin_left = 5.0

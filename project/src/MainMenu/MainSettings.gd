@@ -57,3 +57,12 @@ func _match_language() -> void:
 			language_en_button.pressed = false
 			language_pl_button.pressed = true
 			TranslationServer.set_locale("pl")
+
+
+func _process(delta):
+	if gui_steering.is_pause_pressed() and should_handle_input and visible:
+		$HBoxContainer/BackBtnContainer/BackBtn.emit_signal("pressed")
+
+		should_handle_input = false
+		yield(get_tree().create_timer(0.15), "timeout")
+		should_handle_input = true
