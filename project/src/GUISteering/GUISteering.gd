@@ -25,3 +25,15 @@ func get_action(event) -> int:
 			action = default_steering.get_action(event, gui_actions)
 
 	return action
+
+
+func is_pause_pressed() -> bool:
+	var pressed : bool = pad.is_action_pressed("pad_pause")
+	if not pressed:
+		if SteeringSave.steering_type == "8Directions":
+			pressed = alternative_steering.is_action_pressed("8directions_pause")
+		else:
+			pressed = default_steering.is_action_pressed("4directions_pause")
+
+	return pressed
+

@@ -90,25 +90,18 @@ script = ExtResource( 8 )
 
 [node name="8Directions" type="Node" parent="Steering" index="0"]
 script = ExtResource( 19 )
-wait_time_after_rotate = null
 
 [node name="4Directions" type="Node" parent="Steering" index="1"]
 script = ExtResource( 14 )
-wait_time_after_rotate = null
 
 [node name="Joystick" type="Node" parent="Steering" index="2"]
 script = ExtResource( 9 )
-wait_time_after_rotate = null
-joy_sensinitivy = null
 
 [node name="Joystick8Directions" type="Node" parent="Steering" index="3"]
 script = ExtResource( 28 )
-wait_time_after_rotate = null
-joy_sensinitivy = null
 
 [node name="WSAD1DoubleKeys" type="Node" parent="Steering" index="4"]
 script = ExtResource( 12 )
 
 [node name="Rotating" type="Node" parent="Steering" index="5"]
 script = ExtResource( 11 )
-wait_time_after_rotate = null

@@ -22,3 +22,7 @@ func get_action(event, gui_enum) -> int:
 		return gui_enum.up
 
 	return gui_enum.none
+
+
+func is_action_pressed(action: String) -> bool:
+	return not InputMap.get_action_list(action).empty() and Input.is_action_pressed(action)

@@ -22,3 +22,7 @@ func get_action(event, gui_enum) -> int:
 
 func _if_player_pressed_action(action: String, event: InputEventKey) -> bool:
 	return not InputMap.get_action_list(action).empty() and InputMap.get_action_list(action)[0].scancode == event.scancode
+
+
+func is_action_pressed(action: String) -> bool:
+	return not InputMap.get_action_list(action).empty() and Input.is_action_pressed(action)

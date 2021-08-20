@@ -25,4 +25,6 @@ func steer(delta:float) -> void:
 
 
 func _pause_game() -> void:
-	find_parent("Game").get_node("Interface/Control/HUD/PauseBtn").emit_signal("pressed")
+	var interface = find_parent("Game").get_node("Interface")
+	if interface.get_node("Settings/TextureRect/PauseScreen").should_handle_input and interface.current_screen == interface.Screen.NONE:
+		interface.get_node("Control/HUD/PauseBtn").emit_signal("pressed")
