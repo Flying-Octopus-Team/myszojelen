@@ -4,7 +4,7 @@ class_name FocusableContainer
 
 var gui_steering = GUISteering.new()
 
-var should_handle_input : bool = false
+var should_handle_input : bool = true
 
 func _ready():
 	connect("focus_entered", self, "_on_focus_entered")

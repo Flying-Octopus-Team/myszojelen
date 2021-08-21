@@ -33,3 +33,12 @@ func _return_to_menu() -> void:
 	get_tree().change_scene("res://src/MainMenu/MainMenu.tscn")
 
 	get_tree().paused = false
+
+
+func _process(delta):
+	if gui_steering.is_pause_pressed() and should_handle_input and visible:
+		hide_screen()
+		
+		should_handle_input = false
+		yield(get_tree().create_timer(0.15), "timeout")
+		should_handle_input = true

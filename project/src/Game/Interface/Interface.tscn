@@ -39,23 +39,23 @@
 size = 50
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=6]
-size = 30
-font_data = ExtResource( 9 )
-
 [sub_resource type="DynamicFont" id=2]
 size = 30
 font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 36
-font_data = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=4]
 size = 30
 font_data = ExtResource( 9 )
 
+[sub_resource type="DynamicFont" id=4]
+size = 36
+font_data = ExtResource( 9 )
+
 [sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=6]
 size = 100
 font_data = ExtResource( 9 )
 
@@ -192,7 +192,7 @@ margin_right = 235.0
 margin_bottom = 54.0
 rect_min_size = Vector2( 164, 0 )
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 text = "12:21.37"
 
 [node name="PauseBtn" type="TextureButton" parent="Control/HUD"]
@@ -270,7 +270,7 @@ margin_left = 56.6675
 margin_top = 32.5767
 margin_right = 412.668
 margin_bottom = 81.5767
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
 text = "TRY_AGAIN_KEY"
 align = 1
@@ -309,7 +309,7 @@ margin_left = 64.0
 margin_top = 34.0
 margin_right = 468.0
 margin_bottom = 83.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
 text = "NEXT_LEVEL_KEY"
 align = 1
@@ -418,7 +418,7 @@ margin_left = 47.0
 margin_top = 39.0
 margin_right = 406.0
 margin_bottom = 80.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
 text = "PLAY_AGAIN_KEY"
 align = 1
@@ -593,7 +593,6 @@ script = ExtResource( 21 )
 
 [node name="Settings" type="Control" parent="."]
 pause_mode = 2
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -634,7 +633,7 @@ __meta__ = {
 margin_right = 1150.0
 margin_bottom = 133.0
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.690196, 0.466667, 0.196078, 1 )
 text = "PAUSE_MENU_KEY"
 align = 1
@@ -662,10 +661,10 @@ focus_neighbour_left = NodePath("../../ReturnHBox/ReturnBtnRect")
 focus_neighbour_right = NodePath("../../RetryHBox/RetryBtnRect")
 
 [node name="UnpauseBtn" parent="Settings/TextureRect/PauseScreen/HBoxContainer/UnpauseHBox/UnpauseBtnRect" instance=ExtResource( 16 )]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 196.0
-margin_bottom = 196.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 195.0
+margin_bottom = 195.0
 texture_normal = ExtResource( 35 )
 texture_pressed = ExtResource( 33 )
 texture_hover = ExtResource( 34 )
@@ -697,10 +696,10 @@ focus_neighbour_left = NodePath("../../UnpauseHBox/UnpauseBtnRect")
 focus_neighbour_right = NodePath("../../SettingsHBox/SettingsBtnRect")
 
 [node name="RetryBtn" parent="Settings/TextureRect/PauseScreen/HBoxContainer/RetryHBox/RetryBtnRect" instance=ExtResource( 16 )]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 196.0
-margin_bottom = 196.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 195.0
+margin_bottom = 195.0
 texture_normal = ExtResource( 35 )
 texture_pressed = ExtResource( 33 )
 texture_hover = ExtResource( 34 )
@@ -732,10 +731,10 @@ focus_neighbour_left = NodePath("../../RetryHBox/RetryBtnRect")
 focus_neighbour_right = NodePath("../../ReturnHBox/ReturnBtnRect")
 
 [node name="SettingsBtn" parent="Settings/TextureRect/PauseScreen/HBoxContainer/SettingsHBox/SettingsBtnRect" instance=ExtResource( 16 )]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 196.0
-margin_bottom = 196.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 195.0
+margin_bottom = 195.0
 texture_normal = ExtResource( 35 )
 texture_pressed = ExtResource( 33 )
 texture_hover = ExtResource( 34 )
@@ -767,10 +766,10 @@ focus_neighbour_left = NodePath("../../SettingsHBox/SettingsBtnRect")
 focus_neighbour_right = NodePath("../../UnpauseHBox/UnpauseBtnRect")
 
 [node name="ReturnBtn" parent="Settings/TextureRect/PauseScreen/HBoxContainer/ReturnHBox/ReturnBtnRect" instance=ExtResource( 16 )]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 196.0
-margin_bottom = 196.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 195.0
+margin_bottom = 195.0
 texture_normal = ExtResource( 35 )
 texture_pressed = ExtResource( 33 )
 texture_hover = ExtResource( 34 )
@@ -856,7 +855,7 @@ margin_right = 924.0
 margin_bottom = 512.0
 
 [node name="SteeringBtnContainer" parent="Settings/TextureRect/SettingsScreen/MainSettings/HBoxContainer" index="1"]
-margin_left = 558.0
+margin_left = 696.0
 margin_right = 924.0
 
 [node name="SteeringSettings" parent="Settings/TextureRect/SettingsScreen" index="1"]

@@ -57,3 +57,13 @@ func _connect_menu_button_to_container(steering_type: String) -> void:
 
 		get_node("HBoxContainer2/BackBtnContainer").focus_neighbour_top = get_node(path_to_container).get_child(get_node(path_to_container).get_child_count()-1).get_path()
 		get_node("HBoxContainer2/ResetBtnContainer").focus_neighbour_top = get_node(path_to_container).get_child(get_node(path_to_container).get_child_count()-1).get_path()
+
+
+func _process(delta):
+	if gui_steering.is_pause_pressed() and should_handle_input and visible:
+		hide()
+		
+		should_handle_input = false
+		yield(get_tree().create_timer(0.15), "timeout")
+		should_handle_input = true
+

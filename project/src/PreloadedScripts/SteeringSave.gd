@@ -4,7 +4,7 @@ const CONFIG_FILE = "user://input.cfg"
 const DEFAULT_CONFIG_FILE = "user://default_input.cfg"
 const INPUT_ACTIONS = ["rotation_left", "rotation_right", "rotation_up", "rotation_pause", "4directions_left", "4directions_up", "4directions_right", "4directions_down", "4directions_pause", "8directions_up", "8directions_up_left", "8directions_up_right", "8directions_left", "8directions_right", "8directions_down", "8directions_down_left", "8directions_down_right", "8directions_pause", "shot_pad", "shot_keyboard", "pad_pause"]
 
-const CONFIG_VERSION = 1.4
+const CONFIG_VERSION = 1.5
 
 var steering_type : String = "none" setget set_steering_type
 var config_file : ConfigFile
