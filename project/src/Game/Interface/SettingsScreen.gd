@@ -5,6 +5,8 @@ func _ready():
 
 func hide():
 	.hide()
+	$MainSettings.hide()
+	$SteeringSettings.hide()
 	$"../PauseScreen".show()
 
 func show():
@@ -14,3 +16,4 @@ func show():
 	$SteeringSettings.update_controls_menu()
 
 	.show()
+	$MainSettings.show()
