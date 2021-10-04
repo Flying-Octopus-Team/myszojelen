@@ -19,14 +19,14 @@
 [ext_resource path="res://assets/Steering/pad.png" type="Texture" id=20]
 [ext_resource path="res://src/Game/Interface/SteeringButton.gd" type="Script" id=21]
 [ext_resource path="res://assets/SettingsMenu/pause_menu.png" type="Texture" id=22]
-[ext_resource path="res://assets/Steering/numpad.png" type="Texture" id=23]
+[ext_resource path="res://assets/Steering/8directions.png" type="Texture" id=23]
 [ext_resource path="res://src/MainMenu/SettingsScreen.tscn" type="PackedScene" id=24]
 [ext_resource path="res://src/Game/Interface/SteeringContainer.gd" type="Script" id=25]
 [ext_resource path="res://src/GUISteering/SteerableContainer.tscn" type="PackedScene" id=26]
-[ext_resource path="res://assets/Steering/wsad1.png" type="Texture" id=28]
+[ext_resource path="res://assets/Steering/4directions.png" type="Texture" id=28]
 [ext_resource path="res://src/Game/Interface/SettingsScreen.gd" type="Script" id=29]
 [ext_resource path="res://src/Game/Interface/PauseScreen.gd" type="Script" id=30]
-[ext_resource path="res://assets/Steering/obroty.png" type="Texture" id=31]
+[ext_resource path="res://assets/Steering/rotation.png" type="Texture" id=31]
 [ext_resource path="res://assets/Steering/gamepad.png" type="Texture" id=32]
 [ext_resource path="res://assets/SettingsMenu/button_clicked.png" type="Texture" id=33]
 [ext_resource path="res://assets/SettingsMenu/button_hover.png" type="Texture" id=34]
@@ -34,6 +34,9 @@
 [ext_resource path="res://assets/SettingsMenu/unpause_icon.png" type="Texture" id=36]
 [ext_resource path="res://assets/SettingsMenu/restart_icon.png" type="Texture" id=37]
 [ext_resource path="res://assets/SettingsMenu/exit_icon.png" type="Texture" id=38]
+
+
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 50

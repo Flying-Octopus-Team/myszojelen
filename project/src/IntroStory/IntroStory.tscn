@@ -5,7 +5,7 @@
 [ext_resource path="res://src/GUISteering/FocusableContainer.gd" type="Script" id=3]
 [ext_resource path="res://src/IntroStory/IntroStory.gd" type="Script" id=4]
 [ext_resource path="res://src/FadeScreen/FadeLayer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/intro_story/buttons/arrow.png" type="Texture" id=6]
+[ext_resource path="res://assets/intro_story/arrow.png" type="Texture" id=6]
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Buttons/DevelopersButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/GUISteering/SteerableContainer.tscn" type="PackedScene" id=9]
@@ -13,7 +13,7 @@
 [ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=11]
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/audio/sfx/Interface/change_screen.wav" type="AudioStream" id=13]
-[ext_resource path="res://src/UISounds/ClickSound.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/audio/sfx/Interface/click.wav" type="AudioStream" id=14]
 [ext_resource path="res://assets/fo_hand_draw.png" type="Texture" id=15]
 [ext_resource path="res://assets/fonts/tres/shojumaru_48.tres" type="DynamicFont" id=16]
 
@@ -217,7 +217,8 @@ visible = false
 [node name="ChangeScreenSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 
-[node name="ClickSound" parent="." instance=ExtResource( 14 )]
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
 [connection signal="pressed" from="Story1/DevelopersRect/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]
 [connection signal="pressed" from="NextArrowRect/NextArrow" to="." method="_on_NextArrow_pressed"]
 [connection signal="pressed" from="PlayBtnRect/PlayBtn" to="." method="_on_PlayBtn_pressed"]

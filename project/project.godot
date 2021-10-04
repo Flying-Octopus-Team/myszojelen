@@ -321,7 +321,7 @@ pointing/emulate_touch_from_mouse=true
 
 [locale]
 
-translations=PoolStringArray( "res://assets/Translations.pl.translation", "res://assets/Translations.en.translation" )
+translations=PoolStringArray( "res://assets/translation/Translations.en.translation", "res://assets/translation/Translations.pl.translation" )
 
 [rendering]
 
