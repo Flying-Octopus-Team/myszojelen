@@ -1,19 +1,19 @@
 extends FocusableContainer
 
-onready var animatio_player = $AnimationPlayer
+onready var animation_player = $AnimationPlayer
 
 
 func show() -> void:
 	.show()
-	animatio_player.play("show_panel")
+	animation_player.play("show_panel")
 	set_process_unhandled_input(true)
 
 
 func hide() -> void:
-	animatio_player.play_backwards("show_panel")
+	animation_player.play_backwards("show_panel")
 	set_process_unhandled_input(false)
 	
-	yield(animatio_player, "animation_finished")
+	yield(animation_player, "animation_finished")
 	.hide()
 
 

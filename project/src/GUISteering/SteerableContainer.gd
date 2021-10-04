@@ -3,7 +3,7 @@ extends PanelContainer
 class_name SteerableContainer
 
 var focus_entered_theme : Theme = load("res://assets/GUI_themes/FocusedPanel.tres")
-var focus_exited_theme : Theme = load("res://assets?GUI_themes/Panel.tres")
+var focus_exited_theme : Theme = load("res://assets/GUI_themes/Panel.tres")
 
 var focus_entered_stylebox_color_begin : Color = Color("#936e43")
 var focus_entered_stylebox_color_end : Color = Color.white
