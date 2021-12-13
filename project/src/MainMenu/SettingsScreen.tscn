@@ -13,7 +13,7 @@
 [ext_resource path="res://assets/Steering/gamepad_icon.png" type="Texture" id=14]
 [ext_resource path="res://assets/Steering/rotation_icon.png" type="Texture" id=15]
 [ext_resource path="res://assets/Steering/4directions_icon.png" type="Texture" id=16]
-[ext_resource path="res://assets/Steering/virtualpad_icon.png" type="Texture" id=17]
+[ext_resource path="res://assets/Steering/pad_icon.png" type="Texture" id=17]
 [ext_resource path="res://src/GUISteering/SteerableContainer.tscn" type="PackedScene" id=18]
 [ext_resource path="res://src/MainMenu/SettingsScreen.gd" type="Script" id=19]
 [ext_resource path="res://src/GUISteering/FocusableLanguageContainer.gd" type="Script" id=20]
@@ -24,6 +24,7 @@
 [ext_resource path="res://src/GUISteering/FocusableContainer.gd" type="Script" id=25]
 [ext_resource path="res://src/MainMenu/SteeringButton.gd" type="Script" id=26]
 [ext_resource path="res://src/Buttons/TextButton.tscn" type="PackedScene" id=27]
+
 
 [sub_resource type="Theme" id=1]
 

@@ -19,14 +19,14 @@
 [ext_resource path="res://assets/Steering/pad.png" type="Texture" id=20]
 [ext_resource path="res://src/Game/Interface/SteeringButton.gd" type="Script" id=21]
 [ext_resource path="res://assets/SettingsMenu/pause_menu.png" type="Texture" id=22]
-[ext_resource path="res://assets/Steering/numpad.png" type="Texture" id=23]
+[ext_resource path="res://assets/Steering/8directions.png" type="Texture" id=23]
 [ext_resource path="res://src/MainMenu/SettingsScreen.tscn" type="PackedScene" id=24]
 [ext_resource path="res://src/Game/Interface/SteeringContainer.gd" type="Script" id=25]
 [ext_resource path="res://src/GUISteering/SteerableContainer.tscn" type="PackedScene" id=26]
-[ext_resource path="res://assets/Steering/wsad1.png" type="Texture" id=28]
+[ext_resource path="res://assets/Steering/4directions.png" type="Texture" id=28]
 [ext_resource path="res://src/Game/Interface/SettingsScreen.gd" type="Script" id=29]
 [ext_resource path="res://src/Game/Interface/PauseScreen.gd" type="Script" id=30]
-[ext_resource path="res://assets/Steering/obroty.png" type="Texture" id=31]
+[ext_resource path="res://assets/Steering/rotation.png" type="Texture" id=31]
 [ext_resource path="res://assets/Steering/gamepad.png" type="Texture" id=32]
 [ext_resource path="res://assets/SettingsMenu/button_clicked.png" type="Texture" id=33]
 [ext_resource path="res://assets/SettingsMenu/button_hover.png" type="Texture" id=34]
@@ -35,12 +35,15 @@
 [ext_resource path="res://assets/SettingsMenu/restart_icon.png" type="Texture" id=37]
 [ext_resource path="res://assets/SettingsMenu/exit_icon.png" type="Texture" id=38]
 
+
+
+
 [sub_resource type="DynamicFont" id=1]
-size = 50
+size = 30
 font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 30
+size = 35
 font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -76,92 +79,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/HUD"]
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 357.0
-margin_bottom = 334.0
+[node name="VBoxContainer" type="Control" parent="Control/HUD"]
+margin_left = 39.6582
+margin_top = 18.082
+margin_right = 707.658
+margin_bottom = 114.082
 size_flags_horizontal = 0
 size_flags_vertical = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TreesRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
-margin_right = 317.0
-margin_bottom = 95.0
-size_flags_vertical = 3
-texture = ExtResource( 7 )
-expand = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/HUD/VBoxContainer/TreesRect"]
-margin_left = 37.6359
-margin_top = 12.1339
-margin_right = 272.636
-margin_bottom = 79.1339
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="Control/HUD/VBoxContainer/TreesRect/HBoxContainer"]
-margin_left = 37.0
-margin_top = 6.0
-margin_right = 77.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 40, 55 )
-size_flags_horizontal = 6
-size_flags_vertical = 4
-texture = ExtResource( 8 )
-expand = true
-
-[node name="Label" type="Label" parent="Control/HUD/VBoxContainer/TreesRect/HBoxContainer"]
-margin_left = 119.0
-margin_right = 235.0
-margin_bottom = 67.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 1 )
-text = "12"
-
-[node name="EnemiesRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
-margin_top = 99.0
-margin_right = 317.0
-margin_bottom = 194.0
-size_flags_vertical = 3
-texture = ExtResource( 7 )
-expand = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/HUD/VBoxContainer/EnemiesRect"]
-margin_left = 37.6359
-margin_top = 15.4
-margin_right = 272.636
-margin_bottom = 82.4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="Control/HUD/VBoxContainer/EnemiesRect/HBoxContainer"]
-margin_left = 37.0
-margin_top = 6.0
-margin_right = 77.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 40, 55 )
-size_flags_horizontal = 6
-size_flags_vertical = 4
-texture = ExtResource( 10 )
-expand = true
-
-[node name="Label" type="Label" parent="Control/HUD/VBoxContainer/EnemiesRect/HBoxContainer"]
-margin_left = 119.0
-margin_right = 235.0
-margin_bottom = 67.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 1 )
-text = "12"
 
 [node name="TimerRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
-margin_top = 198.0
 margin_right = 317.0
-margin_bottom = 294.0
+margin_bottom = 95.0
 size_flags_vertical = 3
 texture = ExtResource( 7 )
 expand = true
@@ -192,8 +120,89 @@ margin_right = 235.0
 margin_bottom = 54.0
 rect_min_size = Vector2( 164, 0 )
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "12:21.37"
+
+[node name="TreesRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
+margin_left = 317.0
+margin_right = 477.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HUD/VBoxContainer/TreesRect"]
+margin_left = 23.0
+margin_top = 15.0
+margin_right = 120.0
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control/HUD/VBoxContainer/TreesRect/HBoxContainer"]
+margin_top = 4.0
+margin_right = 40.0
+margin_bottom = 59.0
+rect_min_size = Vector2( 40, 55 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Label" type="Label" parent="Control/HUD/VBoxContainer/TreesRect/HBoxContainer"]
+margin_left = 44.0
+margin_top = 8.0
+margin_right = 97.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "12"
+align = 2
+
+[node name="EnemiesRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
+margin_left = 489.59
+margin_right = 649.59
+margin_bottom = 96.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HUD/VBoxContainer/EnemiesRect"]
+margin_left = 18.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 77.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control/HUD/VBoxContainer/EnemiesRect/HBoxContainer"]
+margin_top = 1.0
+margin_right = 40.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 40, 55 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Label" type="Label" parent="Control/HUD/VBoxContainer/EnemiesRect/HBoxContainer"]
+margin_left = 44.0
+margin_top = 5.0
+margin_right = 102.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "12"
+align = 2
 
 [node name="PauseBtn" type="TextureButton" parent="Control/HUD"]
 margin_left = 1137.0
@@ -593,6 +602,7 @@ script = ExtResource( 21 )
 
 [node name="Settings" type="Control" parent="."]
 pause_mode = 2
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
