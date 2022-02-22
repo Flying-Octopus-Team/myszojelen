@@ -1,0 +1,67 @@
+,en,pl
+SETTINGS_TITLE,Settings,Ustawienia
+MUSIC_KEY,Music,Muzyka
+AUDIO_EFFECTS_KEY,Audio effects,Efekty dźwiękowe
+LANGUAGE_KEY,Language,Język
+BACK_KEY,Return,Wróć
+CONTINUE_KEY,Continue,Kontynuuj
+CREDITS_KEY,Credits,Poznaj twórców
+EXIT_KEY,Exit,Wyjście
+REPLAY_KEY,Replay level,Powtórz poziom
+LEVEL_WON_KEY,"You banished lumberjacks! 
+Now run and save next forest...","Przepędziłeś drwali!
+Teraz biegnij ratować kolejny las..."
+GAME_FINISHED_KEY,"You did it!
+Lumberjacks are no longer a threat to your species.
+You've successfully rebuilt the population of mouse-deers and your family forest!","Udało się! 
+Drwale nie zagrażają już twojemu gatunkowi. 
+Odbudowałeś populację Myszojeleni i rodzinny las!"
+STEERING_KEY,Choose steering type:,Wybierz sposób sterowania:
+INTRO1_KEY,"Vietnam mouse-deer is a species that was thought to be extinct. Last year, however, after almost 30 years, they were seen again in the Khanh Hoa province of southern Vietnam.
+Researchers report: large-scale tropical forest logging may be a reason why the Vietnam mouse-deer are nearly extinct.
+An Nguyen from the Global Wildlife Conservation (GWC) said:
+For a long time, the Vietnam mouse-deer have only existed in our imagination. We will not let them disappear from our sight again! The discovery that they still exist motivates us to act to protect them at any cost.","Myszojelenie są gatunkiem, który uważano za wymarły. Jednak w zeszłym roku, po prawie 30 latach, zaobserwowano go ponownie w prowincji Khanh Hoa południowego Wietnamu.
+
+Naukowcy donoszą: „powodem, przez który myszojelenie wymierają, może być wycinka lasów tropikalnych na wielką skalę”.
+
+An Nguyen z organizacji Global Wildlife Conservation (GWC) stwierdził:
+ „gatunek myszojeleni przez długi czas funkcjonował tylko jako element naszej wyobraźni. Nie pozwolimy, by myszojelenie ponownie zniknęły nam z oczu! Odkrycie, że dalej istnieją, motywuje nas do podjęcia działań, mających na celu jak najszybszą ochronę gatunku”."
+INTRO2_KEY,"What really happened is still a mystery. Rumour is that Nguyen himself was able to catch an individual specimen, which was genetically modified. Other say the entire GWC was involved.
+However, the fact remains that on April 6, 2020, Vietnamese lumberjacks met the unexpected phenomenon, when an unknown individual of the Vietnam mouse-deer species began to fight the soulless tree strippers. His goal was the reconstruction of the tropical forest and the entire species of Vietnam mouse-deer.","Co tak naprawdę się wydarzyło, do dzisiaj stanowi zagadkę. Według pogłosek, poprzez indywidualne wysiłki samego Ngueyena, udało się złapać pojedynczego osobnika, który następnie został zmodyfikowany genetycznie. Niektórzy twierdzą, że w sprawę może być zamieszana nawet cała GWC.
+
+Jednak faktem pozostaje, że 6 kwietnia 2020 roku wietnamscy drwale zmierzyli się z nieprawdopodobnym wręcz zjawiskiem, kiedy to nieznany myszojeleń zaczął walkę z bezdusznymi ścinaczami drzew. Jego celem była odbudowa lasu tropikalnego oraz całego gatunku myszojeleni.
+"
+INTRO3_KEY,Journalists quickly called him Teenage Mutant Vietnam Mouse-deer.,Gazety szybko nazwały go Wojowniczym Myszojeleniem.
+INTRO_STORY_TEXTURE_KEY,res://assets/intro_story/intro_story3_en.png,res://assets/intro_story/intro_story3_pl.png
+NEW_GAME_KEY,New game,Nowa gra
+STEERING_KEY,Controls,Sterowanie
+RESTORE_DEFAULT_KEY,Restore default,Przywróć domyślne
+STEERING_TYPE_KEY,Choose type of controls:,Wybierz typ sterowania:
+PAUSE_MENU_KEY,Pause,Pauza
+UP_KEY,Up,Góra
+LEFT_KEY,Left,Lewo
+RIGHT_KEY,Right,Prawo
+DOWN_KEY,Down,Dół
+SHOT_KEY,Shot,Strzał
+UP_LEFT_KEY,Up left,Lewy górny róg
+UP_RIGHT_KEY,Up right,Prawy górny róg
+DOWN_LEFT_KEY,Down left,Lewy dolny róg
+DOWN_RIGHT_KEY,Down right,Lewy prawy róg
+BUTTON_KEY,Button,Przycisk
+FORWARD_KEY,Forward,Naprzód
+4Directions_KEY,4 directions,4 kierunki
+8Directions_KEY,8 directions,8 kierunków
+Pad_KEY,pad,pad
+VirtualPad_KEY,virtual pad,wirtualny pad
+Rotations_KEY,rotations,obroty
+none_KEY,none,żaden
+PLAY_KEY,Play,Graj
+NEXT_LEVEL_KEY,Next level,Następny poziom
+TRY_AGAIN_KEY,Try again,Spróbuj ponownie
+PLAY_AGAIN_KEY,Play again,Zagraj ponownie
+PROGRAMMER_KEY,Programmer,Programista
+GRAPHIC_KEY,Graphic designer,Grafik
+MUSIC_CREDITS_KEY,music credits,autorzy muzyki
+LICENSE_KEY,under license,udostępnione na licencji
+COORDINATOR_KEY,Coordinator,Koordynator
+PAUSE_CONTROLS_KEY,Pause / return,Pauza / wróć

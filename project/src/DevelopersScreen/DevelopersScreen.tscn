@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/developers/dominik.png" type="Texture" id=1]
 [ext_resource path="res://assets/developers/wojtek.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/developers/sonic idols logo.png" type="Texture" id=14]
 [ext_resource path="res://assets/developers/Piotr.png" type="Texture" id=15]
 [ext_resource path="res://assets/developers/oktawiusz.png" type="Texture" id=16]
+[ext_resource path="res://src/GUISteering/SteerableContainer.tscn" type="PackedScene" id=17]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.137255, 0.109804, 0.231373, 1 )
@@ -68,6 +69,8 @@ tracks/2/keys = {
 [node name="DevelopersScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+focus_neighbour_bottom = NodePath("Origin/Panel/XBtnContainer")
+focus_mode = 1
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 265.269, 284.399, 491.913 ],
@@ -142,7 +145,7 @@ margin_right = 373.652
 margin_bottom = 338.539
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Programista"
+text = "PROGRAMMER_KEY"
 
 [node name="Wojtek" type="TextureRect" parent="Origin/Panel"]
 margin_left = 732.254
@@ -180,18 +183,13 @@ __meta__ = {
 }
 
 [node name="Function" type="Label" parent="Origin/Panel/Wojtek"]
-margin_left = -0.899109
-margin_top = 289.666
-margin_right = 287.101
-margin_bottom = 336.666
+margin_left = -1.0
+margin_top = 290.0
+margin_right = 287.0
+margin_bottom = 312.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Koordynator
-Scenarzysta
-Sam nie wie
-Murarz
-Tynkarz
-Akrobata"
+text = "COORDINATOR_KEY"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -239,7 +237,7 @@ margin_right = 307.93
 margin_bottom = 350.964
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Programista"
+text = "PROGRAMMER_KEY"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -281,13 +279,13 @@ __meta__ = {
 }
 
 [node name="Function" type="Label" parent="Origin/Panel/Oktawiusz"]
-margin_left = 19.9302
+margin_left = 18.729
 margin_top = 303.964
-margin_right = 307.93
+margin_right = 306.729
 margin_bottom = 350.964
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Programista"
+text = "PROGRAMMER_KEY"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -330,13 +328,14 @@ __meta__ = {
 }
 
 [node name="Function" type="Label" parent="Origin/Panel/Kacper"]
-margin_left = 103.289
-margin_top = 335.547
-margin_right = 391.289
-margin_bottom = 368.547
+margin_left = 28.0
+margin_top = 336.0
+margin_right = 262.0
+margin_bottom = 369.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Grafik"
+text = "GRAPHIC_KEY"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -379,13 +378,14 @@ __meta__ = {
 }
 
 [node name="Function" type="Label" parent="Origin/Panel/Michal"]
-margin_left = 106.161
-margin_top = 338.816
-margin_right = 394.161
-margin_bottom = 371.816
+margin_left = 18.0
+margin_top = 339.0
+margin_right = 309.0
+margin_bottom = 372.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Grafik"
+text = "GRAPHIC_KEY"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -447,16 +447,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="XBtn" parent="Origin/Panel" instance=ExtResource( 10 )]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -109.179
-margin_top = 13.1722
-margin_right = -10.1787
-margin_bottom = 103.172
-texture_normal = ExtResource( 8 )
+[node name="XBtnContainer" parent="Origin/Panel" instance=ExtResource( 17 )]
+margin_left = 1040.0
+margin_top = 10.0
+margin_right = 1140.0
+margin_bottom = 110.0
+
+[node name="XBtn" parent="Origin/Panel/XBtnContainer" instance=ExtResource( 10 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 95.0
+margin_bottom = 95.0
+texture_normal = null
 texture_pressed = null
 texture_hover = null
+
+[node name="TextureRect" type="TextureRect" parent="Origin/Panel/XBtnContainer/XBtn"]
+margin_right = 91.0
+margin_bottom = 94.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MusicCredits" type="Control" parent="Origin/Panel"]
 margin_left = -23.5598
@@ -468,12 +481,12 @@ __meta__ = {
 }
 
 [node name="Header" type="Label" parent="Origin/Panel/MusicCredits"]
-margin_left = 957.122
-margin_top = 479.693
-margin_right = 1144.12
-margin_bottom = 512.693
+margin_left = 957.0
+margin_top = 480.0
+margin_right = 1144.0
+margin_bottom = 503.0
 custom_fonts/font = ExtResource( 11 )
-text = "Autorzy muzyki:"
+text = "MUSIC_CREDITS_KEY"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -522,7 +535,7 @@ margin_top = 649.454
 margin_right = 1060.94
 margin_bottom = 682.454
 custom_fonts/font = ExtResource( 11 )
-text = "Udostępnione na licencji"
+text = "LICENSE_KEY"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -574,7 +587,7 @@ mouse_default_cursor_shape = 2
 anims/show_panel = SubResource( 2 )
 [connection signal="gui_input" from="ColorRect" to="." method="_on_ColorRect_gui_input"]
 [connection signal="pressed" from="Origin/Panel/FOLogo/LinkButton" to="." method="_on_LinkButton_pressed"]
-[connection signal="pressed" from="Origin/Panel/XBtn" to="." method="_on_XBtn_pressed"]
+[connection signal="pressed" from="Origin/Panel/XBtnContainer/XBtn" to="." method="_on_XBtn_pressed"]
 [connection signal="pressed" from="Origin/Panel/MusicCredits/glassocean/glassocean_btn" to="." method="_on_glassocean_btn_pressed"]
 [connection signal="pressed" from="Origin/Panel/MusicCredits/Rasmus/rasmus_btn" to="." method="_on_rasmus_btn_pressed"]
 [connection signal="pressed" from="Origin/Panel/MusicCredits/CCLicence/CC_3_LinkBtn" to="." method="_on_CC_3_LinkBtn_pressed"]

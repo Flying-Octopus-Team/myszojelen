@@ -2,14 +2,18 @@ extends Node
 
 const CONFIG_FILE = "user://input.cfg"
 const DEFAULT_CONFIG_FILE = "user://default_input.cfg"
-const INPUT_ACTIONS = ["rotation_left", "rotation_right", "rotation_up", "4directions_left", "4directions_up", "4directions_right", "4directions_down", "8directions_up", "8directions_up_left", "8directions_up_right", "8directions_left", "8directions_right", "8directions_down", "8directions_down_left", "8directions_down_right", "shot_pad", "shot_keyboard"]
+const INPUT_ACTIONS = ["rotation_left", "rotation_right", "rotation_up", "rotation_pause", "4directions_left", "4directions_up", "4directions_right", "4directions_down", "4directions_pause", "8directions_up", "8directions_up_left", "8directions_up_right", "8directions_left", "8directions_right", "8directions_down", "8directions_down_left", "8directions_down_right", "8directions_pause", "shot_pad", "shot_keyboard", "pad_pause"]
 
-const CONFIG_VERSION = 1.3
+const CONFIG_VERSION = 1.5
 
 var steering_type : String = "none" setget set_steering_type
 var config_file : ConfigFile
 
 func _init() -> void:
+	var directory = Directory.new()
+
+	directory.remove(DEFAULT_CONFIG_FILE)
+
 	_load_input()
 
 
@@ -31,7 +35,7 @@ func _create_default_file_if_needed() -> void:
 
 	var err = config_file.load(DEFAULT_CONFIG_FILE)
 
-	if err != OK:
+	if err != OK || config_file.get_value("version", "value", 1.0) != CONFIG_VERSION:
 		save_input(DEFAULT_CONFIG_FILE)
 
 
@@ -76,7 +80,7 @@ func _set_action_to_keybind(action) -> void:
 
 
 func _parse_input_joypadbutton_from_string(value: String) -> InputEventJoypadButton:
-	value = value.trim_prefix("InputEventJoypadButton :")
+	value = value.trim_prefix("InputEventJoypadButton : ")
 
 	var properties : PoolStringArray = value.split(", ")
 
@@ -110,7 +114,8 @@ func reset_file() -> void:
 		_load_from_file()
 
 	save_input()
-	get_tree().reload_current_scene()
+	if get_tree():
+		get_tree().reload_current_scene()
 
 
 

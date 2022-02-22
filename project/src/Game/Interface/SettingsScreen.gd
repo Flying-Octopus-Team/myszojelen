@@ -1,19 +1,19 @@
 extends "res://src/MainMenu/SettingsScreen.gd"
 
 func _ready():
-	._ready()
+	$MainSettings/HBoxContainer/BackBtnContainer/BackBtn.connect("pressed", self, "hide")
 
-	$VBoxContainer/BackBtn.connect("pressed", self, "_hide_screen")
+func hide():
+	.hide()
+	$MainSettings.hide()
+	$SteeringSettings.hide()
+	$"../PauseScreen".show()
 
-func _hide_screen() -> void:
-	get_tree().paused = false
-	$"../../".hide()
-
-func show_screen() -> void:
-	master_volume_slider.value = Settings.master_volume
-	audio_effects_slider.value = Settings.audio_effects_volume
+func show():
+	$MainSettings.master_volume_slider.value = Settings.master_volume
+	$MainSettings.audio_effects_slider.value = Settings.audio_effects_volume
 
 	$SteeringSettings.update_controls_menu()
 
-	get_tree().paused = true
-	$"../../".show()
+	.show()
+	$MainSettings.show()

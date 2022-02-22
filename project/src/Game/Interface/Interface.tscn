@@ -1,36 +1,66 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/screens/gameover_screen.png" type="Texture" id=4]
 [ext_resource path="res://src/Buttons/DevelopersButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/screens/buttons/play_again/play_again_btn_hover.png" type="Texture" id=6]
-[ext_resource path="res://assets/screens/buttons/play_again/play_again_btn_pressed.png" type="Texture" id=7]
-[ext_resource path="res://assets/screens/buttons/play_again/play_again_btn.png" type="Texture" id=8]
-[ext_resource path="res://assets/screens/buttons/try_again/try_again_btn.png" type="Texture" id=9]
-[ext_resource path="res://assets/screens/buttons/try_again/try_again_btn_pressed.png" type="Texture" id=10]
-[ext_resource path="res://assets/screens/buttons/try_again/try_again_btn_hover.png" type="Texture" id=11]
-[ext_resource path="res://assets/screens/buttons/next_level/next_level_btn_pressed.png" type="Texture" id=12]
-[ext_resource path="res://assets/screens/buttons/next_level/next_level_btn_hover.png" type="Texture" id=13]
-[ext_resource path="res://assets/screens/buttons/next_level/next_level_btn.png" type="Texture" id=14]
+[ext_resource path="res://assets/icons/ui/pause.png" type="Texture" id=6]
+[ext_resource path="res://assets/icons/ui/frame.png" type="Texture" id=7]
+[ext_resource path="res://assets/icons/ui/tree.png" type="Texture" id=8]
+[ext_resource path="res://assets/fonts/data/Shojumaru-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/icons/ui/enemy.png" type="Texture" id=10]
+[ext_resource path="res://assets/icons/ui/timer.png" type="Texture" id=11]
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/Game/Interface/GameOverScreen.gd" type="Script" id=17]
-[ext_resource path="res://assets/placeholder_gear.png" type="Texture" id=18]
-[ext_resource path="res://assets/screens/buttons/poll/PollClick.png" type="Texture" id=19]
+[ext_resource path="res://assets/SettingsMenu/options_icon.png" type="Texture" id=18]
+[ext_resource path="res://src/GUISteering/FocusableContainer.gd" type="Script" id=19]
 [ext_resource path="res://assets/Steering/pad.png" type="Texture" id=20]
 [ext_resource path="res://src/Game/Interface/SteeringButton.gd" type="Script" id=21]
-[ext_resource path="res://assets/MainMenu/settingsboard.png" type="Texture" id=22]
-[ext_resource path="res://assets/Steering/numpad.png" type="Texture" id=23]
+[ext_resource path="res://assets/SettingsMenu/pause_menu.png" type="Texture" id=22]
+[ext_resource path="res://assets/Steering/8directions.png" type="Texture" id=23]
 [ext_resource path="res://src/MainMenu/SettingsScreen.tscn" type="PackedScene" id=24]
 [ext_resource path="res://src/Game/Interface/SteeringContainer.gd" type="Script" id=25]
-[ext_resource path="res://assets/screens/buttons/poll/Poll.png" type="Texture" id=26]
-[ext_resource path="res://assets/screens/buttons/poll/PollHover.png" type="Texture" id=27]
-[ext_resource path="res://assets/Steering/wsad1.png" type="Texture" id=28]
+[ext_resource path="res://src/GUISteering/SteerableContainer.tscn" type="PackedScene" id=26]
+[ext_resource path="res://assets/Steering/4directions.png" type="Texture" id=28]
 [ext_resource path="res://src/Game/Interface/SettingsScreen.gd" type="Script" id=29]
-[ext_resource path="res://assets/Steering/obroty.png" type="Texture" id=31]
+[ext_resource path="res://src/Game/Interface/PauseScreen.gd" type="Script" id=30]
+[ext_resource path="res://assets/Steering/rotation.png" type="Texture" id=31]
 [ext_resource path="res://assets/Steering/gamepad.png" type="Texture" id=32]
+[ext_resource path="res://assets/SettingsMenu/button_clicked.png" type="Texture" id=33]
+[ext_resource path="res://assets/SettingsMenu/button_hover.png" type="Texture" id=34]
+[ext_resource path="res://assets/SettingsMenu/button.png" type="Texture" id=35]
+[ext_resource path="res://assets/SettingsMenu/unpause_icon.png" type="Texture" id=36]
+[ext_resource path="res://assets/SettingsMenu/restart_icon.png" type="Texture" id=37]
+[ext_resource path="res://assets/SettingsMenu/exit_icon.png" type="Texture" id=38]
+
+
+
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 36
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 100
+font_data = ExtResource( 9 )
 
 [node name="Interface" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -42,38 +72,153 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HUD" type="MarginContainer" parent="Control"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-custom_constants/margin_right = 40
-custom_constants/margin_top = 40
-custom_constants/margin_left = 40
+[node name="HUD" type="Control" parent="Control"]
+margin_right = 1280.0
+margin_bottom = 725.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/HUD"]
-margin_left = 40.0
+[node name="VBoxContainer" type="Control" parent="Control/HUD"]
+margin_left = 39.6582
+margin_top = 18.082
+margin_right = 707.658
+margin_bottom = 114.082
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TimerRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
+margin_right = 317.0
+margin_bottom = 95.0
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HUD/VBoxContainer/TimerRect"]
+margin_left = 38.0
+margin_top = 15.0
+margin_right = 273.0
+margin_bottom = 82.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control/HUD/VBoxContainer/TimerRect/HBoxContainer"]
+margin_left = 13.0
+margin_right = 53.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 40, 55 )
+size_flags_horizontal = 6
+size_flags_vertical = 0
+texture = ExtResource( 11 )
+expand = true
+
+[node name="Label" type="Label" parent="Control/HUD/VBoxContainer/TimerRect/HBoxContainer"]
+margin_left = 71.0
+margin_top = 13.0
+margin_right = 235.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 164, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "12:21.37"
+
+[node name="TreesRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
+margin_left = 317.0
+margin_right = 477.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HUD/VBoxContainer/TreesRect"]
+margin_left = 23.0
+margin_top = 15.0
+margin_right = 120.0
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control/HUD/VBoxContainer/TreesRect/HBoxContainer"]
+margin_top = 4.0
+margin_right = 40.0
+margin_bottom = 59.0
+rect_min_size = Vector2( 40, 55 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Label" type="Label" parent="Control/HUD/VBoxContainer/TreesRect/HBoxContainer"]
+margin_left = 44.0
+margin_top = 8.0
+margin_right = 97.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "12"
+align = 2
+
+[node name="EnemiesRect" type="TextureRect" parent="Control/HUD/VBoxContainer"]
+margin_left = 489.59
+margin_right = 649.59
+margin_bottom = 96.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HUD/VBoxContainer/EnemiesRect"]
+margin_left = 18.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 77.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control/HUD/VBoxContainer/EnemiesRect/HBoxContainer"]
+margin_top = 1.0
+margin_right = 40.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 40, 55 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Label" type="Label" parent="Control/HUD/VBoxContainer/EnemiesRect/HBoxContainer"]
+margin_left = 44.0
+margin_top = 5.0
+margin_right = 102.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "12"
+align = 2
+
+[node name="PauseBtn" type="TextureButton" parent="Control/HUD"]
+margin_left = 1137.0
 margin_top = 40.0
-margin_right = 207.0
-margin_bottom = 179.0
-
-[node name="TreesLeft" type="Label" parent="Control/HUD/VBoxContainer"]
-margin_right = 195.0
-margin_bottom = 33.0
-custom_fonts/font = ExtResource( 3 )
-text = "TREES_KEY"
-
-[node name="SettingsBtn" type="TextureButton" parent="Control/HUD/VBoxContainer"]
-margin_top = 37.0
-margin_right = 195.0
-margin_bottom = 139.0
-texture_normal = ExtResource( 18 )
+margin_right = 1240.0
+margin_bottom = 131.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource( 6 )
 
 [node name="GameOverScreen" type="Control" parent="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+focus_neighbour_bottom = NodePath("ReplayBtnRect")
+focus_mode = 1
 script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -86,19 +231,6 @@ texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="ReplayBtn" parent="Control/GameOverScreen" instance=ExtResource( 16 )]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -241.0
-margin_top = -157.0
-margin_right = 241.0
-margin_bottom = 0.0
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 11 )
 
 [node name="Quote" type="Label" parent="Control/GameOverScreen"]
 anchor_top = 0.5
@@ -130,6 +262,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ReplayBtnRect" parent="Control/GameOverScreen" instance=ExtResource( 26 )]
+margin_left = 387.0
+margin_top = 576.0
+margin_right = 881.0
+margin_bottom = 710.0
+
+[node name="ReplayBtn" parent="Control/GameOverScreen/ReplayBtnRect" instance=ExtResource( 16 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 489.0
+margin_bottom = 129.0
+
+[node name="Label" type="Label" parent="Control/GameOverScreen/ReplayBtnRect/ReplayBtn"]
+margin_left = 56.6675
+margin_top = 32.5767
+margin_right = 412.668
+margin_bottom = 81.5767
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
+text = "TRY_AGAIN_KEY"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LevelWonScreen" type="Control" parent="Control"]
 visible = false
 anchor_right = 1.0
@@ -153,11 +310,18 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -241.0
 margin_top = -153.0
-margin_right = 241.0
+margin_right = 302.0
 margin_bottom = 0.0
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 12 )
-texture_hover = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="Control/LevelWonScreen/NextLevelBtn"]
+margin_left = 64.0
+margin_top = 34.0
+margin_right = 468.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
+text = "NEXT_LEVEL_KEY"
+align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/LevelWonScreen"]
 anchor_right = 1.0
@@ -186,8 +350,6 @@ margin_bottom = 66.0
 texture_normal = null
 texture_pressed = null
 texture_hover = null
-upscale_on_hover = true
-downscale_on_press = true
 
 [node name="Label" type="Label" parent="Control/LevelWonScreen/ReplayBtn"]
 margin_right = 40.0
@@ -201,6 +363,9 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+focus_neighbour_bottom = NodePath("ResetGameBtnRect")
+focus_mode = 1
+script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -229,41 +394,53 @@ custom_constants/shadow_offset_y = 2
 text = "GAME_FINISHED"
 align = 1
 
-[node name="DevelopersButton" parent="Control/EndOfGameScreen" instance=ExtResource( 5 )]
-margin_left = 53.2774
-margin_top = 530.772
-margin_right = 357.277
-margin_bottom = 697.772
+[node name="DevelopersBtnRect" parent="Control/EndOfGameScreen" instance=ExtResource( 26 )]
+margin_left = 53.0
+margin_top = 530.0
+margin_right = 357.0
+margin_bottom = 697.0
+focus_neighbour_left = NodePath("../ResetGameBtnRect")
+focus_neighbour_right = NodePath("../ResetGameBtnRect")
 
-[node name="ResetGameBtn" parent="Control/EndOfGameScreen" instance=ExtResource( 16 )]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 140.827
-margin_top = -157.911
-margin_right = 622.827
-margin_bottom = -4.91089
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 6 )
+[node name="DevelopersButton" parent="Control/EndOfGameScreen/DevelopersBtnRect" instance=ExtResource( 5 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 299.0
+margin_bottom = 162.0
 
-[node name="PollLink" parent="Control/EndOfGameScreen" instance=ExtResource( 16 )]
-margin_left = 678.0
-margin_top = 398.0
-margin_right = 1356.0
-margin_bottom = 581.0
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 19 )
-texture_hover = ExtResource( 27 )
-upscale_on_hover = true
-downscale_on_press = true
+[node name="ResetGameBtnRect" parent="Control/EndOfGameScreen" instance=ExtResource( 26 )]
+margin_left = 780.0
+margin_top = 562.0
+margin_right = 1262.0
+margin_bottom = 715.0
+focus_neighbour_left = NodePath("../DevelopersBtnRect")
+focus_neighbour_right = NodePath("../DevelopersBtnRect")
+
+[node name="ResetGameBtn" parent="Control/EndOfGameScreen/ResetGameBtnRect" instance=ExtResource( 16 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 477.0
+margin_bottom = 148.0
+
+[node name="Label" type="Label" parent="Control/EndOfGameScreen/ResetGameBtnRect/ResetGameBtn"]
+margin_left = 47.0
+margin_top = 39.0
+margin_right = 406.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
+text = "PLAY_AGAIN_KEY"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DevelopersScreen" parent="." instance=ExtResource( 15 )]
 visible = false
 
 [node name="SteeringScreen" type="Control" parent="."]
 pause_mode = 2
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -281,7 +458,7 @@ margin_left = 380.496
 margin_top = 56.6965
 margin_right = 832.496
 margin_bottom = 89.6965
-text = "STEERING_KEY"
+text = "STEERING_TYPE_KEY"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -291,8 +468,10 @@ __meta__ = {
 margin_left = -4.0
 margin_top = 131.0
 margin_right = 1287.0
-margin_bottom = 664.0
+margin_bottom = 638.0
 rect_scale = Vector2( 0.998138, 1.16152 )
+focus_neighbour_bottom = NodePath("GridContainer/ReferenceRect")
+focus_mode = 1
 script = ExtResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -300,103 +479,126 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="SteeringScreen/SteeringContainer"]
 margin_right = 1291.0
-margin_bottom = 354.0
+margin_bottom = 507.0
 size_flags_horizontal = 3
-size_flags_vertical = 0
 columns = 3
 
-[node name="VBoxContainer1" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 113.0
-margin_right = 313.0
-margin_bottom = 175.0
+[node name="ReferenceRect" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
+margin_left = 108.0
+margin_top = 65.0
+margin_right = 318.0
+margin_bottom = 185.0
+focus_neighbour_left = NodePath("../ReferenceRect3")
+focus_neighbour_top = NodePath("../ReferenceRect4")
+focus_neighbour_right = NodePath("../ReferenceRect2")
+focus_neighbour_bottom = NodePath("../ReferenceRect4")
 size_flags_horizontal = 6
-
-[node name="4Directions" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer1"]
-margin_right = 200.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
-size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="4Directions" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/ReferenceRect"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 205.0
+margin_bottom = 115.0
+rect_min_size = Vector2( 200, 110 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture_normal = ExtResource( 28 )
 expand = true
-stretch_mode = 4
 script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 431.0
-margin_right = 858.0
-margin_bottom = 175.0
+[node name="ReferenceRect2" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
+margin_left = 539.0
+margin_top = 60.0
+margin_right = 749.0
+margin_bottom = 190.0
+focus_neighbour_left = NodePath("../ReferenceRect")
+focus_neighbour_top = NodePath("../ReferenceRect5")
+focus_neighbour_right = NodePath("../ReferenceRect3")
+focus_neighbour_bottom = NodePath("../ReferenceRect5")
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
-[node name="8Directions" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer2"]
-margin_left = 113.0
-margin_right = 313.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
-size_flags_horizontal = 4
+[node name="8Directions" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/ReferenceRect2"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 205.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 200, 120 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture_normal = ExtResource( 23 )
 expand = true
-stretch_mode = 4
 script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 975.0
-margin_right = 1175.0
-margin_bottom = 175.0
+[node name="ReferenceRect3" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
+margin_left = 970.0
+margin_top = 60.0
+margin_right = 1180.0
+margin_bottom = 190.0
+focus_neighbour_left = NodePath("../ReferenceRect2")
+focus_neighbour_right = NodePath("../ReferenceRect")
 size_flags_horizontal = 6
+size_flags_vertical = 6
 
-[node name="VirtualPad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer3"]
-margin_right = 200.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
+[node name="VirtualPad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/ReferenceRect3"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 205.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 200, 120 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 20 )
 expand = true
-stretch_mode = 4
 script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 113.0
-margin_top = 179.0
-margin_right = 313.0
-margin_bottom = 354.0
+[node name="ReferenceRect4" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
+margin_left = 108.0
+margin_top = 255.0
+margin_right = 318.0
+margin_bottom = 385.0
+focus_neighbour_left = NodePath("../ReferenceRect5")
+focus_neighbour_top = NodePath("../ReferenceRect")
+focus_neighbour_right = NodePath("../ReferenceRect5")
+focus_neighbour_bottom = NodePath("../ReferenceRect")
 size_flags_horizontal = 6
+size_flags_vertical = 2
 
-[node name="Pad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer4"]
-margin_right = 200.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
-size_flags_horizontal = 4
+[node name="Pad" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/ReferenceRect4"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 205.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 200, 120 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture_normal = ExtResource( 32 )
 expand = true
-stretch_mode = 4
 script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="SteeringScreen/SteeringContainer/GridContainer"]
-margin_left = 544.0
-margin_top = 179.0
-margin_right = 744.0
-margin_bottom = 354.0
+[node name="ReferenceRect5" parent="SteeringScreen/SteeringContainer/GridContainer" instance=ExtResource( 26 )]
+margin_left = 539.0
+margin_top = 255.0
+margin_right = 749.0
+margin_bottom = 385.0
+focus_neighbour_left = NodePath("../ReferenceRect4")
+focus_neighbour_top = NodePath("../ReferenceRect2")
+focus_neighbour_right = NodePath("../ReferenceRect4")
+focus_neighbour_bottom = NodePath("../ReferenceRect2")
 size_flags_horizontal = 6
+size_flags_vertical = 2
 
-[node name="Rotations" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/VBoxContainer5"]
-margin_right = 200.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 200, 175 )
-size_flags_horizontal = 4
+[node name="Rotations" type="TextureButton" parent="SteeringScreen/SteeringContainer/GridContainer/ReferenceRect5"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 205.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 200, 120 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture_normal = ExtResource( 31 )
 expand = true
-stretch_mode = 4
 script = ExtResource( 21 )
-upscale_on_hover = true
-upscale_on_press = true
 
 [node name="Settings" type="Control" parent="."]
 pause_mode = 2
@@ -414,23 +616,282 @@ rect_scale = Vector2( 1.28317, 0.725384 )
 color = Color( 0, 0, 0, 0.737255 )
 
 [node name="TextureRect" type="TextureRect" parent="Settings"]
-margin_left = -156.131
-margin_top = -49.9246
-margin_right = 1763.87
-margin_bottom = 1030.08
+margin_left = 108.79
+margin_top = 40.0
+margin_right = 1477.79
+margin_bottom = 790.0
 rect_scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 22 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseScreen" type="VBoxContainer" parent="Settings/TextureRect"]
+margin_left = 141.0
+margin_top = 76.0
+margin_right = 1227.0
+margin_bottom = 639.0
+focus_neighbour_bottom = NodePath("HBoxContainer/UnpauseHBox/UnpauseBtnRect")
+focus_mode = 1
+script = ExtResource( 30 )
+
+[node name="Label" type="Label" parent="Settings/TextureRect/PauseScreen"]
+margin_right = 1150.0
+margin_bottom = 133.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.690196, 0.466667, 0.196078, 1 )
+text = "PAUSE_MENU_KEY"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen"]
+margin_top = 137.0
+margin_right = 1150.0
+margin_bottom = 563.0
+rect_min_size = Vector2( 0, 200 )
+size_flags_vertical = 3
+alignment = 1
+
+[node name="UnpauseHBox" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen/HBoxContainer"]
+margin_right = 284.0
+margin_bottom = 426.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="UnpauseBtnRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/UnpauseHBox" instance=ExtResource( 26 )]
+margin_left = 42.0
+margin_top = 113.0
+margin_right = 242.0
+margin_bottom = 313.0
+rect_min_size = Vector2( 200, 200 )
+focus_neighbour_left = NodePath("../../ReturnHBox/ReturnBtnRect")
+focus_neighbour_right = NodePath("../../RetryHBox/RetryBtnRect")
+size_flags_vertical = 4
+
+[node name="UnpauseBtn" parent="Settings/TextureRect/PauseScreen/HBoxContainer/UnpauseHBox/UnpauseBtnRect" instance=ExtResource( 16 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 195.0
+margin_bottom = 195.0
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 33 )
+texture_hover = ExtResource( 34 )
+
+[node name="TextureRect" type="TextureRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/UnpauseHBox/UnpauseBtnRect/UnpauseBtn"]
+anchor_top = 0.042
+anchor_bottom = 0.042
+margin_top = 0.0199995
+margin_right = 162.0
+margin_bottom = 151.02
+texture = ExtResource( 36 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryHBox" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen/HBoxContainer"]
+margin_left = 288.0
+margin_right = 573.0
+margin_bottom = 426.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="RetryBtnRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/RetryHBox" instance=ExtResource( 26 )]
+margin_left = 42.0
+margin_top = 113.0
+margin_right = 242.0
+margin_bottom = 313.0
+rect_min_size = Vector2( 200, 200 )
+focus_neighbour_left = NodePath("../../UnpauseHBox/UnpauseBtnRect")
+focus_neighbour_right = NodePath("../../SettingsHBox/SettingsBtnRect")
+size_flags_vertical = 4
+
+[node name="RetryBtn" parent="Settings/TextureRect/PauseScreen/HBoxContainer/RetryHBox/RetryBtnRect" instance=ExtResource( 16 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 195.0
+margin_bottom = 195.0
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 33 )
+texture_hover = ExtResource( 34 )
+
+[node name="TextureRect" type="TextureRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/RetryHBox/RetryBtnRect/RetryBtn"]
+anchor_left = 0.074
+anchor_top = 0.168
+anchor_right = 0.074
+anchor_bottom = 0.168
+margin_left = -0.0600004
+margin_top = -6.99236
+margin_right = 136.94
+margin_bottom = 123.008
+texture = ExtResource( 37 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsHBox" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen/HBoxContainer"]
+margin_left = 577.0
+margin_right = 861.0
+margin_bottom = 426.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="SettingsBtnRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/SettingsHBox" instance=ExtResource( 26 )]
+margin_left = 42.0
+margin_top = 113.0
+margin_right = 242.0
+margin_bottom = 313.0
+rect_min_size = Vector2( 200, 200 )
+focus_neighbour_left = NodePath("../../RetryHBox/RetryBtnRect")
+focus_neighbour_right = NodePath("../../ReturnHBox/ReturnBtnRect")
+size_flags_vertical = 4
+
+[node name="SettingsBtn" parent="Settings/TextureRect/PauseScreen/HBoxContainer/SettingsHBox/SettingsBtnRect" instance=ExtResource( 16 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 195.0
+margin_bottom = 195.0
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 33 )
+texture_hover = ExtResource( 34 )
+
+[node name="TextureRect" type="TextureRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/SettingsHBox/SettingsBtnRect/SettingsBtn"]
+anchor_left = 0.089
+anchor_top = 0.106
+anchor_right = 0.123
+anchor_bottom = 0.131
+margin_left = 0.0900612
+margin_top = -0.0455494
+margin_right = 130.63
+margin_bottom = 125.204
+texture = ExtResource( 18 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReturnHBox" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen/HBoxContainer"]
+margin_left = 865.0
+margin_right = 1150.0
+margin_bottom = 426.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ReturnBtnRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/ReturnHBox" instance=ExtResource( 26 )]
+margin_left = 42.0
+margin_top = 113.0
+margin_right = 242.0
+margin_bottom = 313.0
+rect_min_size = Vector2( 200, 200 )
+focus_neighbour_left = NodePath("../../SettingsHBox/SettingsBtnRect")
+focus_neighbour_right = NodePath("../../UnpauseHBox/UnpauseBtnRect")
+size_flags_vertical = 4
+
+[node name="ReturnBtn" parent="Settings/TextureRect/PauseScreen/HBoxContainer/ReturnHBox/ReturnBtnRect" instance=ExtResource( 16 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 195.0
+margin_bottom = 195.0
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 33 )
+texture_hover = ExtResource( 34 )
+
+[node name="TextureRect" type="TextureRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/ReturnHBox/ReturnBtnRect/ReturnBtn"]
+anchor_left = 0.086
+anchor_top = 0.084
+anchor_right = 0.086
+anchor_bottom = 0.084
+margin_left = -0.0851173
+margin_top = 4.13445
+margin_right = 136.915
+margin_bottom = 134.134
+texture = ExtResource( 38 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SettingsScreen" parent="Settings/TextureRect" instance=ExtResource( 24 )]
-margin_left = 415.0
-margin_top = 145.0
-margin_right = 1571.0
-margin_bottom = 856.0
+visible = false
+margin_left = 153.0
+margin_top = 76.0
+margin_right = 1197.0
+margin_bottom = 628.0
 script = ExtResource( 29 )
-[connection signal="pressed" from="Control/GameOverScreen/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]
+
+[node name="MainSettings" parent="Settings/TextureRect/SettingsScreen" index="0"]
+margin_right = 984.0
+margin_bottom = 532.0
+
+[node name="MarginContainer" parent="Settings/TextureRect/SettingsScreen/MainSettings" index="0"]
+margin_right = 924.0
+
+[node name="Label" parent="Settings/TextureRect/SettingsScreen/MainSettings/MarginContainer" index="0"]
+margin_right = 924.0
+
+[node name="MasterVolume" parent="Settings/TextureRect/SettingsScreen/MainSettings" index="1"]
+margin_right = 924.0
+margin_bottom = 204.0
+
+[node name="Label" parent="Settings/TextureRect/SettingsScreen/MainSettings/MasterVolume" index="3"]
+margin_top = 41.0
+margin_bottom = 74.0
+
+[node name="TextureRect" parent="Settings/TextureRect/SettingsScreen/MainSettings/MasterVolume" index="4"]
+margin_left = 519.0
+margin_right = 919.0
+margin_bottom = 110.0
+
+[node name="MasterVolumeSlider" parent="Settings/TextureRect/SettingsScreen/MainSettings/MasterVolume/TextureRect" index="0"]
+margin_left = 1.40004
+margin_top = -2.96986
+margin_right = 31.4001
+margin_bottom = -2.94986
+
+[node name="SoundEffects" parent="Settings/TextureRect/SettingsScreen/MainSettings" index="2"]
+margin_top = 208.0
+margin_right = 924.0
+margin_bottom = 323.0
+
+[node name="Label" parent="Settings/TextureRect/SettingsScreen/MainSettings/SoundEffects" index="3"]
+margin_top = 41.0
+margin_bottom = 74.0
+
+[node name="TextureRect" parent="Settings/TextureRect/SettingsScreen/MainSettings/SoundEffects" index="4"]
+margin_left = 569.0
+margin_right = 919.0
+margin_bottom = 110.0
+
+[node name="SoundEffectsSlider" parent="Settings/TextureRect/SettingsScreen/MainSettings/SoundEffects/TextureRect" index="0"]
+margin_top = 14.955
+margin_bottom = 30.97
+
+[node name="Language" parent="Settings/TextureRect/SettingsScreen/MainSettings" index="3"]
+margin_top = 327.0
+margin_right = 924.0
+margin_bottom = 465.0
+
+[node name="Container" parent="Settings/TextureRect/SettingsScreen/MainSettings/Language" index="4"]
+margin_left = 613.0
+margin_right = 919.0
+
+[node name="HBoxContainer" parent="Settings/TextureRect/SettingsScreen/MainSettings" index="4"]
+margin_top = 469.0
+margin_right = 924.0
+margin_bottom = 512.0
+
+[node name="SteeringBtnContainer" parent="Settings/TextureRect/SettingsScreen/MainSettings/HBoxContainer" index="1"]
+margin_left = 696.0
+margin_right = 924.0
+
+[node name="SteeringSettings" parent="Settings/TextureRect/SettingsScreen" index="1"]
+margin_right = 984.0
+margin_bottom = 532.0
+[connection signal="pressed" from="Control/GameOverScreen/ReplayBtnRect/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]
 [connection signal="pressed" from="Control/LevelWonScreen/NextLevelBtn" to="." method="_on_NextLevelBtn_pressed"]
-[connection signal="pressed" from="Control/EndOfGameScreen/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]
-[connection signal="pressed" from="Control/EndOfGameScreen/ResetGameBtn" to="." method="_on_ResetGameBtn_pressed"]
+[connection signal="pressed" from="Control/EndOfGameScreen/DevelopersBtnRect/DevelopersButton" to="." method="_on_DevelopersButton_pressed"]
+[connection signal="pressed" from="Control/EndOfGameScreen/ResetGameBtnRect/ResetGameBtn" to="." method="_on_ResetGameBtn_pressed"]
+
+[editable path="Settings/TextureRect/SettingsScreen"]

@@ -6,6 +6,10 @@ export var joy_sensinitivy := 0.5
 
 
 func steer(delta:float) -> void:
+	if Input.is_action_pressed("pad_pause") and not InputMap.get_action_list("pad_pause").empty():
+		_pause_game()
+		return
+	
 	var requested_direction = _get_axis_from_joy()
 	
 	if requested_direction == -1:

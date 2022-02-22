@@ -45,6 +45,7 @@ func _prepare_current_level() -> void:
 	
 	if SteeringSave.steering_type == "none":
 		$"../Interface/SteeringScreen".show()
+		$"../Interface/SteeringScreen/SteeringContainer".grab_focus()
 		yield(get_node("../Interface/SteeringScreen/SteeringContainer"), "steering_set")
 		$"../Interface/SteeringScreen".hide()
 	else:
@@ -53,3 +54,7 @@ func _prepare_current_level() -> void:
 
 func count_trees() -> int:
 	return level.count_trees()
+
+
+func count_enemies() -> int:
+	return level.enemies_left

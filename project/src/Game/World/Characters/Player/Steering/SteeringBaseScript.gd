@@ -22,3 +22,9 @@ func _get_direction() -> int:
 # Moves player in set direction
 func steer(delta:float) -> void:
 	return
+
+
+func _pause_game() -> void:
+	var interface = find_parent("Game").get_node("Interface")
+	if interface.get_node("Settings/TextureRect/PauseScreen").should_handle_input and interface.current_screen == interface.Screen.NONE:
+		interface.get_node("Control/HUD/PauseBtn").emit_signal("pressed")
