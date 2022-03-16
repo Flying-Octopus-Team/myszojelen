@@ -1,8 +1,8 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://src/Game/Interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/screens/end_of_game_screen.png" type="Texture" id=2]
-[ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/fonts/tres/badComic_32.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/screens/gameover_screen.png" type="Texture" id=4]
 [ext_resource path="res://src/Buttons/DevelopersButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/icons/ui/pause.png" type="Texture" id=6]
@@ -11,6 +11,8 @@
 [ext_resource path="res://assets/fonts/data/Shojumaru-Regular.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://assets/icons/ui/enemy.png" type="Texture" id=10]
 [ext_resource path="res://assets/icons/ui/timer.png" type="Texture" id=11]
+[ext_resource path="res://assets/fonts/tres/badComic_64.tres" type="DynamicFont" id=12]
+[ext_resource path="res://assets/fonts/tres/badComic_52.tres" type="DynamicFont" id=13]
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/Game/Interface/GameOverScreen.gd" type="Script" id=17]
@@ -35,9 +37,6 @@
 [ext_resource path="res://assets/SettingsMenu/restart_icon.png" type="Texture" id=37]
 [ext_resource path="res://assets/SettingsMenu/exit_icon.png" type="Texture" id=38]
 
-
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 9 )
@@ -48,18 +47,6 @@ font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
-font_data = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 36
-font_data = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 30
-font_data = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 100
 font_data = ExtResource( 9 )
 
 [node name="Interface" type="CanvasLayer"]
@@ -279,7 +266,7 @@ margin_left = 56.6675
 margin_top = 32.5767
 margin_right = 412.668
 margin_bottom = 81.5767
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
 text = "TRY_AGAIN_KEY"
 align = 1
@@ -288,7 +275,6 @@ __meta__ = {
 }
 
 [node name="LevelWonScreen" type="Control" parent="Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -314,14 +300,18 @@ margin_right = 302.0
 margin_bottom = 0.0
 
 [node name="Label" type="Label" parent="Control/LevelWonScreen/NextLevelBtn"]
-margin_left = 64.0
-margin_top = 34.0
-margin_right = 468.0
-margin_bottom = 83.0
-custom_fonts/font = SubResource( 4 )
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -45.5
+margin_right = -8.0
+margin_bottom = 17.5
+custom_fonts/font = ExtResource( 13 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
 text = "NEXT_LEVEL_KEY"
 align = 1
+valign = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/LevelWonScreen"]
 anchor_right = 1.0
@@ -334,7 +324,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Control/LevelWonScreen/MarginContainer"]
 margin_top = 40.0
 margin_right = 1280.0
-margin_bottom = 73.0
+margin_bottom = 80.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
@@ -384,9 +374,9 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/EndOfGameScreen/MarginContainer2"]
-margin_top = 76.0
+margin_top = 72.0
 margin_right = 1280.0
-margin_bottom = 109.0
+margin_bottom = 112.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
@@ -427,7 +417,7 @@ margin_left = 47.0
 margin_top = 39.0
 margin_right = 406.0
 margin_bottom = 80.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
 text = "PLAY_AGAIN_KEY"
 align = 1
@@ -637,33 +627,33 @@ focus_mode = 1
 script = ExtResource( 30 )
 
 [node name="Label" type="Label" parent="Settings/TextureRect/PauseScreen"]
-margin_right = 1150.0
-margin_bottom = 133.0
+margin_right = 1086.0
+margin_bottom = 78.0
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color = Color( 0.690196, 0.466667, 0.196078, 1 )
 text = "PAUSE_MENU_KEY"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen"]
-margin_top = 137.0
-margin_right = 1150.0
+margin_top = 82.0
+margin_right = 1086.0
 margin_bottom = 563.0
 rect_min_size = Vector2( 0, 200 )
 size_flags_vertical = 3
 alignment = 1
 
 [node name="UnpauseHBox" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen/HBoxContainer"]
-margin_right = 284.0
-margin_bottom = 426.0
+margin_right = 268.0
+margin_bottom = 481.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="UnpauseBtnRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/UnpauseHBox" instance=ExtResource( 26 )]
-margin_left = 42.0
-margin_top = 113.0
-margin_right = 242.0
-margin_bottom = 313.0
+margin_left = 34.0
+margin_top = 140.0
+margin_right = 234.0
+margin_bottom = 340.0
 rect_min_size = Vector2( 200, 200 )
 focus_neighbour_left = NodePath("../../ReturnHBox/ReturnBtnRect")
 focus_neighbour_right = NodePath("../../RetryHBox/RetryBtnRect")
@@ -691,17 +681,17 @@ __meta__ = {
 }
 
 [node name="RetryHBox" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen/HBoxContainer"]
-margin_left = 288.0
-margin_right = 573.0
-margin_bottom = 426.0
+margin_left = 272.0
+margin_right = 540.0
+margin_bottom = 481.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="RetryBtnRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/RetryHBox" instance=ExtResource( 26 )]
-margin_left = 42.0
-margin_top = 113.0
-margin_right = 242.0
-margin_bottom = 313.0
+margin_left = 34.0
+margin_top = 140.0
+margin_right = 234.0
+margin_bottom = 340.0
 rect_min_size = Vector2( 200, 200 )
 focus_neighbour_left = NodePath("../../UnpauseHBox/UnpauseBtnRect")
 focus_neighbour_right = NodePath("../../SettingsHBox/SettingsBtnRect")
@@ -732,17 +722,17 @@ __meta__ = {
 }
 
 [node name="SettingsHBox" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen/HBoxContainer"]
-margin_left = 577.0
-margin_right = 861.0
-margin_bottom = 426.0
+margin_left = 544.0
+margin_right = 812.0
+margin_bottom = 481.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="SettingsBtnRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/SettingsHBox" instance=ExtResource( 26 )]
-margin_left = 42.0
-margin_top = 113.0
-margin_right = 242.0
-margin_bottom = 313.0
+margin_left = 34.0
+margin_top = 140.0
+margin_right = 234.0
+margin_bottom = 340.0
 rect_min_size = Vector2( 200, 200 )
 focus_neighbour_left = NodePath("../../RetryHBox/RetryBtnRect")
 focus_neighbour_right = NodePath("../../ReturnHBox/ReturnBtnRect")
@@ -773,17 +763,17 @@ __meta__ = {
 }
 
 [node name="ReturnHBox" type="HBoxContainer" parent="Settings/TextureRect/PauseScreen/HBoxContainer"]
-margin_left = 865.0
-margin_right = 1150.0
-margin_bottom = 426.0
+margin_left = 816.0
+margin_right = 1086.0
+margin_bottom = 481.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="ReturnBtnRect" parent="Settings/TextureRect/PauseScreen/HBoxContainer/ReturnHBox" instance=ExtResource( 26 )]
-margin_left = 42.0
-margin_top = 113.0
-margin_right = 242.0
-margin_bottom = 313.0
+margin_left = 35.0
+margin_top = 140.0
+margin_right = 235.0
+margin_bottom = 340.0
 rect_min_size = Vector2( 200, 200 )
 focus_neighbour_left = NodePath("../../SettingsHBox/SettingsBtnRect")
 focus_neighbour_right = NodePath("../../UnpauseHBox/UnpauseBtnRect")
@@ -829,7 +819,9 @@ margin_bottom = 532.0
 margin_right = 924.0
 
 [node name="Label" parent="Settings/TextureRect/SettingsScreen/MainSettings/MarginContainer" index="0"]
+margin_top = 1.0
 margin_right = 924.0
+margin_bottom = 64.0
 
 [node name="MasterVolume" parent="Settings/TextureRect/SettingsScreen/MainSettings" index="1"]
 margin_right = 924.0
