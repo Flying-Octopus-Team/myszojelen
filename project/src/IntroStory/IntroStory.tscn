@@ -9,13 +9,13 @@
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Buttons/DevelopersButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/GUISteering/SteerableContainer.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/fonts/tres/shojumaru_20.tres" type="DynamicFont" id=10]
-[ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=11]
+[ext_resource path="res://assets/fonts/tres/badComic_24.tres" type="DynamicFont" id=10]
+[ext_resource path="res://assets/fonts/tres/badComic_32.tres" type="DynamicFont" id=11]
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/audio/sfx/Interface/change_screen.wav" type="AudioStream" id=13]
 [ext_resource path="res://assets/audio/sfx/Interface/click.wav" type="AudioStream" id=14]
 [ext_resource path="res://assets/fo_hand_draw.png" type="Texture" id=15]
-[ext_resource path="res://assets/fonts/tres/shojumaru_48.tres" type="DynamicFont" id=16]
+[ext_resource path="res://assets/fonts/tres/badComic_52.tres" type="DynamicFont" id=16]
 
 [node name="IntroStory" type="Control"]
 anchor_right = 1.0

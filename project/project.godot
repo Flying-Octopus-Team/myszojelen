@@ -121,7 +121,7 @@ window/stretch/aspect="keep"
 
 [gui]
 
-theme/custom_font="res://assets/fonts/tres/shojumaru_24.tres"
+theme/custom_font="res://assets/fonts/tres/badComic_32.tres"
 
 [importer_defaults]
 
