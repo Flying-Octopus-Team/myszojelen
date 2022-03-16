@@ -37,8 +37,6 @@
 [ext_resource path="res://assets/SettingsMenu/restart_icon.png" type="Texture" id=37]
 [ext_resource path="res://assets/SettingsMenu/exit_icon.png" type="Texture" id=38]
 
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 9 )
@@ -301,14 +299,18 @@ margin_right = 302.0
 margin_bottom = 0.0
 
 [node name="Label" type="Label" parent="Control/LevelWonScreen/NextLevelBtn"]
-margin_left = 64.0
-margin_top = 34.0
-margin_right = 468.0
-margin_bottom = 83.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -45.5
+margin_right = -8.0
+margin_bottom = 17.5
 custom_fonts/font = ExtResource( 13 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
 text = "NEXT_LEVEL_KEY"
 align = 1
+valign = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/LevelWonScreen"]
 anchor_right = 1.0
@@ -816,8 +818,9 @@ margin_bottom = 532.0
 margin_right = 924.0
 
 [node name="Label" parent="Settings/TextureRect/SettingsScreen/MainSettings/MarginContainer" index="0"]
+margin_top = 1.0
 margin_right = 924.0
-margin_bottom = 68.0
+margin_bottom = 64.0
 
 [node name="MasterVolume" parent="Settings/TextureRect/SettingsScreen/MainSettings" index="1"]
 margin_right = 924.0
