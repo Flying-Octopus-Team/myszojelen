@@ -9,13 +9,13 @@
 [ext_resource path="res://src/Buttons/TextureButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Buttons/DevelopersButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/GUISteering/SteerableContainer.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/fonts/tres/shojumaru_20.tres" type="DynamicFont" id=10]
-[ext_resource path="res://assets/fonts/tres/shojumaru_24.tres" type="DynamicFont" id=11]
+[ext_resource path="res://assets/fonts/tres/badComic_24.tres" type="DynamicFont" id=10]
+[ext_resource path="res://assets/fonts/tres/badComic_32.tres" type="DynamicFont" id=11]
 [ext_resource path="res://src/DevelopersScreen/DevelopersScreen.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/audio/sfx/Interface/change_screen.wav" type="AudioStream" id=13]
 [ext_resource path="res://assets/audio/sfx/Interface/click.wav" type="AudioStream" id=14]
 [ext_resource path="res://assets/fo_hand_draw.png" type="Texture" id=15]
-[ext_resource path="res://assets/fonts/tres/shojumaru_48.tres" type="DynamicFont" id=16]
+[ext_resource path="res://assets/fonts/tres/badComic_52.tres" type="DynamicFont" id=16]
 
 [node name="IntroStory" type="Control"]
 anchor_right = 1.0
@@ -42,7 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 focus_neighbour_bottom = NodePath("../../NextArrowRect")
 focus_mode = 1
-custom_constants/margin_right = 30
+custom_constants/margin_right = 80
 custom_constants/margin_top = 0
 custom_constants/margin_left = 600
 custom_constants/margin_bottom = 100
@@ -53,7 +53,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Story1/MarginContainer"]
 margin_left = 600.0
-margin_right = 1250.0
+margin_right = 1200.0
 margin_bottom = 620.0
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 10 )
@@ -96,7 +96,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 focus_neighbour_bottom = NodePath("../../NextArrowRect")
 focus_mode = 1
-custom_constants/margin_right = 30
+custom_constants/margin_right = 80
 custom_constants/margin_top = 0
 custom_constants/margin_left = 600
 custom_constants/margin_bottom = 90
@@ -107,7 +107,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Story2/MarginContainer"]
 margin_left = 600.0
-margin_right = 1250.0
+margin_right = 1200.0
 margin_bottom = 630.0
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 10 )
@@ -134,18 +134,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 focus_neighbour_bottom = NodePath("../../PlayBtnRect")
 focus_mode = 1
-custom_constants/margin_right = 30
+custom_constants/margin_right = 80
 custom_constants/margin_top = 30
-custom_constants/margin_left = 782
+custom_constants/margin_left = 732
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Story3/MarginContainer"]
-margin_left = 782.0
+margin_left = 732.0
 margin_top = 30.0
-margin_right = 1242.0
+margin_right = 1192.0
 margin_bottom = 684.0
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 11 )
@@ -198,13 +198,18 @@ margin_right = 373.0
 margin_bottom = 176.0
 
 [node name="Label" type="Label" parent="PlayBtnRect/PlayBtn"]
-margin_left = 96.6824
-margin_top = 45.2274
-margin_right = 248.682
-margin_bottom = 121.227
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -2.0
+margin_top = -42.5
+margin_right = -2.0
+margin_bottom = 20.5
 custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.972549, 0.890196, 0.027451, 1 )
 text = "PLAY_KEY"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

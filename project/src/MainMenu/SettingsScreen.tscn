@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/Steering/8directions_icon.png" type="Texture" id=7]
 [ext_resource path="res://assets/language-icons/pl_selected.png" type="Texture" id=8]
 [ext_resource path="res://assets/slider/grabber_small.png" type="Texture" id=10]
-[ext_resource path="res://assets/fonts/tres/shojumaru_48.tres" type="DynamicFont" id=11]
+[ext_resource path="res://assets/fonts/tres/badComic_52.tres" type="DynamicFont" id=11]
 [ext_resource path="res://src/MainMenu/InputButton.gd" type="Script" id=12]
 [ext_resource path="res://assets/Steering/gamepad_icon.png" type="Texture" id=14]
 [ext_resource path="res://assets/Steering/rotation_icon.png" type="Texture" id=15]
@@ -24,6 +24,8 @@
 [ext_resource path="res://src/GUISteering/FocusableContainer.gd" type="Script" id=25]
 [ext_resource path="res://src/MainMenu/SteeringButton.gd" type="Script" id=26]
 [ext_resource path="res://src/Buttons/TextButton.tscn" type="PackedScene" id=27]
+
+
 
 
 [sub_resource type="Theme" id=1]
