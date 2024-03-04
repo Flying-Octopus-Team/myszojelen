@@ -59,9 +59,6 @@ tracks/2/keys = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 intro_story_scene = ExtResource( 9 )
 game_scene = ExtResource( 10 )
 
@@ -137,17 +134,17 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = 755.0
 margin_bottom = 105.0
-custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "NEW_GAME_KEY"
 
 [node name="ContinueContainer" parent="Background/Board/MainButtons" instance=ExtResource( 5 )]
 margin_top = 114.0
 margin_right = 760.0
-margin_bottom = 224.0
+margin_bottom = 225.0
 focus_neighbour_top = NodePath("../NewGameContainer")
 focus_neighbour_bottom = NodePath("../SettingsContainer")
 
@@ -155,18 +152,18 @@ focus_neighbour_bottom = NodePath("../SettingsContainer")
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 755.0
-margin_bottom = 105.0
-custom_fonts/font = ExtResource( 4 )
+margin_bottom = 106.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "CONTINUE_KEY"
 
 [node name="SettingsContainer" parent="Background/Board/MainButtons" instance=ExtResource( 5 )]
-margin_top = 228.0
+margin_top = 229.0
 margin_right = 760.0
-margin_bottom = 338.0
+margin_bottom = 339.0
 focus_neighbour_top = NodePath("../ContinueContainer")
 focus_neighbour_bottom = NodePath("../ExitContainer")
 
@@ -175,15 +172,15 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = 755.0
 margin_bottom = 105.0
-custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "SETTINGS_TITLE"
 
 [node name="ExitContainer" parent="Background/Board/MainButtons" instance=ExtResource( 5 )]
-margin_top = 342.0
+margin_top = 343.0
 margin_right = 760.0
 margin_bottom = 454.0
 focus_neighbour_top = NodePath("../SettingsContainer")
@@ -194,12 +191,12 @@ size_flags_horizontal = 3
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 755.0
-margin_bottom = 107.0
-custom_fonts/font = ExtResource( 4 )
+margin_bottom = 106.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "EXIT_KEY"
 
 [node name="SettingsScreen" parent="Background/Board" instance=ExtResource( 11 )]
@@ -211,9 +208,6 @@ focus_mode = 1
 [node name="FadeLayer" parent="." instance=ExtResource( 13 )]
 
 [editable path="Background/Board/MainButtons/NewGameContainer"]
-
 [editable path="Background/Board/MainButtons/ContinueContainer"]
-
 [editable path="Background/Board/MainButtons/SettingsContainer"]
-
 [editable path="Background/Board/MainButtons/ExitContainer"]
