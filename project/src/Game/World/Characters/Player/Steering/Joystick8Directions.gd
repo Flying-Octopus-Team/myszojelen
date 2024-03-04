@@ -28,7 +28,7 @@ func steer(delta:float) -> void:
 func _get_axis_from_joy() -> int:
 	var joy_vec := Vector2.ZERO
 	
-	if touchscreen_layer.visible:
+	if touchscreen_layer.visiblee:
 		joy_vec = touchscreen_layer.get_joy_vec()
 	
 	if Input.get_connected_joypads().size() > 0:

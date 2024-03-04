@@ -5,7 +5,7 @@ export var hide_on_non_touchscreen := true
 onready var container = $Container
 onready var joy = $Container/JoyStick/Joy
 
-onready var visible := true setget set_visible
+onready var visiblee := true setget set_visible
 
 
 func _ready() -> void:
@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func set_visible(v:bool) -> void:
-	visible = v
+	visiblee = v
 	container.visible = v
 
 
