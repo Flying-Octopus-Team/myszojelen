@@ -74,7 +74,6 @@ focus_mode = 1
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 265.269, 284.399, 491.913 ],
-"_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 1183.12 ]
 }
 
@@ -105,9 +104,6 @@ margin_top = -300.0
 margin_right = 573.218
 margin_bottom = 300.0
 custom_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Dominik" type="TextureRect" parent="Origin/Panel"]
 margin_left = 718.69
@@ -143,8 +139,8 @@ margin_left = 85.6515
 margin_top = 305.539
 margin_right = 373.652
 margin_bottom = 338.539
-custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+custom_fonts/font = ExtResource( 6 )
 text = "PROGRAMMER_KEY"
 
 [node name="Wojtek" type="TextureRect" parent="Origin/Panel"]
@@ -187,8 +183,8 @@ margin_left = -1.0
 margin_top = 290.0
 margin_right = 287.0
 margin_bottom = 312.0
-custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+custom_fonts/font = ExtResource( 6 )
 text = "COORDINATOR_KEY"
 align = 1
 __meta__ = {
@@ -235,8 +231,8 @@ margin_left = 19.9302
 margin_top = 303.964
 margin_right = 307.93
 margin_bottom = 350.964
-custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+custom_fonts/font = ExtResource( 6 )
 text = "PROGRAMMER_KEY"
 align = 1
 __meta__ = {
@@ -283,8 +279,8 @@ margin_left = 18.729
 margin_top = 303.964
 margin_right = 306.729
 margin_bottom = 350.964
-custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+custom_fonts/font = ExtResource( 6 )
 text = "PROGRAMMER_KEY"
 align = 1
 __meta__ = {
@@ -332,8 +328,8 @@ margin_left = 28.0
 margin_top = 336.0
 margin_right = 262.0
 margin_bottom = 369.0
-custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+custom_fonts/font = ExtResource( 6 )
 text = "GRAPHIC_KEY"
 align = 1
 __meta__ = {
@@ -382,8 +378,8 @@ margin_left = 18.0
 margin_top = 339.0
 margin_right = 309.0
 margin_bottom = 372.0
-custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+custom_fonts/font = ExtResource( 6 )
 text = "GRAPHIC_KEY"
 align = 1
 __meta__ = {
@@ -497,8 +493,8 @@ margin_left = 895.626
 margin_top = 592.871
 margin_right = 1139.63
 margin_bottom = 625.871
-custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
+custom_fonts/font = ExtResource( 11 )
 text = "glassocean.net"
 align = 2
 
@@ -517,8 +513,8 @@ margin_left = 896.412
 margin_top = 618.201
 margin_right = 1140.41
 margin_bottom = 651.201
-custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
+custom_fonts/font = ExtResource( 11 )
 text = "Rasmus Damsgaard"
 align = 2
 
@@ -546,8 +542,8 @@ margin_left = 1066.51
 margin_top = 649.987
 margin_right = 1141.51
 margin_bottom = 678.987
-custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
+custom_fonts/font = ExtResource( 11 )
 text = "CC-BY 3.0"
 align = 2
 __meta__ = {
@@ -585,6 +581,7 @@ mouse_default_cursor_shape = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/show_panel = SubResource( 2 )
+
 [connection signal="gui_input" from="ColorRect" to="." method="_on_ColorRect_gui_input"]
 [connection signal="pressed" from="Origin/Panel/FOLogo/LinkButton" to="." method="_on_LinkButton_pressed"]
 [connection signal="pressed" from="Origin/Panel/XBtnContainer/XBtn" to="." method="_on_XBtn_pressed"]
