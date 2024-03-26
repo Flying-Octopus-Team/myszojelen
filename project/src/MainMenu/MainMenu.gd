@@ -11,10 +11,12 @@ onready var fade_layer := $FadeLayer
 
 onready var main = find_node("MainButtons")
 onready var settings = find_node("SettingsScreen")
+onready var credits = find_node("DevelopersScreen")
 
 onready var screens_dict := {
 	"main": main,
 	"settings": settings,
+	"credits": credits
 }
 
 
@@ -25,8 +27,14 @@ func _ready() -> void:
 	find_node("ContinueBtn").connect("pressed", self, "_continue_game")
 	find_node("ExitBtn").connect("pressed", self, "_exit_game")
 	
+	# Settings navigation buttons
 	find_node("SettingsBtn").connect("pressed", self, "_show_screen", [settings])
 	find_node("BackBtn").connect("pressed", self, "_show_screen", [main])
+	
+	#Credits navigation buttons
+	find_node("XBtn").connect("pressed", self, "_show_screen", [main])
+	find_node("ColorRect").connect("gui_input", self, "_on_ColorRect_gui_input")
+	find_node("CreditsBtn").connect("pressed", self, "_show_screen", [credits])
 	
 	_show_screen(main)
 	
@@ -69,6 +77,11 @@ func _show_screen(screen_to_show) -> void:
 			screen.hide()
 	
 	screen_to_show.show()
+	
+func _on_ColorRect_gui_input(event):
+	if event is InputEventMouseButton:
+		_show_screen(main)
+		get_tree().set_input_as_handled()
 
 
 func _disable_all_buttons() -> void:

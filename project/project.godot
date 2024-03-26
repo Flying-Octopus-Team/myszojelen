@@ -322,6 +322,7 @@ pointing/emulate_touch_from_mouse=true
 [locale]
 
 translations=PoolStringArray( "res://assets/translation/Translations.en.translation", "res://assets/translation/Translations.pl.translation" )
+locale_filter=[ 0, [  ] ]
 
 [mono]
 

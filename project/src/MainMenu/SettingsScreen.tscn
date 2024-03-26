@@ -25,9 +25,6 @@
 [ext_resource path="res://src/MainMenu/SteeringButton.gd" type="Script" id=26]
 [ext_resource path="res://src/Buttons/TextButton.tscn" type="PackedScene" id=27]
 
-
-
-
 [sub_resource type="Theme" id=1]
 
 [sub_resource type="StyleBoxLine" id=2]
@@ -80,9 +77,6 @@ custom_constants/margin_top = 20
 custom_constants/margin_left = 60
 custom_constants/margin_bottom = 20
 script = ExtResource( 19 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MainSettings" type="VBoxContainer" parent="."]
 visible = false
@@ -103,10 +97,11 @@ margin_bottom = 85.0
 custom_constants/margin_bottom = 20
 
 [node name="Label" type="Label" parent="MainSettings/MarginContainer"]
+margin_top = 1.0
 margin_right = 640.0
-margin_bottom = 65.0
-custom_fonts/font = ExtResource( 11 )
+margin_bottom = 64.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 11 )
 text = "SETTINGS_TITLE"
 align = 1
 
@@ -1218,15 +1213,9 @@ margin_bottom = 38.0
 text = "RESTORE_DEFAULT_KEY"
 
 [editable path="MainSettings/MasterVolume"]
-
 [editable path="MainSettings/SoundEffects"]
-
 [editable path="MainSettings/Language"]
-
 [editable path="SteeringSettings/MenuButtonContainer"]
-
 [editable path="SteeringSettings/Controls4Directions/UpHBox"]
-
 [editable path="SteeringSettings/HBoxContainer2/BackBtnContainer"]
-
 [editable path="SteeringSettings/HBoxContainer2/ResetBtnContainer"]

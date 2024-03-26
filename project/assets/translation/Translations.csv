@@ -1,5 +1,6 @@
 ,en,pl
 SETTINGS_TITLE,Settings,Ustawienia
+CREDITS_TITLE,Credits,Twórcy
 MUSIC_KEY,Music,Muzyka
 AUDIO_EFFECTS_KEY,Audio effects,Efekty dźwiękowe
 LANGUAGE_KEY,Language,Język
@@ -62,6 +63,7 @@ PLAY_AGAIN_KEY,Play again,Zagraj ponownie
 PROGRAMMER_KEY,Programmer,Programista
 GRAPHIC_KEY,Graphic designer,Grafik
 MUSIC_CREDITS_KEY,music credits,autorzy muzyki
+AND_CREDITS_KEY,and,oraz
 LICENSE_KEY,under license,udostępnione na licencji
 COORDINATOR_KEY,Coordinator,Koordynator
 PAUSE_CONTROLS_KEY,Pause / return,Pauza / wróć
