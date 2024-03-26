@@ -105,10 +105,193 @@ margin_right = 573.218
 margin_bottom = 300.0
 custom_styles/panel = SubResource( 1 )
 
+[node name="Kacper" type="TextureRect" parent="Origin/Panel"]
+margin_left = 98.782
+margin_top = -21.8022
+margin_right = 386.782
+margin_bottom = 298.198
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="Shadow" type="TextureRect" parent="Origin/Panel/Kacper"]
+show_behind_parent = true
+margin_left = -107.817
+margin_top = 147.825
+margin_right = 404.183
+margin_bottom = 403.825
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="Origin/Panel/Kacper"]
+margin_left = 21.4283
+margin_top = 300.214
+margin_right = 309.428
+margin_bottom = 369.214
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Kacper Mazela
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Function" type="Label" parent="Origin/Panel/Kacper"]
+margin_left = 28.0
+margin_top = 336.0
+margin_right = 262.0
+margin_bottom = 369.0
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "GRAPHIC_KEY"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Piotr" type="TextureRect" parent="Origin/Panel"]
+margin_left = 96.782
+margin_top = 226.546
+margin_right = 427.782
+margin_bottom = 519.546
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+
+[node name="Shadow" type="TextureRect" parent="Origin/Panel/Piotr"]
+show_behind_parent = true
+margin_left = -87.8313
+margin_top = 106.426
+margin_right = 424.169
+margin_bottom = 362.426
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="Origin/Panel/Piotr"]
+margin_left = 21.1288
+margin_top = 263.648
+margin_right = 309.129
+margin_bottom = 332.648
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Piotr Frankiewicz"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Function" type="Label" parent="Origin/Panel/Piotr"]
+margin_left = 19.9302
+margin_top = 303.964
+margin_right = 307.93
+margin_bottom = 350.964
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "PROGRAMMER_KEY"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Michal" type="TextureRect" parent="Origin/Panel"]
+margin_left = 322.782
+margin_top = -25.0
+margin_right = 610.782
+margin_bottom = 287.0
+rect_scale = Vector2( 0.7, 0.7 )
+mouse_filter = 2
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+
+[node name="Shadow" type="TextureRect" parent="Origin/Panel/Michal"]
+show_behind_parent = true
+margin_left = -104.707
+margin_top = 157.917
+margin_right = 407.293
+margin_bottom = 413.917
+mouse_filter = 2
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="Origin/Panel/Michal"]
+margin_left = 8.578
+margin_top = 303.182
+margin_right = 314.578
+margin_bottom = 372.182
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Michał Cembrowski"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Function" type="Label" parent="Origin/Panel/Michal"]
+margin_left = 18.0
+margin_top = 339.0
+margin_right = 309.0
+margin_bottom = 372.0
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "GRAPHIC_KEY"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Oktawiusz" type="TextureRect" parent="Origin/Panel"]
+margin_left = 313.782
+margin_top = 224.764
+margin_right = 644.782
+margin_bottom = 517.764
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 6
+
+[node name="Shadow" type="TextureRect" parent="Origin/Panel/Oktawiusz"]
+show_behind_parent = true
+margin_left = -87.8313
+margin_top = 106.426
+margin_right = 424.169
+margin_bottom = 362.426
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="Origin/Panel/Oktawiusz"]
+margin_left = 21.1288
+margin_top = 263.648
+margin_right = 309.129
+margin_bottom = 332.648
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+text = "Oktawiusz Doroszuk"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Function" type="Label" parent="Origin/Panel/Oktawiusz"]
+margin_left = 18.729
+margin_top = 303.964
+margin_right = 306.729
+margin_bottom = 350.964
+custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "PROGRAMMER_KEY"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Dominik" type="TextureRect" parent="Origin/Panel"]
-margin_left = 718.69
+margin_left = 556.782
 margin_top = -1.91095
-margin_right = 1040.69
+margin_right = 878.782
 margin_bottom = 318.089
 rect_scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 1 )
@@ -144,9 +327,9 @@ custom_fonts/font = ExtResource( 6 )
 text = "PROGRAMMER_KEY"
 
 [node name="Wojtek" type="TextureRect" parent="Origin/Panel"]
-margin_left = 732.254
+margin_left = 577.782
 margin_top = 237.676
-margin_right = 1020.25
+margin_right = 865.778
 margin_bottom = 492.675
 rect_scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
@@ -191,201 +374,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Piotr" type="TextureRect" parent="Origin/Panel"]
-margin_left = 222.767
-margin_top = 226.546
-margin_right = 553.767
-margin_bottom = 519.546
-rect_scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 15 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Shadow" type="TextureRect" parent="Origin/Panel/Piotr"]
-show_behind_parent = true
-margin_left = -87.8313
-margin_top = 106.426
-margin_right = 424.169
-margin_bottom = 362.426
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Name" type="Label" parent="Origin/Panel/Piotr"]
-margin_left = 21.1288
-margin_top = 263.648
-margin_right = 309.129
-margin_bottom = 332.648
-custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Piotr Frankiewicz"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Function" type="Label" parent="Origin/Panel/Piotr"]
-margin_left = 19.9302
-margin_top = 303.964
-margin_right = 307.93
-margin_bottom = 350.964
-custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-custom_fonts/font = ExtResource( 6 )
-text = "PROGRAMMER_KEY"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Oktawiusz" type="TextureRect" parent="Origin/Panel"]
-margin_left = 461.27
-margin_top = 224.764
-margin_right = 792.27
-margin_bottom = 517.764
-rect_scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 16 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Shadow" type="TextureRect" parent="Origin/Panel/Oktawiusz"]
-show_behind_parent = true
-margin_left = -87.8313
-margin_top = 106.426
-margin_right = 424.169
-margin_bottom = 362.426
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Name" type="Label" parent="Origin/Panel/Oktawiusz"]
-margin_left = 21.1288
-margin_top = 263.648
-margin_right = 309.129
-margin_bottom = 332.648
-custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Oktawiusz Doroszuk"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Function" type="Label" parent="Origin/Panel/Oktawiusz"]
-margin_left = 18.729
-margin_top = 303.964
-margin_right = 306.729
-margin_bottom = 350.964
-custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-custom_fonts/font = ExtResource( 6 )
-text = "PROGRAMMER_KEY"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Kacper" type="TextureRect" parent="Origin/Panel"]
-margin_left = 243.796
-margin_top = -21.8022
-margin_right = 531.796
-margin_bottom = 298.198
-rect_scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Shadow" type="TextureRect" parent="Origin/Panel/Kacper"]
-show_behind_parent = true
-margin_left = -107.817
-margin_top = 147.825
-margin_right = 404.183
-margin_bottom = 403.825
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Name" type="Label" parent="Origin/Panel/Kacper"]
-margin_left = 21.4283
-margin_top = 300.214
-margin_right = 309.428
-margin_bottom = 369.214
-custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Kacper Mazela
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Function" type="Label" parent="Origin/Panel/Kacper"]
-margin_left = 28.0
-margin_top = 336.0
-margin_right = 262.0
-margin_bottom = 369.0
-custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-custom_fonts/font = ExtResource( 6 )
-text = "GRAPHIC_KEY"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Michal" type="TextureRect" parent="Origin/Panel"]
-margin_left = 474.69
-margin_top = -25.0
-margin_right = 762.69
-margin_bottom = 287.0
-rect_scale = Vector2( 0.7, 0.7 )
-mouse_filter = 2
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Shadow" type="TextureRect" parent="Origin/Panel/Michal"]
-show_behind_parent = true
-margin_left = -104.707
-margin_top = 157.917
-margin_right = 407.293
-margin_bottom = 413.917
-mouse_filter = 2
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Name" type="Label" parent="Origin/Panel/Michal"]
-margin_left = 8.578
-margin_top = 303.182
-margin_right = 314.578
-margin_bottom = 372.182
-custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-text = "Michał Cembrowski"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Function" type="Label" parent="Origin/Panel/Michal"]
-margin_left = 18.0
-margin_top = 339.0
-margin_right = 309.0
-margin_bottom = 372.0
-custom_colors/font_color = Color( 0.462745, 0.776471, 0.905882, 1 )
-custom_fonts/font = ExtResource( 6 )
-text = "GRAPHIC_KEY"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="FOLogo" type="TextureRect" parent="Origin/Panel"]
 anchor_left = 0.5
 anchor_top = 1.0
@@ -399,9 +387,6 @@ mouse_filter = 2
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LinkButton" type="LinkButton" parent="Origin/Panel/FOLogo"]
 margin_left = 23.7269
@@ -468,22 +453,21 @@ __meta__ = {
 }
 
 [node name="MusicCredits" type="Control" parent="Origin/Panel"]
-margin_left = -23.5598
-margin_top = -94.4106
-margin_right = 16.4402
-margin_bottom = -54.4106
+margin_left = -75.218
+margin_top = -178.0
+margin_right = -35.218
+margin_bottom = -138.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Header" type="Label" parent="Origin/Panel/MusicCredits"]
-margin_left = 957.0
+margin_left = 895.0
 margin_top = 480.0
-margin_right = 1144.0
-margin_bottom = 503.0
+margin_right = 1139.0
+margin_bottom = 505.0
 custom_fonts/font = ExtResource( 11 )
 text = "MUSIC_CREDITS_KEY"
-align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -495,8 +479,7 @@ margin_right = 1139.63
 margin_bottom = 625.871
 custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
 custom_fonts/font = ExtResource( 11 )
-text = "glassocean.net"
-align = 2
+text = "Perry Butler"
 
 [node name="glassocean_btn" type="TextureButton" parent="Origin/Panel/MusicCredits/glassocean"]
 margin_left = 118.0
@@ -516,7 +499,6 @@ margin_bottom = 651.201
 custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
 custom_fonts/font = ExtResource( 11 )
 text = "Rasmus Damsgaard"
-align = 2
 
 [node name="rasmus_btn" type="TextureButton" parent="Origin/Panel/MusicCredits/Rasmus"]
 margin_left = 87.0
@@ -526,10 +508,10 @@ margin_bottom = 17.0
 mouse_default_cursor_shape = 2
 
 [node name="Licence" type="Label" parent="Origin/Panel/MusicCredits"]
-margin_left = 726.937
-margin_top = 649.454
-margin_right = 1060.94
-margin_bottom = 682.454
+margin_left = 715.0
+margin_top = 713.0
+margin_right = 1049.0
+margin_bottom = 746.0
 custom_fonts/font = ExtResource( 11 )
 text = "LICENSE_KEY"
 align = 2
@@ -538,13 +520,13 @@ __meta__ = {
 }
 
 [node name="CCLicence" type="Label" parent="Origin/Panel/MusicCredits"]
-margin_left = 1066.51
-margin_top = 649.987
-margin_right = 1141.51
-margin_bottom = 678.987
+margin_left = 1054.57
+margin_top = 713.533
+margin_right = 1193.57
+margin_bottom = 742.533
 custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
 custom_fonts/font = ExtResource( 11 )
-text = "CC-BY 3.0"
+text = "CC-BY-NC 4.0"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -561,9 +543,9 @@ __meta__ = {
 }
 
 [node name="sonic idols" type="TextureRect" parent="Origin/Panel/MusicCredits"]
-margin_left = 988.011
+margin_left = 861.342
 margin_top = 488.002
-margin_right = 1175.01
+margin_right = 1048.34
 margin_bottom = 593.002
 texture = ExtResource( 14 )
 expand = true
@@ -578,6 +560,47 @@ margin_top = 11.8909
 margin_right = 168.0
 margin_bottom = 102.891
 mouse_default_cursor_shape = 2
+
+[node name="AndCredits" type="Control" parent="Origin/Panel"]
+margin_left = -75.218
+margin_top = -357.0
+margin_right = -35.218
+margin_bottom = -317.0
+
+[node name="Header" type="Label" parent="Origin/Panel/AndCredits"]
+margin_left = 895.0
+margin_top = 480.0
+margin_right = 1139.0
+margin_bottom = 505.0
+custom_fonts/font = ExtResource( 11 )
+text = "AND_CREDITS_KEY"
+
+[node name="Adrian" type="Label" parent="Origin/Panel/AndCredits"]
+margin_left = 895.626
+margin_top = 514.0
+margin_right = 1139.63
+margin_bottom = 547.0
+custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
+custom_fonts/font = ExtResource( 11 )
+text = "Adrian Pezda"
+
+[node name="Daria" type="Label" parent="Origin/Panel/AndCredits"]
+margin_left = 896.412
+margin_top = 541.0
+margin_right = 1140.41
+margin_bottom = 574.0
+custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
+custom_fonts/font = ExtResource( 11 )
+text = "Daria Mróz"
+
+[node name="Misuzu" type="Label" parent="Origin/Panel/AndCredits"]
+margin_left = 896.412
+margin_top = 566.0
+margin_right = 1140.41
+margin_bottom = 599.0
+custom_colors/font_color = Color( 0.819608, 0.654902, 0.901961, 1 )
+custom_fonts/font = ExtResource( 11 )
+text = "Misuzu Faraday"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/show_panel = SubResource( 2 )

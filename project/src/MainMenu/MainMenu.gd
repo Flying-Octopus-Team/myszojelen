@@ -33,6 +33,7 @@ func _ready() -> void:
 	
 	#Credits navigation buttons
 	find_node("XBtn").connect("pressed", self, "_show_screen", [main])
+	find_node("ColorRect").connect("gui_input", self, "_on_ColorRect_gui_input")
 	find_node("CreditsBtn").connect("pressed", self, "_show_screen", [credits])
 	
 	_show_screen(main)
@@ -76,6 +77,11 @@ func _show_screen(screen_to_show) -> void:
 			screen.hide()
 	
 	screen_to_show.show()
+	
+func _on_ColorRect_gui_input(event):
+	if event is InputEventMouseButton:
+		_show_screen(main)
+		get_tree().set_input_as_handled()
 
 
 func _disable_all_buttons() -> void:

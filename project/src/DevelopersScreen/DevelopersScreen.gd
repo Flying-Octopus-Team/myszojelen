@@ -30,7 +30,7 @@ func _on_ColorRect_gui_input(event):
 
 
 func _on_LinkButton_pressed():
-	OS.shell_open("http://elf-vs-dwarves.pl/")
+	OS.shell_open("https://flyingoctopus.pl/")
 
 
 func _on_XBtn_pressed():
@@ -38,7 +38,7 @@ func _on_XBtn_pressed():
 
 
 func _on_CC_3_LinkBtn_pressed():
-	OS.shell_open("https://creativecommons.org/licenses/by-sa/3.0/")
+	OS.shell_open("https://creativecommons.org/licenses/by-nc/4.0/")
 
 
 func _on_glassocean_btn_pressed():
